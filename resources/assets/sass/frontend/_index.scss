@@ -1,0 +1,61 @@
+#index #landing {
+    min-height: 680px;
+}
+
+
+#index #about {
+    #about-description {
+        @media #{$small-only} {
+            margin-bottom: $layout-margin-tb-inner-small;
+        }
+    
+        @media #{$medium-up} {
+            min-height: 240px;
+            margin-bottom: $layout-margin-tb-inner-medium;
+        }
+    }
+
+    #about-details {
+        img {
+            width: 100%;
+        }
+        
+        .detail-graphic {
+            background: #A9A9A9;
+            display: block;
+            width: 100%;
+            
+            @media #{$small-only} {
+                height: 240px;
+                margin-bottom: $paragraph-margin-bottom;
+            }
+        
+            @media #{$medium-up} {
+                height: 325px;
+            }
+        }
+
+        .detail-text {
+            @media #{$medium-up} {
+                margin-top: $layout-padding-medium;
+            }
+        }
+
+        .detail-title {
+            @media #{$small-only} {
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+#index #selected-works {
+    ul#works {
+        list-style-type: none;
+        
+        li {
+            text-align: center;
+        }
+    }
+}

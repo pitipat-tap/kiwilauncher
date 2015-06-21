@@ -39,7 +39,7 @@ return [
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'Asia/Bangkok',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -145,6 +145,10 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+        'App\Providers\HelperServiceProvider',
+		
+		'Illuminate\Html\HtmlServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
 	],
 
 	/*
@@ -193,6 +197,9 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 
+        'HTML'      => 'Illuminate\Html\HtmlFacade',
+    	'Form'      => 'Illuminate\Html\FormFacade',
+    	'Debugbar'  => 'Barryvdh\Debugbar\Facade',
 	],
 
 ];

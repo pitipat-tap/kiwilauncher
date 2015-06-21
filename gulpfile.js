@@ -12,5 +12,10 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+    //mix.less('app.less');
+    mix.sass("frontend/web_style.scss", "public/css/web_style.css");
+    mix.sass("backend/admin_style.scss", "public/css/admin_style.css");
+    
+    mix.scripts(["frontend/menu.js", "frontend/index.js"], "public/js/web_index.js")
 });
+
