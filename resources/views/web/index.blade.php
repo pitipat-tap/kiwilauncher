@@ -10,7 +10,8 @@
 
 
 @section("specific_js_head")
-
+{!! HTML::script("js/lib/verge.min.js") !!}
+{!! HTML::script("js/web_index.js") !!}
 @stop
 
 
@@ -19,7 +20,9 @@
 @include("web_layouts.menu")
 
 <div id="index">
-    <section id="landing" class="section-frame"></section>
+    <section id="landing" class="section-frame">
+        <div id="landing-graphic"></div>
+    </section>
     
     <div class="border-section border-white-white"></div>
 
@@ -89,12 +92,12 @@
         
         <ul id="works" class="single-col-wrapper">
             <li class="has-mg-b">
-                <p><img class="work-cvimg" src="http://placehold.it/800x320" /></p>
+                <a><img class="work-cvimg" src="http://placehold.it/800x440" /></a>
                 <p>iOS Application</p>
                 <h6><a>Some Application</a></h6>
             </li>
             <li class="has-mg-b">
-                <p><img src="http://placehold.it/800x320" /></p>
+                <a><img class="work-cvimg" src="http://placehold.it/800x440" /></a>
                 <p>Website</p>
                 <h6><a>Some Website</a></h6>
             </li>
@@ -102,8 +105,53 @@
         
         <div class="align-center"><a class="button">Discover all works</a></div>
     </section>
+    
+    <div class="border-section border-white-white"></div>
 
-    <section id="blog"></section>
+    <section id="blog" class="section-frame">
+        <h2 class="section-title">Blog</h2>
+        
+        <div id="blogposts">
+            <div class="row multi-col-wrapper has-mg-b">
+                <div class="small-12 medium-6 column">
+                    <a><img class="post-cvimg" src="http://placehold.it/1024x600" /></a>
+                </div>
+                <div class="small-12 medium-6 column has-pd-lr">
+                    <div class="post-text">
+                        <h6><a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a></h6>
+                        <p>
+                            Aliquam id tortor fermentum, luctus magna 
+                            at, molestie dui. Mauris eu risus aliquet, 
+                            blandit augue ut, mattis risus. Pellentesque 
+                            tempus elementum purus, vel tincidunt 
+                            nunc tempor at.
+                        </p>
+                        <p><a>Read more...</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row multi-col-wrapper has-mg-b">
+                <div class="small-12 medium-6 medium-push-6 column">
+                    <a><img class="post-cvimg" src="http://placehold.it/1024x600" /></a>
+                </div>
+                <div class="small-12 medium-6 medium-pull-6 column has-pd-lr">
+                    <div class="post-text">
+                        <h6><a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a></h6>
+                        <p>
+                            Aliquam id tortor fermentum, luctus magna 
+                            at, molestie dui. Mauris eu risus aliquet, 
+                            blandit augue ut, mattis risus. Pellentesque 
+                            tempus elementum purus, vel tincidunt 
+                            nunc tempor at.
+                        </p>
+                        <p><a>Read more...</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="align-center"><a class="button">View more blogposts</a></div>
+    </section>
     
     @include("web_layouts.footer")
 </div>

@@ -1,0 +1,54 @@
+footer #call-to-action {
+    background: $primary-color;
+    
+    .section-title {
+        color: white;
+    }
+    
+    .button.reverse {
+        background-color: white;
+        color: $primary-color;
+    }
+    
+    .button.reverse:hover {
+        color: darken($primary-color, 10%);
+    }
+}
+
+footer #ending {
+    background: $body-font-color;
+    padding-bottom: 8px;
+    
+    .icon {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+    }
+    
+    .icon:not(.end) {
+        margin-right: 8px;
+    }
+    
+    .icon.icon-email {
+        background: url("../images/icons/footer-email.svg") no-repeat 0px 0px;
+        background-size: 100%;
+    }
+    
+    .icon.icon-facebook {
+        background: url("../images/icons/footer-facebook.svg") no-repeat 0px 0px;
+        background-size: 100%;
+    }
+    
+    #socials, #copyright {
+        color: white;
+        text-align: center;
+    }
+    
+    #socials {
+        margin-bottom: 32px;
+    }
+    
+    #copyright {
+        font-size: rem_calc(12);
+    }
+}

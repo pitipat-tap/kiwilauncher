@@ -22,10 +22,7 @@ $z-index-priority-3: 99;
 
     .section-title {
         text-align: center;
-        
-        @media #{$medium-up} {
-            margin-bottom: $layout-margin-tb-inner-small;
-        }
+        margin-bottom: $layout-margin-tb-inner-small;
     }
 }
 
@@ -83,5 +80,30 @@ $z-index-priority-3: 99;
     }
 }
 
+.border-white-green {
+    height: 55px;
+    
+    @media #{$small-only} {
+        background: url("../images/border/border-white-green-small.svg") no-repeat 50% 50%;
+    }
+    @media #{$medium-up} {
+        background: url("../images/border/border-white-green.svg") no-repeat 50% 50%;
+    }
+}
+
+.border-green-black {
+    height: 36px;
+    
+    @media #{$small-only} {
+        background: url("../images/border/border-green-black-small.svg") no-repeat 50% 50%;
+    }
+    @media #{$medium-up} {
+        background: url("../images/border/border-green-black.svg") no-repeat 50% 50%;
+    }
+}
+
 
 // Overwrite UI
+
+
+

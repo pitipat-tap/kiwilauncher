@@ -1,5 +1,18 @@
 #index #landing {
     min-height: 680px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    
+    #landing-graphic {
+        display: block;
+        width: 100%;
+        
+        @media #{$medium-up} {
+            background: url("../images/bg/landing.png") no-repeat 50% 50%;
+            background-size: contain;
+            min-height: 640px;
+        }
+    }
 }
 
 
@@ -31,7 +44,11 @@
             }
         
             @media #{$medium-up} {
-                height: 325px;
+                height: 320px;
+            }
+
+            @media #{$large-up} {
+                height: 400px;
             }
         }
 
@@ -59,3 +76,24 @@
         }
     }
 }
+
+
+#index #blog {
+    #blogposts {
+        .post-cvimg {
+            width: 100%;
+            
+            @media #{$small-only} {
+                margin-bottom: $paragraph-margin-bottom;
+            }
+        }
+    
+        .post-text {
+            @media #{$large-up} {
+                margin-top: $layout-padding-medium;
+            }
+        }
+    }
+}
+
+
