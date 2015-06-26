@@ -1,4 +1,6 @@
-
+$(document).ready(function(event) {
+    
+});
 $(document).ready(function(event) {
     var mobile_maxwidth = 752;
     var full_frame_ofs_h = 5;

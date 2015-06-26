@@ -1,3 +1,4 @@
+// Variables
 $layout-margin-tb-small: 48px;
 $layout-margin-tb-medium: 72px;
 $layout-margin-tb-inner-small: $layout-margin-tb-small/1.5;
@@ -9,6 +10,18 @@ $layout-padding-medium: 24px;
 $z-index-priority-1: 9999;
 $z-index-priority-2: 999;
 $z-index-priority-3: 99;
+
+$button-hover-color: scale-color($primary-color, $lightness: $button-function-factor);
+
+
+// Functions
+@mixin all-transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
 
 // Custom layouts
 .section-frame {
@@ -36,7 +49,7 @@ $z-index-priority-3: 99;
 }
 
 .multi-col-wrapper {
-    max-width: 1600px;
+    max-width: 1480px;
 }
 
 .has-mg-b {
@@ -104,6 +117,14 @@ $z-index-priority-3: 99;
 
 
 // Overwrite UI
+.button {
+    @include all-transition(all 0.3s ease-out);
+}
+
+.button:hover {
+    color: $button-hover-color;
+    border-color: $button-hover-color;
+}
 
 
 
