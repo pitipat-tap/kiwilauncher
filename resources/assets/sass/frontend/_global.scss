@@ -15,6 +15,14 @@ $button-hover-color: scale-color($primary-color, $lightness: $button-function-fa
 
 
 // Functions
+@mixin all-transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
 @mixin all-transition($transition...) {
     -moz-transition:    $transition;
     -o-transition:      $transition;

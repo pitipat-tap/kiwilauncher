@@ -1,0 +1,130 @@
+$process-circuit-width-small: 20px;
+$process-circuit-width-medium: 56px;
+$process-circuit-border-width-small: 2px;
+$process-circuit-border-width-medium: 4px;
+$process-circuit-margin-small: 108px;
+$process-circuit-margin-medium: 200px;
+
+#skills-and-process #skills {
+    .skill {
+        text-align: center;
+        margin-bottom: $layout-margin-tb-small/2;
+        
+        img {
+            width: 100%;
+            max-width: 160px;
+            margin-bottom: $layout-margin-tb-small/4;
+        }
+    }
+}
+
+#skills-and-process #process {
+    .process-row {
+        display: table;
+        width: 100%;
+    }
+    
+    .process-row:before, .process-row:after {
+        content: " ";
+    }
+    
+    .process-row:after {
+        clear: both;
+    }
+    
+    .process-circuit {
+        float: left;
+        text-align: center;
+        overflow-y: hidden;
+        position: relative;
+        
+        @media #{$small-only} {
+            width: $process-circuit-width-small;
+        }
+    
+        @media #{$medium-up} {
+            width: $process-circuit-width-medium;
+        }
+        
+        .process-circuit-line {
+            background-color: $secondary-color;
+            display: inline-block;
+            height: 100%;
+            
+            @media #{$small-only} {
+                width: $process-circuit-border-width-small;
+            }
+
+            @media #{$medium-up} {
+                width: $process-circuit-border-width-medium;
+            }
+        }
+        
+        .process-circuit-dot {
+            background-color: white;
+            border-color: $secondary-color;
+            border-style: solid;
+            border-radius: 50%;
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            @include all-transform(translateX(-50%));
+            
+            @media #{$small-only} {
+                border-width: $process-circuit-border-width-small;
+                top: $process-circuit-margin-small - 8;
+                width: 12px;
+                height: 12px;
+            }
+
+            @media #{$medium-up} {
+                border-width: $process-circuit-border-width-medium;
+                top: $process-circuit-margin-medium - 8;
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        .process-circuit-dot.primary {
+            border-color: $primary-color;
+        }
+    }
+
+    .process-circuit.first {
+        .process-circuit-line {
+            @media #{$small-only} {
+                margin-top: $process-circuit-margin-small;
+            }
+
+            @media #{$medium-up} {
+                margin-top: $process-circuit-margin-medium;
+            }
+        }
+    }
+
+    .process-circuit.last {
+        .process-circuit-line {
+            @media #{$small-only} {
+                height: $process-circuit-margin-small;
+            }
+
+            @media #{$medium-up} {
+                height: $process-circuit-margin-medium;
+            }
+        }
+    }
+    
+    .process-detail {
+        @media #{$small-only} {
+            margin-left: $process-circuit-width-small+12;
+        }
+    
+        @media #{$medium-up} {
+            margin-left: $process-circuit-width-medium;
+        }
+    }
+}
+
+
+
+

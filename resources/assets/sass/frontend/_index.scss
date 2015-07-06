@@ -33,7 +33,7 @@
             width: 100%;
         }
         
-        .detail-graphic {
+        .about-detail-graphic {
             background: #A9A9A9;
             display: block;
             width: 100%;
@@ -52,13 +52,13 @@
             }
         }
 
-        .detail-text {
+        .about-detail-text {
             @media #{$medium-up} {
                 margin-top: $layout-padding-medium;
             }
         }
 
-        .detail-title {
+        .about-detail-title {
             @media #{$small-only} {
                 text-align: center;
             }
@@ -67,8 +67,8 @@
 }
 
 
-#index #selected-works {
-    ul#works {
+#index #sltd-works {
+    #sltd-works-list {
         list-style-type: none;
         
         li {
@@ -79,8 +79,8 @@
 
 
 #index #blog {
-    #blogposts {
-        .post-cvimg {
+    #blog-posts {
+        .blog-post-cvimg {
             width: 100%;
             
             @media #{$small-only} {
@@ -88,7 +88,7 @@
             }
         }
     
-        .post-text {
+        .blog-post-text {
             @media #{$large-up} {
                 margin-top: $layout-padding-medium;
             }

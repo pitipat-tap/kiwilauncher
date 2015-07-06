@@ -16,4 +16,24 @@ class WebController extends Controller {
 	{
 		return view('web.index');
 	}
+    
+    public function skills()
+	{
+		return view('web.skills');
+	}
+    
+    public function works()
+	{
+		return view('web.works');
+	}
+    
+    public function blog()
+	{
+		return view('web.blog');
+	}
+    
+    public function contact()
+	{
+		return view('web.contact');
+	}
 }

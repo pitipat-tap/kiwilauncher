@@ -11,5 +11,6 @@
 |
 */
 
-Route::get('/', 'WebController@index');
+Route::get("/", "WebController@index");
+Route::get("skills-and-process", array("as" => "skills", "uses" => "WebController@skills"));
 
