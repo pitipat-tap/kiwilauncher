@@ -1,46 +1,60 @@
 footer #call-to-action {
-    background: $primary-color;
+    background: $body-font-color;
     
     .section-title {
         color: white;
+        margin-bottom: 32px;
     }
     
     .button.reverse {
-        background-color: white;
-        color: $primary-color;
-    }
-    
-    .button.reverse:hover {
-        color: darken($primary-color, 10%);
+        background-color: $body-font-color;
+        border-color: white;
+        border-style: solid;
+        border-width: 2px;
+        color: white;
+        
+        &:hover {
+            background-color: $body-font-color;
+            border-color: white;
+            border-style: solid;
+            border-width: 2px;
+            color: white;
+        }
     }
 }
 
 footer #ending {
-    background: $body-font-color;
-    padding-bottom: 8px;
+    padding-top: 32px;
+    padding-bottom: 0px;
     
-    .icon {
+    .footer-social {
+        border-color: $body-font-color;
+        border-style: solid;
+        border-width: 2px;
         display: inline-block;
-        width: 36px;
-        height: 36px;
     }
     
-    .icon:not(.end) {
-        margin-right: 8px;
+    .footer-social:not(.end) {
+        margin-right: 12px;
+    }
+    
+    .icon {
+        display: block;
+        width: 28px;
+        height: 26px;
     }
     
     .icon.icon-email {
-        background: url("../images/icon/footer-email.svg") no-repeat 0px 0px;
+        background: url("../image/icon/facebook.svg") no-repeat 0px 0px;
         background-size: 100%;
     }
     
     .icon.icon-facebook {
-        background: url("../images/icon/footer-facebook.svg") no-repeat 0px 0px;
+        background: url("../image/icon/facebook.svg") no-repeat 0px 0px;
         background-size: 100%;
     }
     
     #socials, #copyright {
-        color: white;
         text-align: center;
     }
     

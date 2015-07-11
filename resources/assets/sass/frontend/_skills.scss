@@ -19,25 +19,7 @@ $process-circuit-margin-medium: 200px;
 }
 
 #skills-and-process #process {
-    .process-row {
-        display: table;
-        width: 100%;
-    }
-    
-    .process-row:before, .process-row:after {
-        content: " ";
-    }
-    
-    .process-row:after {
-        clear: both;
-    }
-    
     .process-circuit {
-        float: left;
-        text-align: center;
-        overflow-y: hidden;
-        position: relative;
-        
         @media #{$small-only} {
             width: $process-circuit-width-small;
         }
@@ -47,10 +29,6 @@ $process-circuit-margin-medium: 200px;
         }
         
         .process-circuit-line {
-            background-color: $secondary-color;
-            display: inline-block;
-            height: 100%;
-            
             @media #{$small-only} {
                 width: $process-circuit-border-width-small;
             }
@@ -61,15 +39,6 @@ $process-circuit-margin-medium: 200px;
         }
         
         .process-circuit-dot {
-            background-color: white;
-            border-color: $secondary-color;
-            border-style: solid;
-            border-radius: 50%;
-            display: inline-block;
-            position: absolute;
-            left: 50%;
-            @include all-transform(translateX(-50%));
-            
             @media #{$small-only} {
                 border-width: $process-circuit-border-width-small;
                 top: $process-circuit-margin-small - 8;
@@ -83,10 +52,6 @@ $process-circuit-margin-medium: 200px;
                 width: 24px;
                 height: 24px;
             }
-        }
-
-        .process-circuit-dot.primary {
-            border-color: $primary-color;
         }
     }
 

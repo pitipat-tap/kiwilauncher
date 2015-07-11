@@ -8,7 +8,7 @@
         width: 100%;
         
         @media #{$medium-up} {
-            background: url("../images/bg/landing.png") no-repeat 50% 50%;
+            background: url("../image/bg/landing.png") no-repeat 50% 50%;
             background-size: contain;
             min-height: 640px;
         }
@@ -17,6 +17,11 @@
 
 
 #index #about {
+    .section-title-graphic {
+        background: url("../image/title/about-us.svg") no-repeat 50% 50%;
+        background-size: 100% 100%;
+    }
+    
     #about-description {
         @media #{$small-only} {
             margin-bottom: $layout-margin-tb-inner-small;
@@ -34,33 +39,16 @@
         }
         
         .about-detail-graphic {
-            background: #A9A9A9;
-            display: block;
             width: 100%;
             
             @media #{$small-only} {
-                height: 240px;
                 margin-bottom: $paragraph-margin-bottom;
-            }
-        
-            @media #{$medium-up} {
-                height: 320px;
-            }
-
-            @media #{$large-up} {
-                height: 400px;
             }
         }
 
         .about-detail-text {
-            @media #{$medium-up} {
+            @media #{$large-up} {
                 margin-top: $layout-padding-medium;
-            }
-        }
-
-        .about-detail-title {
-            @media #{$small-only} {
-                text-align: center;
             }
         }
     }
@@ -71,15 +59,15 @@
     #sltd-works-list {
         list-style-type: none;
         
-        li {
-            text-align: center;
+        .sltd-work-figure {
+            margin-bottom: $paragraph-margin-bottom;
         }
     }
 }
 
 
 #index #blog {
-    #blog-posts {
+    #blog-posts-list {
         .blog-post-cvimg {
             width: 100%;
             

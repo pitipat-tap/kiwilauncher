@@ -27,11 +27,15 @@
     <div class="border-section border-white-white"></div>
 
     <section id="about" class="section-frame">
-        <h2 class="section-title">About Us</h2>
+        <div class="section-title-graphic">
+            <h2 class="section-title">About</h2>
+        </div>
         
         <p id="about-description" class="single-col-wrapper has-pd-lr">
             Duis pulvinar enim neque, eu fringilla nibh ornare non. Fusce vulputate ac est vel viverra. 
             Sed convallis nisl eget quam pulvinar sollicitudin. 
+            Quisque nibh massa, feugiat quis leo venenatis, iaculis dictum diam.
+            Proin iaculis ullamcorper erat ut elementum. Mauris eget justo congue, dignissim quam id, dapibus orci. 
             Quisque nibh massa, feugiat quis leo venenatis, iaculis dictum diam.
             Proin iaculis ullamcorper erat ut elementum. Mauris eget justo congue, dignissim quam id, dapibus orci. 
         </p>
@@ -39,7 +43,7 @@
         <div id="about-details">
             <div class="row multi-col-wrapper has-mg-b">
                 <div class="small-12 medium-6 column">
-                    <div class="about-detail-graphic"></div>
+                    <img class="about-detail-graphic" src="http://placehold.it/800x450" />
                 </div>
                 <div class="small-12 medium-6 column has-pd-lr">
                     <div class="about-detail-text">
@@ -54,7 +58,7 @@
             </div>
             <div class="row multi-col-wrapper has-mg-b">
                 <div class="small-12 medium-6 medium-push-6 column">
-                    <div class="about-detail-graphic"></div>
+                    <img class="about-detail-graphic" src="http://placehold.it/800x450" />
                 </div>
                 <div class="small-12 medium-6 medium-pull-6 column has-pd-lr">
                     <div class="about-detail-text">
@@ -69,7 +73,7 @@
             </div>
             <div class="row multi-col-wrapper has-mg-b">
                 <div class="small-12 medium-6 column">
-                    <div class="about-detail-graphic"></div>
+                    <img class="about-detail-graphic" src="http://placehold.it/800x450" />
                 </div>
                 <div class="small-12 medium-6 column has-pd-lr">
                     <div class="about-detail-text">
@@ -92,18 +96,33 @@
         
         <ul id="sltd-works-list" class="single-col-wrapper">
             <li class="has-mg-b">
-                <a><img class="sltd-work-cvimg" src="http://placehold.it/800x450" /></a>
-                <p>iOS Application</p>
-                <h6><a>Some Application</a></h6>
+                <a class="figure-link sltd-work-figure">
+                    <!--<img class="figure-img sltd-work-cvimg" src="http://placehold.it/800x450" />-->
+                    {!! HTML::image("image/sample/soon-thumb.jpg", "Some app", array(
+                        "class" => "figure-img sltd-work-cvimg")
+                    ) !!}
+                    <div class="figure-layer"></div>
+                </a>
+                <div class="sltd-work-text has-pd-lr">
+                    <h4><a>Some Application</a></h4>
+                    <p>iOS Application</p>
+                </div>
             </li>
             <li class="has-mg-b">
-                <a><img class="sltd-work-cvimg" src="http://placehold.it/800x450" /></a>
-                <p>Website</p>
-                <h6><a>Some Website</a></h6>
+                <a class="figure-link sltd-work-figure">
+                    {!! HTML::image("image/sample/sandawe-1.jpg", "Some web", array(
+                        "class" => "figure-img sltd-work-cvimg")
+                    ) !!}
+                    <div class="figure-layer"></div>
+                </a>
+                <div class="sltd-work-text has-pd-lr">
+                    <h4><a>Some Website</a></h4>
+                    <p>Website</p>
+                </div>
             </li>
         </ul>
         
-        <div class="align-center"><a class="button">Discover all works</a></div>
+        <div class="align-center"><a class="button hl">Discover all works</a></div>
     </section>
     
     <div class="border-section border-white-white"></div>
@@ -154,7 +173,7 @@
             </div>
         </div>
         
-        <div class="align-center"><a class="button">View more blogposts</a></div>
+        <div class="align-center"><a class="button hl">View more blogposts</a></div>
     </section>
     
     @include("web-layouts.footer")
