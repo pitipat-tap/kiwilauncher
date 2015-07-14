@@ -68,6 +68,8 @@
                 </div>
             </li>
         </ul>
+        
+        <div class="align-center"><a class="button">Next Page</a></div>
     </section>
     
     @include("web-layouts.footer")

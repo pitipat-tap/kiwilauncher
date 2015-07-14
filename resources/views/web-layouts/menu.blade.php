@@ -46,7 +46,7 @@
             </div>
             <div class="menu-text" data-row="2">
                 <h6>
-                    {!! HTML::linkRoute("skills", "Blog", [], array("class" => "menu-item-link")) !!}
+                    {!! HTML::linkRoute("blog", "Blog", [], array("class" => "menu-item-link")) !!}
                 </h6>
             </div>
         </li>
@@ -57,7 +57,7 @@
             </div>
             <div class="menu-text" data-row="2">
                 <h6>
-                    {!! HTML::linkRoute("skills", "Contact Us", [], array("class" => "menu-item-link")) !!}
+                    {!! HTML::linkRoute("contact", "Contact Us", [], array("class" => "menu-item-link")) !!}
                 </h6>
             </div>
         </li>

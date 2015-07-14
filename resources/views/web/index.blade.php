@@ -120,6 +120,18 @@
                     <p>Website</p>
                 </div>
             </li>
+            <li class="has-mg-b">
+                <a class="figure-link sltd-work-figure">
+                    {!! HTML::image("image/sample/pairi-daiza-thumb.jpg", "Some web", array(
+                        "class" => "figure-img sltd-work-cvimg")
+                    ) !!}
+                    <div class="figure-layer"></div>
+                </a>
+                <div class="sltd-work-text has-pd-lr">
+                    <h4><a>Some Website</a></h4>
+                    <p>Website</p>
+                </div>
+            </li>
         </ul>
         
         <div class="align-center"><a class="button hl">Discover all works</a></div>
