@@ -1,15 +1,17 @@
 <a id="menu-toggle" data-fn="open">
-    <span id="menu-toggle-icon"></span>
+    <span id="menu-toggle-icon">
+        <?php include("image/icon/menu-open-html.svg"); ?>
+    </span>
 </a>
 
-<div id="menu-back-cover" style="display: none;"></div>
+<div id="menu-back-cover" style="display: none;" data-fn="close"></div>
 
 <div id="menu" style="display: none;">
     <ul>
-        <li class="circuit-v-row active">
+        <li class="circuit-v-row {!! isMenuItemActive($link, 'home') !!}">
             <div class="circuit-v menu-circuit first">
                 <span class="circuit-v-line menu-circuit-line"></span>
-                <span class="circuit-v-dot menu-circuit-dot primary"></span>
+                <span class="circuit-v-dot menu-circuit-dot"></span>
             </div>
             <div class="menu-text" data-row="1">
                 <h6>
@@ -17,7 +19,7 @@
                 </h6>
             </div>
         </li>
-        <li class="circuit-v-row">
+        <li class="circuit-v-row {!! isMenuItemActive($link, 'skills') !!}">
             <div class="circuit-v menu-circuit">
                 <span class="circuit-v-line menu-circuit-line"></span>
                 <span class="circuit-v-dot menu-circuit-dot"></span>

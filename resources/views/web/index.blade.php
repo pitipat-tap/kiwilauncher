@@ -10,14 +10,13 @@
 
 
 @section("specific-js-head")
-{!! HTML::script("js/lib/verge.min.js") !!}
 {!! HTML::script("js/web-index.js") !!}
 @stop
 
 
 @section("body")
 
-@include("web-layouts.menu")
+@include("web-layouts.menu", array("link" => "home"))
 
 <div id="index">
     <section id="landing" class="section-frame">

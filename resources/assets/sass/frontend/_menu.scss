@@ -1,8 +1,11 @@
+$menu-small-range: only screen and (max-width: 30.000em);
+$menu-medium-range: only screen and (min-width: 30.063em);;
+
 $menu-circuit-width-small: 56px;
 $menu-circuit-width-medium: 72px;
 $menu-circuit-border-width-small: 2px;
 $menu-circuit-border-width-medium: 2px;
-$menu-circuit-margin-small: 18px;
+$menu-circuit-margin-small: 22px;
 $menu-circuit-margin-medium: 18px;
 
 #menu-toggle {
@@ -14,15 +17,15 @@ $menu-circuit-margin-medium: 18px;
     position: fixed;
     z-index: $z-index-priority-1;
     
-    @media #{$small-only} {
+    @media #{$menu-small-range} {
         top: 12px;
         right: 12px;
         width: 34px;
-        height: 31px;
+        height: 32px;
         padding: 2px;
     }
 
-    @media #{$medium-up} {
+    @media #{$menu-medium-range} {
         top: 12px;
         right: 12px;
         height: 42px;
@@ -30,18 +33,18 @@ $menu-circuit-margin-medium: 18px;
     }
 
     #menu-toggle-icon {
-        background: url("../image/icon/menu-open.svg") no-repeat 0px 0px;
-        background-size: 100%;
+        /*background: url("../image/icon/menu-open.svg") no-repeat 0px 0px;
+        background-size: 100%;*/
         display: inline-block;
         width: 32px;
         height: 28px;
         
-        @media #{$small-only} {
+        @media #{$menu-small-range} {
             width: 24px;
-            height: 20px;
+            height: 22px;
         }
 
-        @media #{$medium-up} {
+        @media #{$menu-medium-range} {
             width: 32px;
             height: 28px;
         }
@@ -59,6 +62,7 @@ $menu-circuit-margin-medium: 18px;
 
 #menu-back-cover {
     background-color: rgba(white, $cover-layer-alpha);
+    cursor: pointer;
     opacity: 0;
     position: fixed;
     top: 0px;
@@ -84,11 +88,11 @@ $menu-circuit-margin-medium: 18px;
     z-index: $z-index-priority-2;
     @include all-transform(translateX(110%));
     
-    @media #{$small-only} {
+    @media #{$menu-small-range} {
         width: 100%;
     }
 
-    @media #{$medium-up} {
+    @media #{$menu-medium-range} {
         width: 320px;
     }
 
@@ -96,7 +100,17 @@ $menu-circuit-margin-medium: 18px;
         display: block;
         list-style-type: none;
         margin: 0px;
-        padding-top: 108px;
+        padding-bottom: 32px;
+        
+        @media #{$menu-small-range} {
+            max-width: 360px;
+            margin: auto;
+            padding-top: 72px;
+        }
+
+        @media #{$menu-medium-range} {
+            padding-top: 108px;
+        }
         
         li {
             .menu-item-link {
@@ -118,74 +132,44 @@ $menu-circuit-margin-medium: 18px;
                 background: url("../image/border/border-menu-lightgrey-right.svg") no-repeat 50% 50%;
                 height: 12px;
             }
-
-        }
-    }
-
-    ul li:not(.active) {
-        .menu-item-link {
-            color: $body-font-color;
-        }
-    }
-
-    ul li.active {
-        .border-menu-hr[data-dir="left"] {
-            background: url("../image/border/border-menu-green-left.svg") no-repeat 50% 50%;
-            height: 12px;
-        }
-
-        .border-menu-hr[data-dir="right"] {
-            background: url("../image/border/border-menu-green-right.svg") no-repeat 50% 50%;
-            height: 12px;
+            
+            .menu-text {
+                h6 {
+                    @media #{$small-only} {
+                        font-size: rem_calc(32);
+                    }
+                    
+                    @media #{$medium-up} {
+                        font-size: rem_calc(24);
+                    }
+                }
+            }
         }
     }
 
     .menu-circuit {
-        @media #{$small-only} {
-            width: $menu-circuit-width-small;
-        }
-    
-        @media #{$medium-up} {
-            width: $menu-circuit-width-medium;
-        }
+        width: $menu-circuit-width-medium;
         
         .menu-circuit-line {
-            @media #{$small-only} {
-                width: $menu-circuit-border-width-small;
-            }
-
-            @media #{$medium-up} {
-                width: $menu-circuit-border-width-medium;
-            }
+            width: $menu-circuit-border-width-medium;
         }
         
         .menu-circuit-dot {
+            border-width: $menu-circuit-border-width-medium;
+            
+            width: 12px;
+            height: 12px;
+            
             @media #{$small-only} {
-                border-width: $menu-circuit-border-width-small;
-                top: $menu-circuit-margin-small - 8;
-                width: 10px;
-                height: 10px;
+                top: $menu-circuit-margin-small - 5;
             }
-
+        
             @media #{$medium-up} {
-                border-width: $menu-circuit-border-width-medium;
-                top: $menu-circuit-margin-medium - 8;
-                width: 12px;
-                height: 12px;
+                top: $menu-circuit-margin-medium - 7;
             }
         }
 
-        .menu-circuit-dot.primary {
-            @media #{$small-only} {
-                width: 12px;
-                height: 12px;
-            }
-
-            @media #{$medium-up} {
-                width: 14px;
-                height: 14px;
-            }
-        }
+        
     }
 
     .menu-circuit.first {
@@ -197,6 +181,7 @@ $menu-circuit-margin-medium: 18px;
             @media #{$medium-up} {
                 margin-top: $menu-circuit-margin-medium;
             }
+            
         }
     }
 
@@ -212,6 +197,21 @@ $menu-circuit-margin-medium: 18px;
         }
     }
 
+    ul li:not(.active) {
+        .menu-item-link {
+            color: $body-font-color;
+        }
+    }
+
+    ul li.active {
+        .menu-circuit-dot {
+            border-color: $primary-color;
+            border-width: 4px;
+            width: 14px;
+            height: 14px;
+        }
+    }
+
     #menu-social-row {
         text-align: center;
         
@@ -220,14 +220,13 @@ $menu-circuit-margin-medium: 18px;
             border-style: solid;
             border-width: 2px;
             display: inline-block;
-            padding: 2px;
         }
     }
 
     .icon {
         display: block;
-        width: 24px;
-        height: 22px;
+        width: 26px;
+        height: 24px;
     }
 
     .icon.icon-facebook {
@@ -239,5 +238,14 @@ $menu-circuit-margin-medium: 18px;
 #menu.opened {
     @include all-transform(translateX(0%));
 }
+
+body.no-scroll-for-menu-small {
+    @media #{$menu-small-range} {
+        position: relative;
+        overflow-y: hidden;
+    }
+}
+
+
 
 

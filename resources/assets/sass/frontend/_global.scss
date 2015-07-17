@@ -58,8 +58,17 @@ $button-hover-color: scale-color($primary-color, $lightness: $button-function-fa
     .section-title-graphic {
         display: block;
         width: 100%;
-        height: rem_calc(72);
-        margin-bottom: $layout-margin-tb-inner-medium;
+        
+        
+        @media #{$small-only} {
+            height: rem_calc(56);
+            margin-bottom: $layout-margin-tb-inner-small;
+        }
+
+        @media #{$medium-up} {
+            height: rem_calc(72);
+            margin-bottom: $layout-margin-tb-inner-medium;
+        }
         
         .section-title {
             position: absolute;
@@ -169,10 +178,6 @@ $button-hover-color: scale-color($primary-color, $lightness: $button-function-fa
         position: absolute;
         left: 50%;
         @include all-transform(translateX(-50%));
-    }
-    
-    .circuit-v-dot.primary {
-        border-color: $primary-color;
     }
 }
 

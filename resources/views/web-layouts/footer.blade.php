@@ -11,6 +11,6 @@
             <a class="footer-social end"><span class="icon icon-facebook"></span></a>
         </div>
         
-        <p id="copyright">Copyright &copy; 2015 KiwiLauncher</p>
+        <p id="copyright">Copyright &copy; 2015 KiwiLauncher Co.Ltd.</p>
     </section>
 </footer>
