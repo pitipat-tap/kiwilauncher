@@ -1,5 +1,5 @@
 // Variables
-$cover-layer-alpha: 0.85;
+$cover-layer-alpha: 0.5;
 
 $layout-margin-tb-small: 48px;
 $layout-margin-tb-medium: 96px;
@@ -59,14 +59,11 @@ $button-hover-color: scale-color($primary-color, $lightness: $button-function-fa
         display: block;
         width: 100%;
         
-        
         @media #{$small-only} {
-            height: rem_calc(56);
             margin-bottom: $layout-margin-tb-inner-small;
         }
 
         @media #{$medium-up} {
-            height: rem_calc(72);
             margin-bottom: $layout-margin-tb-inner-medium;
         }
         
@@ -84,7 +81,7 @@ $button-hover-color: scale-color($primary-color, $lightness: $button-function-fa
 }
 
 .single-col-wrapper {
-    max-width: 848px;
+    max-width: 868px;
 }
 
 .multi-col-wrapper {
@@ -132,29 +129,18 @@ $button-hover-color: scale-color($primary-color, $lightness: $button-function-fa
     }
 }
 
-/*.border-white-green {
-    height: 55px;
-    
-    @media #{$small-only} {
-        background: url("../image/border/border-white-green-small.svg") no-repeat 50% 50%;
-    }
-    @media #{$medium-up} {
-        background: url("../image/border/border-white-green.svg") no-repeat 50% 50%;
-    }
-}*/
-
 
 .circuit-v-row {
     display: table;
     width: 100%;
-}
-
-.circuit-v-row:before, .circuit-v-row:after {
-    content: " ";
-}
-
-.circuit-v-row:after {
-    clear: both;
+    
+    &:before, &:after {
+        content: " ";
+    }
+    
+    &:after {
+        clear: both;
+    }
 }
 
 .circuit-v {
@@ -178,6 +164,7 @@ $button-hover-color: scale-color($primary-color, $lightness: $button-function-fa
         position: absolute;
         left: 50%;
         @include all-transform(translateX(-50%));
+        @include all-transition(all 0.3s ease-out);
     }
 }
 
@@ -185,11 +172,6 @@ $button-hover-color: scale-color($primary-color, $lightness: $button-function-fa
     display: block;
     overflow: hidden;
     position: relative;
-    
-    &:hover .figure-img {
-        @include all-transform(scale(1.25));
-        @include all-transition(all 1.5s ease-out);
-    }
     
     .figure-img {
         @include all-transform(scale(1));
@@ -210,6 +192,16 @@ $button-hover-color: scale-color($primary-color, $lightness: $button-function-fa
             opacity: 1;
         }
     }
+    
+    &:hover .figure-img {
+        @include all-transform(scale(1.25));
+        @include all-transition(all 1.5s ease-out);
+    }
+}
+
+.text-date {
+    color: $iron;
+    font-size: rem_calc(14);
 }
 
 
@@ -219,22 +211,23 @@ $button-hover-color: scale-color($primary-color, $lightness: $button-function-fa
 // Overwrite UI
 .button {
     @include all-transition(all 0.3s ease-out);
-}
+    
+    &.hl {
+        @media #{$small-only} {
+            font-size: $h6-font-size - $h6-font-reduction;
+        }
 
-.button.hl {
-    @media #{$small-only} {
-        font-size: $h6-font-size - $h6-font-reduction;
+        @media #{$medium-up} {
+            font-size: $h6-font-size;
+        }
     }
 
-    @media #{$medium-up} {
-        font-size: $h6-font-size;
+    &:hover {
+        color: $button-hover-color;
+        border-color: $button-hover-color;
     }
 }
 
-.button:hover {
-    color: $button-hover-color;
-    border-color: $button-hover-color;
-}
 
 
 

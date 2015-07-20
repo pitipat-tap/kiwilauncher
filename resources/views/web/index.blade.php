@@ -19,25 +19,27 @@
 @include("web-layouts.menu", array("link" => "home"))
 
 <div id="index">
-    <section id="landing" class="section-frame">
+    <section id="index-landing" class="section-frame">
         <div id="landing-graphic"></div>
     </section>
     
     <div class="border-section border-white-white"></div>
 
-    <section id="about" class="section-frame">
-        <div class="section-title-graphic">
-            <h2 class="section-title">About</h2>
+    <section id="index-about" class="section-frame">
+        <div id="about-intro">
+            <div class="section-title-graphic">
+                <h2 class="section-title">About</h2>
+            </div>
+
+            <p id="about-description" class="single-col-wrapper has-pd-lr">
+                Duis pulvinar enim neque, eu fringilla nibh ornare non. Fusce vulputate ac est vel viverra. 
+                Sed convallis nisl eget quam pulvinar sollicitudin. 
+                Quisque nibh massa, feugiat quis leo venenatis, iaculis dictum diam.
+                Proin iaculis ullamcorper erat ut elementum. Mauris eget justo congue, dignissim quam id, dapibus orci. 
+                Quisque nibh massa, feugiat quis leo venenatis, iaculis dictum diam.
+                Proin iaculis ullamcorper erat ut elementum. Mauris eget justo congue, dignissim quam id, dapibus orci. 
+            </p>
         </div>
-        
-        <p id="about-description" class="single-col-wrapper has-pd-lr">
-            Duis pulvinar enim neque, eu fringilla nibh ornare non. Fusce vulputate ac est vel viverra. 
-            Sed convallis nisl eget quam pulvinar sollicitudin. 
-            Quisque nibh massa, feugiat quis leo venenatis, iaculis dictum diam.
-            Proin iaculis ullamcorper erat ut elementum. Mauris eget justo congue, dignissim quam id, dapibus orci. 
-            Quisque nibh massa, feugiat quis leo venenatis, iaculis dictum diam.
-            Proin iaculis ullamcorper erat ut elementum. Mauris eget justo congue, dignissim quam id, dapibus orci. 
-        </p>
         
         <div id="about-details">
             <div class="row multi-col-wrapper has-mg-b">
@@ -90,8 +92,10 @@
     
     <div class="border-section border-white-white"></div>
 
-    <section id="sltd-works" class="section-frame">
-        <h2 class="section-title">Selected Works</h2>
+    <section id="index-sltd-works" class="section-frame">
+        <div class="section-title-graphic">
+            <h2 class="section-title">Selected Works</h2>
+        </div>
         
         <ul id="sltd-works-list" class="single-col-wrapper">
             <li class="has-mg-b">
@@ -138,8 +142,10 @@
     
     <div class="border-section border-white-white"></div>
 
-    <section id="blog" class="section-frame">
-        <h2 class="section-title">Blog</h2>
+    <section id="index-blog" class="section-frame">
+        <div class="section-title-graphic">
+            <h2 class="section-title">From Our Blog</h2>
+        </div>
         
         <div id="blog-posts-list">
             <div class="row multi-col-wrapper has-mg-b">

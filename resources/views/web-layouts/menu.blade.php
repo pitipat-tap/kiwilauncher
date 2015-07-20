@@ -30,7 +30,7 @@
                 </h6>
             </div>
         </li>
-        <li class="circuit-v-row">
+        <li class="circuit-v-row {!! isMenuItemActive($link, 'works') !!}">
             <div class="circuit-v menu-circuit">
                 <span class="circuit-v-line menu-circuit-line"></span>
                 <span class="circuit-v-dot menu-circuit-dot"></span>
@@ -41,7 +41,7 @@
                 </h6>
             </div>
         </li>
-        <li class="circuit-v-row">
+        <li class="circuit-v-row {!! isMenuItemActive($link, 'blog') !!}">
             <div class="circuit-v menu-circuit">
                 <span class="circuit-v-line menu-circuit-line"></span>
                 <span class="circuit-v-dot menu-circuit-dot"></span>
@@ -52,7 +52,7 @@
                 </h6>
             </div>
         </li>
-        <li class="circuit-v-row">
+        <li class="circuit-v-row {!! isMenuItemActive($link, 'contact') !!}">
             <div class="circuit-v menu-circuit last">
                 <span class="circuit-v-line menu-circuit-line"></span>
                 <span class="circuit-v-dot menu-circuit-dot"></span>

@@ -1,14 +1,20 @@
 <footer>
-    <section id="call-to-action" class="section-frame">
+    <section id="footer-contact" class="section-frame">
         <h4 class="section-title">Build amazing things together</h4>
+        <br />
         
-        <div class="align-center"><a class="button hl reverse">Contact Us</a></div>
+        <div id="contact-info" class="align-center">
+            <h6>Contact</h6>
+            <br />
+            <p><a>info@kiwilauncher.com</a></p>
+            <p>087-822-3530</p>
+            <p>08x-xxx-xxxx</p>
+        </div>
     </section>
     
-    <section id="ending" class="section-frame">
+    <section id="footer-ending" class="section-frame">
         <div id="socials">
-            <a class="footer-social"><span class="icon icon-email"></span></a>
-            <a class="footer-social end"><span class="icon icon-facebook"></span></a>
+            <a class="footer-social">Facebook</span></a>
         </div>
         
         <p id="copyright">Copyright &copy; 2015 KiwiLauncher Co.Ltd.</p>

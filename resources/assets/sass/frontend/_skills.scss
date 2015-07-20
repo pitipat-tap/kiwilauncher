@@ -1,7 +1,7 @@
 $process-circuit-width-small: 20px;
 $process-circuit-width-medium: 56px;
 $process-circuit-border-width-small: 2px;
-$process-circuit-border-width-medium: 4px;
+$process-circuit-border-width-medium: 2px;
 $process-circuit-margin-small: 108px;
 $process-circuit-margin-medium: 200px;
 
@@ -19,73 +19,53 @@ $process-circuit-margin-medium: 200px;
 }
 
 #skills-and-process #process {
-    .process-circuit {
-        @media #{$small-only} {
-            width: $process-circuit-width-small;
+    #process-list {
+        list-style-type: none;
+        
+        .process-img {
+            width: 100%;
+            margin-bottom: $paragraph-margin-bottom;
         }
+    }
     
-        @media #{$medium-up} {
-            width: $process-circuit-width-medium;
-        }
+    .process-circuit {
+        float: none;
+        width: 100%;
+        height: 96px;
         
         .process-circuit-line {
-            @media #{$small-only} {
-                width: $process-circuit-border-width-small;
-            }
-
-            @media #{$medium-up} {
-                width: $process-circuit-border-width-medium;
-            }
+            width: $process-circuit-border-width-medium;
         }
         
         .process-circuit-dot {
-            @media #{$small-only} {
-                border-width: $process-circuit-border-width-small;
-                top: $process-circuit-margin-small - 8;
-                width: 12px;
-                height: 12px;
-            }
-
-            @media #{$medium-up} {
-                border-width: $process-circuit-border-width-medium;
-                top: $process-circuit-margin-medium - 8;
-                width: 24px;
-                height: 24px;
-            }
+            border-width: $process-circuit-border-width-medium;
+            width: 18px;
+            height: 18px;
         }
     }
 
-    .process-circuit.first {
-        .process-circuit-line {
-            @media #{$small-only} {
-                margin-top: $process-circuit-margin-small;
-            }
-
-            @media #{$medium-up} {
-                margin-top: $process-circuit-margin-medium;
-            }
-        }
-    }
-
-    .process-circuit.last {
-        .process-circuit-line {
-            @media #{$small-only} {
-                height: $process-circuit-margin-small;
-            }
-
-            @media #{$medium-up} {
-                height: $process-circuit-margin-medium;
-            }
+    .process-circuit.above {
+        margin-bottom: $layout-margin-tb-inner-small;
+        
+        .process-circuit-dot {
+            bottom: 0px;
         }
     }
     
-    .process-detail {
-        @media #{$small-only} {
-            margin-left: $process-circuit-width-small+12;
+    .process-circuit.below {
+        margin-top: $layout-margin-tb-inner-small;
+        
+        .process-circuit-dot {
+            top: 0px;
         }
+    }
     
-        @media #{$medium-up} {
-            margin-left: $process-circuit-width-medium;
+    #process-list li.active {
+        .process-circuit-dot {
+            border-color: $primary-color;
+            border-width: $process-circuit-border-width-medium + 7;
+            width: 32px;
+            height: 32px;
         }
     }
 }

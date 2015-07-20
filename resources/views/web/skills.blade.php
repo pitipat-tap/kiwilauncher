@@ -55,39 +55,59 @@
     <section id="process" class="section-frame">
         <h2 class="section-title">Process</h2>
         
-        <ul class="single-col-wrapper">
-            <li class="has-mg-b">
+        <ul id="process-list" class="single-col-wrapper">
+            <li class="active">
+                <div class="circuit-v process-circuit above">
+                    <span class="circuit-v-line process-circuit-line"></span>
+                    <span class="circuit-v-dot process-circuit-dot"></span>
+                </div>
                 <img class="process-img" src="http://placehold.it/800x450" />
                 <div class="process-text has-pd-lr">
-                    <h4>Requirement</h4>
+                    <h4 class="process-title">Requirement</h4>
                     <p>
                         Cras dolor ante, convallis in est sit amet, blandit commodo tortor. 
                         Suspendisse consectetur, diam in aliquam finibus, lacus lorem fringilla ipsum, 
                     </p>
                 </div>
+                <div class="circuit-v process-circuit below">
+                    <span class="circuit-v-line process-circuit-line"></span>
+                    <span class="circuit-v-dot process-circuit-dot"></span>
+                </div>
             </li>
-            <li class="has-mg-b">
-                <a class="figure-link sltd-work-figure">
-                    {!! HTML::image("image/sample/sandawe-1.jpg", "Some web", array(
-                        "class" => "figure-img sltd-work-cvimg")
-                    ) !!}
-                    <div class="figure-layer"></div>
-                </a>
-                <div class="sltd-work-text has-pd-lr">
-                    <h4><a>Some Website</a></h4>
-                    <p>Website</p>
+            <li>
+                <div class="circuit-v process-circuit above">
+                    <span class="circuit-v-line process-circuit-line"></span>
+                    <span class="circuit-v-dot process-circuit-dot"></span>
+                </div>
+                <img class="process-img" src="http://placehold.it/800x450" />
+                <div class="process-text has-pd-lr">
+                    <h4 class="process-title">Research</h4>
+                    <p>
+                        Cras dolor ante, convallis in est sit amet, blandit commodo tortor. 
+                        Suspendisse consectetur, diam in aliquam finibus, lacus lorem fringilla ipsum, 
+                    </p>
+                </div>
+                <div class="circuit-v process-circuit below">
+                    <span class="circuit-v-line process-circuit-line"></span>
+                    <span class="circuit-v-dot process-circuit-dot"></span>
                 </div>
             </li>
             <li class="has-mg-b">
-                <a class="figure-link sltd-work-figure">
-                    {!! HTML::image("image/sample/pairi-daiza-thumb.jpg", "Some web", array(
-                        "class" => "figure-img sltd-work-cvimg")
-                    ) !!}
-                    <div class="figure-layer"></div>
-                </a>
-                <div class="sltd-work-text has-pd-lr">
-                    <h4><a>Some Website</a></h4>
-                    <p>Website</p>
+                <div class="circuit-v process-circuit above">
+                    <span class="circuit-v-line process-circuit-line"></span>
+                    <span class="circuit-v-dot process-circuit-dot"></span>
+                </div>
+                <img class="process-img" src="http://placehold.it/800x450" />
+                <div class="process-text has-pd-lr">
+                    <h4 class="process-title">Development</h4>
+                    <p>
+                        Cras dolor ante, convallis in est sit amet, blandit commodo tortor. 
+                        Suspendisse consectetur, diam in aliquam finibus, lacus lorem fringilla ipsum, 
+                    </p>
+                </div>
+                <div class="circuit-v process-circuit below">
+                    <span class="circuit-v-line process-circuit-line"></span>
+                    <span class="circuit-v-dot process-circuit-dot"></span>
                 </div>
             </li>
         </ul>

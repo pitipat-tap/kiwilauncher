@@ -9,9 +9,14 @@
 @stop
 
 
+@section("specific-js-head")
+{!! HTML::script("js/web-works.js") !!}
+@stop
+
+
 @section("body")
 
-@include("web-layouts.menu")
+@include("web-layouts.menu", array("link" => "blog"))
 
 <div id="blog">
     <section id="blog-content" class="section-frame">
@@ -27,12 +32,11 @@
                         <h6 class="blog-post-title">
                             <a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a>
                         </h6>
+                        <p class="text-date">July 18, 2015</p>
                         <p class="blog-post-description">
                             Aliquam id tortor fermentum, luctus magna 
                             at, molestie dui. Mauris eu risus aliquet, 
-                            blandit augue ut, mattis risus. Pellentesque 
-                            tempus elementum purus, vel tincidunt 
-                            nunc tempor at.
+                            blandit augue ut, mattis risus.
                         </p>
                         <p><a>Read more...</a></p>
                     </div>
@@ -45,7 +49,7 @@
                 <div class="small-12 medium-6 medium-pull-6 column has-pd-lr">
                     <div class="blog-post-text">
                         <h6 class="blog-post-title">
-                            <a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a>
+                            <a>Pellentesque viverra congue justo</a>
                         </h6>
                         <p class="blog-post-description">
                             Aliquam id tortor fermentum, luctus magna 

@@ -1,0 +1,17 @@
+#blog {
+    #blog-posts-list {
+        .blog-post-cvimg {
+            width: 100%;
+            
+            @media #{$small-only} {
+                margin-bottom: $paragraph-margin-bottom;
+            }
+        }
+    
+        .blog-post-text {
+            @media #{$large-up} {
+                margin-top: $layout-padding-medium;
+            }
+        }
+    }
+}

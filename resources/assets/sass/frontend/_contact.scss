@@ -1,0 +1,12 @@
+#contact {
+    .icon {
+        display: inline-block;
+        width: 26px;
+        height: 24px;
+    }
+
+    .icon.icon-email {
+        background: url("../image/icon/icon-email.svg") no-repeat 0px 0px;
+        background-size: 100%;
+    }
+}

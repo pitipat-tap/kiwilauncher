@@ -1,9 +1,17 @@
-footer #call-to-action {
+footer #footer-contact {
     background: $body-font-color;
     
     .section-title {
         color: white;
         margin-bottom: 32px;
+    }
+    
+    #contact-info {
+        color: white;
+        
+        h6, a {
+            color: white;
+        }
     }
     
     .button.reverse {
@@ -23,11 +31,15 @@ footer #call-to-action {
     }
 }
 
-footer #ending {
-    padding-top: 32px;
+footer #footer-ending {
+    padding-top: 16px;
     padding-bottom: 0px;
     
     .footer-social {
+        color: $body-font-color;
+    }
+    
+    /*.footer-social {
         border-color: $body-font-color;
         border-style: solid;
         border-width: 2px;
@@ -45,14 +57,14 @@ footer #ending {
     }
     
     .icon.icon-email {
-        background: url("../image/icon/facebook.svg") no-repeat 0px 0px;
+        background: url("../image/icon/icon-email.svg") no-repeat 0px 0px;
         background-size: 100%;
     }
     
     .icon.icon-facebook {
-        background: url("../image/icon/facebook.svg") no-repeat 0px 0px;
+        background: url("../image/icon/icon-facebook.svg") no-repeat 0px 0px;
         background-size: 100%;
-    }
+    }*/
     
     #socials, #copyright {
         text-align: center;

@@ -108,6 +108,12 @@ $(document).ready(function(event) {
             tl.to("#menu, #menu-back-cover", 0.01, {
                 display: "none",
             });
+            
+            // Menu icon animation
+            var paths = menuIconSvg.selectAll("path");
+            paths.forEach(function(el, i) {
+                el.animate({"path": el.attr("data-path")}, 300, mina.easeout);
+            });
         }
     });
 });

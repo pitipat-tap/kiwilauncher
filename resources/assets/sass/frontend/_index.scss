@@ -1,4 +1,4 @@
-#index #landing {
+#index #index-landing {
     min-height: 680px;
     padding-top: 0px;
     padding-bottom: 0px;
@@ -16,10 +16,25 @@
 }
 
 
-#index #about {
+#index #index-about {
+    #about-intro {
+        @media #{$medium-up} {
+            background: url("../image/bg/bg-about-us.svg") no-repeat 50% 0px;
+            background-size: contain;
+        }
+    }
+    
     .section-title-graphic {
         background: url("../image/title/about-us.svg") no-repeat 50% 50%;
         background-size: contain;
+        
+        @media #{$small-only} {
+            height: rem_calc(56);
+        }
+
+        @media #{$medium-up} {
+            height: rem_calc(96);
+        }
     }
     
     #about-description {
@@ -28,7 +43,7 @@
         }
     
         @media #{$medium-up} {
-            min-height: 240px;
+            min-height: 300px;
             margin-bottom: $layout-margin-tb-inner-medium;
         }
     }
@@ -55,7 +70,21 @@
 }
 
 
-#index #sltd-works {
+#index #index-sltd-works {
+    .section-title-graphic {
+        @media #{$small-only} {
+            background: url("../image/title/selected-works-small.svg") no-repeat 50% 50%;
+            background-size: contain;
+            height: rem_calc(94);
+        }
+
+        @media #{$medium-up} {
+            background: url("../image/title/selected-works-medium.svg") no-repeat 50% 50%;
+            background-size: contain;
+            height: rem_calc(168);
+        }
+    }
+    
     #sltd-works-list {
         list-style-type: none;
         
@@ -66,7 +95,21 @@
 }
 
 
-#index #blog {
+#index #index-blog {
+    .section-title-graphic {
+        @media #{$small-only} {
+            background: url("../image/title/from-our-blog-small.svg") no-repeat 50% 50%;
+            background-size: contain;
+            height: rem_calc(94);
+        }
+
+        @media #{$medium-up} {
+            background: url("../image/title/from-our-blog-medium.svg") no-repeat 50% 50%;
+            background-size: contain;
+            height: rem_calc(168);
+        }
+    }
+    
     #blog-posts-list {
         .blog-post-cvimg {
             width: 100%;
