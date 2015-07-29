@@ -147,48 +147,46 @@
             <h2 class="section-title">From Our Blog</h2>
         </div>
         
-        <div id="blog-posts-list">
-            <div class="row multi-col-wrapper has-mg-b">
-                <div class="small-12 medium-6 column">
-                    <a><img class="blog-post-cvimg" src="http://placehold.it/800x450" /></a>
+        <ul id="blog-posts-list" class="single-col-wrapper">
+            <li class="has-mg-b">
+                <a class="figure-link blog-post-figure">
+                    <img class="figure-img blog-post-cvimg" src="http://placehold.it/800x450" />
+                    <div class="figure-layer"></div>
+                </a>
+                <div class="blog-post-text has-pd-lr">
+                    <h6 class="blog-post-title">
+                        <a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a>
+                    </h6>
+                    <p class="blog-post-description">
+                        Aliquam id tortor fermentum, luctus magna 
+                        at, molestie dui. Mauris eu risus aliquet, 
+                        blandit augue ut, mattis risus. Pellentesque 
+                        tempus elementum purus, vel tincidunt 
+                        nunc tempor at.
+                    </p>
+                    <p><a>Read more...</a></p>
                 </div>
-                <div class="small-12 medium-6 column has-pd-lr">
-                    <div class="blog-post-text">
-                        <h6 class="blog-post-title">
-                            <a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a>
-                        </h6>
-                        <p class="blog-post-description">
-                            Aliquam id tortor fermentum, luctus magna 
-                            at, molestie dui. Mauris eu risus aliquet, 
-                            blandit augue ut, mattis risus. Pellentesque 
-                            tempus elementum purus, vel tincidunt 
-                            nunc tempor at.
-                        </p>
-                        <p><a>Read more...</a></p>
-                    </div>
+            </li>
+            <li class="has-mg-b">
+                <a class="figure-link blog-post-figure">
+                    <img class="figure-img blog-post-cvimg" src="http://placehold.it/800x450" />
+                    <div class="figure-layer"></div>
+                </a>
+                <div class="blog-post-text has-pd-lr">
+                    <h6 class="blog-post-title">
+                        <a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a>
+                    </h6>
+                    <p class="blog-post-description">
+                        Aliquam id tortor fermentum, luctus magna 
+                        at, molestie dui. Mauris eu risus aliquet, 
+                        blandit augue ut, mattis risus. Pellentesque 
+                        tempus elementum purus, vel tincidunt 
+                        nunc tempor at.
+                    </p>
+                    <p><a>Read more...</a></p>
                 </div>
-            </div>
-            <div class="row multi-col-wrapper has-mg-b">
-                <div class="small-12 medium-6 medium-push-6 column">
-                    <a><img class="blog-post-cvimg" src="http://placehold.it/800x450" /></a>
-                </div>
-                <div class="small-12 medium-6 medium-pull-6 column has-pd-lr">
-                    <div class="blog-post-text">
-                        <h6 class="blog-post-title">
-                            <a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a>
-                        </h6>
-                        <p class="blog-post-description">
-                            Aliquam id tortor fermentum, luctus magna 
-                            at, molestie dui. Mauris eu risus aliquet, 
-                            blandit augue ut, mattis risus. Pellentesque 
-                            tempus elementum purus, vel tincidunt 
-                            nunc tempor at.
-                        </p>
-                        <p><a>Read more...</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </li>
+        </ul>
         
         <div class="align-center"><a class="button hl">View more blogposts</a></div>
     </section>

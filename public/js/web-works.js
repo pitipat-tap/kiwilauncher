@@ -31,7 +31,6 @@ $(document).ready(function(event) {
         tl.play();
         
         if ($(this).attr("data-fn") == "open") {
-            $("body").addClass("no-scroll-for-menu-small");
             $(this).attr("data-fn", "close");
             
             // Menu animation
@@ -55,7 +54,6 @@ $(document).ready(function(event) {
             });
         }
         else if ($(this).attr("data-fn") == "close") {
-            $("body").removeClass("no-scroll-for-menu-small");
             $(this).attr("data-fn", "open");
             
             // Menu animation
@@ -97,7 +95,6 @@ $(document).ready(function(event) {
         tl.play();
         
         if ($(this).attr("data-fn") == "close") {
-            $("body").removeClass("no-scroll-for-menu-small");
             $("#menu-toggle").attr("data-fn", "open");
             tl.to("#menu", 0.3, {
                 className: "-=opened"
