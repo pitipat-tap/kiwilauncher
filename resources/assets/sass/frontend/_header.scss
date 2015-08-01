@@ -1,0 +1,55 @@
+header {
+    background-color: white;
+    border-bottom: 1px solid $secondary-color;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: $z-index-priority-3 - 1;
+    
+    @media #{$menu-small-range} {
+        height: 56px;
+    }
+
+    @media #{$menu-medium-range} {
+        height: 64px;
+    }
+    
+    #header-brand {
+        display: block;
+        position: absolute;
+        top: 12px;
+        left: 12px;
+    }
+    
+    #header-brand-logo {
+        background: url("../image/logo/header-logo.svg") no-repeat 50% 50%;
+        background-size: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        
+        @media #{$menu-small-range} {
+            width: 48px;
+            height: 36px; 
+        }
+        
+        @media #{$menu-medium-range} {
+            width: 60px;
+            height: 45px; 
+            margin-right: 4px;
+        }
+    }
+    
+    #header-page-text {
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 0px;
+        
+        @media #{$menu-small-range} {
+            font-size: rem_calc(18);
+        }
+    }
+}
+
+
+

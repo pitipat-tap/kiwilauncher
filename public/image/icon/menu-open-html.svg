@@ -2,18 +2,18 @@
      data-color="#009141" 
      data-color-hover="#007434" >
     
-    <path d="M6 11.5 L54 11.5" fill="none" stroke="#009141" stroke-width="5" stroke-miterlimit="10" 
+    <path d="M6 11.5 L54 11.5" fill="none" stroke="#222222" stroke-width="5" stroke-miterlimit="10" 
           data-id="top" 
-          data-path="M6 11.5 L54 11.5"
-          data-path-hover="M12 11.5 L48 43.5" />
+          data-path-menu="M6 11.5 L54 11.5"
+          data-path-close="M12 11.5 L48 43.5" />
     
-    <path d="M6 27.5 L54 27.5" fill="none" stroke="#009141" stroke-width="5" stroke-miterlimit="10"
+    <path d="M6 27.5 L54 27.5" fill="none" stroke="#222222" stroke-width="5" stroke-miterlimit="10"
           data-id="center" 
-          data-path="M6 27.5 L54 27.5"
-          data-path-hover="M6 27.5" />
+          data-path-menu="M6 27.5 L54 27.5"
+          data-path-close="M6 27.5" />
     
-    <path d="M6 43.5 L54 43.5" fill="none" stroke="#009141" stroke-width="5" stroke-miterlimit="10"
+    <path d="M6 43.5 L54 43.5" fill="none" stroke="#222222" stroke-width="5" stroke-miterlimit="10"
           data-id="bottom" 
-          data-path="M6 43.5 L54 43.5"
-          data-path-hover="M12 43.5 L48 11.5" />
+          data-path-menu="M6 43.5 L54 43.5"
+          data-path-close="M12 43.5 L48 11.5" />
 </svg>

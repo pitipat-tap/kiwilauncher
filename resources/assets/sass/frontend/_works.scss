@@ -1,7 +1,18 @@
-#works {
-    #works-list {
-        .work-figure {
-            margin-bottom: $paragraph-margin-bottom;
-        }
+#works #works-content.section-frame {
+    @media #{$menu-small-range} {
+        padding-top: 56px;
+    }
+    
+    @media #{$menu-medium-range} {
+        padding-top: 64px;
     }
 }
+
+#works #works-list {
+    .work-figure {
+        margin-bottom: $paragraph-margin-bottom;
+    }
+}
+
+
+

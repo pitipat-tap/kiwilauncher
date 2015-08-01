@@ -1,12 +1,44 @@
-#contact {
-    .icon {
-        display: inline-block;
-        width: 26px;
-        height: 24px;
+#contact #contact-content {
+    background-color: $body-font-color;
+    
+    @media #{$small-only} {
+        min-height: 560px;
     }
 
-    .icon.icon-email {
-        background: url("../image/icon/icon-email.svg") no-repeat 0px 0px;
-        background-size: 100%;
+    @media #{$medium-up} {
+        min-height: 820px;
+    }
+    
+    .section-title-graphic {
+        background: url("../image/title/contact.svg") no-repeat 50% 50%;
+        background-size: contain;
+        
+        @media #{$small-only} {
+            height: rem_calc(56);
+        }
+
+        @media #{$medium-up} {
+            height: rem_calc(96);
+        }
+    }
+
+    h4, p, a {
+        color: white;
+    }
+    
+    #contact-info, #socials {
+        text-align: center;
+    }
+
+    
+}
+
+#contact footer {
+    #copyright {
+        font-size: rem_calc(12);
+        text-align: center;
+        margin-top: $layout-margin-tb-inner-small;
     }
 }
+
+

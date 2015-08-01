@@ -1,4 +1,4 @@
-var tl = new TimelineLite();
+var tlMenu = new TimelineLite();
 
 $(document).ready(function(event) {
     var menuIconSvg = new Snap($(this).find("#menu-toggle-svg")[0]);
@@ -26,56 +26,56 @@ $(document).ready(function(event) {
     }
     
     $("#menu-toggle").click(function(event) {
-        tl.pause();
-        tl.clear();
-        tl.play();
+        tlMenu.pause();
+        tlMenu.clear();
+        tlMenu.play();
         
         if ($(this).attr("data-fn") == "open") {
             $(this).attr("data-fn", "close");
             
             // Menu animation
-            tl.to("#menu, #menu-back-cover", 0.01, {
+            tlMenu.to("#menu, #menu-back-cover", 0.01, {
                 display: "block",
                 onComplete: function() {
                     setHeightMenu();
                 }
             });
-            tl.to("#menu", 0.3, {
+            tlMenu.to("#menu", 0.3, {
                 className: "+=opened"
             }, "in");
-            tl.to("#menu-back-cover", 0.5, {
+            tlMenu.to("#menu-back-cover", 0.5, {
                 className: "+=opened"
             }, "in+=0.0");
             
             // Menu icon animation
             var paths = menuIconSvg.selectAll("path");
             paths.forEach(function(el, i) {
-                el.animate({"path": el.attr("data-path-hover")}, 300, mina.easeout);
+                el.animate({"path": el.attr("data-path-close")}, 300, mina.easeout);
             });
         }
         else if ($(this).attr("data-fn") == "close") {
             $(this).attr("data-fn", "open");
             
             // Menu animation
-            tl.to("#menu", 0.3, {
+            tlMenu.to("#menu", 0.3, {
                 className: "-=opened"
             }, "out");
-            tl.to("#menu-back-cover", 0.5, {
+            tlMenu.to("#menu-back-cover", 0.5, {
                 className: "-=opened"
             }, "out+=0.0");
-            tl.to("#menu, #menu-back-cover", 0.01, {
+            tlMenu.to("#menu, #menu-back-cover", 0.01, {
                 display: "none",
             });
             
             // Menu icon animation
             var paths = menuIconSvg.selectAll("path");
             paths.forEach(function(el, i) {
-                el.animate({"path": el.attr("data-path")}, 300, mina.easeout);
+                el.animate({"path": el.attr("data-path-menu")}, 300, mina.easeout);
             });
         }
     });
     
-    $("#menu-toggle").mouseover(function(event) {
+    /*$("#menu-toggle").mouseover(function(event) {
         var paths = menuIconSvg.selectAll("path");
         paths.forEach(function(el, i) {
             el.animate({"stroke": menuIconSvg.attr("data-color-hover")}, 300, mina.easeout);
@@ -87,29 +87,29 @@ $(document).ready(function(event) {
         paths.forEach(function(el, i) {
             el.animate({"stroke": menuIconSvg.attr("data-color")}, 300, mina.easeout);
         });
-    });
+    });*/
     
     $("#menu-back-cover").click(function(event) {
-        tl.pause();
-        tl.clear();
-        tl.play();
+        tlMenu.pause();
+        tlMenu.clear();
+        tlMenu.play();
         
         if ($(this).attr("data-fn") == "close") {
             $("#menu-toggle").attr("data-fn", "open");
-            tl.to("#menu", 0.3, {
+            tlMenu.to("#menu", 0.3, {
                 className: "-=opened"
             }, "out");
-            tl.to("#menu-back-cover", 0.5, {
+            tlMenu.to("#menu-back-cover", 0.5, {
                 className: "-=opened"
             }, "out+=0.0");
-            tl.to("#menu, #menu-back-cover", 0.01, {
+            tlMenu.to("#menu, #menu-back-cover", 0.01, {
                 display: "none",
             });
             
             // Menu icon animation
             var paths = menuIconSvg.selectAll("path");
             paths.forEach(function(el, i) {
-                el.animate({"path": el.attr("data-path")}, 300, mina.easeout);
+                el.animate({"path": el.attr("data-path-menu")}, 300, mina.easeout);
             });
         }
     });
@@ -119,25 +119,54 @@ $(document).ready(function(event) {
 
 
 
+var tlBlog = new TimelineLite();
+
 $(document).ready(function() {
     var bulletItems = $("#blog-posts-ftd-crs .bullets li");
     var ftdPostIndex = 0;
     
-    var timeoutHandler = setInterval(nextFtdPost, 5000);
+    var timeoutHandler = setTimeout(nextFtdPost, 6000);
     
     bulletItems.find("a").click(function(event) {
-        clearInterval(timeoutHandler);
+        if ($(this).parent("li").hasClass("active")) {
+            return false;
+        }
         
+        // Clear all timing
+        clearTimeout(timeoutHandler);
+        tlBlog.pause();
+        tlBlog.clear();
+        tlBlog.play();
+        
+        // Set new carousel data
         var li = $(this).parent("li");
         ftdPostIndex = li.index();
         
         var liData = $("#blog-posts-ftd-data li").eq(ftdPostIndex);
-        $("#blog-post-ftd-img img").attr("src", liData.attr("data-cvimg"));
+        var imageCur = $("#blog-post-ftd-img img.active");
+        var imageNext = $("#blog-post-ftd-img img").eq(ftdPostIndex);
+        imageCur.css({"z-index": 1});
+        imageNext.css({"z-index": 2});
+        var text = $("#blog-post-ftd-text");
+        text.find(".blog-post-title a").attr("href", liData.attr("data-link")).text(liData.attr("data-title"));
+        text.find(".blog-post-rm a").attr("href", liData.attr("data-link"));
         
+        // Fade animation
+        tlBlog.to(imageCur, 0.6, {
+            opacity: 0,
+        }, "fade");
+        tlBlog.to(imageNext, 0.6, {
+            opacity: 1
+        }, "fade+=0");
+        
+        // Set active
         li.siblings(".active").removeClass("active");
         li.addClass("active");
+        imageCur.removeClass("active");
+        imageNext.addClass("active");
         
-        timeoutHandler = setInterval(nextFtdPost, 5000);
+        // Reset next post function
+        timeoutHandler = setTimeout(nextFtdPost, 6000);
     });
     
     function nextFtdPost() {

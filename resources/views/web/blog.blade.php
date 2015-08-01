@@ -15,24 +15,36 @@
 
 
 @section("body")
-
+@include("web-layouts.blog-header")
 @include("web-layouts.menu", array("link" => "blog"))
 <div id="blog">
     <section id="blog-content" class="section-frame">
         <div id="blog-posts-ftd-crs">
             <ul id="blog-posts-ftd-data">
-                <li data-link="#" data-cvimg="{!! asset('image/sample/tmac-hero.jpg') !!}" data-title="Test 0001"></li>
-                <li data-link="#" data-cvimg="{!! asset('image/sample/72715_icons.png') !!}" data-title="Test 4444 0022"></li>
-                <li data-link="#" data-cvimg="{!! asset('image/sample/classy_hero.jpg') !!}" data-title="Test test test 0333"></li>
+                <li data-link="#kav" 
+                    data-title="Proin elementum arcu quis metus imperdiet rhoncus quis quis turpis.">
+                </li>
+                <li data-link="#vsop"  
+                    data-title="Nullam turpis eros, sodales aliquet consequat eget, cursus sed felis.">
+                </li>
+                <li data-link="#pfs" 
+                    data-title="Maecenas quis neque turpis.">
+                </li>
             </ul>
             
             <div id="blog-post-ftd-img">
-                <img src="{!! asset('image/sample/tmac-hero.jpg') !!}" />
+                <img class="active" src="{!! asset('image/sample/tmac-hero.jpg') !!}" style="opacity: 1; z-index: 2;" />
+                <img src="{!! asset('image/sample/72715_icons.png') !!}" style="opacity: 0; z-index: 1;" />
+                <img src="{!! asset('image/sample/classy_hero.jpg') !!}" style="opacity: 0; z-index: 1;" />
                 <div class="overlay"></div>
             </div>
             
             <div id="blog-post-ftd-text" class="single-col-wrapper has-pd-lr">
-                <h4 class="blog-post-title"><a>Test blog post</a></h4>
+                <h4 class="blog-post-title">
+                    <a>
+                        Proin elementum arcu quis metus imperdiet rhoncus quis quis turpis.
+                    </a>
+                </h4>
                 <p class="blog-post-rm"><a class="button">Read more</a></p>
             </div>
             
@@ -42,6 +54,8 @@
                 <li><a></a></li>
             </ul>
         </div>
+        
+        <h6 class="section-title-sp">And more recent posts</h6>
         
         <ul id="blog-posts-list" class="single-col-wrapper">
             <li class="has-mg-b">

@@ -19,8 +19,10 @@
 @include("web-layouts.menu", array("link" => "contact"))
 
 <div id="contact">
-    <section id="contact-content" class="section-frame">
-        <h2 class="section-title">Contact Us</h2>
+    <section id="contact-content" class="section-frame first">
+        <div class="section-title-graphic">
+            <h2 class="section-title">Contact</h2>
+        </div>
 
         <div class="single-col-wrapper">
             <p class="has-pd-lr">
@@ -32,11 +34,23 @@
             </p>
             <br />
             
-            <p class="has-pd-lr"><span class="icon icon-email"></span> info@kiwilauncher.com</p>
+            <div id="contact-info" class="has-pd-lr">
+                <p><a>info@kiwilauncher.com</a></p>
+                <p>087-822-3530</p>
+                <p>08x-xxx-xxxx</p>
+            </div>
+            <br />
+            
+            <h4 class="section-title-sp">Follow us on</h4>
+            <div id="socials">
+                <p><a class="footer-social">Facebook</a></p>
+            </div>
         </div>
     </section>
     
-    @include("web-layouts.footer")
+    <footer>
+        <p id="copyright">Copyright &copy; 2015 KiwiLauncher Co.Ltd.</p>
+    </footer>
 </div>
 
 @stop

@@ -16,16 +16,11 @@
 
 @section("body")
 
+@include("web-layouts.works-header")
 @include("web-layouts.menu", array("link" => "works"))
 
 <div id="works">
     <section id="works-content" class="section-frame">
-        <h2 class="section-title">Works</h2>
-        
-        <div class="align-center">
-            <a class="button hl">All categories <span class="fa fa-angle-down"></span></a>
-        </div>
-        
         <ul id="works-list" class="small-block-grid-1 medium-block-grid-2 multi-col-wrapper">
             <li class="has-mg-b">
                 <a class="figure-link work-figure">

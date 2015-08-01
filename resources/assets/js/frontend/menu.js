@@ -1,4 +1,4 @@
-var tl = new TimelineLite();
+var tlMenu = new TimelineLite();
 
 $(document).ready(function(event) {
     var menuIconSvg = new Snap($(this).find("#menu-toggle-svg")[0]);
@@ -26,56 +26,56 @@ $(document).ready(function(event) {
     }
     
     $("#menu-toggle").click(function(event) {
-        tl.pause();
-        tl.clear();
-        tl.play();
+        tlMenu.pause();
+        tlMenu.clear();
+        tlMenu.play();
         
         if ($(this).attr("data-fn") == "open") {
             $(this).attr("data-fn", "close");
             
             // Menu animation
-            tl.to("#menu, #menu-back-cover", 0.01, {
+            tlMenu.to("#menu, #menu-back-cover", 0.01, {
                 display: "block",
                 onComplete: function() {
                     setHeightMenu();
                 }
             });
-            tl.to("#menu", 0.3, {
+            tlMenu.to("#menu", 0.3, {
                 className: "+=opened"
             }, "in");
-            tl.to("#menu-back-cover", 0.5, {
+            tlMenu.to("#menu-back-cover", 0.5, {
                 className: "+=opened"
             }, "in+=0.0");
             
             // Menu icon animation
             var paths = menuIconSvg.selectAll("path");
             paths.forEach(function(el, i) {
-                el.animate({"path": el.attr("data-path-hover")}, 300, mina.easeout);
+                el.animate({"path": el.attr("data-path-close")}, 300, mina.easeout);
             });
         }
         else if ($(this).attr("data-fn") == "close") {
             $(this).attr("data-fn", "open");
             
             // Menu animation
-            tl.to("#menu", 0.3, {
+            tlMenu.to("#menu", 0.3, {
                 className: "-=opened"
             }, "out");
-            tl.to("#menu-back-cover", 0.5, {
+            tlMenu.to("#menu-back-cover", 0.5, {
                 className: "-=opened"
             }, "out+=0.0");
-            tl.to("#menu, #menu-back-cover", 0.01, {
+            tlMenu.to("#menu, #menu-back-cover", 0.01, {
                 display: "none",
             });
             
             // Menu icon animation
             var paths = menuIconSvg.selectAll("path");
             paths.forEach(function(el, i) {
-                el.animate({"path": el.attr("data-path")}, 300, mina.easeout);
+                el.animate({"path": el.attr("data-path-menu")}, 300, mina.easeout);
             });
         }
     });
     
-    $("#menu-toggle").mouseover(function(event) {
+    /*$("#menu-toggle").mouseover(function(event) {
         var paths = menuIconSvg.selectAll("path");
         paths.forEach(function(el, i) {
             el.animate({"stroke": menuIconSvg.attr("data-color-hover")}, 300, mina.easeout);
@@ -87,29 +87,29 @@ $(document).ready(function(event) {
         paths.forEach(function(el, i) {
             el.animate({"stroke": menuIconSvg.attr("data-color")}, 300, mina.easeout);
         });
-    });
+    });*/
     
     $("#menu-back-cover").click(function(event) {
-        tl.pause();
-        tl.clear();
-        tl.play();
+        tlMenu.pause();
+        tlMenu.clear();
+        tlMenu.play();
         
         if ($(this).attr("data-fn") == "close") {
             $("#menu-toggle").attr("data-fn", "open");
-            tl.to("#menu", 0.3, {
+            tlMenu.to("#menu", 0.3, {
                 className: "-=opened"
             }, "out");
-            tl.to("#menu-back-cover", 0.5, {
+            tlMenu.to("#menu-back-cover", 0.5, {
                 className: "-=opened"
             }, "out+=0.0");
-            tl.to("#menu, #menu-back-cover", 0.01, {
+            tlMenu.to("#menu, #menu-back-cover", 0.01, {
                 display: "none",
             });
             
             // Menu icon animation
             var paths = menuIconSvg.selectAll("path");
             paths.forEach(function(el, i) {
-                el.animate({"path": el.attr("data-path")}, 300, mina.easeout);
+                el.animate({"path": el.attr("data-path-menu")}, 300, mina.easeout);
             });
         }
     });
