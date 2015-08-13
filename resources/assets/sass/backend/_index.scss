@@ -1,0 +1,35 @@
+#dashboard {
+  .stat-block-group {
+    .count-block * {
+      color: $primary-color;
+    }
+  }
+  
+  .graph-label {
+    color: lighten($body-font-color, 40%);
+    font-size: rem_calc(14);
+    
+    .lb {
+      display: inline-block;
+      vertical-align: text-bottom;
+      width: 16px;
+      height: 16px;
+    }
+    
+    .lb.bp, .lb.cs {
+      background-color: $primary-color;
+    }
+    
+    .lb.ip {
+      background-color: #F191B3;
+    }
+  }
+  
+  .ui-graph {
+    max-width: 100%;
+  }
+  
+  table.full-width {
+    width: 100%;
+  }
+}
