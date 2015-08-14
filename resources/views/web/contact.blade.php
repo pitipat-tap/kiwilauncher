@@ -35,15 +35,18 @@
             <br />
             
             <div id="contact-info" class="has-pd-lr">
-                <p><a>info@kiwilauncher.com</a></p>
-                <p>087-822-3530</p>
-                <p>08x-xxx-xxxx</p>
+                <h6><a>info@kiwilauncher.com</a></h6>
+                <h6>087-822-3530</h6>
+                <h6>08x-xxx-xxxx</h6>
             </div>
             <br />
             
             <h4 class="section-title-sp">Follow us on</h4>
-            <div id="socials">
-                <p><a class="footer-social">Facebook</a></p>
+            <div id="contact-socials">
+                <p>
+                    <a class="contact-social"><span class="icon icon-facebook"></span></a>
+                    <a class="contact-social"><span class="icon icon-pinterest"></span></a>
+                </p>
             </div>
         </div>
     </section>

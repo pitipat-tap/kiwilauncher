@@ -14,7 +14,8 @@
     
     <section id="footer-ending" class="section-frame">
         <div id="socials">
-            <a class="footer-social">Facebook</span></a>
+            <a class="footer-social">Facebook</a>
+            <a class="footer-social">Pinterest</a>
         </div>
         
         <p id="copyright">Copyright &copy; 2015 KiwiLauncher Co.Ltd.</p>

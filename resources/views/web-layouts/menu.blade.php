@@ -65,6 +65,7 @@
         </li>
         <li id="menu-social-row">
             <a class="menu-social"><span class="icon icon-facebook"></span></a>
+            <a class="menu-social"><span class="icon icon-pinterest"></span></a>
         </li>
     </ul>
 </div>
