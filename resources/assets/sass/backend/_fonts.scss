@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "RSU";
+    src: url('../fonts/rsufont/rsu_regular.eot');
+    src: url('../fonts/rsufont/rsu_regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/rsufont/rsu_regular.woff2') format('woff2'),
+         url('../fonts/rsufont/rsu_regular.woff') format('woff'),
+         url('../fonts/rsufont/RSU_Regular.ttf') format('truetype'),
+         url('../fonts/rsufont/rsu_regular.svg#rsuregular') format('svg');
+}
+
+@font-face {
+    font-family: "RSU";
+    src: url('../fonts/rsufont/rsu_bold.eot');
+    src: url('../fonts/rsufont/rsu_bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/rsufont/rsu_bold.woff2') format('woff2'),
+         url('../fonts/rsufont/rsu_bold.woff') format('woff'),
+         url('../fonts/rsufont/RSU_BOLD.ttf') format('truetype'),
+         url('../fonts/rsufont/rsu_bold.svg#rsubold') format('svg');
+    font-weight: bold;
+}

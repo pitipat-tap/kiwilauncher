@@ -21,5 +21,6 @@ elixir(function(mix) {
     mix.scripts(["frontend/menu.js", "frontend/works.js"], "public/js/web-works.js");
     mix.scripts(["frontend/menu.js", "frontend/blog.js"], "public/js/web-blog.js");
     mix.scripts(["frontend/menu.js", "frontend/contact.js"], "public/js/web-contact.js");
+
 });
 

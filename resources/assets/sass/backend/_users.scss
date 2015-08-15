@@ -1,0 +1,70 @@
+#admin-users {
+  .c-show-for-small-only {
+    @media #{$medium-up} {
+      display: none;
+    }
+  }
+  
+  .profile-image {
+    vertical-align: top;
+    width: 40px;
+    margin-right: 8px;
+  }
+  
+  table.data {
+    thead {
+      .username {
+        @media #{$medium-only} {
+          width: 60%;
+        }
+        
+        @media #{$large-up} {
+          width: 30%;
+        }
+      }
+      
+      .realname {
+        width: 20%;
+      }
+      
+      .email {
+        width: 25%;
+      }
+      
+      .role {
+        width: 1px;
+      }
+      
+      .posts {
+        @media #{$medium-only} {
+          width: 30%;
+        }
+        
+        @media #{$large-up} {
+          width: 15%;
+        }
+      }
+      
+      .actions {
+        width: 10%;
+      }
+    }
+  }
+  
+  .user-form {
+    .far-away {
+      position: absolute;
+      left: -9999px;
+      top: -9999px;
+    }
+    
+    .f-label {
+      font-size: rem_calc(14);
+    }
+    
+    #profile-image {
+      vertical-align: top;
+      width: 180px;
+    }
+  }
+}

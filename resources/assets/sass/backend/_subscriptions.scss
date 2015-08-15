@@ -1,0 +1,27 @@
+#admin-subscriptions {
+  .c-show-for-small-only {
+    @media #{$medium-up} {
+      display: none;
+    }
+  }
+  
+  table.data {
+    thead {
+      .name {
+        width: 25%;
+      }
+      
+      .contact {
+        width: 40%;
+      }
+      
+      .date {
+        width: 20%;
+      }
+      
+      .actions {
+        width: 15%;
+      }
+    }
+  }
+}
