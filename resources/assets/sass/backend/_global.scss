@@ -1,0 +1,261 @@
+$front-end-font-family: "RSU", sans-serif;
+$front-end-secondary-color: #D6D6D6;
+$front-end-global-radius: 16px;
+$front-end-ui-block-padding-small: 20px;
+$front-end-ui-block-padding-medium: 36px;
+
+$left-side-menu-width: 240px;
+$right-side-menu-width: 300px;
+$ui-block-border: 1px solid #E8E8E8;
+$text-info-lightgrey: #a7a7a7;
+
+@mixin all-box-shadow($x, $y, $blur, $spread, $color) {
+  box-shadow: $x $y $blur $spread $color;
+  -webkit-box-shadow: $x $y $blur $spread $color;
+  -moz-box-shadow: $x $y $blur $spread $color;
+}
+
+@mixin all-transform-translate($x, $y) {
+  transform: translate3d($x, $y, 0px);
+  -webkit-transform: translate3d($x, $y, 0px);
+  -moz-transform: translate3d($x, $y, 0px);
+  -o-transform: translate3d($x, $y, 0px);
+  -ms-transform: translate3d($x, $y, 0px);
+}
+
+@mixin all-transition-all($t, $timing) {
+  transition:All $t $timing;
+  -webkit-transition:All $t $timing;
+  -moz-transition:All $t $timing;
+  -o-transition:All $t $timing;
+}
+
+
+
+.wrapper {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.container {
+  padding: 12px;
+  
+  @media #{$large-up} {
+    margin-left: $left-side-menu-width;
+  }
+}
+
+.container-center {
+  @media #{$large-up} {
+    margin-left: auto;
+  }
+}
+
+
+// Layout UI
+.ui-block {
+  background-color: white;
+  border: $ui-block-border;
+  @include all-box-shadow(0px, 0px, 0px, 0px, rgba(0,0,0,0.0));
+  padding: 12px;
+}
+
+.ui-block.mg-b {
+  margin-bottom: 12px;
+}
+
+.ui-block.small-mg-b {
+  @media #{$small-only} {
+    margin-bottom: 12px;
+  }
+}
+
+.ui-block.medium-mg-b {
+  @media #{$medium-up} {
+    margin-bottom: 12px;
+  }
+}
+
+.ui-block.medium-half-mg-l {
+  @media #{$medium-up} {
+    margin-left: 6px;
+  }
+}
+
+.ui-block.medium-half-mg-r {
+  @media #{$medium-up} {
+    margin-right: 6px;
+  }
+}
+
+.ui-block.no-pd {
+  padding: 0px;
+}
+
+
+.ui-card {
+  .card-button {
+    border-top: $ui-block-border;
+    border-right: $ui-block-border;
+    display: block;
+    padding: 4px 0px;
+  }
+  
+  .card-button.end {
+    border-right: none;
+  }
+  
+  .card-button.disabled {
+    color: $secondary-color;
+  }
+}
+
+
+table.data {
+  tbody {
+    td {
+      vertical-align: top;
+    }
+  }
+}
+
+
+// Full width button group UI
+.small-button-group {
+  button, .button {
+    display: block;
+    width: 100%;
+  }
+}
+
+.small-medium-bg-fw {
+  button, .button {
+    @media #{$small-only} {
+      display: block;
+      width: 100%;
+    }
+    
+    @media #{$medium-only} {
+      display: block;
+      width: 100%;
+    }
+
+  }
+}
+
+
+// text & icon UI
+.text-date, .form-label-notice {
+  color: $text-info-lightgrey;
+  font-size: rem_calc(12);
+}
+
+.text-secondary {
+  color: $text-info-lightgrey;
+}
+
+.tf-icon {
+  color: $secondary-color;
+  font-size: rem_calc(24);
+}
+
+.tf-icon.featured {
+  color: #ffc82e;
+}
+
+
+// Form UI
+.far-away {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+
+.f-label {
+  color: $form-label-font-color;
+  font-size: rem_calc(14);
+}
+
+
+// Arrangement
+.align-center {
+  text-align: center;
+}
+
+.small-medium-align-center {
+  @media #{$small-only} {
+    text-align: center;
+  }
+  
+  @media #{$medium-only} {
+    text-align: center;
+  }
+}
+
+.mg-r {
+  margin-right: 8px;
+}
+
+
+// Overwrite Foundation
+.row.full-width {
+  max-width: 100%;
+}
+
+.columns {
+  padding: 0px;
+}
+
+.columns.medium-bd-r {
+  @media #{$medium-up} {
+    border-right: solid 1px #ddd;
+  }
+}
+
+.columns.medium-pd-l {
+  @media #{$medium-up} {
+    padding-left: rem_calc(12);
+  }
+}
+
+.columns.medium-pd-r {
+  @media #{$medium-up} {
+    padding-right: rem_calc(12);
+  }
+}
+
+
+a, button, .button {
+  @include all-transition-all(0.1s, ease-out);
+}
+
+
+.reveal-modal {
+  @media #{$small-only} {
+    left: 50%;
+    width: 95%;
+    height: auto;
+    min-height: 200px;
+    margin-top: 16px;
+    @include all-transform-translate(-50%, 0%)
+  }
+}
+
+.alert-box {
+  color: $body-font-color;
+  background-color: white;
+}
+
+.alert-box.success-custom {
+  border: 1px solid $primary-color;
+  border-left-width: 8px;
+}
+
+.alert-box.error-custom {
+  border: 1px solid $alert-color;
+  border-left-width: 8px;
+}
+
+
+
+

@@ -1,0 +1,75 @@
+$process-circuit-width-small: 20px;
+$process-circuit-width-medium: 56px;
+$process-circuit-border-width-small: 2px;
+$process-circuit-border-width-medium: 2px;
+$process-circuit-margin-small: 108px;
+$process-circuit-margin-medium: 200px;
+
+#skills-and-process #skills {
+    .skill {
+        text-align: center;
+        margin-bottom: $layout-margin-tb-small/2;
+        
+        img {
+            width: 100%;
+            max-width: 160px;
+            margin-bottom: $layout-margin-tb-small/4;
+        }
+    }
+}
+
+#skills-and-process #process {
+    #process-list {
+        list-style-type: none;
+        
+        .process-img {
+            width: 100%;
+            margin-bottom: $paragraph-margin-bottom;
+        }
+    }
+    
+    .process-circuit {
+        float: none;
+        width: 100%;
+        height: 96px;
+        
+        .process-circuit-line {
+            width: $process-circuit-border-width-medium;
+        }
+        
+        .process-circuit-dot {
+            border-width: $process-circuit-border-width-medium;
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    .process-circuit.above {
+        margin-bottom: $layout-margin-tb-inner-small;
+        
+        .process-circuit-dot {
+            bottom: 0px;
+        }
+    }
+    
+    .process-circuit.below {
+        margin-top: $layout-margin-tb-inner-small;
+        
+        .process-circuit-dot {
+            top: 0px;
+        }
+    }
+    
+    #process-list li.active {
+        .process-circuit-dot {
+            border-color: $primary-color;
+            border-width: $process-circuit-border-width-medium + 7;
+            width: 32px;
+            height: 32px;
+        }
+    }
+}
+
+
+
+

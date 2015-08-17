@@ -1,0 +1,80 @@
+footer #footer-contact {
+    background: $body-font-color;
+    
+    .section-title {
+        color: white;
+        margin-bottom: 32px;
+    }
+    
+    #contact-info {
+        color: white;
+        
+        h6, a {
+            color: white;
+        }
+    }
+    
+    .button.reverse {
+        background-color: $body-font-color;
+        border-color: white;
+        border-style: solid;
+        border-width: 2px;
+        color: white;
+        
+        &:hover {
+            background-color: $body-font-color;
+            border-color: white;
+            border-style: solid;
+            border-width: 2px;
+            color: white;
+        }
+    }
+}
+
+footer #footer-ending {
+    padding-top: 16px;
+    padding-bottom: 0px;
+    
+    .footer-social {
+        color: $body-font-color;
+    }
+    
+    /*.footer-social {
+        border-color: $body-font-color;
+        border-style: solid;
+        border-width: 2px;
+        display: inline-block;
+    }
+    
+    .footer-social:not(.end) {
+        margin-right: 12px;
+    }
+    
+    .icon {
+        display: block;
+        width: 28px;
+        height: 26px;
+    }
+    
+    .icon.icon-email {
+        background: url("../image/icon/icon-email.svg") no-repeat 0px 0px;
+        background-size: 100%;
+    }
+    
+    .icon.icon-facebook {
+        background: url("../image/icon/icon-facebook.svg") no-repeat 0px 0px;
+        background-size: 100%;
+    }*/
+    
+    #socials, #copyright {
+        text-align: center;
+    }
+    
+    #socials {
+        margin-bottom: 32px;
+    }
+    
+    #copyright {
+        font-size: rem_calc(12);
+    }
+}

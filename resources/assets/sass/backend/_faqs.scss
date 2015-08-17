@@ -1,0 +1,125 @@
+#admin-faqs {
+  .c-show-for-small-only {
+    @media #{$medium-up} {
+      display: none;
+    }
+  }
+  
+  table.data {
+    thead {
+      .question {
+        @media #{$medium-only} {
+          width: 50%;
+        }
+        
+        @media #{$large-up} {
+          width: 40%;
+        }
+      }
+      
+      .author {
+        @media #{$medium-only} {
+          width: 25%;
+        }
+        
+        @media #{$large-up} {
+          width: 15%;
+        }
+      }
+      
+      .date {
+        @media #{$large-up} {
+          width: 20%;
+        }
+      }
+      
+      .item-order {
+        width: 10%;
+      }
+      
+      .actions {
+        width: 15%;
+      }
+    }
+    
+    tbody {
+      td {
+        vertical-align: top;
+      }
+      
+      .order-icon {
+        font-size: rem_calc(32);
+      }
+      
+      .order-icon.mg-r {
+        margin-right: 12px;
+      }
+    }
+  }
+  
+  .faq-preview .faq-block {
+    font-size: 17.6000px;
+    
+    * {
+      font-family: $front-end-font-family;
+    }
+    
+    h2 {
+      @media #{$small-only} {
+        font-size: 1.6875em;
+      }
+      
+      @media #{$medium-up} {
+        font-size: 2.3125em;
+      }
+    }
+    
+    p, a, ul, li {
+      font-size: 1em;
+    }
+    
+    .front-end-ui-block {
+      border: 1px solid #D6D6D6;
+      border-radius: $front-end-global-radius;
+    }
+    
+    .accordion {
+      margin-left: 0px;
+    }
+    
+    .accordion-navigation {
+      @media #{$small-only} {
+        margin-bottom: $front-end-ui-block-padding-small !important;
+      }
+      
+      @media #{$medium-up} {
+        margin-bottom: $front-end-ui-block-padding-medium !important;
+      }
+      
+      .faq-q, .faq-a {
+        border-radius: $front-end-global-radius;
+        
+        @media #{$small-only} {
+          padding: $front-end-ui-block-padding-medium/4.5 $front-end-ui-block-padding-medium/3;
+        }
+        
+        @media #{$medium-up} {
+          padding: $front-end-ui-block-padding-medium/3 $front-end-ui-block-padding-medium/2;
+        }
+      }
+    }
+    
+    .accordion-navigation.active {
+      .faq-q {
+        background-color: lighten($front-end-secondary-color, 12%);
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      
+      .faq-a {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+      }
+    }
+  }
+}

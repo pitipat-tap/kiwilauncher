@@ -1,0 +1,27 @@
+#admin-blogtags, #admin-imagetags {
+  .c-show-for-small-only {
+    @media #{$medium-up} {
+      display: none;
+    }
+  }
+  
+  table.data {
+    thead {
+      .name {
+        width: 60%;
+      }
+      
+      .featured {
+        width: 1px;
+      }
+      
+      .total-posts {
+        width: 30%;
+      }
+      
+      .actions {
+        width: 10%;
+      }
+    }
+  }
+}
