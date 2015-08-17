@@ -1,4 +1,4 @@
-@extends("../admin-layouts.main_admin")
+@extends("../admin-layouts.mainAdmin")
 
 
 @section("title")
@@ -19,7 +19,7 @@ Add User |
 
 @section("body")
 
-@include("admin-layouts.menu_admin", array("link" => "users", "has_sublink" => 0, "sublink" => ""))
+@include("admin-layouts.menuAdmin", array("link" => "users", "has_sublink" => 0, "sublink" => ""))
 
 <?php
 	session_start();
