@@ -1,0 +1,46 @@
+#admin-imageposts {
+  .imagepost-item {
+    .post-image {
+      img {
+        width: 100%;
+      }
+    }
+    
+    .post-details {
+      text-align: center;
+    }
+    
+    p {
+      margin-bottom: rem_calc(4);
+    }
+  }
+  
+  .imagepost-form {
+    .far-away {
+      position: absolute;
+      left: -9999px;
+      top: -9999px;
+    }
+    
+    .f-label {
+      font-size: rem_calc(14);
+    }
+    
+    .post-image-new {
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .post-image-edit {
+      width: 100%;
+      
+      @media #{$small-only} {
+        max-width: 160px;
+      }
+      
+      @media #{$medium-up} {
+        max-width: 400px;
+      }
+    }
+  }
+}
