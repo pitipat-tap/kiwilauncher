@@ -10,7 +10,7 @@
 
 
 @section("specific-js-head")
-{!! HTML::script("js/web-works.js") !!}
+{!! HTML::script("js/webWorks.js") !!}
 @stop
 
 

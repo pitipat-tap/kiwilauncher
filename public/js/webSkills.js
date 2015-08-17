@@ -120,50 +120,38 @@ $(document).ready(function(event) {
 
 
 $(document).ready(function(event) {
-    var mobile_maxwidth = 752;
-    var full_frame_ofs_h = 5;
-	
-	// initialize block height
-	var landing_graphic = $("#landing-graphic");
-	if (verge.viewportW() <= mobile_maxwidth) {
-		landing_graphic.css("height", "auto");
-	}
-	else {
-		updated_h = verge.viewportH();
-		min_h = parseInt(landing_graphic.css("min-height"));
-    	if (min_h > updated_h) {
-    		landing_graphic.css("height", min_h + full_frame_ofs_h);
-    	}
-    	else {
-    		landing_graphic.css("height", verge.viewportH() + full_frame_ofs_h);
-    	}
-	}
+    var pdtValues;
+    var pdtExtraHeight = 72;
     
-    // content resize
-    $(window).resize(function(event) {
-    	if (verge.viewportW() <= mobile_maxwidth) {
-			landing_graphic.css("height", "auto");
-		}
-		else {
-			updated_h = verge.viewportH();
-	    	min_h = parseInt(landing_graphic.css("min-height"));
-	    	if (min_h > updated_h) {
-	    		landing_graphic.css("height", min_h + full_frame_ofs_h);
-	    	}
-	    	else {
-	    		landing_graphic.css("height", verge.viewportH() + full_frame_ofs_h);
-	    	}
-		}
+    $(window).on("load", setHeightPct);
+    
+    $(window).on("resize", setHeightPct);
+    
+    function setHeightPct () {
+        pdtValues = [];
+        $(".process-detail").each(function(index) {
+            var values = {};
+            values["lastHeight"] = $(this).outerHeight();
+            values["row"] = $(this).attr("data-row");
+            pdtValues.push(values);
+
+            $(this).siblings(".process-circuit").height(values["lastHeight"] + pdtExtraHeight);
+        });
+    }
+    
+    var waypoint = $("#process-list .process-img").waypoint({
+        handler: function(direction) {
+            var li = $(this.element).closest("li");
+            if (direction == "down") {
+                li.siblings("li").removeClass("active");
+                li.addClass("active");
+            }
+            else if (direction == "up" && li.index() != 0) {
+                li.removeClass("active");
+                li.prev("li").addClass("active");
+            }
+        },
+        offset: "60%"
     });
-    
-    
-    // Figure hover effects
-    /*$(".sltd-work-figure").mouseenter(function(event) {
-        $(this).closest("li").siblings("li").find(".sltd-work-figure .figure-layer").addClass("reveal");
-    });
-    
-    $(".sltd-work-figure").mouseleave(function(event) {
-        $(".sltd-work-figure .figure-layer").removeClass("reveal");
-    });*/
-});
-//# sourceMappingURL=web-index.js.map
+})
+//# sourceMappingURL=webSkills.js.map

@@ -10,7 +10,7 @@
 
 
 @section("specific-js-head")
-{!! HTML::script("js/web-index.js") !!}
+{!! HTML::script("js/webIndex.js") !!}
 @stop
 
 

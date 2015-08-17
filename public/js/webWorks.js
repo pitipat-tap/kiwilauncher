@@ -128,4 +128,4 @@ $(document).ready(function(event) {
          $(this).closest("li").siblings("li").find(".work-figure .figure-layer").removeClass("reveal");
      });
  });
-//# sourceMappingURL=web-works.js.map
+//# sourceMappingURL=webWorks.js.map
