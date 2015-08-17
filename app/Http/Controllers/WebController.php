@@ -26,6 +26,11 @@ class WebController extends Controller {
 	{
 		return view('web.works');
 	}
+
+    public function works_drseoul()
+	{
+		return view('web.work-drseoul');
+	}
     
     public function blog()
 	{

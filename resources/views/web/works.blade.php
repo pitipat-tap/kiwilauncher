@@ -23,16 +23,17 @@
     <section id="works-content" class="section-frame">
         <ul id="works-list" class="small-block-grid-1 medium-block-grid-2 multi-col-wrapper">
             <li class="has-mg-b">
-                <a class="figure-link work-figure">
+                <a class="figure-link work-figure" href="{!! URL::route('worksDrseoul') !!}">
                     <!--<img class="figure-img work-cvimg" src="http://placehold.it/800x450" />-->
-                    {!! HTML::image("image/sample/soon-thumb.jpg", "Some app", array(
+                    {!! HTML::image("image/works/drseoul-brand-logo.png", "Some app", array(
                         "class" => "figure-img work-cvimg")
                     ) !!}
                     <div class="figure-layer"></div>
                 </a>
                 <div class="work-text has-pd-lr">
-                    <h4><a>Some Application</a></h4>
-                    <p>iOS Application</p>
+                    <h4><a href="{!! URL::route('worksDrseoul') !!}">Dr.seoul</a></h4>
+                    <p>Web Application</p>
+                    <p>Branding, e-commerce</p>
                 </div>
             </li>
             <li class="has-mg-b">

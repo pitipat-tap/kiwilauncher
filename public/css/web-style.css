@@ -6543,7 +6543,8 @@ th.hide-for-touch {
   .figure-link .figure-img {
     -webkit-transform: scale(1);
     transform: scale(1);
-    transition: all 1s ease-out; }
+    transition: all 1s ease-out;
+    width: 100%; }
   .figure-link .figure-layer {
     background-color: rgba(255, 255, 255, 0.5);
     opacity: 0;
@@ -6686,12 +6687,17 @@ th.hide-for-touch {
       border-style: solid;
       border-width: 2px;
       display: inline-block; }
+      #menu #menu-social-row .menu-social:not(:last-child) {
+        margin-right: 12px; }
   #menu .icon {
     display: block;
     width: 26px;
     height: 24px; }
   #menu .icon.icon-facebook {
     background: url("../image/icon/icon-facebook.svg") no-repeat 0px 0px;
+    background-size: 100%; }
+  #menu .icon.icon-pinterest {
+    background: url("../image/icon/icon-pinterest.svg") no-repeat 0px 0px;
     background-size: 100%; }
 
 #menu.opened {
@@ -6940,6 +6946,11 @@ footer #footer-ending {
 #works #works-list .work-figure {
   margin-bottom: 0.5rem; }
 
+.drseoul-img {
+  border: solid;
+  border-color: #304a8e;
+  border-width: 5px; }
+
 @media (max-width: 30em) {
   #blog #blog-content.section-frame {
     padding-top: 56px; } }
@@ -7055,10 +7066,27 @@ footer #footer-ending {
     @media only screen and (min-width: 48.063em) {
       #contact #contact-content .section-title-graphic {
         height: 6rem; } }
-  #contact #contact-content h4, #contact #contact-content p, #contact #contact-content a {
+  #contact #contact-content h4, #contact #contact-content h6, #contact #contact-content p, #contact #contact-content a {
     color: white; }
-  #contact #contact-content #contact-info, #contact #contact-content #socials {
+  #contact #contact-content #contact-info, #contact #contact-content #contact-socials {
     text-align: center; }
+  #contact #contact-content .contact-social {
+    border-color: white;
+    border-style: solid;
+    border-width: 2px;
+    display: inline-block; }
+    #contact #contact-content .contact-social:not(:last-child) {
+      margin-right: 12px; }
+  #contact #contact-content .icon {
+    display: block;
+    width: 36px;
+    height: 34px; }
+  #contact #contact-content .icon.icon-facebook {
+    background: url("../image/icon/icon-facebook-white.svg") no-repeat 0px 0px;
+    background-size: 100%; }
+  #contact #contact-content .icon.icon-pinterest {
+    background: url("../image/icon/icon-pinterest-white.svg") no-repeat 0px 0px;
+    background-size: 100%; }
 
 #contact footer #copyright {
   font-size: 0.75rem;

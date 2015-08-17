@@ -190,6 +190,7 @@ $button-hover-color: scale-color($primary-color, $lightness: $button-function-fa
     .figure-img {
         @include all-transform(scale(1));
         @include all-transition(all 1s ease-out);
+        width:100%;
     }
     
     .figure-layer {

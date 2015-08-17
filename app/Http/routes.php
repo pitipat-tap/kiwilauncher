@@ -14,6 +14,7 @@
 Route::get("/", "WebController@index");
 Route::get("skills-and-process", array("as" => "skills", "uses" => "WebController@skills"));
 Route::get("works", array("as" => "works", "uses" => "WebController@works"));
+Route::get("works/drseoul", array("as" => "worksDrseoul", "uses" => "WebController@works_drseoul"));
 Route::get("blog", array("as" => "blog", "uses" => "WebController@blog"));
 Route::get("contact-us", array("as" => "contact", "uses" => "WebController@contact"));
 

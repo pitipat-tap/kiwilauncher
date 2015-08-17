@@ -18,6 +18,6 @@
             <a class="footer-social">Pinterest</a>
         </div>
         
-        <p id="copyright">Copyright &copy; 2015 KiwiLauncher Co.Ltd.</p>
+        <p id="copyright">Copyright &copy; 2015 KiwiLauncher Co.,Ltd.</p>
     </section>
 </footer>
