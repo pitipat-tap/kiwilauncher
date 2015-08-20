@@ -76,38 +76,38 @@ class AdminWorkController extends Controller {
 			$post->author()->associate(Auth::user());
 			$post->title = trim(Request::input("title"));
 			$post->url = trim(Request::input("url"));
-			$post->link_url = trim(Request::input("link"));
+			$post->link_url = trim(Request::input("link_url"));
 			$post->feature_image_url = trim(Request::input("feature_image_url"));
 			$post->description = trim(Request::input("description"));
 			$post->status = Request::input("status");
 			
-			// if ($post->save()) {
-			// 	$tags = Request::input("tags");
-			// 	$tags_id = array();
-			// 	if (trim($tags) != "") {
-			// 		$tags = preg_replace('/\s+/', ' ', trim($tags));
-			// 		$tags_array = explode(" ", $tags);
-			// 		// จะเปลี่นเป็น วนลูป save รูป
-			// 		// foreach ($tags_array as $tag_name) {
-			// 		// 	$tag = BlogTag::where("name", "=", trim($tag_name))->first();
-			// 		// 	if ($tag == null) {
-			// 		// 		$tag = new BlogTag;
-			// 		// 		$tag->name = trim($tag_name);
-			// 		// 		$tag->save();
-			// 		// 	}
-			// 		// 	array_push($tags_id, $tag->id);
-			// 		// }
-			// 		// $post->tags()->sync($tags_id);
-			// 	}
-			// } 
-			// else {
-			// 	return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("feature_image_url"));
-			// }
+			if ($post->save()) {
+				// $tags = Request::input("tags");
+				// $tags_id = array();
+				// if (trim($tags) != "") {
+				// 	$tags = preg_replace('/\s+/', ' ', trim($tags));
+				// 	$tags_array = explode(" ", $tags);
+				// 	// จะเปลี่นเป็น วนลูป save รูป
+				// 	// foreach ($tags_array as $tag_name) {
+				// 	// 	$tag = BlogTag::where("name", "=", trim($tag_name))->first();
+				// 	// 	if ($tag == null) {
+				// 	// 		$tag = new BlogTag;
+				// 	// 		$tag->name = trim($tag_name);
+				// 	// 		$tag->save();
+				// 	// 	}
+				// 	// 	array_push($tags_id, $tag->id);
+				// 	// }
+				// 	// $post->tags()->sync($tags_id);
+				// }
+			} 
+			else {
+				return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("feature_image_url"));
+			}
 		}
 		else {
 			return Redirect::back()->with('error', 'Errors')->withErrors($validator)->withInput(Request::except("feature_image_url"));
 		}
-		return Redirect::route("adminWorlPosts")->with("success", "New post was created");
+		return Redirect::route("adminWorkPosts")->with("success", "New post was created");
 	}
 
 

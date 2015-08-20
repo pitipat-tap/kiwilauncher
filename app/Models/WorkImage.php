@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class WorkImage extends Model {
 
-	protected $table = 'pic_work_history';
+	protected $table = 'work_image';
 
 	public function workOwner()
 	{

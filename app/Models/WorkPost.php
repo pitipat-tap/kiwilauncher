@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class WorkPost extends Model {
 
-	protected $table = 'work_history';
+	protected $table = 'work_post';
 	
 	public static function save_rules($id = null) {
 		return array(
@@ -13,7 +13,6 @@ class WorkPost extends Model {
 			"url" => "alpha_dash|required|unique:blog_posts,url".($id ? ",".$id : ""),
 			"link_url" => "required",
 			"description" => "required",
-			//"categories" => "required",
 			"feature_image_url" => "required"
 		);
 	}
