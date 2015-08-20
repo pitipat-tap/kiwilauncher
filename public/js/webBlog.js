@@ -124,7 +124,7 @@ var tlBlog = new TimelineLite();
 $(document).ready(function() {
     var bulletItems = $("#blog-posts-ftd-crs .bullets li");
     var ftdPostIndex = 0;
-    
+    console.log("ftdPostIndex");
     var timeoutHandler = setTimeout(nextFtdPost, 6000);
     
     bulletItems.find("a").click(function(event) {
@@ -171,11 +171,12 @@ $(document).ready(function() {
     
     function nextFtdPost() {
         ftdPostIndex++;
-        if (ftdPostIndex >= 3) {
+        var elements = document.getElementsByClassName("count");
+        if (ftdPostIndex >= elements.length) {
             ftdPostIndex = 0;
         }
         
-        //console.log(ftdPostIndex);
+        console.log(ftdPostIndex);
         
         bulletItems.eq(ftdPostIndex).find("a").trigger("click");
     }

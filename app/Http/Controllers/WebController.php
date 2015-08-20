@@ -29,7 +29,9 @@ class WebController extends Controller {
     
     public function blog()
 	{
-		return view('web.blog');
+        $posts = BlogPost::orderBy('created_at', 'DESC')->
+            paginate(20);
+		return view('web.blog', array("posts" => $posts));
 	}
     
     public function contact()
