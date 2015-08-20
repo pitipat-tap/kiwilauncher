@@ -131,155 +131,97 @@ class AdminWorkController extends Controller {
 	}
 	
 	
-	// public function updateBlogPost($id)
-	// {
-	// 	// Check is exist
-	// 	$post = BlogPost::find($id);
-	// 	if (!$post) return Redirect::route("adminBlogPosts")->with('error', 'Cannot save data');
+	public function updateWorkPost($id)
+	{
+		// Check is exist
+		$post = WorkPost::find($id);
+		if (!$post) return Redirect::route("adminWorkPosts")->with('error', 'Cannot save data');
 		
-	// 	// Check if not admin role, and not author's item
-	// 	if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
-	// 		return Redirect::route("adminBlogPosts")->with('error', 'Cannot save data');
-	// 	}
+		// Check if not admin role, and not author's item
+		if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
+			return Redirect::route("adminWorkPosts")->with('error', 'Cannot save data');
+		}
 		
-	// 	$validator = Validator::make(Request::all(), BlogPost::save_rules($id), BlogPost::$custom_messages);
+		$validator = Validator::make(Request::all(), WorkPost::save_rules($id), WorkPost::$custom_messages);
 		
-	// 	if ($validator->passes()) {
-	//         $post->title = trim(Request::input("title"));
-	// 		$post->url = trim(Request::input("url"));
-	//         $post->feature_image_url = trim(Request::input("feature_image_url"));
-	//         $post->description = trim(Request::input("description"));
-	//         $post->content = Request::input("content");
-	// 		$post->status = Request::input("status");
+		if ($validator->passes()) {
+	        $post->title = trim(Request::input("title"));
+			$post->url = trim(Request::input("url"));
+			$post->link_url = trim(Request::input("link_url"));
+			$post->feature_image_url = trim(Request::input("feature_image_url"));
+			$post->description = trim(Request::input("description"));
+			$post->status = Request::input("status");
 			
-	//         if ($post->save()) {
-	//         	$tags = Request::input("tags");
-	//         	$tags_id = array();
-	// 			if (trim($tags) != "") {
-	// 				$tags = preg_replace('/\s+/', ' ', trim($tags));
-	// 				$tags_array = explode(" ", $tags);
-	// 				foreach ($tags_array as $tag_name) {
-	// 					$tag = BlogTag::where("name", "=", trim($tag_name))->first();
-	// 					if ($tag == null) {
-	// 						$tag = new BlogTag;
-	// 						$tag->name = trim($tag_name);
-	// 						$tag->save();
-	// 					}
-	// 					array_push($tags_id, $tag->id);
-	// 				}
-	// 				$post->tags()->sync($tags_id);
-	// 			}
+	        if ($post->save()) {
+	   //      	$tags = Request::input("tags");
+	   //      	$tags_id = array();
+				// if (trim($tags) != "") {
+				// 	$tags = preg_replace('/\s+/', ' ', trim($tags));
+				// 	$tags_array = explode(" ", $tags);
+				// 	foreach ($tags_array as $tag_name) {
+				// 		$tag = BlogTag::where("name", "=", trim($tag_name))->first();
+				// 		if ($tag == null) {
+				// 			$tag = new BlogTag;
+				// 			$tag->name = trim($tag_name);
+				// 			$tag->save();
+				// 		}
+				// 		array_push($tags_id, $tag->id);
+				// 	}
+				// 	$post->tags()->sync($tags_id);
+				// }
 				
-	//             return Redirect::route("adminBlogPosts")->with("success", "Updated post was saved");
-	//         } else {
-	//             return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("feature_image_url"));;
-	//         }
-	// 	}
-	// 	else {
- //            return Redirect::back()->with('error', 'Errors')->withErrors($validator)->withInput(Request::except("feature_image_url"));;
- //        }
-	// }
+	            return Redirect::route("adminWorkPosts")->with("success", "Updated post was saved");
+	        } else {
+	            return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("feature_image_url"));;
+	        }
+		}
+		else {
+            return Redirect::back()->with('error', 'Errors')->withErrors($validator)->withInput(Request::except("feature_image_url"));;
+        }
+	}
 
 
-	// public function deleteBlogPost($id)
-	// {
-	// 	// Check is exist
-	// 	$post = BlogPost::find($id);
-	// 	if (!$post) return Redirect::route("adminBlogPosts")->with('error', 'Cannot delete data');
+	public function deleteWorkPost($id)
+	{
+		// Check is exist
+		$post = WorkPost::find($id);
+		if (!$post) return Redirect::route("adminWorkPosts")->with('error', 'Cannot delete data');
 		
-	// 	// Check if not admin role, and not author's item
-	// 	if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
-	// 		return Redirect::route("adminBlogPosts")->with('error', 'Cannot delete data');
-	// 	}
+		// Check if not admin role, and not author's item
+		if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
+			return Redirect::route("adminWorkPosts")->with('error', 'Cannot delete data');
+		}
 		
-	// 	$post->tags()->detach();
-	// 	$post->delete();
+		// $post->tags()->detach();
+		$post->delete();
 		
-	// 	if (Request::input("inpreview")) return Redirect::route("adminBlogPosts")->with("success", "Post was deleted");
-	// 	return Redirect::back()->with("success", "Post was deleted");
-	// }
+		if (Request::input("inpreview")) 
+			return Redirect::route("adminWorkPosts")->with("success", "Post was deleted");
+		return Redirect::back()->with("success", "Post was deleted");
+	}
 	
 	
-	// public function toggleFeaturedBlogPost($id)
-	// {
-	// 	// Check is exist
-	// 	$post = BlogPost::find($id);
-	// 	if (!$post) return Redirect::route("adminBlogPosts")->with('error', 'Cannot save data');
+	public function toggleFeaturedWorkPost($id)
+	{
+		// Check is exist
+		$post = WorkPosts::find($id);
+		if (!$post) return Redirect::route("adminWorkPosts")->with('error', 'Cannot save data');
 		
-	// 	$message = "Success";
+		$message = "Success";
 		
-	// 	if (!$post->is_featured) {
-	// 		$post->is_featured = 1;
-	// 		$message = "Set featured post";
-	// 	} else {
-	// 		$post->is_featured = 0;
-	// 		$message = "Unset featured post";
-	// 	}
+		if (!$post->is_featured) {
+			$post->is_featured = 1;
+			$message = "Set featured post";
+		} else {
+			$post->is_featured = 0;
+			$message = "Unset featured post";
+		}
 		
-	// 	if ($post->save()) {
-	// 		return Redirect::back()->with("success", $message);
-	// 	} else {
-	// 		return Redirect::back()->with('error', 'Cannot delete data');
-	// 	}
-	// }
-	// // ----------------------------------------Blog Posts----------------------------------------
-	
-	
-	// // ----------------------------------------Blog Tags----------------------------------------
-	// public function blogTags() {
-	// 	$q = Request::input("q");
-        
- //        $tags = null;
-
- //        if ($q != null && trim($q) != "") {
- //            $tags = BlogTag::where("name", "LIKE", "%".$q."%")->
- //            	orderBy('is_featured', 'DESC')->
- //                orderBy('created_at', 'DESC')->
- //                paginate(20);
- //        }
- //        else {
- //            $tags = BlogTag::orderBy('is_featured', 'DESC')->orderBy('created_at', 'DESC')->paginate(20);
- //        }
-		
-	// 	return view("admin.blogtags", array("tags" => $tags));
-	// }
-	
-	
-	// public function deleteBlogTag($id)
-	// {
-	// 	// Check is exist
-	// 	$tag = BlogTag::find($id);
-	// 	if (!$tag) return Redirect::back()->with('error', 'Cannot delete data');
-		
-	// 	$tag->posts()->detach();
-	// 	$tag->delete();
-		
-	// 	return Redirect::back()->with("success", "Tag was deleted");
-	// }
-	
-	
-	// public function toggleFeaturedBlogTag($id)
-	// {
-	// 	// Check is exist
-	// 	$tag = BlogTag::find($id);
-	// 	if (!$tag) return Redirect::route("adminBlogTags")->with('error', 'Cannot save data');
-		
-	// 	$message = "Success";
-		
-	// 	if (!$tag->is_featured) {
-	// 		$tag->is_featured = 1;
-	// 		$message = "Set featured tag";
-	// 	} else {
-	// 		$tag->is_featured = 0;
-	// 		$message = "Unset featured tag";
-	// 	}
-		
-	// 	if ($tag->save()) {
-	// 		return Redirect::back()->with("success", $message);
-	// 	} else {
-	// 		return Redirect::back()->with('error', 'Cannot delete data');
-	// 	}
-	// }
-	// // ----------------------------------------Blog Tags----------------------------------------
-	
+		if ($post->save()) {
+			return Redirect::back()->with("success", $message);
+		} else {
+			return Redirect::back()->with('error', 'Cannot delete data');
+		}
+	}
+	// ----------------------------------------Blog Posts----------------------------------------
 }

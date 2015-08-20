@@ -15,7 +15,7 @@ $(document).ready(function() {
 	$('.livepreview').click(function(event) {
 		title = $(':text[name="title"]').val();
 		description = $('textarea[name="description"]').val();
-		feature_url = document.getElementById('feature-image-url').value;
+		feature_url = $(':text[name="feature_image_url"]').val();
 		categories = [];
 		$(':checked[name="categories[]"]').each(function(index) {
 			categories.push($(this).val());
