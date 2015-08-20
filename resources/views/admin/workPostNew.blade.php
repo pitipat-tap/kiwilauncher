@@ -96,17 +96,6 @@ Add New Work Post |
 			        {!! Form::label("link_url", "Link web URL") !!}
 	               	{!! Form::text("link_url", null) !!}
 
-	               	<!-- {!! Form::label("categories", "Categories") !!}
-	               	<tr>
-	               		<td>{!! Form::checkbox('name1', 'value1') !!}</td>
-	               	</tr>
-	               	<tr>
-	               		<td>{!! Form::checkbox('name1', 'value1') !!}</td>
-	               	</tr>
-	               	<tr>
-	               		<td>{!! Form::checkbox('name1', 'value1') !!}</td>
-	               	</tr> -->
-
 			        {!! Form::label("description", "Description") !!}
 	                {!! Form::textarea("description", null, array("rows" => "4")) !!}
 			        

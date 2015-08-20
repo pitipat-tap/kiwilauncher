@@ -14,7 +14,8 @@ $(document).ready(function() {
 	
 	$('.livepreview').click(function(event) {
 		title = $(':text[name="title"]').val();
-		content = $('.mce-edit-area iframe').contents().find('body').html();
+		description = $('textarea[name="description"]').val();
+		feature_url = document.getElementById('feature-image-url').value;
 		categories = [];
 		$(':checked[name="categories[]"]').each(function(index) {
 			categories.push($(this).val());
@@ -22,7 +23,8 @@ $(document).ready(function() {
 		tags = $(':text[name="tags"]').val();
 		form = $('.livepreview-form');
 		form.children(':hidden[name="title"]').val(title);
-		form.children(':hidden[name="content"]').val(content);
+		form.children(':hidden[name="description"]').val(description);
+		form.children(':hidden[name="feature_url"]').val(feature_url);
 		form.submit();
 	});
 });

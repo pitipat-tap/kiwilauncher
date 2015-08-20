@@ -44,21 +44,22 @@ class AdminWorkController extends Controller {
 	}
 	
 	
-	// public function previewBlogPost($id)
-	// {
-	// 	$post = BlogPost::find($id);
-	// 	if (!$post) Redirect::route("adminBlogPosts");
+	public function previewWorkPost($id)
+	{
+		$post = WorkPost::find($id);
+		if (!$post) Redirect::route("adminWorkPosts");
 		
-	// 	return view("admin.blogPostPreview", array("post" => $post));
-	// }
+		return view("admin.workPostPreview", array("post" => $post));
+	}
     
- //    public function livePreviewBlogPost()
- //    {
- //        $post = array();
- //        $post["title"] = Request::input("title");
- //        $post["content"] = Request::input("content");
- //        return view("admin.blogpostLivePreview", array("post" => $post));
- //    }
+    public function livePreviewWorkPost()
+    {
+        $post = array();
+        $post["title"] = Request::input("title");
+        $post["description"] = Request::input("description");
+        $post["feature_image_url"] = Request::input("feature_url");
+        return view("admin.workPostLivePreview", array("post" => $post));
+    }
 	
 	
 	public function newWorkPost()
@@ -111,29 +112,23 @@ class AdminWorkController extends Controller {
 	}
 
 
-	// public function editBlogPost($id)
-	// {
-	// 	// Check is exist
-	// 	$post = BlogPost::find($id);
-	// 	if (!$post) return Redirect::route("adminBlogPosts");
+	public function editWorkPost($id)
+	{
+		// Check is exist
+		$post = WorkPost::find($id);
+		if (!$post) return Redirect::route("adminWorkPosts");
 		
-	// 	// Check if not admin role, and not author's item
-	// 	if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
-	// 		return Redirect::route("adminBlogPosts");
-	// 	}
+		// Check if not admin role, and not author's item
+		if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
+			return Redirect::route("adminWorkPosts");
+		}
 		
-	// 	$tags_str = "";
-	// 	foreach ($post->tags as $tag) {
-	// 		$tags_str.=$tag->name." ";
-	// 	}
-		
-	// 	return view("admin.blogPostEdit", 
-	// 	    array(
- //                "post" => $post, 
- //                "tags_str" => $tags_str
- //            )
- //        );
-	// }
+		return view("admin.workPostEdit", 
+		    array(
+                "post" => $post
+            )
+        );
+	}
 	
 	
 	// public function updateBlogPost($id)

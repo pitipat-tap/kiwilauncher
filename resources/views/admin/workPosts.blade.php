@@ -37,7 +37,7 @@ use Chromabits\Pagination\FoundationPresenter;
     		) !!}
 		</li>
         <li class="has-pd">
-        	{!! Form::open(array("route" => "adminBlogPosts", "method" => "GET")) !!}
+        	{!! Form::open(array("route" => "adminWorkPosts", "method" => "GET")) !!}
 				{!! Form::label("q", "Search") !!}
 				<div class="row collapse">
 					<div class="small-9 columns">
@@ -59,7 +59,7 @@ use Chromabits\Pagination\FoundationPresenter;
         </a>
     </div>
     <div class="small-6 columns align-right">
-    	<a class="link-icon mg-r" href="{!! URL::route('adminBlogPostNew') !!}">
+    	<a class="link-icon mg-r" href="{!! URL::route('adminWorkPostNew') !!}">
     		<span class="fa fa-plus"></span>
     	</a>
         <a class="side-menu-toggle link-icon" data-side="right">
@@ -93,7 +93,7 @@ use Chromabits\Pagination\FoundationPresenter;
 				<p>Tag : {!! Input::get("tag") !!}</p>
 			@endif
 			
-			<p>({!! HTML::linkRoute("adminBlogPosts", "View all data") !!})</p>
+			<p>({!! HTML::linkRoute("adminWorkPosts", "View all data") !!})</p>
 			<br />
 		</div>
 	@endif
@@ -119,7 +119,7 @@ use Chromabits\Pagination\FoundationPresenter;
 					<p>Tag : {!! Input::get("tag") !!}</p>
 				@endif
 				
-				<p>({!! HTML::linkRoute("adminBlogPosts", "View all data") !!})</p>
+				<p>({!! HTML::linkRoute("adminWorkPosts", "View all data") !!})</p>
 				<br />
 				
 			@endif
@@ -139,7 +139,7 @@ use Chromabits\Pagination\FoundationPresenter;
 		</div>
 		
 		<div class="small-12 large-4 columns medium-pd-l">
-			{!! Form::open(array("route" => "adminBlogPosts", "method" => "GET")) !!}
+			{!! Form::open(array("route" => "adminWorkPosts", "method" => "GET")) !!}
 				{!! Form::label("q", "Search") !!}
 				<div class="row collapse">
 					<div class="small-9 columns">
@@ -174,13 +174,13 @@ use Chromabits\Pagination\FoundationPresenter;
 						<p>
 							@if (!$post->is_featured)
 								@if (Auth::user()->role == "admin")
-									<a href="{!! URL::route('adminBlogPostTogglefeatured', array($post->id)) !!}" title="Set Featured">
+									<a href="{!! URL::route('adminWorkPostTogglefeatured', array($post->id)) !!}" title="Set Featured">
 										<span class="tf-icon fa fa-star"></span>
 									</a>
 								@endif
 							@else
 								@if (Auth::user()->role == "admin")
-									<a href="{!! URL::route('adminBlogPostTogglefeatured', array($post->id)) !!}" title="Unset Featured">
+									<a href="{!! URL::route('adminWorkPostTogglefeatured', array($post->id)) !!}" title="Unset Featured">
 										<span class="tf-icon featured fa fa-star"></span>
 									</a>
 								@else
@@ -191,7 +191,7 @@ use Chromabits\Pagination\FoundationPresenter;
 						
 						<p class="show-for-large-up">
 							By 
-							{!! HTML::linkRoute("adminBlogPosts", $post->author->username, 
+							{!! HTML::linkRoute("adminWorkPosts", $post->author->username, 
 							array("author" => $post->author->username)) !!}
 						</p>
 						
@@ -205,14 +205,14 @@ use Chromabits\Pagination\FoundationPresenter;
 						
 						<div class="row">
 							<div class="small-4 columns">
-								{!! HTML::linkRoute("adminBlogPostPreview", "Preview", 
+								{!! HTML::linkRoute("adminWorkPostPreview", "Preview", 
 									array($post->id),
 									array("class" => "card-button"))
 								!!}
 							</div>
 							<div class="small-4 columns">
 								@if (Auth::user()->role == "admin" || Auth::user()->id == $post->author->id)
-									{!! HTML::linkRoute("adminBlogPostEdit", "Edit", 
+									{!! HTML::linkRoute("adminWorkPostEdit", "Edit", 
 										array($post->id), 
 										array("class" => "card-button"))
 									!!}
@@ -226,7 +226,7 @@ use Chromabits\Pagination\FoundationPresenter;
 									<div id="delete-modal-id-{!! $post->id !!}" class="reveal-modal tiny" data-reveal>
 										<h4>Confirm delete</h4>
 										<p>"{!! $post->title !!}"</p>
-										{!! Form::open(array("route" => array("adminBlogPostDelete", $post->id), "method" => "delete")) !!}
+										{!! Form::open(array("route" => array("adminWorkPostDelete", $post->id), "method" => "delete")) !!}
 											{!! Form::button("Delete", array("type" => "submit")) !!}
 										{!! Form::close() !!}
 										<a class="close-reveal-modal">&#215;</a>

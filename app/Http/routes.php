@@ -107,13 +107,13 @@ Route::group(array('middleware' => 'auth.admin', 'prefix' => 'admin'), function(
 	Route::get("workposts", array("as" => "adminWorkPosts", "uses" => "AdminWorkController@workPosts"));
 	Route::get("workposts/new", array("as" => "adminWorkPostNew", "uses" => "AdminWorkController@newWorkPost"));
 	Route::post("workposts/new", array("as" => "adminWorkPostCreate", "uses" => "AdminWorkController@createWorkPost"));
-});// Blog Post
-	// Route::get("blogposts", array("as" => "adminBlogPosts", "uses" => "AdminBlogController@blogPosts"));
-	// Route::get("blogposts/new", array("as" => "adminBlogPostNew", "uses" => "AdminBlogController@newBlogPost"));
-	// Route::post("blogposts/new", array("as" => "adminBlogPostCreate", "uses" => "AdminBlogController@createBlogPost"));
-	// Route::get("blogposts/{id}", array("as" => "adminBlogPostPreview", "uses" => "AdminBlogController@previewBlogPost"));
- //    Route::post("blogposts/livepreview", array("as" => "adminBlogPostLivepreview", "uses" => "AdminBlogController@livePreviewBlogPost"));
-	// Route::get("blogposts/{id}/edit", array("as" => "adminBlogPostEdit", "uses" => "AdminBlogController@editBlogPost"));
-	// Route::patch("blogposts/{id}", array("as" => "adminBlogPostUpdate", "uses" => "AdminBlogController@updateBlogPost"));
-	// Route::delete("blogposts/{id}", array("as" => "adminBlogPostDelete", "uses" => "AdminBlogController@deleteBlogPost"));
-	// 
+	Route::get("workposts/{id}", array("as" => "adminWorkPostPreview", "uses" => "AdminWorkController@previewWorkPost"));
+	Route::post("workposts/livepreview", array("as" => "adminWorkPostLivePreview", "uses" => "AdminWorkController@livePreviewWorkPost"));
+	Route::get("workposts/{id}/edit", array("as" => "adminWorkPostEdit", "uses" => "AdminWorkController@editWorkPost"));
+	Route::patch("workposts/{id}", array("as" => "adminWorkPostUpdate", "uses" => "AdminWorkController@updateWorkPost"));
+	Route::delete("workposts/{id}", array("as" => "adminWorkPostDelete", "uses" => "AdminWorkController@deleteWorkPost"));
+
+	Route::get("blogposts/{id}/togglefeatured", array("as" => "adminWorkPostTogglefeatured", 
+		"uses" => "AdminBlogController@toggleFeaturedBlogPost"));
+
+});
