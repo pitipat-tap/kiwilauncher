@@ -16,7 +16,7 @@
 
 @section("body")
 
-@include("web-layouts.works-header")
+@include("web-layouts.works-header-detail")
 @include("web-layouts.menu", array("link" => "works"))
 
 <div id="works">

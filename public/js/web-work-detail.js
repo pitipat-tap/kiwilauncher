@@ -96,7 +96,6 @@ $(document).ready(function(event) {
         
         if ($(this).attr("data-fn") == "close") {
             $("#menu-toggle").attr("data-fn", "open");
-            $("#brand-header").attr("data-fn", "open");
             tlMenu.to("#menu", 0.3, {
                 className: "-=opened"
             }, "out");
@@ -114,22 +113,10 @@ $(document).ready(function(event) {
             });
         }
     });
-
-    $("#header-brand").click(function(){
-    });
 });
 
 
 
 
 
- $(document).ready(function() {
-     $(".work-figure").mouseover(function(event) {
-         $(this).closest("li").siblings("li").find(".work-figure .figure-layer").addClass("reveal");
-     });
-     
-     $(".work-figure").mouseout(function(event) {
-         $(this).closest("li").siblings("li").find(".work-figure .figure-layer").removeClass("reveal");
-     });
- });
-//# sourceMappingURL=web-works.js.map
+//# sourceMappingURL=web-work-detail.js.map

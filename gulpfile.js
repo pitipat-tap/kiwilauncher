@@ -18,7 +18,8 @@ elixir(function(mix) {
     
     mix.scripts(["frontend/menu.js", "frontend/index.js"], "public/js/web-index.js");
     mix.scripts(["frontend/menu.js", "frontend/skills.js"], "public/js/web-skills.js");
-    mix.scripts(["frontend/menu.js", "frontend/works.js"], "public/js/web-works.js");
+    mix.scripts(["frontend/menu-works.js", "frontend/works.js"], "public/js/web-works.js");
+    mix.scripts(["frontend/menu.js"], "public/js/web-work-detail.js");
     mix.scripts(["frontend/menu.js", "frontend/blog.js"], "public/js/web-blog.js");
     mix.scripts(["frontend/menu.js", "frontend/contact.js"], "public/js/web-contact.js");
 
