@@ -47,7 +47,7 @@
                        {!! $posts[0]->title !!}
                     </a>
                 </h4>
-                <p class="blog-post-rm"><a class="button" href="{!! URL::route('blogPost', array($posts[0]->url)) !!}">Read more</a></p>
+                <p class="blog-post-rm"><a class="button">Read more</a></p>
               
                 
             </div>
@@ -81,7 +81,7 @@
                     <p class="blog-post-description">
                         {!! $post->description !!}
                     </p>
-                    <p><a href="{!! URL::route('blogPost', array($post->url)) !!}">Read more...</a></p>
+                    <p><a>Read more...</a></p>
                 </div>
             </li>
             @endforeach
