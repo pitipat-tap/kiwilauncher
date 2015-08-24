@@ -8,6 +8,7 @@ use Redirect;
 use App\Models\User;
 use App\Models\WorkPost;
 use App\Models\WorkImage;
+use App\Models\WorkCategories;
 
 class AdminWorkController extends Controller {
 	
@@ -64,7 +65,11 @@ class AdminWorkController extends Controller {
 	
 	public function newWorkPost()
 	{
-		return view("admin.workPostNew");
+		$categorys = WorkCategories::all();
+		return view("admin.workPostNew",
+		    array(
+                "categorys" => $categorys
+            ));
 	}
 	
 	
@@ -83,23 +88,7 @@ class AdminWorkController extends Controller {
 			$post->status = Request::input("status");
 			
 			if ($post->save()) {
-				// $tags = Request::input("tags");
-				// $tags_id = array();
-				// if (trim($tags) != "") {
-				// 	$tags = preg_replace('/\s+/', ' ', trim($tags));
-				// 	$tags_array = explode(" ", $tags);
-				// 	// จะเปลี่นเป็น วนลูป save รูป
-				// 	// foreach ($tags_array as $tag_name) {
-				// 	// 	$tag = BlogTag::where("name", "=", trim($tag_name))->first();
-				// 	// 	if ($tag == null) {
-				// 	// 		$tag = new BlogTag;
-				// 	// 		$tag->name = trim($tag_name);
-				// 	// 		$tag->save();
-				// 	// 	}
-				// 	// 	array_push($tags_id, $tag->id);
-				// 	// }
-				// 	// $post->tags()->sync($tags_id);
-				// }
+				return Redirect::route("adminWorkPosts")->with("success", "New post was created");
 			} 
 			else {
 				return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("feature_image_url"));
@@ -108,7 +97,7 @@ class AdminWorkController extends Controller {
 		else {
 			return Redirect::back()->with('error', 'Errors')->withErrors($validator)->withInput(Request::except("feature_image_url"));
 		}
-		return Redirect::route("adminWorkPosts")->with("success", "New post was created");
+		
 	}
 
 

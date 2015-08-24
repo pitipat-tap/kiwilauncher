@@ -91,13 +91,27 @@ Add New Work Post |
 			    			{!! Form::label("url", "URL") !!}
 	               			{!! Form::text("url", null, array("placeholder" => 'only letters (a-z), numbers, and "-", "_"')) !!}
 			    		</div>
-			    	</div>
-			        
-			        {!! Form::label("link_url", "Link web URL") !!}
-	               	{!! Form::text("link_url", null) !!}
+				   	</div>
+
+	               	{!! Form::label("link_url", "Link web URL") !!}
+		            {!! Form::text("link_url", null) !!}
+
+	               	{!! Form::label("category") !!}
+			    	@foreach ($categorys as $category)
+				    	{!! Form::checkbox("category", $category->name) !!}
+				    	{!! $category->name !!}
+					@endforeach
+					<br>
 
 			        {!! Form::label("description", "Description") !!}
 	                {!! Form::textarea("description", null, array("rows" => "4")) !!}
+
+	                {!! Form::label("screenshots", "Screenshots") !!}
+	                <div class="row">
+		                @for($i = 0; $i < 3; $i++)
+		                	{! $i !}
+						@endfor
+					</div>
 			        
 		    	</div>
 		    </div>

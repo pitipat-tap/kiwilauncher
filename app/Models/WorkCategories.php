@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class ImageTag extends Model {
+class WorkCategories extends Model {
 
 	protected $table = 'work_categories';
     
