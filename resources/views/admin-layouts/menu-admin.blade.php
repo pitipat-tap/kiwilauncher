@@ -21,51 +21,51 @@
     		</a>
     	</li>
     	<li>
-            <a href="{!! URL::route('adminBlogPosts') !!}" class="{!! isAdminNavLinkActive($link, 'blogposts') !!}">
+            <a href="{!! URL::route('admin-blog-posts') !!}" class="{!! isAdminNavLinkActive($link, 'blogposts') !!}">
         		<span class="icon fa fa-pencil-square-o"></span> Blog 
         		<span class="toggle-sub-menu icon-float fa {!! isAdminIconSubLinkActive($link, 'blogposts') !!}"></span>
     		</a>
     		<ul class="sub-menu {!! isAdminGroupSubLinkToggled($has_sublink, $link, 'blogposts') !!}">
     			<li>
-    				<a  href="{!! URL::route('adminBlogPosts') !!}" class="{!! isAdminNavSubLinkActive($has_sublink, $sublink, 'blogposts') !!}">
+    				<a  href="{!! URL::route('admin-blog-posts') !!}" class="{!! isAdminNavSubLinkActive($has_sublink, $sublink, 'blogposts') !!}">
                         Blog posts
                     </a>
     			</li>
     			
     			<li>
-		        	<a  href="{!! URL::route('adminBlogTags') !!}" class="{!! isAdminNavSubLinkActive($has_sublink, $sublink, 'blogtags') !!}">
+		        	<a  href="{!! URL::route('admin-blog-tags') !!}" class="{!! isAdminNavSubLinkActive($has_sublink, $sublink, 'blogtags') !!}">
                         Blog tags
                     </a>
     			</li>
     		</ul>
     	</li>
     	<li>
-            <a href="{!! URL::route('adminImagePosts') !!}" class="{!! isAdminNavLinkActive($link, 'imageposts') !!}">
+            <a href="{!! URL::route('admin-image-posts') !!}" class="{!! isAdminNavLinkActive($link, 'imageposts') !!}">
         		<span class="icon fa fa-picture-o"></span> Gallery
         		<span class="toggle-sub-menu icon-float fa {!! isAdminIconSubLinkActive($link, 'imageposts') !!}"></span>
     		</a>
     		<ul class="sub-menu {!! isAdminGroupSubLinkToggled($has_sublink, $link, 'imageposts') !!}">
     			<li>
-    				<a href="{!! URL::route('adminImagePosts') !!}" class="{!! isAdminNavSubLinkActive($has_sublink, $sublink, 'imageposts') !!}">
+    				<a href="{!! URL::route('admin-image-posts') !!}" class="{!! isAdminNavSubLinkActive($has_sublink, $sublink, 'imageposts') !!}">
                         Image posts
                     </a>
     			</li>
     			
     			<li>
-		        	<a href="{!! URL::route('adminImageTags') !!}" class="{!! isAdminNavSubLinkActive($has_sublink, $sublink, 'imagetags') !!}">
+		        	<a href="{!! URL::route('admin-image-tags') !!}" class="{!! isAdminNavSubLinkActive($has_sublink, $sublink, 'imagetags') !!}">
                         Image tags
                     </a>
     			</li>
     		</ul>
     	</li>
         <li>
-            <a href="{!! URL::route('adminFilemanager') !!}" class="{!! isAdminNavLinkActive($link, 'filemanager') !!}">
+            <a href="{!! URL::route('admin-filemanager') !!}" class="{!! isAdminNavLinkActive($link, 'filemanager') !!}">
                 <span class="icon fa fa-folder"></span> File manager
             </a>
         </li>
     	@if (Auth::user()->role == "admin")
 	    	<li>
-	        	<a href="{!! URL::route('adminUsers') !!}"  class="{!! isAdminNavLinkActive($link, 'users') !!}">
+	        	<a href="{!! URL::route('admin-users') !!}"  class="{!! isAdminNavLinkActive($link, 'users') !!}">
                     <span class="icon fa fa-user"></span> Users
                 </a>
 	    	</li>
@@ -76,11 +76,11 @@
     
     <ul class="root-menu">
     	<li>
-        	<a href="{!! URL::route('adminProfileEdit') !!}"  class="{!! isAdminNavLinkActive($link, 'editprofile') !!}">
+        	<a href="{!! URL::route('admin-profile-edit') !!}"  class="{!! isAdminNavLinkActive($link, 'editprofile') !!}">
                 <span class="icon fa fa-wrench"></span> Edit profile
             </a>
 		</li>
-        <li><a href="{!! URL::route('adminLogout') !!}"><span class="icon fa fa-sign-out"></span> Log out</a></li>
+        <li><a href="{!! URL::route('admin-logout') !!}"><span class="icon fa fa-sign-out"></span> Log out</a></li>
     </ul>
     
     <hr />

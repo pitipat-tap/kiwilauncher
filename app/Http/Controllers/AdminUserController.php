@@ -33,7 +33,7 @@ class AdminUserController extends Controller {
 	
 	public function newUser()
 	{
-		return view("admin.userNew");
+		return view("admin.user-new");
 	}
 	
 	
@@ -52,7 +52,7 @@ class AdminUserController extends Controller {
 			$user->profile_image = trim(Request::input("profile_image"));
 
 			if ($user->save()) {
-	            return Redirect::route('adminUsers')->with('success', 'New user was created');
+	            return Redirect::route('admin-users')->with('success', 'New user was created');
 	        } else {
 	            return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("profile_image"));
 	        }
@@ -65,17 +65,17 @@ class AdminUserController extends Controller {
 	public function editUser($id)
 	{
 		$user = User::find($id);
-		if (!$user) Redirect::route('adminUsers');
-		elseif ($user->id == Auth::user()->id) return Redirect::route("adminProfileEdit");
+		if (!$user) Redirect::route('admin-users');
+		elseif ($user->id == Auth::user()->id) return Redirect::route("admin-profile-edit");
 		
-		return view("admin.userEdit", array("user" => $user));
+		return view("admin.user-edit", array("user" => $user));
 	}
 	
 	
 	public function updateUser($id)
 	{
 		$user = User::find($id);
-		if (!$user) return Redirect::route("adminUsers")->with('error', 'Cannot save data');
+		if (!$user) return Redirect::route("admin-users")->with('error', 'Cannot save data');
 		
 		// Change password case
 		if (Request::input("password")!=null && Request::input("password")!="") {
@@ -97,7 +97,7 @@ class AdminUserController extends Controller {
 			$user->profile_image = trim(Request::input("profile_image"));
 			
             if ($user->save()) {
-	            return Redirect::route('adminUsers')->with('success', 'Edited user data was saved');
+	            return Redirect::route('admin-users')->with('success', 'Edited user data was saved');
 	        } else {
 	            return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("profile_image"));
 	        }
@@ -112,8 +112,8 @@ class AdminUserController extends Controller {
 		// Check is exist, is current user
 		$user = User::find($id);
 		
-		if (!$user) return Redirect::route("adminUsers")->with('error', 'Cannot delete data');
-		if (Auth::user()->id == $user->id) return Redirect::route("adminUsers")->with('error', 'Cannot delete data');
+		if (!$user) return Redirect::route("admin-users")->with('error', 'Cannot delete data');
+		if (Auth::user()->id == $user->id) return Redirect::route("admin-users")->with('error', 'Cannot delete data');
 		
 		if (Request::input("option") == "delete_all") {
 			$user->blogPosts()->delete();
@@ -126,7 +126,7 @@ class AdminUserController extends Controller {
 			$user->delete();
 		}
 		
-		return Redirect::route("adminUsers");
+		return Redirect::route("admin-users");
 	}
     // ----------------------------------------Users----------------------------------------
 	

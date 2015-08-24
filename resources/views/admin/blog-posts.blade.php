@@ -1,4 +1,4 @@
-@extends("../admin-layouts.mainAdmin")
+@extends("../admin-layouts.main-admin")
 
 
 @section("title")
@@ -7,7 +7,7 @@ Blog Posts |
 
 
 @section("specific_js_head")
-{!! HTML::script("/js/admin_blogposts.js") !!}
+{!! HTML::script("/js/admin-blog-posts.js") !!}
 @stop
 
 
@@ -18,7 +18,7 @@ use Chromabits\Pagination\FoundationPresenter;
 
 @section("body")
 
-@include("admin-layouts.menuAdmin", array("link" => "blogposts", "has_sublink" => 1, "sublink" => "blogposts"))
+@include("admin-layouts.menu-admin", array("link" => "blogposts", "has_sublink" => 1, "sublink" => "blogposts"))
 
 <nav id="right-side-menu" class="side-menu full-height">
 	<br />
@@ -37,7 +37,7 @@ use Chromabits\Pagination\FoundationPresenter;
     		) !!}
 		</li>
         <li class="has-pd">
-        	{!! Form::open(array("route" => "adminBlogPosts", "method" => "GET")) !!}
+        	{!! Form::open(array("route" => "admin-blog-posts", "method" => "GET")) !!}
 				{!! Form::label("q", "Search") !!}
 				<div class="row collapse">
 					<div class="small-9 columns">
@@ -59,7 +59,7 @@ use Chromabits\Pagination\FoundationPresenter;
         </a>
     </div>
     <div class="small-6 columns align-right">
-    	<a class="link-icon mg-r" href="{!! URL::route('adminBlogPostNew') !!}">
+    	<a class="link-icon mg-r" href="{!! URL::route('admin-blog-post-new') !!}">
     		<span class="fa fa-plus"></span>
     	</a>
         <a class="side-menu-toggle link-icon" data-side="right">
@@ -72,7 +72,7 @@ use Chromabits\Pagination\FoundationPresenter;
 	<h3 class="title">Blog Posts</h3>
 	<br />
 	
-	@include("admin.alertBox")
+	@include("admin.alert-box")
 	
 	@if (Input::get("q") != null || 
 		Input::get("status") != null || 
@@ -93,13 +93,13 @@ use Chromabits\Pagination\FoundationPresenter;
 				<p>Tag : {!! Input::get("tag") !!}</p>
 			@endif
 			
-			<p>({!! HTML::linkRoute("adminBlogPosts", "View all data") !!})</p>
+			<p>({!! HTML::linkRoute("admin-blog-posts", "View all data") !!})</p>
 			<br />
 		</div>
 	@endif
 	
 	<div class="show-for-large-up">
-		{!! HTML::linkRoute("adminBlogPostNew", "Add Post", [], array("class" => "button")) !!}
+		{!! HTML::linkRoute("admin-blog-post-new", "Add Post", [], array("class" => "button")) !!}
 		<br /><br />
 	</div>
 	
@@ -119,7 +119,7 @@ use Chromabits\Pagination\FoundationPresenter;
 					<p>Tag : {!! Input::get("tag") !!}</p>
 				@endif
 				
-				<p>({!! HTML::linkRoute("adminBlogPosts", "View all data") !!})</p>
+				<p>({!! HTML::linkRoute("admin-blog-posts", "View all data") !!})</p>
 				<br />
 				
 			@endif
@@ -139,7 +139,7 @@ use Chromabits\Pagination\FoundationPresenter;
 		</div>
 		
 		<div class="small-12 large-4 columns medium-pd-l">
-			{!! Form::open(array("route" => "adminBlogPosts", "method" => "GET")) !!}
+			{!! Form::open(array("route" => "admin-blog-posts", "method" => "GET")) !!}
 				{!! Form::label("q", "Search") !!}
 				<div class="row collapse">
 					<div class="small-9 columns">
@@ -174,13 +174,13 @@ use Chromabits\Pagination\FoundationPresenter;
 						<p>
 							@if (!$post->is_featured)
 								@if (Auth::user()->role == "admin")
-									<a href="{!! URL::route('adminBlogPostTogglefeatured', array($post->id)) !!}" title="Set Featured">
+									<a href="{!! URL::route('admin-blog-post-togglefeatured', array($post->id)) !!}" title="Set Featured">
 										<span class="tf-icon fa fa-star"></span>
 									</a>
 								@endif
 							@else
 								@if (Auth::user()->role == "admin")
-									<a href="{!! URL::route('adminBlogPostTogglefeatured', array($post->id)) !!}" title="Unset Featured">
+									<a href="{!! URL::route('admin-blog-post-togglefeatured', array($post->id)) !!}" title="Unset Featured">
 										<span class="tf-icon featured fa fa-star"></span>
 									</a>
 								@else
@@ -191,7 +191,7 @@ use Chromabits\Pagination\FoundationPresenter;
 						
 						<p class="show-for-large-up">
 							By 
-							{!! HTML::linkRoute("adminBlogPosts", $post->author->username, 
+							{!! HTML::linkRoute("admin-blog-posts", $post->author->username, 
 							array("author" => $post->author->username)) !!}
 						</p>
 						
@@ -199,7 +199,7 @@ use Chromabits\Pagination\FoundationPresenter;
 							<p class="show-for-large-up">
 								Tags : 
 								@foreach ($post->tags as $tag)
-									{!! HTML::linkRoute("adminBlogPosts", $tag->name, array("tag" => $tag->name)) !!} 
+									{!! HTML::linkRoute("admin-blog-posts", $tag->name, array("tag" => $tag->name)) !!} 
 								@endforeach
 							</p>
 						@endif
@@ -213,14 +213,14 @@ use Chromabits\Pagination\FoundationPresenter;
 						
 						<div class="row">
 							<div class="small-4 columns">
-								{!! HTML::linkRoute("adminBlogPostPreview", "Preview", 
+								{!! HTML::linkRoute("admin-blog-post-preview", "Preview", 
 									array($post->id),
 									array("class" => "card-button"))
 								!!}
 							</div>
 							<div class="small-4 columns">
 								@if (Auth::user()->role == "admin" || Auth::user()->id == $post->author->id)
-									{!! HTML::linkRoute("adminBlogPostEdit", "Edit", 
+									{!! HTML::linkRoute("admin-blog-post-edit", "Edit", 
 										array($post->id), 
 										array("class" => "card-button"))
 									!!}
@@ -234,7 +234,7 @@ use Chromabits\Pagination\FoundationPresenter;
 									<div id="delete-modal-id-{!! $post->id !!}" class="reveal-modal tiny" data-reveal>
 										<h4>Confirm delete</h4>
 										<p>"{!! $post->title !!}"</p>
-										{!! Form::open(array("route" => array("adminBlogPostDelete", $post->id), "method" => "delete")) !!}
+										{!! Form::open(array("route" => array("admin-blog-post-delete", $post->id), "method" => "delete")) !!}
 											{!! Form::button("Delete", array("type" => "submit")) !!}
 										{!! Form::close() !!}
 										<a class="close-reveal-modal">&#215;</a>

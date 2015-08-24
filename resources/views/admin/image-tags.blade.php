@@ -1,4 +1,4 @@
-@extends("../admin-layouts.mainAdmin")
+@extends("../admin-layouts.main-admin")
 
 
 @section("title")
@@ -13,14 +13,14 @@ use Chromabits\Pagination\FoundationPresenter;
 
 @section("body")
 
-@include("admin-layouts.menuAdmin", array("link" => "imageposts", "has_sublink" => 1, "sublink" => "imagetags"))
+@include("admin-layouts.menu-admin", array("link" => "imageposts", "has_sublink" => 1, "sublink" => "imagetags"))
 
 <nav id="right-side-menu" class="side-menu full-height">
 	<br />
 	<ul class="root-menu">
 		<li><h4>Filter</h4></li>
         <li class="has-pd">
-        	{!! Form::open(array("route" => "adminImageTags", "method" => "get")) !!}
+        	{!! Form::open(array("route" => "admin-image-tags", "method" => "get")) !!}
 				{!! Form::label("q", "Search") !!}
 				<div class="row collapse">
 					<div class="small-9 columns">
@@ -52,14 +52,14 @@ use Chromabits\Pagination\FoundationPresenter;
     <h3 class="title">Image Tags</h3>
     <br />
     
-    @include("admin.alertBox")
+    @include("admin.alert-box")
     
     @if (Input::get("q") != null)
 		<div class="small-medium-align-center hide-for-large-up">
 			@if (Input::get("q") != null)
 				<p>Search : "{!! Input::get("q") !!}"</p>
 			@endif
-			<p>({!! HTML::linkRoute("adminImageTags", "Reset filter") !!})</p>
+			<p>({!! HTML::linkRoute("admin-image-tags", "Reset filter") !!})</p>
 			<br />
 		</div>
 	@endif
@@ -69,13 +69,13 @@ use Chromabits\Pagination\FoundationPresenter;
 			<h4>Filter</h4>
 			
 			@if (Input::get("status") != null || Input::get("q") != null)
-				<p>({!! HTML::linkRoute("adminImageTags", "Reset filter") !!})</p>
+				<p>({!! HTML::linkRoute("admin-image-tags", "Reset filter") !!})</p>
 				<br />
 			@endif
 		</div>
 		
 		<div class="small-12 large-4 columns medium-pd-r">
-			{!! Form::open(array("route" => "adminImageTags", "method" => "get")) !!}
+			{!! Form::open(array("route" => "admin-image-tags", "method" => "get")) !!}
                 {!! Form::label("q", "Search") !!}
 				<div class="row collapse">
 					<div class="small-9 columns">
@@ -119,13 +119,13 @@ use Chromabits\Pagination\FoundationPresenter;
 	                    	<span>
 	                    		@if (!$tag->is_featured)
 	                    			@if (Auth::user()->role == "admin")
-										<a href="{!! URL::route('adminImageTagTogglefeatured', array($tag->id)) !!}" title="Set Featured">
+										<a href="{!! URL::route('admin-image-tag-togglefeatured', array($tag->id)) !!}" title="Set Featured">
 											<span class="tf-icon fa fa-star"></span>
 										</a>
 									@endif
 								@else
 									@if (Auth::user()->role == "admin")
-										<a href="{!! URL::route('adminImageTagTogglefeatured', array($tag->id)) !!}" title="Unset Featured">
+										<a href="{!! URL::route('admin-image-tag-togglefeatured', array($tag->id)) !!}" title="Unset Featured">
 											<span class="tf-icon featured fa fa-star"></span>
 										</a>
 									@else
@@ -136,7 +136,7 @@ use Chromabits\Pagination\FoundationPresenter;
 	                        <br /><br />
 	                        <span>
 	                        	<b>Image posts</b> : 
-	                        	{!! HTML::linkRoute("adminImagePosts", $tag->posts()->count()." posts", array("tag" => $tag->name)) !!}
+	                        	{!! HTML::linkRoute("admin-image-posts", $tag->posts()->count()." posts", array("tag" => $tag->name)) !!}
                         	</span>
 	                        <br /><br />
 	                        @if (Auth::user()->role == "admin")
@@ -145,7 +145,7 @@ use Chromabits\Pagination\FoundationPresenter;
 		                        	<div id="delete-small-modal-id-{!! $tag->id !!}" class="reveal-modal tiny" data-reveal>
 		                        		<h4>Confirm delete</h4>
 		                        		<p>"{!! $tag->name !!}"</p>
-										{!! Form::open(array("route" => array("adminImageTagDelete", $tag->id), 'method' => 'delete')) !!}
+										{!! Form::open(array("route" => array("admin-image-tag-delete", $tag->id), 'method' => 'delete')) !!}
 									        {!! Form::submit("Delete", array("class" => "button")) !!}
 									    {!! Form::close() !!}
 									    <a class="close-reveal-modal">&#215;</a>
@@ -160,13 +160,13 @@ use Chromabits\Pagination\FoundationPresenter;
 	                	<td class="show-for-medium-up">
 	                		@if (!$tag->is_featured)
 								@if (Auth::user()->role == "admin")
-									<a href="{!! URL::route('adminImageTagTogglefeatured', array($tag->id)) !!}" title="Set Featured">
+									<a href="{!! URL::route('admin-image-tag-togglefeatured', array($tag->id)) !!}" title="Set Featured">
 										<span class="tf-icon fa fa-star"></span>
 									</a>
 								@endif
 							@else
 								@if (Auth::user()->role == "admin")
-									<a href="{!! URL::route('adminImageTagTogglefeatured', array($tag->id)) !!}" title="Unset Featured">
+									<a href="{!! URL::route('admin-image-tag-togglefeatured', array($tag->id)) !!}" title="Unset Featured">
 										<span class="tf-icon featured fa fa-star"></span>
 									</a>
 								@else
@@ -175,7 +175,7 @@ use Chromabits\Pagination\FoundationPresenter;
 							@endif
 	                	</td>
 	                    <td class="show-for-medium-up">
-	                    	{!! HTML::linkRoute("adminImagePosts", $tag->posts()->count()." posts", array("tag" => $tag->name)) !!}
+	                    	{!! HTML::linkRoute("admin-image-posts", $tag->posts()->count()." posts", array("tag" => $tag->name)) !!}
                     	</td>
                     	@if (Auth::user()->role == "admin")
 		                    <td class="show-for-medium-up">
@@ -183,7 +183,7 @@ use Chromabits\Pagination\FoundationPresenter;
 		                        <div id="delete-modal-id-{!! $tag->id !!}" class="reveal-modal tiny" data-reveal>
 									<h4>Confirm delete</h4>
 									<p>"{!! $tag->name !!}"</p>
-									{!! Form::open(array("route" => array("adminImageTagDelete", $tag->id), "method" => "delete")) !!}
+									{!! Form::open(array("route" => array("admin-image-tag-delete", $tag->id), "method" => "delete")) !!}
 										{!! Form::button("Delete", array("type" => "submit")) !!}
 									{!! Form::close() !!}
 									<a class="close-reveal-modal">&#215;</a>

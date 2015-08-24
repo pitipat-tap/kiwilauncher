@@ -1,4 +1,4 @@
-@extends("../admin-layouts.mainAdmin")
+@extends("../admin-layouts.main-admin")
 
 
 @section("title")
@@ -8,7 +8,7 @@
 
 @section("body")
 
-@include("admin-layouts.menuAdmin", array("link" => "blogposts", "has_sublink" => 1, "sublink" => "blogposts"))
+@include("admin-layouts.menu-admin", array("link" => "blogposts", "has_sublink" => 1, "sublink" => "blogposts"))
 
 <div class="row full-width container ui-block mg-b small-medium-header hide-for-large-up">
     <div class="small-6 columns">
@@ -20,7 +20,7 @@
 
 <div id="admin-blogposts" class="container">
 	<div class="post-preview">
-	    <h3 class="title">{!! HTML::linkRoute("adminBlogPosts", "Blog Posts") !!} <span class="fa fa-angle-right"></span> Live Preview</h3>
+	    <h3 class="title">{!! HTML::linkRoute("admin-blog-posts", "Blog Posts") !!} <span class="fa fa-angle-right"></span> Live Preview</h3>
 	    <br />
 	    
 		<div class="post-block ui-block">

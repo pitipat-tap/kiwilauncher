@@ -33,13 +33,13 @@ class AdminImageController extends Controller {
 			$posts = ImagePost::orderBy('is_featured', 'DESC')->orderBy('created_at', 'DESC')->paginate(20);
 		}
 		
-		return view("admin.imagePosts", array("posts" => $posts));
+		return view("admin.image-posts", array("posts" => $posts));
 	}
 
 	
 	public function newImagePost()
 	{
-		return view("admin.imagePostNew");
+		return view("admin.image-post-new");
 	}
 	
 	
@@ -81,7 +81,7 @@ class AdminImageController extends Controller {
 					$post->tags()->sync($tags_id);
 				}
 				
-				return Redirect::route("adminImagePosts")->with("success", "New post was created");
+				return Redirect::route("admin-image-posts")->with("success", "New post was created");
 			} else {
 				return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("image_url"));
 			}
@@ -96,14 +96,14 @@ class AdminImageController extends Controller {
 	{
 		// Check is exist
 		$post = ImagePost::find($id);
-		if (!$post) return Redirect::route("adminImagePosts");
+		if (!$post) return Redirect::route("admin-image-posts");
 		
 		// Check if not admin role, and not author's item
 		if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
-			return Redirect::route("adminImagePosts");
+			return Redirect::route("admin-image-posts");
 		}
 		
-		return view("admin.imagePostEdit", 
+		return view("admin.image-post-edit", 
 		    array(
                 "post" => $post
             )
@@ -115,11 +115,11 @@ class AdminImageController extends Controller {
 	{
 		// Check is exist
 		$post = ImagePost::find($id);
-		if (!$post) return Redirect::route("adminImagePosts")->with('error', 'Cannot save data');
+		if (!$post) return Redirect::route("admin-image-posts")->with('error', 'Cannot save data');
 		
 		// Check if not admin role, and not author's item
 		if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
-			return Redirect::route("adminImagePosts")->with('error', 'Cannot save data');
+			return Redirect::route("admin-image-posts")->with('error', 'Cannot save data');
 		}
 		
 		$caption = trim(Request::input("caption"));
@@ -142,7 +142,7 @@ class AdminImageController extends Controller {
 				$post->tags()->sync($tags_id);
 			}
 			
-			return Redirect::route("adminImagePosts")->with("success", "Updated post was saved");
+			return Redirect::route("admin-image-posts")->with("success", "Updated post was saved");
         } else {
             return Redirect::back()->with('error', 'Cannot save data')->withInput();;
         }
@@ -171,7 +171,7 @@ class AdminImageController extends Controller {
 	{
 		// Check is exist
 		$post = ImagePost::find($id);
-		if (!$post) return Redirect::route("adminImagePosts")->with('error', 'Cannot save data');
+		if (!$post) return Redirect::route("admin-image-posts")->with('error', 'Cannot save data');
 		
 		$message = "Success";
 		
@@ -208,7 +208,7 @@ class AdminImageController extends Controller {
             $tags = ImageTag::orderBy('is_featured', 'DESC')->orderBy('created_at', 'DESC')->paginate(20);
         }
 		
-		return view("admin.imageTags", array("tags" => $tags));
+		return view("admin.image-tags", array("tags" => $tags));
 	}
 	
 	
@@ -229,7 +229,7 @@ class AdminImageController extends Controller {
 	{
 		// Check is exist
 		$tag = ImageTag::find($id);
-		if (!$tag) return Redirect::route("adminImageTags")->with('error', 'Cannot save data');
+		if (!$tag) return Redirect::route("admin-image-tags")->with('error', 'Cannot save data');
 		
 		$message = "Success";
 		

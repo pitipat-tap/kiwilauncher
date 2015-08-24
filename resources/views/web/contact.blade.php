@@ -10,7 +10,7 @@
 
 
 @section("specific-js-head")
-{!! HTML::script("js/webContact.js") !!}
+{!! HTML::script("js/web-contact.js") !!}
 @stop
 
 

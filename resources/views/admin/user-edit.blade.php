@@ -1,8 +1,8 @@
-@extends("../admin-layouts.mainAdmin")
+@extends("../admin-layouts.main-admin")
 
 
 @section("title")
-Add User | 
+Edit User | 
 @stop
 
 
@@ -13,13 +13,13 @@ Add User |
 
 @section("specific_js_head")
 {!! HTML::script("/js/fancybox/source/jquery.fancybox.pack.js") !!}
-{!! HTML::script("/js/adminUserForm.js") !!}
+{!! HTML::script("/js/admin-user-form.js") !!}
 @stop
 
 
 @section("body")
 
-@include("admin-layouts.menuAdmin", array("link" => "users", "has_sublink" => 0, "sublink" => ""))
+@include("admin-layouts.menu-admin", array("link" => "users", "has_sublink" => 0, "sublink" => ""))
 
 <?php
 	session_start();
@@ -38,11 +38,16 @@ Add User |
 </div>
 
 <div id="admin-users" class="container">
-	{!! Form::open(array("route" => "adminUserCreate", "method" => "post", "class" => "user-form")) !!}
-		<h3 class="title">{!! HTML::linkRoute("adminUsers", "Users") !!} <span class="fa fa-angle-right"></span> Add</h3>
+	{!! Form::model($user, array(
+		"route" => array("admin-user-update", $user->id), 
+		"class" => "user-form",
+		"method" => "patch", 
+		"autocomplete" => "off" 
+	)) !!}
+		<h3 class="title">{!! HTML::linkRoute("admin-users", "Users") !!} <span class="fa fa-angle-right"></span> Edit</h3>
 		<br />
 		
-		@include("admin.alertBox")
+		@include("admin.alert-box")
         
         <div class="show-for-medium-up">
 			{!! Form::button("Save", 
@@ -57,37 +62,51 @@ Add User |
         
         <div class="row full-width">
         	<div class="small-12 medium-6 columns">
-        		<div class="ui-block mg-b medium-half-mg-r">
-        			<h4>User account</h4>
+    			<div class="ui-block mg-b medium-half-mg-r">
+            		<h4>Change user account data</h4>
+            		<p>
+            			@if ($user->profile_image == null || trim($user->profile_image == ""))
+                    		{!! HTML::image("/images/admin/default-profile-image.jpg", "", array("class" => "profile-image")) !!}
+                    	@else
+                    		{!! HTML::image($user->profile_image, "", array("class" => "profile-image")) !!}
+                    	@endif
+            			{!! $user->username !!}
+        			</p>
         			<br />
-        			
-            		{!! HTML::decode(Form::label("username", "Username")) !!}
-		            {!! Form::text("username") !!}
-		            {!! HTML::decode(Form::label("email", "Email")) !!}
+		            {!! Form::label("email", "Email") !!}
 		            {!! Form::email("email") !!}
-		            {!! HTML::decode(Form::label("password", "Password")) !!}
-		            {!! Form::password("password") !!}
-		            {!! HTML::decode(Form::label("password_confirmation", "Confirm password")) !!}
-		            {!! Form::password("password_confirmation") !!}
 		            {!! Form::label("role", "Role") !!}
-		            {!! Form::select("role", array("author" => "Author", "admin" => "Admin"), "author") !!}
+		            {!! Form::select("role", array("author" => "Author", "admin" => "Admin"), $user->role) !!}
+		            <br /><br />
+		            
+		            <h4>Change password <span class='form-label-notice'>(leave blank if you don't want to change)</span></h4>
+		            {!! Form::label("password", "New Password") !!}
+		            {!! Form::password("password") !!}
+		            {!! Form::label("password_confirmation", "Confirm new password") !!}
+		            {!! Form::password("password_confirmation") !!}
+		            <br />
             	</div>
             </div>
             
             <div class="small-12 medium-6 columns">
         		<div class="ui-block mg-b medium-half-mg-l">
-        			<h4>User info <span class='form-label-notice'>(optional)</span></h4>
-        			<br />
-        			
+        			<h4>Change user info</h4>
         			{!! Form::label("realname", "Realname") !!}
 		            {!! Form::text("realname") !!}
 		            {!! Form::label("info", "Brief info") !!}
 		            {!! Form::textarea("info", null, array("rows" => "5")) !!}
-		            <p class="f-label">Profile image</p>
-		            
-		            <?php $p_link = "http://".$_SERVER['SERVER_NAME'].$lpath."/filemanager/dialog.php?type=1&field_id=profile-image-url"; ?>
-		            <a class="fm-open" href="<?php echo $p_link; ?>">
-	                    {!! HTML::image("/images/admin/default-profile-image.jpg", 
+        			<br />
+        			
+        			<h4>Change profile image</h4>
+		        	@if ($user->profile_image == null || trim($user->profile_image == ""))
+                		<?php $profile_image = URL::to("/images/admin/default-profile-image.jpg"); ?>
+                	@else
+                		<?php $profile_image = $user->profile_image; ?>
+                	@endif
+                	
+                	<?php $p_link = "http://".$_SERVER['SERVER_NAME'].$lpath."/filemanager/dialog.php?type=1&field_id=profile-image-url"; ?>
+                	<a class="fm-open" href="<?php echo $p_link; ?>">
+	                    {!! HTML::image($profile_image, 
 	                        "Profile image", 
 	                        array(
 	                            "id" => "profile-image",
@@ -106,11 +125,13 @@ Add User |
                             "readonly" => "readonly"
                             ) 
                         ) 
-                    !!}    
+                    !!}   
+                    
                     <p>
                     	<a class="fm-open" href="<?php echo $p_link; ?>">Choose image</a> or 
                     	<a id="use-default-image">Use Default</a>
                     </p>
+                    <br /><br />
         		</div>
     		</div>
     	</div>

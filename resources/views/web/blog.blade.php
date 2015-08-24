@@ -10,7 +10,7 @@
 
 
 @section("specific-js-head")
-{!! HTML::script("js/webBlog.js") !!}
+{!! HTML::script("js/web-blog.js") !!}
 @stop
 
 
@@ -22,7 +22,7 @@
         <div id="blog-posts-ftd-crs">
             <ul id="blog-posts-ftd-data">
                 @foreach($posts as $post)
-                    <li class="count" data-link="{!! URL::route('blogPost', array($post->url)) !!}" 
+                    <li class="count" data-link="{!! URL::route('blog-post', array($post->url)) !!}" 
                         data-title="{!! $post->title !!}">
                     </li>
                 @endforeach
@@ -47,7 +47,7 @@
                        {!! $posts[0]->title !!}
                     </a>
                 </h4>
-                <p class="blog-post-rm"><a class="button" href="{!! URL::route('blogPost', array($posts[0]->url)) !!}">Read more</a></p>
+                <p class="blog-post-rm"><a class="button" href="{!! URL::route('blog-post', array($posts[0]->url)) !!}">Read more</a></p>
               
                 
             </div>
@@ -81,7 +81,7 @@
                     <p class="blog-post-description">
                         {!! $post->description !!}
                     </p>
-                    <p><a href="{!! URL::route('blogPost', array($post->url)) !!}">Read more...</a></p>
+                    <p><a href="{!! URL::route('blog-post', array($post->url)) !!}">Read more...</a></p>
                 </div>
             </li>
             @endforeach
