@@ -6543,7 +6543,8 @@ th.hide-for-touch {
   .figure-link .figure-img {
     -webkit-transform: scale(1);
     transform: scale(1);
-    transition: all 1s ease-out; }
+    transition: all 1s ease-out;
+    width: 100%; }
   .figure-link .figure-layer {
     background-color: rgba(255, 255, 255, 0.5);
     opacity: 0;
@@ -6947,6 +6948,11 @@ footer #footer-ending {
 
 #works #works-list .work-figure {
   margin-bottom: 0.5rem; }
+
+.drseoul-img {
+  border: solid;
+  border-color: #304a8e;
+  border-width: 5px; }
 
 @media (max-width: 30em) {
   #blog #blog-content.section-frame {
