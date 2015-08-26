@@ -34,8 +34,31 @@ class WebController extends Controller {
     
     public function blog()
 	{
-		return view('web.blog');
+        $posts = BlogPost::orderBy('created_at', 'DESC')->
+            paginate(20);
+		return view('web.blog', array("posts" => $posts));
 	}
+
+    public function blogPost($url)
+    {
+        $post = BlogPost::where("url", "=", $url)->first();
+        if (!$post) App::abort(404);
+        
+        $post->hits += 1;
+        $post->timestamps = false;
+        $post->save();
+        
+        $prev_post = BlogPost::where("status", "=", "published")->
+            where("created_at", "<", $post->created_at)->
+            orderBy("created_at", "DESC")->
+            take(3)->get();
+        
+        return view("web.blogPost", array(
+                "post" => $post,
+                "prev_post" => $prev_post
+            )
+        );
+    }
     
     public function contact()
 	{

@@ -6577,6 +6577,9 @@ th.hide-for-touch {
     color: #007434;
     border-color: #007434; }
 
+ul.none-style {
+  list-style-type: none; }
+
 #menu-toggle {
   background: white;
   border-color: #222;

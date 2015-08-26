@@ -6,7 +6,7 @@ use Validator;
 use Redirect;
 use DB;
 
-use App\Models\User;
+use App\Models\user;
 use App\Models\BlogPost;
 use App\Models\ImagePost;
 use Illuminate\Support\Facades\Hash;
@@ -202,7 +202,7 @@ class AdminCommonController extends Controller {
 	public function editProfile()
 	{
 		$user = Auth::user();
-		return view("admin.editProfile", array("user" => $user));
+		return view("admin.edit-profile", array("user" => $user));
 	}
 	
 	
@@ -231,7 +231,7 @@ class AdminCommonController extends Controller {
 			
             $user->save();
             
-            return Redirect::route('adminProfileEdit')->with('success', 'Your edited profile was saved');
+            return Redirect::route('admin-profile-edit')->with('success', 'Your edited profile was saved');
         } else {
             return Redirect::back()->with('error', 'Errors')->withErrors($validator)->withInput();
         }

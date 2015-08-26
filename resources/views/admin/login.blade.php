@@ -1,4 +1,4 @@
-@extends("../admin-layouts.mainAdmin")
+@extends("../admin-layouts.main-admin")
 
 
 @section("title")
@@ -23,9 +23,9 @@ Admin Login |
         <div class="ui-block mg">
             <h2>Admin Login</h2>
             
-            @include("admin.alertBox")
+            @include("admin.alert-box")
             
-            {!! Form::open(array("route" => "adminAuth", "method" => "post")) !!}
+            {!! Form::open(array("route" => "admin-auth", "method" => "post")) !!}
                 {!! Form::text("username", null, array("placeholder" => "Username", "autofocus" => 1)) !!}
                 {!! Form::password("password", array("placeholder" => "Password")) !!}
                 {!! Form::checkbox("remember", "1", null, array("id" => "remember")) !!}

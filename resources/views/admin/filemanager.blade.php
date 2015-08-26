@@ -1,4 +1,4 @@
-@extends("../admin-layouts.mainAdmin")
+@extends("../admin-layouts.main-admin")
 
 
 @section("title")
@@ -8,7 +8,7 @@ File manager |
 
 @section("body")
 
-@include("admin-layouts.menuAdmin", array("link" => "filemanager", "has_sublink" => 0, "sublink" => ""))
+@include("admin-layouts.menu-admin", array("link" => "filemanager", "has_sublink" => 0, "sublink" => ""))
 
 <?php
 	session_start();

@@ -179,4 +179,4 @@ $(document).ready(function() {
         bulletItems.eq(ftdPostIndex).find("a").trigger("click");
     }
 });
-//# sourceMappingURL=web-blog.js.map
+//# sourceMappingURL=webBlog.js.map

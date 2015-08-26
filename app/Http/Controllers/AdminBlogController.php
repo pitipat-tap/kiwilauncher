@@ -47,16 +47,16 @@ class AdminBlogController extends Controller {
 			$posts = BlogPost::orderBy('is_featured', 'DESC')->orderBy('created_at', 'DESC')->paginate(20);
 		}
 		
-		return view("admin.blogPosts", array("posts" => $posts));
+		return view("admin.blog-posts", array("posts" => $posts));
 	}
 	
 	
 	public function previewBlogPost($id)
 	{
 		$post = BlogPost::find($id);
-		if (!$post) Redirect::route("adminBlogPosts");
+		if (!$post) Redirect::route("admin-blog-posts");
 		
-		return view("admin.blogPostPreview", array("post" => $post));
+		return view("admin.blog-post-preview", array("post" => $post));
 	}
     
     public function livePreviewBlogPost()
@@ -64,13 +64,13 @@ class AdminBlogController extends Controller {
         $post = array();
         $post["title"] = Request::input("title");
         $post["content"] = Request::input("content");
-        return view("admin.blogpostLivePreview", array("post" => $post));
+        return view("admin.blog-post-livepreview", array("post" => $post));
     }
 	
 	
 	public function newBlogPost()
 	{
-		return view("admin.blogPostNew");
+		return view("admin.blog-post-new");
 	}
 	
 	
@@ -106,7 +106,7 @@ class AdminBlogController extends Controller {
 					$post->tags()->sync($tags_id);
 				}
 				
-				return Redirect::route("adminBlogPosts")->with("success", "New post was created");
+				return Redirect::route("admin-blog-posts")->with("success", "New post was created");
 			} else {
 				return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("feature_image_url"));
 			}
@@ -121,11 +121,11 @@ class AdminBlogController extends Controller {
 	{
 		// Check is exist
 		$post = BlogPost::find($id);
-		if (!$post) return Redirect::route("adminBlogPosts");
+		if (!$post) return Redirect::route("admin-blog-posts");
 		
 		// Check if not admin role, and not author's item
 		if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
-			return Redirect::route("adminBlogPosts");
+			return Redirect::route("admin-blog-posts");
 		}
 		
 		$tags_str = "";
@@ -133,7 +133,7 @@ class AdminBlogController extends Controller {
 			$tags_str.=$tag->name." ";
 		}
 		
-		return view("admin.blogPostEdit", 
+		return view("admin.blog-post-edit", 
 		    array(
                 "post" => $post, 
                 "tags_str" => $tags_str
@@ -146,11 +146,11 @@ class AdminBlogController extends Controller {
 	{
 		// Check is exist
 		$post = BlogPost::find($id);
-		if (!$post) return Redirect::route("adminBlogPosts")->with('error', 'Cannot save data');
+		if (!$post) return Redirect::route("admin-blog-posts")->with('error', 'Cannot save data');
 		
 		// Check if not admin role, and not author's item
 		if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
-			return Redirect::route("adminBlogPosts")->with('error', 'Cannot save data');
+			return Redirect::route("admin-blog-posts")->with('error', 'Cannot save data');
 		}
 		
 		$validator = Validator::make(Request::all(), BlogPost::save_rules($id), BlogPost::$custom_messages);
@@ -181,7 +181,7 @@ class AdminBlogController extends Controller {
 					$post->tags()->sync($tags_id);
 				}
 				
-	            return Redirect::route("adminBlogPosts")->with("success", "Updated post was saved");
+	            return Redirect::route("admin-blog-posts")->with("success", "Updated post was saved");
 	        } else {
 	            return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("feature_image_url"));;
 	        }
@@ -196,17 +196,17 @@ class AdminBlogController extends Controller {
 	{
 		// Check is exist
 		$post = BlogPost::find($id);
-		if (!$post) return Redirect::route("adminBlogPosts")->with('error', 'Cannot delete data');
+		if (!$post) return Redirect::route("admin-blog-posts")->with('error', 'Cannot delete data');
 		
 		// Check if not admin role, and not author's item
 		if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
-			return Redirect::route("adminBlogPosts")->with('error', 'Cannot delete data');
+			return Redirect::route("admin-blog-posts")->with('error', 'Cannot delete data');
 		}
 		
 		$post->tags()->detach();
 		$post->delete();
 		
-		if (Request::input("inpreview")) return Redirect::route("adminBlogPosts")->with("success", "Post was deleted");
+		if (Request::input("inpreview")) return Redirect::route("admin-blog-posts")->with("success", "Post was deleted");
 		return Redirect::back()->with("success", "Post was deleted");
 	}
 	
@@ -215,7 +215,7 @@ class AdminBlogController extends Controller {
 	{
 		// Check is exist
 		$post = BlogPost::find($id);
-		if (!$post) return Redirect::route("adminBlogPosts")->with('error', 'Cannot save data');
+		if (!$post) return Redirect::route("admin-blog-posts")->with('error', 'Cannot save data');
 		
 		$message = "Success";
 		
@@ -252,7 +252,7 @@ class AdminBlogController extends Controller {
             $tags = BlogTag::orderBy('is_featured', 'DESC')->orderBy('created_at', 'DESC')->paginate(20);
         }
 		
-		return view("admin.blogtags", array("tags" => $tags));
+		return view("admin.blog-tags", array("tags" => $tags));
 	}
 	
 	
@@ -273,7 +273,7 @@ class AdminBlogController extends Controller {
 	{
 		// Check is exist
 		$tag = BlogTag::find($id);
-		if (!$tag) return Redirect::route("adminBlogTags")->with('error', 'Cannot save data');
+		if (!$tag) return Redirect::route("admin-blog-tags")->with('error', 'Cannot save data');
 		
 		$message = "Success";
 		

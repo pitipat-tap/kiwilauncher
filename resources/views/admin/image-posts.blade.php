@@ -1,4 +1,4 @@
-@extends("../admin-layouts.mainAdmin")
+@extends("../admin-layouts.main-admin")
 
 
 @section("title")
@@ -7,7 +7,7 @@ Image posts |
 
 
 @section("specific_js_head")
-{!! HTML::script("/js/adminImagePosts.js") !!}
+{!! HTML::script("/js/admin-image-posts.js") !!}
 @stop
 
 
@@ -18,7 +18,7 @@ use Chromabits\Pagination\FoundationPresenter;
 
 @section("body")
 
-@include("admin-layouts.menuAdmin", array("link" => "imageposts", "has_sublink" => 1, "sublink" => "imageposts"))
+@include("admin-layouts.menu-admin", array("link" => "imageposts", "has_sublink" => 1, "sublink" => "imageposts"))
 
 <div class="row container ui-block mg-b small-medium-header hide-for-large-up">
     <div class="small-6 columns">
@@ -27,7 +27,7 @@ use Chromabits\Pagination\FoundationPresenter;
         </a>
     </div>
     <div class="small-6 columns align-right">
-    	<a class="link-icon mg-r" href="{!! URL::route('adminImagePostNew') !!}">
+    	<a class="link-icon mg-r" href="{!! URL::route('admin-image-post-new') !!}">
     		<span class="fa fa-plus"></span>
     	</a>
     </div>
@@ -37,10 +37,10 @@ use Chromabits\Pagination\FoundationPresenter;
 	<h3 class="title">Image Posts</h3>
 	<br />
 	
-	@include("admin.alertBox")
+	@include("admin.alert-box")
 	
 	<div class="show-for-large-up">
-		{!! HTML::linkRoute("adminImagePostNew", "Add Post", [], array("class" => "button")) !!}
+		{!! HTML::linkRoute("admin-image-post-new", "Add Post", [], array("class" => "button")) !!}
 		<br /><br />
 	</div>
 	
@@ -54,7 +54,7 @@ use Chromabits\Pagination\FoundationPresenter;
 				<p>Tag : {!! Input::get("tag") !!}</p>
 			@endif
 			
-			<p>({!! HTML::linkRoute("adminImagePosts", "View all data") !!})</p>
+			<p>({!! HTML::linkRoute("admin-image-posts", "View all data") !!})</p>
 			<br />
 		</div>
 	@endif
@@ -68,13 +68,13 @@ use Chromabits\Pagination\FoundationPresenter;
 						<p>
 							@if (!$post->is_featured)
 								@if (Auth::user()->role == "admin")
-									<a href="{!! URL::route('adminImagePostTogglefeatured', array($post->id)) !!}" title="Set Featured">
+									<a href="{!! URL::route('admin-image-post-togglefeatured', array($post->id)) !!}" title="Set Featured">
 										<span class="tf-icon fa fa-star"></span>
 									</a>
 								@endif
 							@else
 								@if (Auth::user()->role == "admin")
-									<a href="{!! URL::route('adminImagePostTogglefeatured', array($post->id)) !!}" title="Unset Featured">
+									<a href="{!! URL::route('admin-image-post-togglefeatured', array($post->id)) !!}" title="Unset Featured">
 										<span class="tf-icon featured fa fa-star"></span>
 									</a>
 								@else
@@ -85,7 +85,7 @@ use Chromabits\Pagination\FoundationPresenter;
 						
 						<p class="show-for-large-up">
 							By 
-							{!! HTML::linkRoute("adminImagePosts", $post->author->username, 
+							{!! HTML::linkRoute("admin-image-posts", $post->author->username, 
 							array("author" => $post->author->username)) !!}
 						</p>
 						
@@ -93,7 +93,7 @@ use Chromabits\Pagination\FoundationPresenter;
 							<p class="show-for-large-up">
 								Tags : 
 								@foreach ($post->tags as $tag)
-									{!! HTML::linkRoute("adminImagePosts", $tag->name, array("tag" => $tag->name)) !!} 
+									{!! HTML::linkRoute("admin-image-posts", $tag->name, array("tag" => $tag->name)) !!} 
 								@endforeach
 							</p>
 						@endif
@@ -108,7 +108,7 @@ use Chromabits\Pagination\FoundationPresenter;
 						<div class="row">
 							<div class="small-6 columns">
 								@if (Auth::user()->role == "admin" || Auth::user()->id == $post->author->id)
-									{!! HTML::linkRoute("adminImagePostEdit", "Edit", 
+									{!! HTML::linkRoute("admin-image-post-edit", "Edit", 
 										array($post->id), 
 										array("class" => "card-button"))
 									!!}
@@ -121,7 +121,7 @@ use Chromabits\Pagination\FoundationPresenter;
 									<a class="card-button end" data-reveal-id="delete-modal-id-{!! $post->id !!}">Delete</a>
 									<div id="delete-modal-id-{!! $post->id !!}" class="reveal-modal tiny" data-reveal>
 										<h4>Confirm delete</h4>
-										{!! Form::open(array("route" => array("adminImagePostDelete", $post->id), "method" => "delete")) !!}
+										{!! Form::open(array("route" => array("admin-image-post-delete", $post->id), "method" => "delete")) !!}
 											{!! Form::button("Delete", array("type" => "submit")) !!}
 										{!! Form::close() !!}
 										<a class="close-reveal-modal">&#215;</a>

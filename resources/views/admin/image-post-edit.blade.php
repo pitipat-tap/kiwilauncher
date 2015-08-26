@@ -1,4 +1,4 @@
-@extends("../admin-layouts.mainAdmin")
+@extends("../admin-layouts.main-admin")
 
 
 @section("title")
@@ -11,13 +11,13 @@ Edit image post |
 
 
 @section("specific_js_head")
-{!! HTML::script("/js/adminImagePostForm.js") !!}
+{!! HTML::script("/js/admin-image-post-form.js") !!}
 @stop
 
 
 @section("body")
 
-@include("admin-layouts.menuAdmin", array("link" => "imageposts", "has_sublink" => 1, "sublink" => "imageposts"))
+@include("admin-layouts.menu-admin", array("link" => "imageposts", "has_sublink" => 1, "sublink" => "imageposts"))
 
 <div class="row full-width container ui-block mg-b small-medium-header hide-for-large-up">
     <div class="small-6 columns">
@@ -28,11 +28,11 @@ Edit image post |
 </div>
 
 <div id="admin-imageposts" class="container">
-	{!! Form::model($post, array("route" => array("adminImagePostUpdate", $post->id), "method" => "patch", "class" => "imagepost-form")) !!}
-		<h3 class="title">{!! HTML::linkRoute("adminImagePosts", "Image Posts") !!} <span class="fa fa-angle-right"></span> Edit</h3>
+	{!! Form::model($post, array("route" => array("admin-image-post-update", $post->id), "method" => "patch", "class" => "imagepost-form")) !!}
+		<h3 class="title">{!! HTML::linkRoute("admin-image-posts", "Image Posts") !!} <span class="fa fa-angle-right"></span> Edit</h3>
 		<br />
 		
-		@include("admin.alertBox")
+		@include("admin.alert-box")
         
         <div class="show-for-medium-up">
 			{!! Form::button("Save", 

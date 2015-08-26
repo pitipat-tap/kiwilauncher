@@ -23,5 +23,11 @@ elixir(function(mix) {
     mix.scripts(["frontend/menu.js", "frontend/blog.js"], "public/js/web-blog.js");
     mix.scripts(["frontend/menu.js", "frontend/contact.js"], "public/js/web-contact.js");
 
+    mix.scripts("backend/admin-blog-post-form.js", "public/js/admin-blog-post-form.js");
+    mix.scripts("backend/admin-image-post-form.js", "public/js/admin-image-post-form.js");
+    mix.scripts("backend/admin-index.js", "public/js/admin-index.js");
+    mix.scripts("backend/admin-menu.js", "public/js/wadmin-menu.js");
+    mix.scripts("backend/admin-user-form.js", "public/js/admin-user-form.js");
+
 });
 

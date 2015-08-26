@@ -16,7 +16,6 @@
         {!! HTML::script("js/foundation/js/foundation.min.js") !!}
         {!! HTML::script("js/foundation/js/foundation.min.js") !!}
         {!! HTML::script("js/angular.min.js") !!}
-        {!! HTML::script("js/controller/headerController.js") !!}
 
         @yield("specific_js_head")
     </head>
