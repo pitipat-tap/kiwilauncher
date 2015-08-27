@@ -38,6 +38,7 @@ class CreateWorkTable extends Migration {
             $table->increments('id');
             $table->integer('work_id')->references('id')->on('work_post');
             $table->integer('categories_id')->references('id')->on('work_categories');
+            $table->timestamps("created_at");
         });
 
         Schema::create('work_image', function($table)
@@ -45,6 +46,7 @@ class CreateWorkTable extends Migration {
             $table->increments('id');
             $table->integer('work_id')->references('id')->on('work_post');
             $table->string("image_url");
+            $table->timestamps("created_at");
         });
 	}
 

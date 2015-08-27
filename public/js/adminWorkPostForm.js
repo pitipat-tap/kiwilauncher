@@ -11,6 +11,21 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+	$('.sc-open').fancybox({
+		width: 900,
+		height: 600,
+		type: "iframe",
+		autoSize: false,
+		afterClose: function() {
+			for(i=0; i<=3; i++){
+				url = $(':text[name="screenshots_URL'+ i +'"]').val();
+				if (url!='') {
+					$('#screenshots'+i).attr('src', url);
+				}
+			}	
+		}
+	});
 	
 	$('.livepreview').click(function(event) {
 		title = $(':text[name="title"]').val();
@@ -25,6 +40,17 @@ $(document).ready(function() {
 		form.children(':hidden[name="title"]').val(title);
 		form.children(':hidden[name="description"]').val(description);
 		form.children(':hidden[name="feature_url"]').val(feature_url);
+		var i = 0;
+		while(true){
+			url = $(':text[name="screenshots_URL'+ i +'"]').val();
+			if (url!='') {
+				form.children(':hidden[name="screenshots_URL'+ i +'"]').val(url);
+			}
+			else{
+				break;
+			}
+			i++;
+		}
 		form.submit();
 	});
 });

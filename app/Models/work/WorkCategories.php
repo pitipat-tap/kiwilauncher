@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace App\Models\work;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +12,7 @@ class WorkCategories extends Model {
 	
 	public function posts()
 	{
-	    return $this->belongsToMany('App\Models\WorkPost', 'work_post_categories', 'categories_id', 'work_id')->withTimestamps();;
+	    return $this->belongsToMany('App\Models\work\WorkPost', 'work_post_categories', 'categories_id', 'work_id')->withTimestamps();;
 	}
 
 }

@@ -4,11 +4,12 @@ use Request;
 use Validator;
 use Auth;
 use Redirect;
+use Input;
 
 use App\Models\User;
-use App\Models\WorkPost;
-use App\Models\WorkImage;
-use App\Models\WorkCategories;
+use App\Models\work\WorkPost;
+use App\Models\work\WorkImage;
+use App\Models\work\WorkCategories;
 
 class AdminWorkController extends Controller {
 	
@@ -67,10 +68,10 @@ class AdminWorkController extends Controller {
 	{
 		$categorys = WorkCategories::all();
 		return view("admin.workPostNew",
-		    array(
-                "categorys" => $categorys
-            ));
-	}
+	    array(
+            "categorys" => $categorys
+        ));
+}
 	
 	
 	public function createworkPost()
@@ -88,7 +89,29 @@ class AdminWorkController extends Controller {
 			$post->status = Request::input("status");
 			
 			if ($post->save()) {
-				return Redirect::route("adminWorkPosts")->with("success", "New post was created");
+
+				$categorys_id = array();
+	        	$categorys = WorkCategories::all();
+	        	foreach ($categorys as $category) {
+	        		if (Input::get($category->name)) {
+					    $categories = WorkCategories::where("name", "=", $category->name )->first();
+					    array_push($categorys_id, $categories->id);
+					} 
+	        	}
+	        	$post->categories()->sync($categorys_id);
+
+				$i=0;
+				$image_url = trim(Request::input("screenshots_URL".$i));
+				while($image_url != null && $image_url != ''){
+					$newImage = new WorkImage;
+					$newImage->posts()->associate($post);
+					$newImage->image_url = $image_url;
+					$newImage->save();
+					$i++;
+					$image_url = trim(Request::input("screenshots_URL".$i));
+				}
+
+				return Redirect::route("adminWorkPosts")->with("success", json_encode($categorys_id));
 			} 
 			else {
 				return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("feature_image_url"));
@@ -111,10 +134,13 @@ class AdminWorkController extends Controller {
 		if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
 			return Redirect::route("adminWorkPosts");
 		}
+
+		$categorys = WorkCategories::all();
 		
 		return view("admin.workPostEdit", 
 		    array(
-                "post" => $post
+                "post" => $post,
+                "categorys" => $categorys
             )
         );
 	}
@@ -142,6 +168,19 @@ class AdminWorkController extends Controller {
 			$post->status = Request::input("status");
 			
 	        if ($post->save()) {
+
+
+
+	        	$categorys_id = array();
+	        	$categorys = WorkCategories::all();
+	        	foreach ($categorys as $category) {
+	        		if (Input::get($category->name) == 'yes') {
+					    $categories = WorkCategories::where("name", "=", $category->name )->first();
+					    array_push($categorys_id, $categories->id);
+					} 
+	        	}
+	        	$post->categories()->sync($categorys_id);
+	        	
 	   //      	$tags = Request::input("tags");
 	   //      	$tags_id = array();
 				// if (trim($tags) != "") {

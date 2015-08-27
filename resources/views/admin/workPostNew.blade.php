@@ -98,7 +98,7 @@ Add New Work Post |
 
 	               	{!! Form::label("category") !!}
 			    	@foreach ($categorys as $category)
-				    	{!! Form::checkbox("category", $category->name) !!}
+				    	{!! Form::checkbox($category->name) !!}
 				    	{!! $category->name !!}
 					@endforeach
 					<br>
@@ -109,7 +109,38 @@ Add New Work Post |
 	                {!! Form::label("screenshots", "Screenshots") !!}
 	                <div class="row">
 		                @for($i = 0; $i < 3; $i++)
-		                	{! $i !}
+		                	<div class="small-12 large-4 columns">
+			                	add screenshots{!! $i !!}
+			                	<div class="ui-block mg-b medium-half-mg-l">
+				                	<p class="f-label">Screenshots {!! $i !!},</p>
+
+									<?php $p_link = "http://".$_SERVER['SERVER_NAME'].$lpath."/filemanager/dialog.php?type=1&field_id=screenshots-URL".$i; ?>
+									<a class="sc-open" href="<?php echo $p_link; ?>">
+					                    {!! HTML::image("/images/admin/icon-placeholder.svg", 
+					                        "Screenshots-$i", 
+					                        array(
+					                            "id" => "screenshots".$i ,
+					                            "class" => "post-image"
+					                            )
+					                        )
+					                    !!}
+				                    </a>
+				                    
+				                    {!! Form::text("screenshots_URL".$i, 
+				                        null, 
+				                        array(
+				                            "id" => "screenshots-URL".$i,
+				                            "class" => "image-url far-away",
+				                            "autocomplete" => "off",
+				                            "readonly" => "readonly"
+				                            ) 
+				                        ) 
+				                    !!}
+				                        
+				                    <p><a class="sc-open" href="<?php echo $p_link; ?>">Select Image</a></p>
+		
+				                </div>
+				            </div>
 						@endfor
 					</div>
 			        

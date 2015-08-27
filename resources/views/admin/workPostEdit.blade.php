@@ -95,6 +95,13 @@ Edit Blog Post |
 
 			    	{!! Form::label("link_url", "Link web URL") !!}
 	               	{!! Form::text("link_url", null) !!}
+
+	               	{!! Form::label("category") !!}
+			    	@foreach ($categorys as $category)
+				    	{!! Form::checkbox($category->name) !!}
+				    	{!! $category->name !!}
+					@endforeach
+					<br>
 			    	
 			    	{!! Form::label("description", "Description") !!}
 	                {!! Form::textarea("description", null, array("rows" => "4")) !!}
