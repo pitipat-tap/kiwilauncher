@@ -116,6 +116,12 @@ $(document).ready(function(event) {
     });
 
     $("#header-brand").click(function(){
+        if ($(this).attr("data-fn") == "open") {
+            $(this).attr("data-fn", "close");
+        }
+        else if ($(this).attr("data-fn") == "close") {
+            $(this).attr("data-fn", "open");
+        }
     });
 });
 
