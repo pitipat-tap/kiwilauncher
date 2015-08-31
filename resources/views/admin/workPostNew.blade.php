@@ -97,7 +97,7 @@ Add New Work Post |
 		            {!! Form::text("link_url", null) !!}
 
 	               	{!! Form::label("category") !!}
-			    	@foreach ($categorys as $category)
+			    	@foreach ($allCategory as $category)
 				    	{!! Form::checkbox($category->name) !!}
 				    	{!! $category->name !!}
 					@endforeach

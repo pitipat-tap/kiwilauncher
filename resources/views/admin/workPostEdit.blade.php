@@ -97,8 +97,8 @@ Edit Blog Post |
 	               	{!! Form::text("link_url", null) !!}
 
 	               	{!! Form::label("category") !!}
-			    	@foreach ($categorys as $category)
-				    	{!! Form::checkbox($category->name) !!}
+			    	@foreach ($allCategory as $category)
+				    	{!! Form::checkbox($category->name, $category->id ,$category->isPost) !!}
 				    	{!! $category->name !!}
 					@endforeach
 					<br>

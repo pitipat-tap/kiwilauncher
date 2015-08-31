@@ -5,11 +5,13 @@ use Validator;
 use Auth;
 use Redirect;
 use Input;
+use DB;
 
 use App\Models\User;
-use App\Models\work\WorkPost;
-use App\Models\work\WorkImage;
-use App\Models\work\WorkCategories;
+use App\Models\work\Post;
+use App\Models\work\Screenshot;
+use App\Models\work\Categories;
+use App\Models\work\PostCategories;
 
 class AdminWorkController extends Controller {
 	
@@ -24,22 +26,22 @@ class AdminWorkController extends Controller {
 		$posts = null;
 		 
 		if ($status != null) {
-			$posts = WorkPost::where("status", "=", $status)->
+			$posts = Post::where("status", "=", $status)->
 				orderBy('is_featured', 'DESC')->
 				paginate(20);
 		}
 		elseif ($q != null && trim($q) != "") {
-			$posts = WorkPost::where("title", "LIKE", "%".$q."%")->
+			$posts = Post::where("title", "LIKE", "%".$q."%")->
 				orderBy('is_featured', 'DESC')->
 				paginate(20);
 		}
 		elseif ($author != null) {
-			$posts = WorkPost::whereHas("author", function($query) {
+			$posts = Post::whereHas("author", function($query) {
 				$query->where("username", "=", Request::input("author"));
 			})->orderBy('is_featured', 'DESC')->paginate(20);
 		}
 		else {
-			$posts = WorkPost::orderBy('is_featured', 'DESC')->paginate(20);
+			$posts = Post::orderBy('is_featured', 'DESC')->paginate(20);
 		}
 		
 		return view("admin.workPosts", array("posts" => $posts));
@@ -48,7 +50,7 @@ class AdminWorkController extends Controller {
 	
 	public function previewWorkPost($id)
 	{
-		$post = WorkPost::find($id);
+		$post = Post::find($id);
 		if (!$post) Redirect::route("adminWorkPosts");
 		
 		return view("admin.workPostPreview", array("post" => $post));
@@ -66,20 +68,20 @@ class AdminWorkController extends Controller {
 	
 	public function newWorkPost()
 	{
-		$categorys = WorkCategories::all();
+		$allCategory = Categories::all();
 		return view("admin.workPostNew",
 	    array(
-            "categorys" => $categorys
+            "allCategory" => $allCategory 
         ));
 }
 	
 	
 	public function createworkPost()
 	{
-		$validator = Validator::make(Request::all(), WorkPost::save_rules(), WorkPost::$custom_messages);
+		$validator = Validator::make(Request::all(), Post::save_rules(), Post::$custom_messages);
 		
 		if ($validator->passes()) {
-			$post = new WorkPost;
+			$post = new Post;
 			$post->author()->associate(Auth::user());
 			$post->title = trim(Request::input("title"));
 			$post->url = trim(Request::input("url"));
@@ -90,28 +92,28 @@ class AdminWorkController extends Controller {
 			
 			if ($post->save()) {
 
-				$categorys_id = array();
-	        	$categorys = WorkCategories::all();
+	        	$categorys = Categories::all();
 	        	foreach ($categorys as $category) {
 	        		if (Input::get($category->name)) {
-					    $categories = WorkCategories::where("name", "=", $category->name )->first();
-					    array_push($categorys_id, $categories->id);
-					} 
+						$postCategories = new PostCategories;
+						$postCategories->posts()->associate($post);
+						$postCategories->categories()->associate($category);
+						$postCategories->save();    
+					}
 	        	}
-	        	$post->categories()->sync($categorys_id);
 
 				$i=0;
 				$image_url = trim(Request::input("screenshots_URL".$i));
 				while($image_url != null && $image_url != ''){
-					$newImage = new WorkImage;
-					$newImage->posts()->associate($post);
-					$newImage->image_url = $image_url;
-					$newImage->save();
+					$newScreenshot = new Screenshot;
+					$newScreenshot->posts()->associate($post);
+					$newScreenshot->image_url = $image_url;
+					$newScreenshot->save();
 					$i++;
 					$image_url = trim(Request::input("screenshots_URL".$i));
 				}
 
-				return Redirect::route("adminWorkPosts")->with("success", json_encode($categorys_id));
+				return Redirect::route("adminWorkPosts")->with("success", json_encode("New work post was created"));
 			} 
 			else {
 				return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("feature_image_url"));
@@ -127,7 +129,7 @@ class AdminWorkController extends Controller {
 	public function editWorkPost($id)
 	{
 		// Check is exist
-		$post = WorkPost::find($id);
+		$post = Post::find($id);
 		if (!$post) return Redirect::route("adminWorkPosts");
 		
 		// Check if not admin role, and not author's item
@@ -135,12 +137,26 @@ class AdminWorkController extends Controller {
 			return Redirect::route("adminWorkPosts");
 		}
 
-		$categorys = WorkCategories::all();
+		$allCategory = Categories::all();
+		$postCategories = PostCategories::where('work_id','=', $id)->get();
+		$i = 0;
+		foreach ($allCategory as $category ){
+			if ($i >= sizeof($postCategories)){
+				$category->isPost = FALSE;
+			}
+			elseif($category->id == $postCategories[$i]->categories_id){
+				$category->isPost = TRUE;
+				$i++;
+			}
+			else{
+				$category->isPost = FALSE;	
+			}
+		}
 		
 		return view("admin.workPostEdit", 
 		    array(
                 "post" => $post,
-                "categorys" => $categorys
+                "allCategory" => $allCategory
             )
         );
 	}
@@ -149,7 +165,7 @@ class AdminWorkController extends Controller {
 	public function updateWorkPost($id)
 	{
 		// Check is exist
-		$post = WorkPost::find($id);
+		$post = Post::find($id);
 		if (!$post) return Redirect::route("adminWorkPosts")->with('error', 'Cannot save data');
 		
 		// Check if not admin role, and not author's item
@@ -157,7 +173,7 @@ class AdminWorkController extends Controller {
 			return Redirect::route("adminWorkPosts")->with('error', 'Cannot save data');
 		}
 		
-		$validator = Validator::make(Request::all(), WorkPost::save_rules($id), WorkPost::$custom_messages);
+		$validator = Validator::make(Request::all(), Post::save_rules($id), Post::$custom_messages);
 		
 		if ($validator->passes()) {
 	        $post->title = trim(Request::input("title"));
@@ -169,36 +185,29 @@ class AdminWorkController extends Controller {
 			
 	        if ($post->save()) {
 
-
-
-	        	$categorys_id = array();
-	        	$categorys = WorkCategories::all();
+	        	PostCategories::where('work_id','=', $id)->delete(); // delete old Categories
+	        	$categorys = Categories::all();
 	        	foreach ($categorys as $category) {
-	        		if (Input::get($category->name) == 'yes') {
-					    $categories = WorkCategories::where("name", "=", $category->name )->first();
-					    array_push($categorys_id, $categories->id);
-					} 
+	        		if (Input::get($category->name)) {
+						$postCategories = new PostCategories;
+						$postCategories->posts()->associate($post);
+						$postCategories->categories()->associate($category);
+						$postCategories->save();    
+					}
 	        	}
-	        	$post->categories()->sync($categorys_id);
-	        	
-	   //      	$tags = Request::input("tags");
-	   //      	$tags_id = array();
-				// if (trim($tags) != "") {
-				// 	$tags = preg_replace('/\s+/', ' ', trim($tags));
-				// 	$tags_array = explode(" ", $tags);
-				// 	foreach ($tags_array as $tag_name) {
-				// 		$tag = BlogTag::where("name", "=", trim($tag_name))->first();
-				// 		if ($tag == null) {
-				// 			$tag = new BlogTag;
-				// 			$tag->name = trim($tag_name);
-				// 			$tag->save();
-				// 		}
-				// 		array_push($tags_id, $tag->id);
-				// 	}
-				// 	$post->tags()->sync($tags_id);
-				// }
+
+				$i=0;
+				$image_url = trim(Request::input("screenshots_URL".$i));
+				while($image_url != null && $image_url != ''){
+					$newScreenshot = new Screenshot;
+					$newScreenshot->posts()->associate($post);
+					$newScreenshot->image_url = $image_url;
+					$newScreenshot->save();
+					$i++;
+					$image_url = trim(Request::input("screenshots_URL".$i));
+				}
 				
-	            return Redirect::route("adminWorkPosts")->with("success", "Updated post was saved");
+	            return Redirect::route("adminWorkPosts")->with("success", "Updated work post was saved");
 	        } else {
 	            return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("feature_image_url"));;
 	        }
@@ -212,7 +221,7 @@ class AdminWorkController extends Controller {
 	public function deleteWorkPost($id)
 	{
 		// Check is exist
-		$post = WorkPost::find($id);
+		$post = Post::find($id);
 		if (!$post) return Redirect::route("adminWorkPosts")->with('error', 'Cannot delete data');
 		
 		// Check if not admin role, and not author's item
@@ -232,7 +241,7 @@ class AdminWorkController extends Controller {
 	public function toggleFeaturedWorkPost($id)
 	{
 		// Check is exist
-		$post = WorkPosts::find($id);
+		$post = Posts::find($id);
 		if (!$post) return Redirect::route("adminWorkPosts")->with('error', 'Cannot save data');
 		
 		$message = "Success";

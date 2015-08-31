@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class WorkImage extends Model {
+class Screenshot extends Model {
 
 	protected $table = 'work_image';
 
@@ -12,7 +12,7 @@ class WorkImage extends Model {
 
 	public function posts()
 	{
-	    return $this->belongsTo('App\Models\work\WorkPost', 'work_id');
+	    return $this->belongsTo('App\Models\work\Post', 'work_id');
 	}
-
+	
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class WorkPost extends Model {
+class Post extends Model {
 
 	protected $table = 'work_post';
 	
@@ -28,6 +28,11 @@ class WorkPost extends Model {
 
 	public function categories()
 	{
-		return $this->belongsToMany('App\Models\work\WorkCategories', 'work_post_categories', 'work_id', 'categories_id')->withTimestamps();
+		return $this->belongsToMany('App\Models\work\PostCategories', 'author_id')->withTimestamps();
+	}
+
+	public function screenshots()
+	{
+	    return $this->belongsToMany('App\Models\work\Screenshot', 'work_id')->withTimestamps();
 	}
 }
