@@ -137,14 +137,14 @@ class AdminWorkController extends Controller {
 			return Redirect::route("adminWorkPosts");
 		}
 
-		$allCategory = Categories::all();
-		$postCategories = PostCategories::where('work_id','=', $id)->get();
+		$allCategory = Categories::orderBy('id', 'ASC')->get();
+		$oldCategories = PostCategories::where('work_id', $id)->orderBy('categories_id', 'ASC')->get();
 		$i = 0;
 		foreach ($allCategory as $category ){
-			if ($i >= sizeof($postCategories)){
+			if ($i >= sizeof($oldCategories)){
 				$category->isPost = FALSE;
 			}
-			elseif($category->id == $postCategories[$i]->categories_id){
+			elseif($category->id == $oldCategories[$i]->categories_id){
 				$category->isPost = TRUE;
 				$i++;
 			}
@@ -152,11 +152,14 @@ class AdminWorkController extends Controller {
 				$category->isPost = FALSE;	
 			}
 		}
+
+		$oldScreenShots = Screenshot::where('work_id', $id)->get();
 		
 		return view("admin.workPostEdit", 
 		    array(
                 "post" => $post,
-                "allCategory" => $allCategory
+                "allCategory" => $allCategory,
+                "oldScreenShots" => $oldScreenShots
             )
         );
 	}
