@@ -1,4 +1,4 @@
-@extends("../admin-layouts.mainAdmin")
+@extends("../admin-layouts.main-admin")
 
 
 @section("title")
@@ -23,9 +23,9 @@ Admin Register |
         <div class="ui-block mg">
 	        <h2>Admin Register</h2>
 	        
-	        @include("admin.alertBox")
+	        @include("admin.alert-box")
 	        
-	        {!! Form::open(array("route" => "adminCreate", "method" => "post")) !!}
+	        {!! Form::open(array("route" => "admin-create", "method" => "post")) !!}
 	            {!! Form::label("username", "username") !!}
 	            {!! Form::text("username") !!}
 	            {!! Form::label("email", "email") !!}

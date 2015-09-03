@@ -96,6 +96,7 @@ $(document).ready(function(event) {
         
         if ($(this).attr("data-fn") == "close") {
             $("#menu-toggle").attr("data-fn", "open");
+            $("#brand-header").attr("data-fn", "open");
             tlMenu.to("#menu", 0.3, {
                 className: "-=opened"
             }, "out");
@@ -112,6 +113,9 @@ $(document).ready(function(event) {
                 el.animate({"path": el.attr("data-path-menu")}, 300, mina.easeout);
             });
         }
+    });
+
+    $("#header-brand").click(function(){
     });
 });
 

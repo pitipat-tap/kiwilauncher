@@ -1,4 +1,4 @@
-@extends("../admin-layouts.mainAdmin")
+@extends("../admin-layouts.main-admin")
 
 
 @section("title")
@@ -13,14 +13,14 @@ use Chromabits\Pagination\FoundationPresenter;
 
 @section("body")
 
-@include("admin-layouts.menuAdmin", array("link" => "users", "has_sublink" => 0, "sublink" => ""))
+@include("admin-layouts.menu-admin", array("link" => "users", "has_sublink" => 0, "sublink" => ""))
 
 <nav id="right-side-menu" class="side-menu full-height">
 	<br />
 	<ul>
 		<li><h4>Filter</h4></li>
         <li class="has-pd">
-        	{!! Form::open(array("route" => "adminUsers", "method" => "get")) !!}
+        	{!! Form::open(array("route" => "admin-users", "method" => "get")) !!}
 				{!! Form::label("q", "Search") !!}
 				<div class="row collapse">
 					<div class="small-9 columns">
@@ -42,7 +42,7 @@ use Chromabits\Pagination\FoundationPresenter;
         </a>
     </div>
     <div class="small-6 columns align-right">
-    	<a class="link-icon mg-r" href="{!! URL::route('adminUserNew') !!}">
+    	<a class="link-icon mg-r" href="{!! URL::route('admin-user-new') !!}">
     		<span class="fa fa-plus"></span>
     	</a>
         <a class="side-menu-toggle link-icon" data-side="right">
@@ -55,20 +55,20 @@ use Chromabits\Pagination\FoundationPresenter;
     <h3 class="title">Users</h3>
     <br />
     
-    @include("admin.alertBox")
+    @include("admin.alert-box")
     
     @if (Input::get("q") != null)
 		<div class="hide-for-large-up">
 			@if (Input::get("q") != null)
 				<p>Search : "{!! Input::get("q") !!}"</p>
 			@endif
-			<p>({!! HTML::linkRoute("adminUsers", "View all data") !!})</p>
+			<p>({!! HTML::linkRoute("admin-users", "View all data") !!})</p>
 			<br />
 		</div>
 	@endif
 	
 	<div class="show-for-large-up">
-		{!! HTML::linkRoute("adminUserNew", "Add user", [], array("class" => "button")) !!}
+		{!! HTML::linkRoute("admin-user-new", "Add user", [], array("class" => "button")) !!}
 		<br /><br />
 	</div>
     
@@ -77,13 +77,13 @@ use Chromabits\Pagination\FoundationPresenter;
 			<h4>Filter</h4>
 			
 			@if (Input::get("role") != null || Input::get("q") != null)
-				<p>({!! HTML::linkRoute("adminUsers", "View all data") !!})</p>
+				<p>({!! HTML::linkRoute("admin-users", "View all data") !!})</p>
 				<br />
 			@endif
 		</div>
 		
 		<div class="small-12 large-4 columns medium-pd-r">
-			{!! Form::open(array("route" => "adminUsers", "method" => "get")) !!}
+			{!! Form::open(array("route" => "admin-users", "method" => "get")) !!}
                 {!! Form::label("q", "Search") !!}
 				<div class="row collapse">
 					<div class="small-9 columns">
@@ -136,21 +136,21 @@ use Chromabits\Pagination\FoundationPresenter;
 	                        <br /><br />
 	                        <span>
 	                        	<b>Blog posts</b> : 
-	                        	{!! HTML::linkRoute("adminBlogPosts", $user->blogPosts()->count()." blog posts", 
+	                        	{!! HTML::linkRoute("admin-blog-posts", $user->blogPosts()->count()." blog posts", 
 	                        	array("user_id" => $user->id)) !!}
 	                        	
-	                        	{!! HTML::linkRoute("adminImagePosts", $user->imagePosts()->count()." image posts", 
+	                        	{!! HTML::linkRoute("admin-image-posts", $user->imagePosts()->count()." image posts", 
 	                        	array("user_id" => $user->id)) !!}
                         	</span>
 	                        <br /><br />
 	                        <span>
-	                        	{!! HTML::linkRoute("adminUserEdit", "Edit", array($user->id), array("class" => "small-link mg-r")) !!}
+	                        	{!! HTML::linkRoute("admin-user-edit", "Edit", array($user->id), array("class" => "small-link mg-r")) !!}
 		                        <a data-reveal-id="delete-small-modal-id-{!! $user->id !!}">Delete</a>
 		                        <div id="delete-small-modal-id-{!! $user->id !!}" class="reveal-modal tiny" data-reveal>
 									<h4>Confirm delete</h4>
 									<p>"{!! $user->username !!}"</p>
 								<br>
-								{!! Form::open(array("route" => array("adminUserDelete", $user->id), "method" => "delete")) !!}
+								{!! Form::open(array("route" => array("admin-user-delete", $user->id), "method" => "delete")) !!}
 									<p>User's posts options</p>
 									{!! Form::radio('option', 'transfer', true, array("id" => "option-1-small-".$user->id)) !!}
 									{!! Form::label("option-1-small-".$user->id, "Transfer to me") !!}
@@ -178,19 +178,19 @@ use Chromabits\Pagination\FoundationPresenter;
 	                    <td class="show-for-large-up">{!! $user->email !!}</td>
 	                    <td class="show-for-medium-up">{!! $user->role !!}</td>
 	                    <td class="show-for-medium-up">
-	                    	{!! HTML::linkRoute("adminBlogPosts", $user->blogPosts()->count()." blog posts", 
+	                    	{!! HTML::linkRoute("admin-blog-posts", $user->blogPosts()->count()." blog posts", 
 	                    		array("user_id" => $user->id)
 	                    	) !!}
 	                    	<br>
-	                    	{!! HTML::linkRoute("adminImagePosts", $user->imagePosts()->count()." image posts", 
+	                    	{!! HTML::linkRoute("admin-image-posts", $user->imagePosts()->count()." image posts", 
 	                    		array("user_id" => $user->id)
 	                    	) !!}
 	                    </td>
 	                    <td class="show-for-medium-up">
 	                    	@if (Auth::user()->id == $user->id)
-	                    		{!! HTML::linkRoute("adminProfileEdit", "Edit") !!}
+	                    		{!! HTML::linkRoute("admin-profile-edit", "Edit") !!}
 	                    	@else
-	                    		{!! HTML::linkRoute("adminUserEdit", "Edit", array($user->id)) !!}
+	                    		{!! HTML::linkRoute("admin-user-edit", "Edit", array($user->id)) !!}
 	                    		<br /><br />
 		                    	<a data-reveal-id="delete-modal-id-{!! $user->id !!}">Delete</a>
 		                    	<br /><br />
@@ -198,7 +198,7 @@ use Chromabits\Pagination\FoundationPresenter;
 									<h4>Confirm delete</h4>
 									<p>"{!! $user->username !!}"</p>
 									<br>
-									{!! Form::open(array("route" => array("adminUserDelete", $user->id), "method" => "delete")) !!}
+									{!! Form::open(array("route" => array("admin-user-delete", $user->id), "method" => "delete")) !!}
 										<p>User's posts options</p>
 										{!! Form::radio('option', 'transfer', true, array("id" => "option-1-".$user->id)) !!}
 										{!! Form::label("option-1-".$user->id, "Transfer to me") !!}

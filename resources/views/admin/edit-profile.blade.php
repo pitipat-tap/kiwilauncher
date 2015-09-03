@@ -1,4 +1,4 @@
-@extends("../admin-layouts.mainAdmin")
+@extends("../admin-layouts.main-admin")
 
 
 @section("title")
@@ -13,13 +13,13 @@ Edit profile |
 
 @section("specific_js_head")
 {!! HTML::script("/js/fancybox/source/jquery.fancybox.pack.js") !!}
-{!! HTML::script("/js/adminUserForm.js") !!}
+{!! HTML::script("/js/admin-user-form.js") !!}
 @stop
 
 
 @section("body")
 
-@include("admin-layouts.menuAdmin", array("link" => "editprofile", "has_sublink" => 0, "sublink" => ""))
+@include("admin-layouts.menu-admin", array("link" => "editprofile", "has_sublink" => 0, "sublink" => ""))
 
 <?php
 	session_start();
@@ -39,7 +39,7 @@ Edit profile |
 
 <div id="admin-users" class="container">
 	{!! Form::model($user, array(
-		"route" => "adminProfileUpdate", 
+		"route" => "admin-profile-update", 
 		"class" => "user-form",
 		"method" => "patch", 
 		"autocomplete" => "off" 
@@ -47,7 +47,7 @@ Edit profile |
 		<h3 class="title">Edit profile</h3>
 		<br />
 		
-		@include("admin.alertBox")
+		@include("admin.alert-box")
         
         <div class="show-for-medium-up">
 			{!! Form::button("Save", 

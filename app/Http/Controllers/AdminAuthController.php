@@ -57,7 +57,7 @@ class AdminAuthController extends Controller {
             $user->info = "";
             $user->save();
             
-            return Redirect::route('adminLogin')->with('success', 'User was created');
+            return Redirect::route('admin-login')->with('success', 'User was created');
         } else {
             return Redirect::back()->with('error', 'Errors')->withErrors($validator)->withInput();
         }
@@ -66,6 +66,6 @@ class AdminAuthController extends Controller {
     public function logout()
     {
         Auth::logout();
-        return Redirect::route('adminLogin');
+        return Redirect::route('admin-login');
     }
 }
