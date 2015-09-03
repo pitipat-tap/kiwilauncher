@@ -53,7 +53,7 @@ class WebController extends Controller {
             orderBy("created_at", "DESC")->
             take(3)->get();
         
-        return view("web.blogPost", array(
+        return view("web.blog-post", array(
                 "post" => $post,
                 "prev_post" => $prev_post
             )
