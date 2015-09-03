@@ -58,6 +58,13 @@
     			</li>
     		</ul>
     	</li>
+
+        <li>
+            <a href="{!! URL::route('adminWorkPosts') !!}"  class="{!! isAdminNavLinkActive($link, 'workposts') !!}">
+                <span class="icon fa fa-book"></span> Work post
+            </a>
+        </li>
+
         <li>
             <a href="{!! URL::route('admin-filemanager') !!}" class="{!! isAdminNavLinkActive($link, 'filemanager') !!}">
                 <span class="icon fa fa-folder"></span> File manager

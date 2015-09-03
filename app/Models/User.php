@@ -66,4 +66,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	    return $this->hasMany('App\Models\ImagePost', 'author_id');
 	}
 
+	public function workPosts()
+	{
+	    return $this->hasMany('App\Models\work\Post', 'author_id');
+	}
+
 }
