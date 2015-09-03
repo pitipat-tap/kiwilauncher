@@ -1,4 +1,4 @@
-@extends("../admin-layouts.mainAdmin")
+@extends("../admin-layouts.main-admin")
 
 
 @section("title")
@@ -33,7 +33,7 @@ Add New Work Post |
 
 @section("body")
 
-@include("admin-layouts.menuAdmin", array("link" => "workposts", "has_sublink" => 0, "sublink" => ""));
+@include("admin-layouts.menu-admin", array("link" => "workposts", "has_sublink" => 0, "sublink" => ""));
 
 <div class="row full-width container ui-block mg-b small-medium-header hide-for-large-up">
     <div class="small-6 columns">
@@ -48,7 +48,7 @@ Add New Work Post |
 		<h3 class="title">{!! HTML::linkRoute("adminWorkPosts", "Work Posts") !!} <span class="fa fa-angle-right"></span> Add</h3>
 		<br />
 		
-		@include("admin.alertBox")
+		@include("admin.alert-box")
         
         <div class="medium-button-group show-for-medium-up">
         	{!! Form::button("Publish", 

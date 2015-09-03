@@ -1,4 +1,4 @@
-@extends("../admin-layouts.mainAdmin")
+@extends("../admin-layouts.main-admin")
 
 
 @section("title")
@@ -28,7 +28,7 @@ Edit Blog Post |
 
 @section("body")
 
-@include("admin-layouts.menuAdmin", array("link" => "workposts", "has_sublink" => 1, "sublink" => "blogposts"))
+@include("admin-layouts.menu-admin", array("link" => "workposts", "has_sublink" => 1, "sublink" => "blogposts"))
 
 <div class="row full-width container ui-block mg-b small-medium-header hide-for-large-up">
     <div class="small-6 columns">
@@ -48,7 +48,7 @@ Edit Blog Post |
 		<h3 class="title">{!! HTML::linkRoute("adminWorkPosts", "Work Posts") !!} <span class="fa fa-angle-right"></span> Edit</h3>
 		<br />
 		
-		@include("admin.alertBox")
+		@include("admin.alert-box")
         
         <div class="show-for-medium-up">
         	{!! Form::button("Publish", 

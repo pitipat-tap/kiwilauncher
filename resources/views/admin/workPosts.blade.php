@@ -1,4 +1,4 @@
-@extends("../admin-layouts.mainAdmin")
+@extends("../admin-layouts.main-admin")
 
 
 @section("title")
@@ -18,7 +18,7 @@ use Chromabits\Pagination\FoundationPresenter;
 
 @section("body")
 
-@@include("admin-layouts.menuAdmin", array("link" => "workposts", "has_sublink" => 0, "sublink" => ""));
+@@include("admin-layouts.menu-admin", array("link" => "workposts", "has_sublink" => 0, "sublink" => ""));
 
 <nav id="right-side-menu" class="side-menu full-height">
 	<br />
@@ -72,7 +72,7 @@ use Chromabits\Pagination\FoundationPresenter;
 	<h3 class="title">Blog Posts</h3>
 	<br />
 	
-	@include("admin.alertBox")
+	@include("admin.alert-box")
 	
 	@if (Input::get("q") != null || 
 		Input::get("status") != null || 
