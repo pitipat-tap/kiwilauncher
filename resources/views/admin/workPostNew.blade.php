@@ -14,7 +14,7 @@ Add New Work Post |
 @section("specific_js_head")
 {!! HTML::script("/js/tinymce/tinymce.min.js") !!}
 {!! HTML::script("/js/fancybox/source/jquery.fancybox.pack.js") !!}
-{!! HTML::script("/js/adminWorkPostForm.js") !!}
+{!! HTML::script("/js/admin-work-post-form.js") !!}
 <script>
 	window.onload = function() {
 	  $(':text[name="title"]').focus();
@@ -114,7 +114,7 @@ Add New Work Post |
 				                	<p class="f-label">Screenshots {!! $i !!}</p>
 
 									<?php $p_link = "http://".$_SERVER['SERVER_NAME'].$lpath."/filemanager/dialog.php?type=1&field_id=screenshots-URL".$i; ?>
-									<a class="sc-open" href="<?php echo $p_link; ?>">
+									<a class="select-image-open" href="<?php echo $p_link; ?>">
 					                    {!! HTML::image("/images/admin/icon-placeholder.svg", 
 					                        "Screenshots-$i", 
 					                        array(
@@ -136,7 +136,10 @@ Add New Work Post |
 				                        ) 
 				                    !!}
 				                        
-				                    <p><a class="sc-open" href="<?php echo $p_link; ?>">Select Image</a></p>
+				                    <p>
+				                    	<button class="select-image-open" type="button" href="<?php echo $p_link; ?>">Select Image</button>
+				                    	<button class="remove-image" type="button" onclick="removeImage('{!! $i !!}')" >Remove Image</button>
+				                    </p>
 		
 				                </div>
 				            </div>
@@ -216,7 +219,7 @@ Add New Work Post |
 	{!! Form::open(
 	    array(
     	    "class" => "livepreview-form", 
-    	    "route" => "adminBlogPostLivepreview", 
+    	    "route" => "adminWorkPostLivePreview", 
     	    "method" => "post", 
     	    "target" => "_blank"
     	    )
