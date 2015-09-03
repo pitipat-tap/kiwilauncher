@@ -14,15 +14,35 @@
     }
 }
 
+.work-menu-container{
+    height:auto;
+    width:220px;
+    top:-212px;
+    position:absolute;
+    -webkit-transition-duration: 0.5s; /* Safari */
+    transition-property:top;
+    transition-duration: 0.5s;
+}
+
+.work-menu-show{
+    top:0;
+    -webkit-transition-duration: 0.5s; /* Safari */
+    transition-property:top;
+    transition-duration: 0.5s;
+}
 .work-sub-menu{
     margin-left:0;
-    width: 223px;
-    padding-top: 64px;
-    padding-left:80px;
+    width: 220px;
+    margin-top: 63px;
+    padding-left:12px;
     background-color: white;
     border-bottom: 1px solid #D6D6D6;
     border-right: 1px solid #D6D6D6;
     border-left: 1px solid #D6D6D6;
+        h6{
+                margin-top:10px;
+                margin-bottom:10px;
+        }
 }
 .drseoul-img{
     border:solid;
