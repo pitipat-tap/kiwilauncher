@@ -102,15 +102,14 @@ class AdminWorkController extends Controller {
 					}
 	        	}
 
-				$i=0;
-				$image_url = trim(Request::input("screenshots_URL".$i));
-				while($image_url != null && $image_url != ''){
-					$newScreenshot = new Screenshot;
-					$newScreenshot->posts()->associate($post);
-					$newScreenshot->image_url = $image_url;
-					$newScreenshot->save();
-					$i++;
+				for($i=0; $i<5; $i++){
 					$image_url = trim(Request::input("screenshots_URL".$i));
+					if($image_url != null && $image_url != ''){
+						$newScreenshot = new Screenshot;
+						$newScreenshot->posts()->associate($post);
+						$newScreenshot->image_url = $image_url;
+						$newScreenshot->save();
+					}	
 				}
 
 				return Redirect::route("adminWorkPosts")->with("success", json_encode("New work post was created"));
@@ -199,15 +198,15 @@ class AdminWorkController extends Controller {
 					}
 	        	}
 
-				$i=0;
-				$image_url = trim(Request::input("screenshots_URL".$i));
-				while($image_url != null && $image_url != ''){
-					$newScreenshot = new Screenshot;
-					$newScreenshot->posts()->associate($post);
-					$newScreenshot->image_url = $image_url;
-					$newScreenshot->save();
-					$i++;
+	        	Screenshot::where('work_id','=', $id)->delete();
+				for($i=0; $i<5; $i++){
 					$image_url = trim(Request::input("screenshots_URL".$i));
+					if($image_url != null && $image_url != ''){
+						$newScreenshot = new Screenshot;
+						$newScreenshot->posts()->associate($post);
+						$newScreenshot->image_url = $image_url;
+						$newScreenshot->save();
+					}	
 				}
 				
 	            return Redirect::route("adminWorkPosts")->with("success", "Updated work post was saved");

@@ -28,7 +28,7 @@ Edit Blog Post |
 
 @section("body")
 
-@include("admin-layouts.menuAdmin", array("link" => "blogposts", "has_sublink" => 1, "sublink" => "blogposts"))
+@include("admin-layouts.menuAdmin", array("link" => "workposts", "has_sublink" => 1, "sublink" => "blogposts"))
 
 <div class="row full-width container ui-block mg-b small-medium-header hide-for-large-up">
     <div class="small-6 columns">
@@ -43,7 +43,7 @@ Edit Blog Post |
 		"class" => "post-form", 
 		"route" => array("adminWorkPostUpdate", $post->id), 
 		"method" => "patch", 
-		"autocomplete" => "off")) 
+		"autocomplete" => "off"))
 	!!}
 		<h3 class="title">{!! HTML::linkRoute("adminWorkPosts", "Work Posts") !!} <span class="fa fa-angle-right"></span> Edit</h3>
 		<br />
@@ -105,6 +105,66 @@ Edit Blog Post |
 			    	
 			    	{!! Form::label("description", "Description") !!}
 	                {!! Form::textarea("description", null, array("rows" => "4")) !!}
+
+	                {!! Form::label("screenshots", "Screenshots") !!}
+	                <div class="row">
+		                @for($i = 0; $i < 5; $i++)
+		                	<div class="small-12 columns">
+			                	<div class="ui-block mg-b medium-half-mg-l">
+				                	<p class="f-label">Screenshots {!! $i+1 !!}</p>
+
+									<?php $p_link = "http://".$_SERVER['SERVER_NAME'].$lpath."/filemanager/dialog.php?type=1&field_id=screenshots-URL".$i; ?>
+									<a class="sc-open" href="<?php echo $p_link; ?>">
+										@if($i < sizeof($oldScreenShots))
+						                    {!! HTML::image($oldScreenShots[$i]->image_url, 
+						                        "Screenshots-".($i+1), 
+						                        array(
+						                            "id" => "screenshots".$i ,
+						                            "class" => "post-image"
+						                            )
+						                        )
+						                    !!}
+						                    {!! Form::text("screenshots_URL".$i, 
+						                        $oldScreenShots[$i]->image_url, 
+						                        array(
+						                            "id" => "screenshots-URL".$i,
+						                            "class" => "image-url far-away",
+						                            "autocomplete" => "off",
+						                            "readonly" => "readonly"
+						                            ) 
+						                        ) 
+						                    !!}
+					                    @else
+											{!! HTML::image("/images/admin/icon-placeholder.svg", 
+						                        "Screenshots-".($i+1), 
+						                        array(
+						                            "id" => "screenshots".$i ,
+						                            "class" => "post-image"
+						                            )
+						                        )
+						                    !!}
+						                    {!! Form::text("screenshots_URL".$i, 
+						                        null, 
+						                        array(
+						                            "id" => "screenshots-URL".$i,
+						                            "class" => "image-url far-away",
+						                            "autocomplete" => "off",
+						                            "readonly" => "readonly"
+						                            ) 
+						                        ) 
+						                    !!}
+					                    @endif
+
+				                    </a>
+				                    
+				                    
+				                        
+				                    <p><a class="sc-open" href="<?php echo $p_link; ?>">Select Image</a></p>
+		
+				                </div>
+				            </div>
+						@endfor
+					</div>
 	                
 	                <p class="text-date">Created : {!! date("M n, Y g:i A", strtotime($post->created_at)) !!}</p>
 	                @if ($post->updated_at != $post->created_at)

@@ -108,11 +108,10 @@ Add New Work Post |
 
 	                {!! Form::label("screenshots", "Screenshots") !!}
 	                <div class="row">
-		                @for($i = 0; $i < 3; $i++)
-		                	<div class="small-12 large-4 columns">
-			                	add screenshots{!! $i !!}
+		                @for($i = 0; $i < 5; $i++)
+		                	<div class="small-12 columns">
 			                	<div class="ui-block mg-b medium-half-mg-l">
-				                	<p class="f-label">Screenshots {!! $i !!},</p>
+				                	<p class="f-label">Screenshots {!! $i !!}</p>
 
 									<?php $p_link = "http://".$_SERVER['SERVER_NAME'].$lpath."/filemanager/dialog.php?type=1&field_id=screenshots-URL".$i; ?>
 									<a class="sc-open" href="<?php echo $p_link; ?>">

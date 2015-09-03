@@ -18,7 +18,7 @@ $(document).ready(function() {
 		type: "iframe",
 		autoSize: false,
 		afterClose: function() {
-			for(i=0; i<=3; i++){
+			for(i=0; i<=5; i++){
 				url = $(':text[name="screenshots_URL'+ i +'"]').val();
 				if (url!='') {
 					$('#screenshots'+i).attr('src', url);
