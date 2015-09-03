@@ -6724,8 +6724,12 @@ header {
   header #header-brand {
     display: block;
     position: absolute;
-    top: 12px;
-    left: 12px; }
+    padding-top: 12px;
+    padding-left: 12px;
+    z-index: 9999;
+    background-color: white;
+    width: 230px;
+    height: 63px; }
   header #header-brand-logo {
     background: url("../image/logo/header-logo.svg") no-repeat 50% 50%;
     background-size: 100%;
@@ -6948,6 +6952,36 @@ footer #footer-ending {
 
 #works #works-list .work-figure {
   margin-bottom: 0.5rem; }
+
+.work-menu-container {
+  height: auto;
+  width: 220px;
+  top: -212px;
+  position: absolute;
+  -webkit-transition-duration: 0.5s;
+  /* Safari */
+  transition-property: top;
+  transition-duration: 0.5s; }
+
+.work-menu-show {
+  top: 0;
+  -webkit-transition-duration: 0.5s;
+  /* Safari */
+  transition-property: top;
+  transition-duration: 0.5s; }
+
+.work-sub-menu {
+  margin-left: 0;
+  width: 220px;
+  margin-top: 63px;
+  padding-left: 12px;
+  background-color: white;
+  border-bottom: 1px solid #D6D6D6;
+  border-right: 1px solid #D6D6D6;
+  border-left: 1px solid #D6D6D6; }
+  .work-sub-menu h6 {
+    margin-top: 10px;
+    margin-bottom: 10px; }
 
 .drseoul-img {
   border: solid;

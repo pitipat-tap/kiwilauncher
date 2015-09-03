@@ -116,6 +116,15 @@ $(document).ready(function(event) {
     });
 
     $("#header-brand").click(function(){
+        if ($(this).attr("data-fn") == "open") {
+            $(this).attr("data-fn", "close");
+            console.log($('.work-menu-container'));
+            $('.work-menu-container').removeClass("work-menu-show");
+        }
+        else if ($(this).attr("data-fn") == "close") {
+            $(this).attr("data-fn", "open");
+            $('.work-menu-container').addClass("work-menu-show");
+        }
     });
 });
 

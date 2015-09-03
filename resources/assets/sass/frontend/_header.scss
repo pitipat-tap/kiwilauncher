@@ -18,8 +18,12 @@ header {
     #header-brand {
         display: block;
         position: absolute;
-        top: 12px;
-        left: 12px;
+        padding-top:12px;
+        padding-left:12px;
+        z-index: $z-index-priority-1 ;
+        background-color:white;
+        width: 230px;
+        height: 63px;
     }
     
     #header-brand-logo {
