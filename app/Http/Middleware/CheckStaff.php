@@ -34,7 +34,7 @@ class CheckStaff {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if ($this->auth->guest()) return Redirect::route('adminLogin');
+		if ($this->auth->guest()) return Redirect::route('admin-login');
     	else if ($request->user()->role != "admin" && $request->user()->role != "author") return App::abort(404);
 		
 		return $next($request);

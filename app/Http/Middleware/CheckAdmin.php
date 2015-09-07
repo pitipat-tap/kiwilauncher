@@ -34,7 +34,7 @@ class CheckAdmin {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if ($this->auth->guest()) return Redirect::route('adminLogin');
+		if ($this->auth->guest()) return Redirect::route('admin-login');
     	else if ($request->user()->role != "admin") return Redirect::route("admin");
 		
 		return $next($request);
