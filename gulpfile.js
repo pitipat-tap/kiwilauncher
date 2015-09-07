@@ -28,6 +28,7 @@ elixir(function(mix) {
     mix.scripts("backend/admin-index.js", "public/js/admin-index.js");
     mix.scripts("backend/admin-menu.js", "public/js/wadmin-menu.js");
     mix.scripts("backend/admin-user-form.js", "public/js/admin-user-form.js");
+    mix.scripts("backend/admin-work-post-form.js", "public/js/admin-work-post-form.js");
 
 });
 
