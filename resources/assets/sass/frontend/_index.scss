@@ -1,25 +1,59 @@
+
 #index #index-landing {
-    min-height: 680px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    display: block;
+   
     
     #landing-graphic {
-        display: block;
         width: 100%;
+        min-height: 680px;
+        padding-top: 0px;
+        padding-bottom: 0px;
         
         @media #{$medium-up} {
-            background: url("../image/bg/landing.png") no-repeat 50% 50%;
+            background: url("../image/index/landing-medium-up.png") no-repeat 50% 50%;
             background-size: contain;
             min-height: 640px;
+            z-index: 999;
+        }
+
+        @media #{$small-only} {
+            background: url("../image/index/landing-small.png") no-repeat 50% 50%;
+            background-size: contain;
+            min-height: 640px;
+        
+        }
+
+            #landing-title {
+            max-width: 50%;
+
+            @media #{$medium-up} {
+                position: relative;
+                background: url("../image/title/kiwilauncher-medium.svg") no-repeat center;
+                background-size: contain;
+                margin: auto;
+                padding-top: 50%;
+                z-index: 1000;
+            }
         }
     }
-}
+    #landing-title-small {
+            max-width: 100%;
+            height: 139px;
+            @media #{$small-only} {
+                background: url("../image/title/kiwilauncher-small.svg") no-repeat center;
+                background-size: contain;
+                padding-top: 10%;
+                margin: auto;
+                z-index: 1000;
+            }
+        }
 
+}
 
 #index #index-about {
     #about-intro {
         @media #{$medium-up} {
-            background: url("../image/bg/bg-about-us.svg") no-repeat 50% 0px;
+            background: url("../image/index/about-bg.svg") no-repeat 50% 0px;
             background-size: contain;
         }
     }
