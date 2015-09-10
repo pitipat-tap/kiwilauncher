@@ -42,7 +42,7 @@
     <div class="border-section border-white-white"></div>
 
     <section id="index-about" class="section-frame">
-        <div id="about-intro" class="show-for-medium-up">
+        <div id="about-intro">
             <div class="section-title-graphic">
                 <h2 class="section-title">About</h2>
             </div>
@@ -54,7 +54,7 @@
             </p>
         </div>
         
-        <div id="about-details show-for-medium-up">
+        <div id="about-details">
             <div class="row multi-col-wrapper has-mg-b">
                 <div class="small-12 medium-6 column">
                     {!! HTML::image("image/index/about-instinct-medium-up.png","",array("class"=>"about-detail-graphic")) !!}
@@ -113,7 +113,7 @@
             <h2 class="section-title">Selected Works</h2>
         </div>
         
-        <ul id="sltd-works-list" class="single-col-wrapper show-for-medium-up">
+        <ul id="sltd-works-list" class="single-col-wrapper">
             <li class="has-mg-b">
                 <a class="figure-link sltd-work-figure">
                     <!--<img class="figure-img sltd-work-cvimg" src="http://placehold.it/800x450" />-->
@@ -173,6 +173,7 @@
                     <h6 class="blog-post-title">
                         <a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a>
                     </h6>
+                    <p class="text-date">15/05/58</p>
                     <p class="blog-post-description">
                         Aliquam id tortor fermentum, luctus magna 
                         at, molestie dui. Mauris eu risus aliquet, 
@@ -192,6 +193,7 @@
                     <h6 class="blog-post-title">
                         <a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a>
                     </h6>
+                    <p class="text-date">15/05/58</p>
                     <p class="blog-post-description">
                         Aliquam id tortor fermentum, luctus magna 
                         at, molestie dui. Mauris eu risus aliquet, 
