@@ -72,8 +72,24 @@
                     <p>Website / Graphic Design</p>
                 </div>
             </li>
+            @foreach($works as $work)
+                <li class="has-mg-b">
+                <a class="figure-link work-figure" href="{!! "works/".$work->url !!}">
+                    {!! HTML::image("$work->feature_image_url", "Some web", array(
+                        "class" => "figure-img work-cvimg")
+                    ) !!}
+                    <div class="figure-layer"></div>
+                </a>
+                <div class="work-text has-pd-lr">
+                    <h4><a href="{!! "works/".$work->url !!}">{!! $work->title !!}</a></h4>
+                    @foreach($work->categories as $category)
+                        <p> {!! $category->name !!} </p>
+                    @endforeach
+                </div>
+            </li>
+            @endforeach
+
         </ul>
-        
         <div class="align-center"><a class="button">Next Page</a></div>
     </section>
     

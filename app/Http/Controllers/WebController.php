@@ -29,7 +29,13 @@ class WebController extends Controller {
     
     public function works()
 	{
-		return view('web.works');
+        $works = Post::where("status", "published")->orderBy("id", "ASC")->get();
+        foreach ($works as $work) {
+            $work->categories = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.categories_id')
+                                ->where('work_id',$work->id)->get();
+        }
+		return view('web.works',
+            array("works" => $works));
 	}
 
     public function workPost($url)
@@ -44,7 +50,7 @@ class WebController extends Controller {
         
         $screenshots = Screenshot::where("work_id", $post->id)->get();
 
-        $categories = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.work_id')
+        $categories = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.categories_id')
                                 ->where('work_id',$post->id)->get();
 
         return view("web.work-post", array(
