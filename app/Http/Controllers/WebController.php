@@ -10,6 +10,11 @@ use App\Models\ImagePost;
 use App\Models\Faq;
 use App\Models\Subscription;
 
+use App\Models\work\Post;
+use App\Models\work\Categories;
+use App\Models\work\PostCategories;
+use App\Models\work\Screenshot;
+
 class WebController extends Controller {
 	
 	public function index()
@@ -26,6 +31,29 @@ class WebController extends Controller {
 	{
 		return view('web.works');
 	}
+
+    public function workPost($url)
+    {
+        $post = Post::where("url", $url)->first();
+        if (!$post){
+            App::abort(404);
+        }
+        $post->hits += 1;
+        $post->timestamps = false;
+        $post->save();
+        
+        $screenshots = Screenshot::where("work_id", $post->id)->get();
+
+        $categories = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.work_id')
+                                ->where('work_id',$post->id)->get();
+
+        return view("web.work-post", array(
+                "post" => $post,
+                "screenshots" => $screenshots,
+                "categories" => $categories
+            )
+        );
+    }
 
     public function works_drseoul()
 	{

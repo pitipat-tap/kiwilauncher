@@ -29,10 +29,15 @@
 	    {!! HTML::image($post["feature_image_url"]) !!}
 	    
 		<div class="post-block ui-block">
-	        <h2 class="post-title">{!! $post["title"] !!}</h2>
-			
-			<hr />
-			<p>{!! $post["description"] !!}</p>
+	        <h2 class="post-title"> title: {!! $post["title"] !!}</h2>
+			<p> link_URL: {!! $post["link_url"] !!}</p>
+			<hr/>
+			<p> description: {!! $post["description"] !!}</p>
+			@for($i = 0; $i < 5; $i++)
+				@if($post["screenshotsURL".$i] != '')
+					<p> link_URL: {!! $post["screenshotsURL".$i] !!}</p>
+				@endif
+			@endfor
 	    </div>
     </div>
 </div>

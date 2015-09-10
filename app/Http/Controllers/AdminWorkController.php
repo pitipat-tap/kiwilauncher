@@ -61,7 +61,11 @@ class AdminWorkController extends Controller {
         $post = array();
         $post["title"] = Request::input("title");
         $post["description"] = Request::input("description");
+        $post["link_url"] = Request::input("link_url");
         $post["feature_image_url"] = Request::input("feature_url");
+        for($i=0; $i<5; $i++){
+        	$post["screenshotsURL".$i] = Request::input("screenshotsURL".$i);
+        }
         return view("admin.workPostLivePreview", array("post" => $post));
     }
 	

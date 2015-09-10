@@ -15,6 +15,7 @@ Route::get("/", "WebController@index");
 Route::get("skills-and-process", array("as" => "skills", "uses" => "WebController@skills"));
 Route::get("works", array("as" => "works", "uses" => "WebController@works"));
 Route::get("works/drseoul", array("as" => "worksDrseoul", "uses" => "WebController@works_drseoul"));
+Route::get("works/{url}", array("as" => "work-post", "uses" => "WebController@workPost"));
 Route::get("blog", array("as" => "blog", "uses" => "WebController@blog"));
 Route::get("blog/{url}", array("as" => "blog-post", "uses" => "WebController@blogPost"));
 Route::get("contact-us", array("as" => "contact", "uses" => "WebController@contact"));
@@ -115,7 +116,7 @@ Route::group(array('middleware' => 'auth.admin', 'prefix' => 'admin'), function(
 	Route::patch("workposts/{id}", array("as" => "adminWorkPostUpdate", "uses" => "AdminWorkController@updateWorkPost"));
 	Route::delete("workposts/{id}", array("as" => "adminWorkPostDelete", "uses" => "AdminWorkController@deleteWorkPost"));
 
-	Route::get("blogposts/{id}/togglefeatured", array("as" => "adminWorkPostTogglefeatured", 
+	Route::get("workposts/{id}/togglefeatured", array("as" => "adminWorkPostTogglefeatured", 
 		"uses" => "AdminBlogController@toggleFeaturedBlogPost"));
 
 });
