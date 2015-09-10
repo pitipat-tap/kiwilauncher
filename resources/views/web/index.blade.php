@@ -21,9 +21,22 @@
 <div id="index">
     <section id="index-landing" class="section-frame">
         <div id="landing-graphic">
-            <div id="landing-title" class="medium-7 medium-push-5 columns show-for-medium-up"></div>
         </div>
-        <div id="landing-title-small" class="small-12 small-centered columns show-for-small-only"></div>
+        <div id="index-title" class="row">
+            <div class="small-12 medium-5 columns"></div>
+            <div  class="small-12 medium-7 columns">
+                <div id="landing-title"></div>
+                <div id="title-text">
+                    <p>Digital Creative Launcher</p>
+                    <p class="title-desc">Web - Mobile - Graphic - Branding</p>
+                    <a id="title-btn" class="button">Selected Work</a> <a class="button">Contact</a>
+                </div>
+            </div>
+        </div>
+       
+            
+
+        
     </section>
     
     <div class="border-section border-white-white"></div>

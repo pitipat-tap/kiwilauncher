@@ -6813,43 +6813,60 @@ footer #footer-ending {
     font-size: 0.75rem; }
 
 #index #index-landing {
-  display: block; }
+  display: block;
+  padding: 16px 0px;
+  position: relative;
+  max-height: 1100px; }
   #index #index-landing #landing-graphic {
     width: 100%;
-    min-height: 680px;
     padding-top: 0px;
-    padding-bottom: 0px; }
+    padding-bottom: 0px;
+    max-width: 1920px;
+    margin: auto; }
     @media only screen and (min-width: 48.063em) {
       #index #index-landing #landing-graphic {
-        background: url("../image/index/landing-medium-up.png") no-repeat 50% 50%;
+        background: url("../image/index/landing-medium-up.png") no-repeat 50% 0px;
         background-size: contain;
-        min-height: 640px;
-        z-index: 999; } }
+        height: 0;
+        padding-top: 56.25%; } }
     @media only screen and (max-width: 48em) {
       #index #index-landing #landing-graphic {
-        background: url("../image/index/landing-small.png") no-repeat 50% 50%;
+        max-width: 750px;
+        background: url("../image/index/landing-small.png") no-repeat 50% 0px;
         background-size: contain;
-        min-height: 640px; } }
-    #index #index-landing #landing-graphic #landing-title {
-      max-width: 50%; }
-      @media only screen and (min-width: 48.063em) {
-        #index #index-landing #landing-graphic #landing-title {
-          position: relative;
-          background: url("../image/title/kiwilauncher-medium.svg") no-repeat center;
-          background-size: contain;
-          margin: auto;
-          padding-top: 50%;
-          z-index: 1000; } }
-  #index #index-landing #landing-title-small {
-    max-width: 100%;
-    height: 139px; }
-    @media only screen and (max-width: 48em) {
-      #index #index-landing #landing-title-small {
-        background: url("../image/title/kiwilauncher-small.svg") no-repeat center;
-        background-size: contain;
-        padding-top: 10%;
-        margin: auto;
-        z-index: 1000; } }
+        height: 0;
+        padding-top: 56.25%; } }
+  @media only screen and (min-width: 48.063em) {
+    #index #index-landing #index-title {
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      -webkit-transform: translate(-50%, -30%);
+      transform: translate(-50%, -30%);
+      max-width: 1920px;
+      margin: auto; } }
+  @media only screen and (max-width: 48em) {
+    #index #index-landing #index-title {
+      max-width: 750px;
+      margin: auto; } }
+  @media only screen and (min-width: 48.063em) {
+    #index #index-landing #landing-title {
+      background: url("../image/title/kiwilauncher-medium.svg") no-repeat 0 0;
+      background-size: contain;
+      width: 100%;
+      height: 120px; } }
+  @media only screen and (max-width: 48em) {
+    #index #index-landing #landing-title {
+      background: url("../image/title/kiwilauncher-small.svg") no-repeat center;
+      background-size: contain;
+      width: 100%;
+      height: 90px;
+      margin-bottom: 24px; } }
+  @media only screen and (max-width: 48em) {
+    #index #index-landing #title-text {
+      text-align: center; }
+      #index #index-landing #title-text .title-desc {
+        margin-bottom: 24px; } }
 
 @media only screen and (min-width: 48.063em) {
   #index #index-about #about-intro {

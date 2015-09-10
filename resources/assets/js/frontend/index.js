@@ -3,37 +3,37 @@ $(document).ready(function(event) {
     var full_frame_ofs_h = 5;
 	
 	// initialize block height
-	var landing_graphic = $("#landing-graphic");
-	if (verge.viewportW() <= mobile_maxwidth) {
-		landing_graphic.css("height", "auto");
-	}
-	else {
-		updated_h = verge.viewportH();
-		min_h = parseInt(landing_graphic.css("min-height"));
-    	if (min_h > updated_h) {
-    		landing_graphic.css("height", min_h + full_frame_ofs_h);
-    	}
-    	else {
-    		landing_graphic.css("height", verge.viewportH() + full_frame_ofs_h);
-    	}
-	}
+	// // var landing_graphic = $("#landing-graphic");
+	// // if (verge.viewportW() <= mobile_maxwidth) {
+	// // 	landing_graphic.css("height", "auto");
+	// // }
+	// // else {
+	// // 	updated_h = verge.viewportH();
+	// // 	min_h = parseInt(landing_graphic.css("min-height"));
+ // //    	if (min_h > updated_h) {
+ // //    		landing_graphic.css("height", min_h + full_frame_ofs_h);
+ // //    	}
+ // //    	else {
+ // //    		landing_graphic.css("height", verge.viewportH() + full_frame_ofs_h);
+ // //    	}
+	// // }
     
-    // content resize
-    $(window).resize(function(event) {
-    	if (verge.viewportW() <= mobile_maxwidth) {
-			landing_graphic.css("height", "auto");
-		}
-		else {
-			updated_h = verge.viewportH();
-	    	min_h = parseInt(landing_graphic.css("min-height"));
-	    	if (min_h > updated_h) {
-	    		landing_graphic.css("height", min_h + full_frame_ofs_h);
-	    	}
-	    	else {
-	    		landing_graphic.css("height", verge.viewportH() + full_frame_ofs_h);
-	    	}
-		}
-    });
+ // //    // content resize
+ // //    $(window).resize(function(event) {
+ // //    	if (verge.viewportW() <= mobile_maxwidth) {
+	// // 		landing_graphic.css("height", "auto");
+	// // 	}
+	// // 	else {
+	// // 		updated_h = verge.viewportH();
+	// //     	min_h = parseInt(landing_graphic.css("min-height"));
+	// //     	if (min_h > updated_h) {
+	// //     		landing_graphic.css("height", min_h + full_frame_ofs_h);
+	// //     	}
+	// //     	else {
+	// //     		landing_graphic.css("height", verge.viewportH() + full_frame_ofs_h);
+	// //     	}
+	// // 	}
+ //    });
     
     
     // Figure hover effects
