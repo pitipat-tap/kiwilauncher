@@ -20,7 +20,23 @@
 
 <div id="index">
     <section id="index-landing" class="section-frame">
-        <div id="landing-graphic"></div>
+        <div id="landing-graphic">
+        </div>
+        <div id="index-title" class="row">
+            <div class="small-12 medium-5 columns"></div>
+            <div  class="small-12 medium-7 columns">
+                <div id="landing-title"></div>
+                <div id="title-text">
+                    <p>Digital Creative Launcher</p>
+                    <p class="title-desc">Web - Mobile - Graphic - Branding</p>
+                    <a id="title-btn" class="button">Selected Work</a> <a class="button">Contact</a>
+                </div>
+            </div>
+        </div>
+       
+            
+
+        
     </section>
     
     <div class="border-section border-white-white"></div>
@@ -32,57 +48,57 @@
             </div>
 
             <p id="about-description" class="single-col-wrapper has-pd-lr">
-                Duis pulvinar enim neque, eu fringilla nibh ornare non. Fusce vulputate ac est vel viverra. 
-                Sed convallis nisl eget quam pulvinar sollicitudin. 
-                Quisque nibh massa, feugiat quis leo venenatis, iaculis dictum diam.
-                Proin iaculis ullamcorper erat ut elementum. Mauris eget justo congue, dignissim quam id, dapibus orci. 
-                Quisque nibh massa, feugiat quis leo venenatis, iaculis dictum diam.
-                Proin iaculis ullamcorper erat ut elementum. Mauris eget justo congue, dignissim quam id, dapibus orci. 
+                We, Kiwi Launcher, are not mere group of developers. We offer you not only just a Web Site, 
+                we also provide you all around aspects for your business e.g., Brand and Logo design, SEO, Digital Marketing, 
+                and Strategy consultant. We are your complete business partner that will step with you to your successful business.
             </p>
         </div>
         
         <div id="about-details">
             <div class="row multi-col-wrapper has-mg-b">
                 <div class="small-12 medium-6 column">
-                    <img class="about-detail-graphic" src="http://placehold.it/800x450" />
+                    {!! HTML::image("image/index/about-instinct-medium-up.png","",array("class"=>"about-detail-graphic")) !!}
                 </div>
                 <div class="small-12 medium-6 column has-pd-lr">
                     <div class="about-detail-text">
                         <h4 class="about-detail-title">Creative Instinct</h4>
                         <p>
-                            Aliquam egestas, sapien sed maximus molestie, metus diam dignissim libero, 
-                            in sodales est elit id dolor. Aliquam libero nisi, pulvinar ut porttitor quis, 
-                            semper consequat nisi. Duis interdum metus ut metus ultrices, at gravida dolor ultricies.
+                            We, as young creative developers, live with creativity as our core value. 
+                            We love to initiate fresh ideas and try new things. You can be assured that your business is in the right hand 
+                            and we will make your business unique. 
+                            <br><br>
+                            Creativity is in our DNA. 
                         </p>
                     </div>
                 </div>
             </div>
             <div class="row multi-col-wrapper has-mg-b">
                 <div class="small-12 medium-6 medium-push-6 column">
-                    <img class="about-detail-graphic" src="http://placehold.it/800x450" />
+                    {!! HTML::image("image/index/about-vision-medium-up.png","",array("class"=>"about-detail-graphic")) !!}
                 </div>
                 <div class="small-12 medium-6 medium-pull-6 column has-pd-lr">
                     <div class="about-detail-text">
                         <h4 class="about-detail-title">Vision</h4>
                         <p>
-                            Aliquam egestas, sapien sed maximus molestie, metus diam dignissim libero, 
-                            in sodales est elit id dolor. Aliquam libero nisi, pulvinar ut porttitor quis, 
-                            semper consequat nisi. Duis interdum metus ut metus ultrices, at gravida dolor ultricies.
+                            Our visions are sharp and clear. We always look into the future.
+                            We foresee the upcoming trend and share our vision with your business. 
+                            You can be assured that your business is going to the right path as the world goes. 
+                            <br><br>
+                            We will always look after you. 
                         </p>
                     </div>
                 </div>
             </div>
             <div class="row multi-col-wrapper has-mg-b">
                 <div class="small-12 medium-6 column">
-                    <img class="about-detail-graphic" src="http://placehold.it/800x450" />
+                    {!! HTML::image("image/index/about-fly-medium-up.png","",array("class"=>"about-detail-graphic")) !!}
                 </div>
                 <div class="small-12 medium-6 column has-pd-lr">
                     <div class="about-detail-text">
                         <h4 class="about-detail-title">Flying without Wings</h4>
                         <p>
-                            Aliquam egestas, sapien sed maximus molestie, metus diam dignissim libero, 
-                            in sodales est elit id dolor. Aliquam libero nisi, pulvinar ut porttitor quis, 
-                            semper consequat nisi. Duis interdum metus ut metus ultrices, at gravida dolor ultricies.
+                            We are here to help you succeed with our knowledge. You are not alone in the world of business. 
+                            Join with us and become a family to fly forward together. Nothing can stop us to fly toward the bright future.
                         </p>
                     </div>
                 </div>
@@ -157,6 +173,7 @@
                     <h6 class="blog-post-title">
                         <a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a>
                     </h6>
+                    <p class="text-date">15/05/58</p>
                     <p class="blog-post-description">
                         Aliquam id tortor fermentum, luctus magna 
                         at, molestie dui. Mauris eu risus aliquet, 
@@ -176,6 +193,7 @@
                     <h6 class="blog-post-title">
                         <a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a>
                     </h6>
+                    <p class="text-date">15/05/58</p>
                     <p class="blog-post-description">
                         Aliquam id tortor fermentum, luctus magna 
                         at, molestie dui. Mauris eu risus aliquet, 
