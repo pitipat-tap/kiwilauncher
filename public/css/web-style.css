@@ -6983,6 +6983,25 @@ footer #footer-ending {
     margin-top: 10px;
     margin-bottom: 10px; }
 
+.menu-circuit {
+  width: 72px; }
+  .menu-circuit .menu-circuit-line {
+    width: 2px; }
+  .menu-circuit .menu-circuit-dot {
+    border-width: 2px;
+    width: 12px;
+    height: 12px;
+    top: 11px;
+    margin-top: 15px; }
+
+.menu-circuit.first {
+  margin-top: 0px; }
+  .menu-circuit.first .menu-circuit-line {
+    margin-top: 33px; }
+
+.menu-circuit.last .menu-circuit-line {
+  height: 33px; }
+
 .drseoul-img {
   border: solid;
   border-color: #304a8e;

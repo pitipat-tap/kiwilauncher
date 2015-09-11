@@ -6,42 +6,26 @@
     <div class="work-menu-container">
 
         <ul class="work-sub-menu">
+            @for($i = 0; $i < sizeof($categories); $i++)
             <li class="circuit-v-row ">
-
-                <div class="circuit-v menu-circuit first">
+                @if($i == 0)
+                    <div class="circuit-v menu-circuit first">
+                @elseif($i == sizeof($categories)-1)
+                    <div class="circuit-v menu-circuit last">
+                @else
+                    <div class="circuit-v menu-circuit">
+                @endif
                     <span class="circuit-v-line menu-circuit-line"></span>
                     <span class="circuit-v-dot menu-circuit-dot"></span>
                 </div>
-                <div class="menu-text" data-row="1">
+                <div class="menu-text">
                     <h6>
-                        <a href="http://localhost/kiwilauncher/public" class="menu-item-link">Web Application</a>
+                        <a href="http://localhost/kiwilauncher/public" class="menu-item-link">{!! $categories[$i]->name !!}</a>
                     </h6>
                 </div>
 
             </li>
-            <li class="circuit-v-row ">
-
-                <div class="circuit-v menu-circuit">
-                    <span class="circuit-v-line menu-circuit-line"></span>
-                    <span class="circuit-v-dot menu-circuit-dot"></span>
-                </div>
-                <div class="menu-text" data-row="1">
-                    <h6>
-                        <a href="http://localhost/kiwilauncher/public" class="menu-item-link">Mobile Application</a>
-                    </h6>
-                </div>
-
-            </li>
-            <li class="circuit-v-row ">
-                <h6>
-                    <a href="http://localhost/kiwilauncher/public" class="menu-item-link">Graphic Design</a>
-                </h6>
-            </li>
-            <li class="circuit-v-row ">
-                <h6>
-                    <a href="http://localhost/kiwilauncher/public" class="menu-item-link">Banner</a>
-                </h6>
-            </li>
+            @endfor
         </ul>
 
     </div>

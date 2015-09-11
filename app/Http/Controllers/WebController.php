@@ -34,8 +34,11 @@ class WebController extends Controller {
             $work->categories = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.categories_id')
                                 ->where('work_id',$work->id)->get();
         }
+
+        $categories = Categories::all();
+
 		return view('web.works',
-            array("works" => $works));
+            array("works" => $works,"categories" => $categories));
 	}
 
     public function workPost($url)
