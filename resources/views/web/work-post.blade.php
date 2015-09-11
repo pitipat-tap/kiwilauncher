@@ -21,32 +21,26 @@
 
 <div id="works">
     <section id="works-content" class="section-frame first">
-        <div class="row multi-col-wrapper has-mg-b">
-            <div class="medium-6 small-12 column has-mg-b">
-                <div class="">
-                    <!--<img class="figure-img work-cvimg" src="http://placehold.it/800x450" />-->
-                    {!! HTML::image($post->feature_image_url, "Some app", array(
-                        "class" => "figure-img work-cvimg")
-                    ) !!}
-                </div>
-            </div >
-            <div class="medium-6 small-12 column has-mg-b">
-                <div class="">
-                    <div class="work-text has-pd-lr">
-                        <h4>{!! $post->title !!}</h4>
-                        @foreach($categories as $category)
-                            {!! $category->name !!}
-                        @endforeach
-                        <h6><a href='{!! $post->link_url !!}' target="_blank">visit website</a></h6>
-                    </div>
-                </div>
-            </div >
-
-        </div>
-        <div class="has-mg-b">
-            <p id="about-description" class="single-col-wrapper has-pd-lr has-mg-b">
+        <div class="medium-12 small-12 column">
+            <div class="">
+                <!--<img class="figure-img work-cvimg" src="http://placehold.it/800x450" />-->
+                {!! HTML::image($post->feature_image_url, "Some app", array(
+                    "class" => "figure-img work-cvimg")
+                ) !!}
+            </div>
+        </div >
+        <div class="has-mg-b  single-col-wrapper">
+            <h4 style="margin-bottom: 0px">{!! $post->title !!}</h4>
+                @foreach($categories as $category)
+                    <span>{!! $category->name !!} </span>
+                @endforeach
+            <br>
+            <br>
+            <p id="about-description" class="has-pd-lr">
                 {!! $post->description !!}
             </p>
+            <br>
+            <h6><a href='{!! $post->link_url !!}' target="_blank">visit website</a></h6>
         </div>
 
         @foreach($screenshots as $screenshot)

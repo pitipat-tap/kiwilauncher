@@ -7,14 +7,30 @@
 
         <ul class="work-sub-menu">
             <li class="circuit-v-row ">
-                <h6>
-                    <a href="http://localhost/kiwilauncher/public" class="menu-item-link">Web Application</a>
-                </h6>
+
+                <div class="circuit-v menu-circuit first">
+                    <span class="circuit-v-line menu-circuit-line"></span>
+                    <span class="circuit-v-dot menu-circuit-dot"></span>
+                </div>
+                <div class="menu-text" data-row="1">
+                    <h6>
+                        <a href="http://localhost/kiwilauncher/public" class="menu-item-link">Web Application</a>
+                    </h6>
+                </div>
+
             </li>
             <li class="circuit-v-row ">
-                <h6>
-                    <a href="http://localhost/kiwilauncher/public" class="menu-item-link">Mobile Application</a>
-                </h6>
+
+                <div class="circuit-v menu-circuit">
+                    <span class="circuit-v-line menu-circuit-line"></span>
+                    <span class="circuit-v-dot menu-circuit-dot"></span>
+                </div>
+                <div class="menu-text" data-row="1">
+                    <h6>
+                        <a href="http://localhost/kiwilauncher/public" class="menu-item-link">Mobile Application</a>
+                    </h6>
+                </div>
+
             </li>
             <li class="circuit-v-row ">
                 <h6>
