@@ -42,7 +42,7 @@
                 <div class="small-12 medium-6 columns">
                     <span class="icon icon-mail"></span>
                     <div id="contact-mail">
-                        <h6><a>info@kiwilauncher.com</a></h6>
+                        <h6>info@kiwilauncher.com</h6>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,16 @@
         </div>
     </section>
     
-    @include("web-layouts.footer")
+    <section id="footer-ending" class="section-frame">
+        <div id="ending-index">
+            <span id="ending-logo">
+            </span>
+            <div id="ending-copyright">
+                <p>KiwiLauncher Co.,Ltd.</p>
+                <p>Copyright &copy; 2015. All right reserved</p>
+            </div>
+        </div>
+    </section>
 </div>
 
 @stop

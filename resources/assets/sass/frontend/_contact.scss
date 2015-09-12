@@ -66,12 +66,35 @@
 
 }
 
-#contact footer {
-    #copyright {
-        font-size: rem_calc(12);
-        text-align: center;
-        margin-top: $layout-margin-tb-inner-small;
+#footer-ending {
+    background: $body-font-color;
+    padding-top: 16px;
+    padding-bottom: 0px;
+    text-align: center;
+
+    #ending-index{
+        display: inline-block;
     }
+
+    #ending-logo{
+        display: block;
+        background: url("../image/logo/logo-white.svg") no-repeat 50% 50%;
+        background-size: 100%;
+        width: 80px;
+        height: 60px;
+        float: left;
+    }
+
+    #ending-copyright{
+        margin-top: 4px;
+        text-align: left;
+        float: left;
+        margin-left: 12px;
+        color: white;
+    }
+    
+
+
 }
 
 

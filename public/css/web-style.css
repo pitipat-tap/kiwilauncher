@@ -7159,9 +7159,25 @@ footer #footer-ending {
   background: url("../image/icon/icon-email-blackbd.svg") no-repeat 50% 50%;
   background-size: 100%; }
 
-#contact footer #copyright {
-  font-size: 0.75rem;
-  text-align: center;
-  margin-top: 36px; }
+#footer-ending {
+  background: #222;
+  padding-top: 16px;
+  padding-bottom: 0px;
+  text-align: center; }
+  #footer-ending #ending-index {
+    display: inline-block; }
+  #footer-ending #ending-logo {
+    display: block;
+    background: url("../image/logo/logo-white.svg") no-repeat 50% 50%;
+    background-size: 100%;
+    width: 80px;
+    height: 60px;
+    float: left; }
+  #footer-ending #ending-copyright {
+    margin-top: 4px;
+    text-align: left;
+    float: left;
+    margin-left: 12px;
+    color: white; }
 
 /*# sourceMappingURL=web-style.css.map */
