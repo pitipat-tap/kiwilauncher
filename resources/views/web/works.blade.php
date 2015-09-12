@@ -33,14 +33,13 @@
                 <div class="work-text has-pd-lr">
                     <h4><a href="{!! URL::route('work-post', array($work->url)) !!}">{!! $work->title !!}</a></h4>
                     @foreach($work->categories as $category)
-                        <p> {!! $category->name !!} </p>
+                        <span> {!! $category->name !!} </span>
                     @endforeach
                 </div>
             </li>
             @endforeach
 
         </ul>
-        <div class="align-center"><a class="button">Next Page</a></div>
     </section>
     
     @include("web-layouts.footer")
