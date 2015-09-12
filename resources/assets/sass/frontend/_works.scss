@@ -19,15 +19,17 @@
     width:220px;
     top:-212px;
     position:absolute;
+    top:0;
+    transform: translateY(-100%);
     -webkit-transition-duration: 0.5s; /* Safari */
-    transition-property:top;
+    transition-property:transform;
     transition-duration: 0.5s;
 }
 
 .work-menu-show{
-    top:0;
+    transform: translateY(0%);
     -webkit-transition-duration: 0.5s; /* Safari */
-    transition-property:top;
+    transition-property:transform;
     transition-duration: 0.5s;
 }
 .work-sub-menu{
@@ -57,6 +59,10 @@
         height: 12px;
         top: $menu-circuit-margin-medium - 7;
         margin-top: 15px;
+    }
+
+    .selected-dot {
+        border-color: green; 
     }
 }
 

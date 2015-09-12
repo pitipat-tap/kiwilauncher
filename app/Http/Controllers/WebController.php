@@ -34,12 +34,35 @@ class WebController extends Controller {
             $work->categories = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.categories_id')
                                 ->where('work_id',$work->id)->get();
         }
+        $categories = Categories::all();
+
+		return view('web.works',array(
+                "works" => $works ,
+                "categories" => $categories,
+                "dropDown" => "All Work"
+            )
+        );
+	}
+
+    public function workCategory($category)
+    {
+        $works = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.categories_id')
+            ->join('work_post', 'work_post.id', '=', 'work_post_categories.work_id')
+            ->where("status", "published")->where("name", $category)->orderBy("work_id", "ASC")->get();
+        foreach ($works as $work) {
+            $work->categories = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.categories_id')
+            ->where('work_id',$work->work_id)->get();
+        }
 
         $categories = Categories::all();
 
-		return view('web.works',
-            array("works" => $works,"categories" => $categories));
-	}
+        return view('web.works', array(
+                "works" => $works ,
+                "categories" => $categories,
+                "dropDown" => $category
+            )
+        );
+    }
 
     public function workPost($url)
     {
@@ -85,7 +108,8 @@ class WebController extends Controller {
         $post->timestamps = false;
         $post->save();
         
-        $prev_post = BlogPost::where("status", "=", "published")->
+        $prev_post = BlogPost::where("status", "=", "published
+            ")->
             where("created_at", "<", $post->created_at)->
             orderBy("created_at", "DESC")->
             take(3)->get();

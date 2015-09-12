@@ -6979,16 +6979,22 @@ footer #footer-ending {
   width: 220px;
   top: -212px;
   position: absolute;
+  top: 0;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
   -webkit-transition-duration: 0.5s;
   /* Safari */
-  transition-property: top;
+  transition-property: -webkit-transform;
+  transition-property: transform;
   transition-duration: 0.5s; }
 
 .work-menu-show {
-  top: 0;
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
   -webkit-transition-duration: 0.5s;
   /* Safari */
-  transition-property: top;
+  transition-property: -webkit-transform;
+  transition-property: transform;
   transition-duration: 0.5s; }
 
 .work-sub-menu {
@@ -7014,6 +7020,8 @@ footer #footer-ending {
     height: 12px;
     top: 11px;
     margin-top: 15px; }
+  .menu-circuit .selected-dot {
+    border-color: green; }
 
 .menu-circuit.first {
   margin-top: 0px; }
