@@ -45,7 +45,7 @@
 
         @foreach($screenshots as $screenshot)
             <div class="single-col-wrapper has-mg-b">
-                {!! HTML::image("$screenshot->image_url", "Some app", array( "class" => "drseoul-img")) !!}
+                {!! HTML::image("$screenshot->image_url", "Some app") !!}
             </div>
         @endforeach
         
