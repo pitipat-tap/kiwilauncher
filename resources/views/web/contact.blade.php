@@ -25,24 +25,30 @@
         </div>
 
         <div class="single-col-wrapper">
-            <p class="has-pd-lr">
-                Nam vitae urna congue, iaculis felis at, tristique erat. 
-                Cum sociis natoque penatibus et magnis dis parturient montes, 
-                nascetur ridiculus mus. Etiam sit amet tristique ex. 
-                Phasellus ut turpis ante. Donec porttitor, neque venenatis porta rhoncus, 
-                arcu turpis auctor erat, ut laoreet mi mauris eget arcu.
-            </p>
+            <h6 class="has-pd-lr">
+                Thank you for visiting us !
+            </h6>
             <br />
-            
-            <div id="contact-info" class="has-pd-lr">
-                <h6><a>info@kiwilauncher.com</a></h6>
-                <h6>087-822-3530</h6>
-                <h6>08x-xxx-xxxx</h6>
+            <p class="has-pd-lr">We're very pleased and looking forward to work with you. In case you want to ask is a question, inquire, or consult.</p>
+            <p class="has-pd-lr"> Feel free t contact us via these following channels</p>
+            <br>
+            <div id="contact-info" class="has-pd-lr has-mg-b row">
+                <div class="small-12 medium-6 columns">
+                    <span class="icon icon-phone"></span>
+                    <div id="contact-phone">
+                        <h6>087-822-3530, 08x-xxx-xxxx</h6>
+                    </div>
+                </div>
+                <div class="small-12 medium-6 columns">
+                    <span class="icon icon-mail"></span>
+                    <div id="contact-mail">
+                        <h6>info@kiwilauncher.com</h6>
+                    </div>
+                </div>
             </div>
-            <br />
             
-            <h4 class="section-title-sp">Follow us on</h4>
-            <div id="contact-socials">
+            <h6 class="has-pd-lr">Follow us to get news and updates first</h6>
+            <div class="has-pd-lr">
                 <p>
                     <a class="contact-social"><span class="icon icon-facebook"></span></a>
                     <a class="contact-social"><span class="icon icon-pinterest"></span></a>
@@ -51,9 +57,16 @@
         </div>
     </section>
     
-    <footer>
-        <p id="copyright">Copyright &copy; 2015 KiwiLauncher Co.Ltd.</p>
-    </footer>
+    <section id="footer-ending" class="section-frame">
+        <div id="ending-index">
+            <span id="ending-logo">
+            </span>
+            <div id="ending-copyright">
+                <p>KiwiLauncher Co.,Ltd.</p>
+                <p>Copyright &copy; 2015. All right reserved</p>
+            </div>
+        </div>
+    </section>
 </div>
 
 @stop

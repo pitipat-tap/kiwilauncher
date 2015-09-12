@@ -1,19 +1,10 @@
 footer #footer-contact {
-    background: $body-font-color;
-    
+    padding-top: $layout-padding-small*2;
+    padding-bottom: $layout-padding-small*2;
     .section-title {
-        color: white;
-        margin-bottom: 32px;
+        margin-bottom: 0px;
     }
-    
-    #contact-info {
-        color: white;
-        
-        h6, a {
-            color: white;
-        }
-    }
-    
+
     .button.reverse {
         background-color: $body-font-color;
         border-color: white;
@@ -32,49 +23,32 @@ footer #footer-contact {
 }
 
 footer #footer-ending {
+    background: $body-font-color;
     padding-top: 16px;
     padding-bottom: 0px;
-    
-    .footer-social {
-        color: $body-font-color;
-    }
-    
-    /*.footer-social {
-        border-color: $body-font-color;
-        border-style: solid;
-        border-width: 2px;
+    text-align: center;
+
+    #ending-index{
         display: inline-block;
     }
-    
-    .footer-social:not(.end) {
-        margin-right: 12px;
-    }
-    
-    .icon {
+
+    #ending-logo{
         display: block;
-        width: 28px;
-        height: 26px;
-    }
-    
-    .icon.icon-email {
-        background: url("../image/icon/icon-email.svg") no-repeat 0px 0px;
+        background: url("../image/logo/logo-white.svg") no-repeat 50% 50%;
         background-size: 100%;
+        width: 80px;
+        height: 60px;
+        float: left;
+    }
+
+    #ending-copyright{
+        margin-top: 4px;
+        text-align: left;
+        float: left;
+        margin-left: 12px;
+        color: white;
     }
     
-    .icon.icon-facebook {
-        background: url("../image/icon/icon-facebook.svg") no-repeat 0px 0px;
-        background-size: 100%;
-    }*/
-    
-    #socials, #copyright {
-        text-align: center;
-    }
-    
-    #socials {
-        margin-bottom: 32px;
-    }
-    
-    #copyright {
-        font-size: rem_calc(12);
-    }
+
+
 }
