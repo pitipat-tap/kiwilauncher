@@ -29,25 +29,31 @@
                 Thank you for visiting us !
             </h6>
             <br />
-            <p class="has-pd-lr">We're very pleased and looking forward to work with you. In case you want to ask is a question, inquire, or consult.</p>
-            <p class="has-pd-lr"> Feel free t contact us via these following channels</p>
-            <br>
-            <div id="contact-info" class="has-pd-lr has-mg-b row">
-                <div class="small-12 medium-6 columns">
-                    <span class="icon icon-phone"></span>
+            
+            <p class="has-pd-lr">
+                We're very pleased and looking forward to work with you. In case you want to ask is a question, 
+                inquire, or consult. Feel free t contact us via these following channels:
+            </p>
+            <br />
+            
+            <div id="contact-info-group" class="has-pd-lr has-mg-b row">
+                <div class="small-12 medium-6 columns has-pd-r">
+                    <span class="contact-info icon icon-phone"></span>
                     <div id="contact-phone">
                         <h6>087-822-3530, 08x-xxx-xxxx</h6>
                     </div>
                 </div>
-                <div class="small-12 medium-6 columns">
-                    <span class="icon icon-mail"></span>
+                <div class="small-12 medium-6 columns has-pd-l">
+                    <span class="contact-info icon icon-mail"></span>
                     <div id="contact-mail">
-                        <h6>info@kiwilauncher.com</h6>
+                        <h6><a href="mailto:info@kiwilauncher.com">info@kiwilauncher.com</a></h6>
                     </div>
                 </div>
             </div>
             
-            <h6 class="has-pd-lr">Follow us to get news and updates first</h6>
+            <h6 class="has-pd-lr">Follow us to get news and updates first.</h6>
+            <br />
+            
             <div class="has-pd-lr">
                 <p>
                     <a class="contact-social"><span class="icon icon-facebook"></span></a>
@@ -57,7 +63,7 @@
         </div>
     </section>
     
-    <section id="footer-ending" class="section-frame">
+    <section id="footer-ending-contact" class="section-frame">
         <div id="ending-index">
             <span id="ending-logo">
             </span>

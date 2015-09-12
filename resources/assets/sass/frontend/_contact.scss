@@ -22,9 +22,28 @@
         }
     }
 
-    .contact-social {
+    #contact-info-group {
+        .has-pd-r {
+            @media #{$medium-up} {
+                padding-right: $layout-padding-small;
+            }
+        }
 
-        border-width: 2px;
+        .has-pd-l {
+            @media #{$medium-up} {
+                padding-left: $layout-padding-small;
+            }
+        }
+
+        .contact-info {
+            border: 3px solid $body-font-color;
+            float: left;
+            margin-right: $layout-padding-small;
+        }
+    }
+
+    .contact-social {
+        background-color: $body-font-color;
         display: inline-block;
         
         &:not(:last-child) {
@@ -34,41 +53,35 @@
 
     .icon {
         display: block;
-        width: 36px;
-        height: 34px;
+        width: 44px;
+        height: 40px;
     }
 
     .icon.icon-facebook {
-        background: url("../image/icon/icon-facebook-blackbg.svg") no-repeat 0px 0px;
+        background: url("../image/icon/icon-facebook-white.svg") no-repeat 0px 0px;
         background-size: 100%;
     }
 
     .icon.icon-pinterest {
-        background: url("../image/icon/icon-pinterest-blackbg.svg") no-repeat 0px 0px;
+        background: url("../image/icon/icon-pinterest-white.svg") no-repeat 0px 0px;
         background-size: 100%;
     }
+
     .icon.icon-phone {
-        @media #{$small-only} {
-            margin-bottom: $layout-padding-medium;
-        }
-        margin-right: $layout-padding-medium;
-        float: left;
-        background: url("../image/icon/icon-phone-blackbd.svg") no-repeat 50% 50%;
+        background: url("../image/icon/icon-phone.svg") no-repeat 50% 50%;
         background-size: 100%;
     }
 
     .icon.icon-mail {
-        margin-right: $layout-padding-medium;
-        float: left;
-        background: url("../image/icon/icon-email-blackbd.svg") no-repeat 50% 50%;
+        background: url("../image/icon/icon-email.svg") no-repeat 50% 50%;
         background-size: 100%;
     }
 
 }
 
-#footer-ending {
+#footer-ending-contact {
     background: $body-font-color;
-    padding-top: 16px;
+    padding-top: 8px;
     padding-bottom: 0px;
     text-align: center;
 
@@ -80,8 +93,8 @@
         display: block;
         background: url("../image/logo/logo-white.svg") no-repeat 50% 50%;
         background-size: 100%;
-        width: 80px;
-        height: 60px;
+        width: 60px;
+        height: 45px;
         float: left;
     }
 
@@ -91,10 +104,12 @@
         float: left;
         margin-left: 12px;
         color: white;
+        
+        p {
+            font-size: rem_calc(12);
+            margin-bottom: rem_calc(2);
+        }
     }
-    
-
-
 }
 
 
