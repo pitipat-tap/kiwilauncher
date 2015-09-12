@@ -120,7 +120,7 @@
 
         .about-detail-text {
             @media #{$large-up} {
-                margin-top: $layout-padding-medium;
+                margin-top: $layout-padding-medium * 2;
             }
         }
     }
