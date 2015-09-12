@@ -1,5 +1,5 @@
 #contact #contact-content {
-    background-color: $body-font-color;
+    
     
     @media #{$small-only} {
         min-height: 560px;
@@ -22,17 +22,8 @@
         }
     }
 
-    h4, h6, p, a {
-        color: white;
-    }
-    
-    #contact-info, #contact-socials {
-        text-align: center;
-    }
-
     .contact-social {
-        border-color: white;
-        border-style: solid;
+
         border-width: 2px;
         display: inline-block;
         
@@ -48,14 +39,31 @@
     }
 
     .icon.icon-facebook {
-        background: url("../image/icon/icon-facebook-white.svg") no-repeat 0px 0px;
+        background: url("../image/icon/icon-facebook-blackbg.svg") no-repeat 0px 0px;
         background-size: 100%;
     }
 
     .icon.icon-pinterest {
-        background: url("../image/icon/icon-pinterest-white.svg") no-repeat 0px 0px;
+        background: url("../image/icon/icon-pinterest-blackbg.svg") no-repeat 0px 0px;
         background-size: 100%;
     }
+    .icon.icon-phone {
+        @media #{$small-only} {
+            margin-bottom: $layout-padding-medium;
+        }
+        margin-right: $layout-padding-medium;
+        float: left;
+        background: url("../image/icon/icon-phone-blackbd.svg") no-repeat 50% 50%;
+        background-size: 100%;
+    }
+
+    .icon.icon-mail {
+        margin-right: $layout-padding-medium;
+        float: left;
+        background: url("../image/icon/icon-email-blackbd.svg") no-repeat 50% 50%;
+        background-size: 100%;
+    }
+
 }
 
 #contact footer {
