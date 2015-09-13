@@ -114,44 +114,24 @@
         </div>
         
         <ul id="sltd-works-list" class="single-col-wrapper">
-            <li class="has-mg-b">
-                <a class="figure-link sltd-work-figure">
-                    <!--<img class="figure-img sltd-work-cvimg" src="http://placehold.it/800x450" />-->
-                    {!! HTML::image("image/sample/soon-thumb.jpg", "Some app", array(
-                        "class" => "figure-img sltd-work-cvimg")
-                    ) !!}
-                    <div class="figure-layer"></div>
-                </a>
-                <div class="sltd-work-text has-pd-lr">
-                    <h4><a>Some Application</a></h4>
-                    <p>iOS Application</p>
-                </div>
-            </li>
-            <li class="has-mg-b">
-                <a class="figure-link sltd-work-figure">
-                    {!! HTML::image("image/sample/sandawe-1.jpg", "Some web", array(
-                        "class" => "figure-img sltd-work-cvimg")
-                    ) !!}
-                    <div class="figure-layer"></div>
-                </a>
-                <div class="sltd-work-text has-pd-lr">
-                    <h4><a>Some Website</a></h4>
-                    <p>Website</p>
-                </div>
-            </li>
-            <li class="has-mg-b">
-                <a class="figure-link sltd-work-figure">
-                    {!! HTML::image("image/sample/pairi-daiza-thumb.jpg", "Some web", array(
-                        "class" => "figure-img sltd-work-cvimg")
-                    ) !!}
-                    <div class="figure-layer"></div>
-                </a>
-                <div class="sltd-work-text has-pd-lr">
-                    <h4><a>Some Website</a></h4>
-                    <p>Website</p>
-                </div>
-            </li>
-        </ul>
+        
+            @foreach($works as $work)
+                <li class="has-mg-b">
+                    <a class="figure-link sltd-work-figure" href="{!! URL::route('work-post', array($work->url)) !!}">
+                        <!--<img class="figure-img sltd-work-cvimg" src="http://placehold.it/800x450" />-->
+                        {!! HTML::image($work->feature_image_url, "Some app", array(
+                            "class" => "figure-img sltd-work-cvimg")
+                        ) !!}
+                        <div class="figure-layer"></div>
+                    </a>
+                    <div class="sltd-work-text has-pd-lr">
+                        <h4><a href="{!! URL::route('work-post', array($work->url)) !!}">{!! $work->title !!}</a></h4>
+                        @foreach($work->categories as $category)
+                            <span> {!! $category->name !!} </span>
+                        @endforeach
+                    </div>
+                </li>
+            @endforeach
         
         <div class="align-center"><a class="button">Discover all works</a></div>
     </section>

@@ -19,7 +19,16 @@ class WebController extends Controller {
 	
 	public function index()
 	{
-		return view('web.index');
+        $works = Post::orderBy('id', 'DESC')->paginate(3);
+        foreach ($works as $work) {
+            $work->categories = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.categories_id')
+                                ->where('work_id',$work->id)->get();
+        }
+
+		return view('web.index',array(
+                "works" => $works
+            )
+        );
 	}
     
     public function skills()
