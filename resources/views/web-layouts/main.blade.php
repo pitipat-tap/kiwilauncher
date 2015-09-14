@@ -4,7 +4,8 @@
         <meta charset="utf-8"></meta>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="keywords" content="KiwiLauncher" />
+        <meta name="description" content="รับทำเว็ปไซต์  ออกแบบเว็ปไซต์ รับทำกราฟฟิค ทำแบรนด์ดิ้ง ให้คำปรึกษาการตลาด"/>
+        <meta name="keywords" content="KiwiLauncher Web Development, ทำเว็ปไซต์, สร้างเว็ปไซต์  Graphic, กราฟฟิค, Branding, SEO, Digital Marketing" />
         <link rel="canonical" href="{!! URL::full() !!}" />
 		<meta property="og:url" content="{!! URL::full() !!}" />
 		<meta property="og:site_name" content="KiwiLauncher.com" />
