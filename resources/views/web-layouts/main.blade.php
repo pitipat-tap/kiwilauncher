@@ -9,6 +9,7 @@
         <link rel="canonical" href="{!! URL::full() !!}" />
 		<meta property="og:url" content="{!! URL::full() !!}" />
 		<meta property="og:site_name" content="KiwiLauncher.com" />
+		<meta property="og:image" content="http://kiwilauncher.com/image/logo/landing-for-fb.jpg" />
         @yield("specific-meta")
         <title>@yield("title"){!! defaultTitle() !!}</title>
 
