@@ -40,7 +40,14 @@
                 <div class="small-12 medium-6 columns has-pd-r">
                     <span class="contact-info icon icon-phone"></span>
                     <div id="contact-phone">
-                        <h6>087-822-3530, 08x-xxx-xxxx</h6>
+                        <h6>
+                            <a href="tel:+66878223530">
+                                087-822-3530
+                            </a>
+                            <a href="tel:+66853600822">
+                                ,085-360-0822
+                            </a>
+                        </h6>
                     </div>
                 </div>
                 <div class="small-12 medium-6 columns has-pd-l">
