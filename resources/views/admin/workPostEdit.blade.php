@@ -98,7 +98,7 @@ Edit Blog Post |
 
 	               	{!! Form::label("category") !!}
 			    	@foreach ($allCategory as $category)
-				    	{!! Form::checkbox($category->name, $category->id ,$category->isPost) !!}
+				    	{!! Form::checkbox('category_id_'.$category->id, 'category_id_'.$category->id ,$category->isPost) !!}
 				    	{!! $category->name !!}
 					@endforeach
 					<br>
