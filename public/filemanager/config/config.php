@@ -25,7 +25,7 @@ mb_internal_encoding('UTF-8');
 //    |   |   |   |   |- plugin.min.js
 
 $base_url ="http://".$_SERVER['HTTP_HOST'];  // DON'T TOUCH (base url (only domain) of site (without final /)).
-$upload_dir = '/kiwilauncher/public/uploads/normal/'; // path from base_url to base of upload folder (with start and final /)
+$upload_dir = '/uploads/normal/'; // path from base_url to base of upload folder (with start and final /)
 // Real server
 //$upload_dir = '/uploads/normal/'; // path from base_url to base of upload folder (with start and final /)
 $current_path = '../uploads/normal/'; // relative path from filemanager folder to upload folder (with final /)

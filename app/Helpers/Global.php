@@ -68,9 +68,9 @@ function isAdminNavSubLinkActive($has_sublink, $sublink, $menulink)
 
 
 function getLinkPath() {
-	$lpath = "/kiwilauncher/public";
+	// $lpath = "/kiwilauncher/public";
 	// Real server
-    //$lpath = "";
+    $lpath = "";
 	
 	return $lpath;
 }
