@@ -25,8 +25,11 @@ class WebController extends Controller {
                                 ->where('work_id',$work->id)->get();
         }
 
+        $blogs = BlogPost::orderBy('id', 'DESC')->paginate(2);
+
 		return view('web.index',array(
-                "works" => $works
+                "works" => $works,
+                "blogs" => $blogs
             )
         );
 	}
@@ -43,6 +46,7 @@ class WebController extends Controller {
             $work->categories = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.categories_id')
                                 ->where('work_id',$work->id)->get();
         }
+
         $categories = Categories::all();
 
 		return view('web.works',array(

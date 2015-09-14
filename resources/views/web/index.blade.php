@@ -144,46 +144,27 @@
         </div>
         
         <ul id="blog-posts-list" class="single-col-wrapper">
+            @foreach($blogs as $blog)
             <li class="has-mg-b">
-                <a class="figure-link blog-post-figure">
-                    <img class="figure-img blog-post-cvimg" src="http://placehold.it/800x450" />
+                <a class="figure-link blog-post-figure" href="{!! URL::route('blog-post', array($blog->url)) !!}">
+                    <!-- <img class="figure-img blog-post-cvimg" src="http://placehold.it/800x450" /> -->
+                    {!! HTML::image($blog->feature_image_url, "Some app", array(
+                        "class" => "figure-img blog-post-cvimg")
+                    ) !!}
                     <div class="figure-layer"></div>
                 </a>
                 <div class="blog-post-text has-pd-lr">
                     <h6 class="blog-post-title">
-                        <a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a>
+                        <a href="{!! URL::route('blog-post', array($blog->url)) !!}">{!! $blog->title !!}</a>
                     </h6>
-                    <p class="text-date">15/05/58</p>
+                    <p class="text-date">{!! $blog->updated_at !!}</p>
                     <p class="blog-post-description">
-                        Aliquam id tortor fermentum, luctus magna 
-                        at, molestie dui. Mauris eu risus aliquet, 
-                        blandit augue ut, mattis risus. Pellentesque 
-                        tempus elementum purus, vel tincidunt 
-                        nunc tempor at.
+                        {!! $blog->description !!}
                     </p>
-                    <p><a>Read more...</a></p>
+                    <p><a href="{!! URL::route('blog-post', array($blog->url)) !!}">Read more...</a></p>
                 </div>
             </li>
-            <li class="has-mg-b">
-                <a class="figure-link blog-post-figure">
-                    <img class="figure-img blog-post-cvimg" src="http://placehold.it/800x450" />
-                    <div class="figure-layer"></div>
-                </a>
-                <div class="blog-post-text has-pd-lr">
-                    <h6 class="blog-post-title">
-                        <a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a>
-                    </h6>
-                    <p class="text-date">15/05/58</p>
-                    <p class="blog-post-description">
-                        Aliquam id tortor fermentum, luctus magna 
-                        at, molestie dui. Mauris eu risus aliquet, 
-                        blandit augue ut, mattis risus. Pellentesque 
-                        tempus elementum purus, vel tincidunt 
-                        nunc tempor at.
-                    </p>
-                    <p><a>Read more...</a></p>
-                </div>
-            </li>
+            @endforeach
         </ul>
         
         <div class="align-center"><a class="button">More posts</a></div>

@@ -6912,15 +6912,16 @@ footer #footer-ending {
     background-size: contain;
     height: 10.5rem; } }
 
-#index #index-blog #blog-posts-list .blog-post-cvimg {
-  width: 100%; }
-  @media only screen and (max-width: 48em) {
-    #index #index-blog #blog-posts-list .blog-post-cvimg {
-      margin-bottom: 0.5rem; } }
-
-@media only screen and (min-width: 64.063em) {
-  #index #index-blog #blog-posts-list .blog-post-text {
-    margin-top: 24px; } }
+#index #index-blog #blog-posts-list {
+  list-style-type: none; }
+  #index #index-blog #blog-posts-list .blog-post-cvimg {
+    width: 100%; }
+    @media only screen and (max-width: 48em) {
+      #index #index-blog #blog-posts-list .blog-post-cvimg {
+        margin-bottom: 0.5rem; } }
+  @media only screen and (min-width: 64.063em) {
+    #index #index-blog #blog-posts-list .blog-post-text {
+      margin-top: 24px; } }
 
 #skills-and-process #skills .skill {
   text-align: center;
