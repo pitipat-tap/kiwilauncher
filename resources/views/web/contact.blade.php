@@ -30,7 +30,7 @@
             </h6>
             <br />
             <p class="has-pd-lr">We're very pleased and looking forward to work with you. In case you want to ask is a question, inquire, or consult.</p>
-            <p class="has-pd-lr"> Feel free t contact us via these following channels</p>
+            <p class="has-pd-lr"> Feel free to contact us via these following channels</p>
             <br>
             <div id="contact-info" class="has-pd-lr has-mg-b row">
                 <div class="small-12 medium-6 columns">
