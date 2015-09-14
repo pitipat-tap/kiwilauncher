@@ -40,7 +40,13 @@
                 {!! $post->description !!}
             </p>
             <br>
-            <h6><a href='{!! $post->link_url !!}' target="_blank">visit website</a></h6>
+            @if($post->link_url != '' && $post->link_url != null)
+                <h6>
+                    <a href='{!! $post->link_url !!}' target="_blank">
+                        visit website
+                    </a>
+                </h6>
+            @endif
         </div>
 
         @foreach($screenshots as $screenshot)
