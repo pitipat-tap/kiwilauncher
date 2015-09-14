@@ -42,10 +42,10 @@
                     <div id="contact-phone">
                         <h6>
                             <a href="tel:+66878223530">
-                                087-822-3530
+                                087-822-3530,
                             </a>
                             <a href="tel:+66853600822">
-                                ,085-360-0822
+                                &nbsp085-360-0822
                             </a>
                         </h6>
                     </div>
@@ -76,7 +76,7 @@
             </span>
             <div id="ending-copyright">
                 <p>KiwiLauncher Co.,Ltd.</p>
-                <p>Copyright &copy; 2015. All right reserved</p>
+                <p>Copyright &copy; 2015. All Rights Reserved</p>
             </div>
         </div>
     </section>
