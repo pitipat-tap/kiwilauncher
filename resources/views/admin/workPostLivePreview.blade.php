@@ -5,6 +5,7 @@
 {!! $post["title"] !!} (Live Preview) | 
 @stop
 
+{!! HTML::style("/css/web-style.css") !!}
 
 @section("body")
 
@@ -21,25 +22,36 @@
 <div id="admin-blogposts" class="container">
 
 
+	<section id="works-content" class="section-frame first">
+        <div class="medium-12 small-12 column">
+            <div>
+                <!--<img class="figure-img work-cvimg" src="http://placehold.it/800x450" />-->
+                {!! HTML::image($post["feature_image_url"], "Some app", array(
+                    "class" => "figure-img work-cvimg")
+                ) !!}
+            </div>
+        </div >
+        <div class="has-mg-b  single-col-wrapper">
+            <h4 style="margin-bottom: 0px">{!! $post["title"] !!}</h4>
 
-	<div class="post-preview">
-	    <h3 class="title">{!! HTML::linkRoute("adminWorkPosts", "Work Posts") !!} <span class="fa fa-angle-right"></span> Live Preview</h3>
-	    <br />
+            <br>
+            <br>
+            <p id="about-description" class="has-pd-lr">
+                {!! $post["description"] !!}
+            </p>
+            <br>
+            <h6><a href='{!! $post["link_url"] !!}' target="_blank">visit website</a></h6>
+        </div>
 
-	    {!! HTML::image($post["feature_image_url"]) !!}
-	    
-		<div class="post-block ui-block">
-	        <h2 class="post-title"> title: {!! $post["title"] !!}</h2>
-			<p> link_URL: {!! $post["link_url"] !!}</p>
-			<hr/>
-			<p> description: {!! $post["description"] !!}</p>
-			@for($i = 0; $i < 5; $i++)
+        @for($i = 0; $i < 5; $i++)
 				@if($post["screenshotsURL".$i] != '')
-					<p> link_URL: {!! $post["screenshotsURL".$i] !!}</p>
-				@endif
-			@endfor
-	    </div>
+				<div class="single-col-wrapper has-mg-b">
+	                {!! HTML::image($post["screenshotsURL".$i], "Some app") !!}
+	            </div>
+			@endif
+		@endfor
+        
+    </section>
+
     </div>
 </div>
-
-@stop
