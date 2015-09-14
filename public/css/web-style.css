@@ -7045,15 +7045,16 @@ footer #footer-ending {
   #blog #blog-content.section-frame {
     padding-top: 64px; } }
 
-#blog #blog-posts-list .blog-post-cvimg {
-  width: 100%; }
-  @media only screen and (max-width: 48em) {
-    #blog #blog-posts-list .blog-post-cvimg {
-      margin-bottom: 0.5rem; } }
-
-@media only screen and (min-width: 64.063em) {
-  #blog #blog-posts-list .blog-post-text {
-    margin-top: 24px; } }
+#blog #blog-posts-list {
+  list-style-type: none; }
+  #blog #blog-posts-list .blog-post-cvimg {
+    width: 100%; }
+    @media only screen and (max-width: 48em) {
+      #blog #blog-posts-list .blog-post-cvimg {
+        margin-bottom: 0.5rem; } }
+  @media only screen and (min-width: 64.063em) {
+    #blog #blog-posts-list .blog-post-text {
+      margin-top: 24px; } }
 
 #blog #blog-posts-ftd-crs {
   background-color: brown;
