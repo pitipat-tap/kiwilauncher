@@ -16,7 +16,7 @@
             </span>
             <div id="ending-copyright">
                 <p>KiwiLauncher Co.,Ltd.</p>
-                <p>Copyright &copy; 2015. All right reserved</p>
+                <p>Copyright &copy; 2015. All Rights Reserved</p>
             </div>
         </div>
     </section>
