@@ -29,7 +29,8 @@
                 <div id="title-text">
                     <p>Digital Creative Launcher</p>
                     <p class="title-desc">Web - Mobile - Graphic - Branding</p>
-                    <a id="title-btn" class="button">Selected Work</a> <a class="button secondary">Contact</a>
+                    <a id="title-btn" class="button" href="{!! URL::route('works') !!}">Selected Work</a> 
+                    <a class="button secondary" href="{!! URL::route('contact') !!}">Contact</a>
                 </div>
             </div>
         </div>
@@ -133,7 +134,9 @@
                 </li>
             @endforeach
         
-        <div class="align-center"><a class="button">Discover all works</a></div>
+        <div class="align-center">
+            <a class="button" href="{!! URL::route('works') !!}">Discover all works</a>
+        </div>
     </section>
     
     <div class="border-section border-white-white"></div>
@@ -167,7 +170,9 @@
             @endforeach
         </ul>
         
-        <div class="align-center"><a class="button">More posts</a></div>
+        <div class="align-center">
+            <a class="button" href="{!! URL::route('blog') !!}">More posts</a>
+        </div>
     </section>
     
     @include("web-layouts.footer")

@@ -5,7 +5,9 @@
 
         <h6 class="section-title">Build amazing things together</h6>
         <br>
-        <div class="align-center"><a class="button hl">Contact</a></div>
+        <div class="align-center">
+            <a class="button hl" href="{!! URL::route('contact') !!}">Contact</a>
+        </div>
     </section>
 
     <section id="footer-ending" class="section-frame">
