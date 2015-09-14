@@ -6668,11 +6668,11 @@ ul.none-style {
       border-width: 2px;
       width: 12px;
       height: 12px;
-      top: 11px; }
+      top: -2px; }
   #menu .menu-circuit.first .menu-circuit-line {
     margin-top: 18px; }
   #menu .menu-circuit.last .menu-circuit-line {
-    height: 18px; }
+    height: 20px; }
   #menu ul li:not(.active) .menu-item-link {
     color: #222; }
   #menu ul li.active .menu-circuit-dot {
