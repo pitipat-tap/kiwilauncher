@@ -63,7 +63,7 @@
             
             <div class="has-pd-lr">
                 <p>
-                    <a class="contact-social"><span class="icon icon-facebook"></span></a>
+                    <a class="contact-social" href="https://www.facebook.com/kiwilauncher" target="_blank" ><span class="icon icon-facebook"></span></a>
                     <a class="contact-social"><span class="icon icon-pinterest"></span></a>
                 </p>
             </div>

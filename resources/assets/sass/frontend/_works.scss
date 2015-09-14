@@ -14,6 +14,26 @@
     }
 }
 
+.work-post-cover-img{
+    width:100%;
+}
+.work-post-text-container{
+    @media #{$medium-up}{
+        margin-top: $layout-margin-tb-inner-medium ;
+    }
+    @media #{$small-only}{
+        margin-top: $layout-margin-tb-inner-small ;
+    }
+}
+.work-post-cover-container{
+    overflow:hidden;
+    @media #{$large-up}{
+        height:700px;
+    }
+    @media #{$medium-only}{
+        height:500px;
+    }
+}
 .work-menu-container{
     height:auto;
     width:220px;

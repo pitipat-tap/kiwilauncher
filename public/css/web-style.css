@@ -6975,6 +6975,26 @@ footer #footer-ending {
 #works #works-list .work-figure {
   margin-bottom: 0.5rem; }
 
+.work-post-cover-img {
+  width: 100%; }
+
+@media only screen and (min-width: 48.063em) {
+  .work-post-text-container {
+    margin-top: 60px; } }
+
+@media only screen and (max-width: 48em) {
+  .work-post-text-container {
+    margin-top: 36px; } }
+
+.work-post-cover-container {
+  overflow: hidden; }
+  @media only screen and (min-width: 64.063em) {
+    .work-post-cover-container {
+      height: 700px; } }
+  @media only screen and (min-width: 48.063em) and (max-width: 64em) {
+    .work-post-cover-container {
+      height: 500px; } }
+
 .work-menu-container {
   height: auto;
   width: 220px;

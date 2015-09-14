@@ -7,12 +7,14 @@
         <meta name="description" content="รับทำเว็ปไซต์  ออกแบบเว็ปไซต์ รับทำกราฟฟิค ทำแบรนด์ดิ้ง ให้คำปรึกษาการตลาด"/>
         <meta name="keywords" content="KiwiLauncher Web Development, ทำเว็ปไซต์, สร้างเว็ปไซต์  Graphic, กราฟฟิค, Branding, SEO, Digital Marketing" />
         <link rel="canonical" href="{!! URL::full() !!}" />
+        <meta property="fb:admins" content="100000527591794"/>
+        <meta property="fb:app_id" content="166253223711966"/>
+        <meta property="fb:page_id" content="127205820963789"/>
 		<meta property="og:url" content="{!! URL::full() !!}" />
 		<meta property="og:site_name" content="KiwiLauncher.com" />
 		<meta property="og:image" content="http://kiwilauncher.com/image/logo/landing-for-fb.jpg" />
 		<meta property="og:description" content="Web Design, Graphic Design, Digital Marketing" />
 		<meta property="og:title" content="Kiwi Launcher" />
-        @yield("specific-meta")
         <title>@yield("title"){!! defaultTitle() !!}</title>
 
         <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
