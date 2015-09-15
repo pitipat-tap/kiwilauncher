@@ -81,7 +81,7 @@
                     </a>
                     <div class="blog-post-text has-pd-lr">
                         <h6 class="blog-post-title">
-                            {!! $post->title !!}
+                            {!! HTML::linkRoute("blog-post", $post->title, array($post->url)) !!}
                         </h6>
                         <p class="blog-post-description">
                             {!! $post->description !!}

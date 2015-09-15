@@ -36,8 +36,8 @@
             </p>
             <br />
             
-            <div id="contact-info-group" class="has-pd-lr has-mg-b row">
-                <div class="small-12 medium-6 columns has-pd-r">
+            <div id="contact-info-group" class="has-pd-lr row">
+                <div class="small-12 medium-6 columns has-mg-b has-pd-r">
                     <span class="contact-info icon icon-phone"></span>
                     <div id="contact-phone">
                         <h6>
@@ -50,7 +50,7 @@
                         </h6>
                     </div>
                 </div>
-                <div class="small-12 medium-6 columns has-pd-l">
+                <div class="small-12 medium-6 columns has-mg-b has-pd-l">
                     <span class="contact-info icon icon-mail"></span>
                     <div id="contact-mail">
                         <h6><a href="mailto:info@kiwilauncher.com">info@kiwilauncher.com</a></h6>
