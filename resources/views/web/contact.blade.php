@@ -32,7 +32,7 @@
             
             <p class="has-pd-lr">
                 We're very pleased and looking forward to work with you. In case you want to ask is a question, 
-                inquire, or consult. Feel free t contact us via these following channels:
+                inquire, or consult. Feel free to contact us via these following channels:
             </p>
             <br />
             
