@@ -10,11 +10,28 @@ use App\Models\ImagePost;
 use App\Models\Faq;
 use App\Models\Subscription;
 
+use App\Models\work\Post;
+use App\Models\work\Categories;
+use App\Models\work\PostCategories;
+use App\Models\work\Screenshot;
+
 class WebController extends Controller {
 	
 	public function index()
 	{
-		return view('web.index');
+        $works = Post::orderBy('id', 'DESC')->paginate(3);
+        foreach ($works as $work) {
+            $work->categories = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.categories_id')
+                                ->where('work_id',$work->id)->get();
+        }
+
+        $blogs = BlogPost::orderBy('id', 'DESC')->paginate(2);
+
+		return view('web.index',array(
+                "works" => $works,
+                "blogs" => $blogs
+            )
+        );
 	}
     
     public function skills()
@@ -24,8 +41,64 @@ class WebController extends Controller {
     
     public function works()
 	{
-		return view('web.works');
+        $works = Post::where("status", "published")->orderBy("id", "ASC")->get();
+        foreach ($works as $work) {
+            $work->categories = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.categories_id')
+                                ->where('work_id',$work->id)->get();
+        }
+
+        $categories = Categories::all();
+
+		return view('web.works',array(
+                "works" => $works ,
+                "categories" => $categories,
+                "dropDown" => "All Work"
+            )
+        );
 	}
+
+    public function workCategory($category)
+    {
+        $works = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.categories_id')
+            ->join('work_post', 'work_post.id', '=', 'work_post_categories.work_id')
+            ->where("status", "published")->where("name", $category)->orderBy("work_id", "ASC")->get();
+        foreach ($works as $work) {
+            $work->categories = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.categories_id')
+            ->where('work_id',$work->work_id)->get();
+        }
+
+        $categories = Categories::all();
+
+        return view('web.works', array(
+                "works" => $works ,
+                "categories" => $categories,
+                "dropDown" => $category
+            )
+        );
+    }
+
+    public function workPost($url)
+    {
+        $post = Post::where("url", $url)->first();
+        if (!$post){
+            App::abort(404);
+        }
+        $post->hits += 1;
+        $post->timestamps = false;
+        $post->save();
+        
+        $screenshots = Screenshot::where("work_id", $post->id)->get();
+
+        $categories = Categories::join('work_post_categories', 'work_categories.id', '=', 'work_post_categories.categories_id')
+                                ->where('work_id',$post->id)->get();
+
+        return view("web.work-post", array(
+                "post" => $post,
+                "screenshots" => $screenshots,
+                "categories" => $categories
+            )
+        );
+    }
 
     public function works_drseoul()
 	{
@@ -48,7 +121,8 @@ class WebController extends Controller {
         $post->timestamps = false;
         $post->save();
         
-        $prev_post = BlogPost::where("status", "=", "published")->
+        $prev_post = BlogPost::where("status", "=", "published
+            ")->
             where("created_at", "<", $post->created_at)->
             orderBy("created_at", "DESC")->
             take(3)->get();

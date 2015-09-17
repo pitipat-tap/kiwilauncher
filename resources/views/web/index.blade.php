@@ -29,7 +29,8 @@
                 <div id="title-text">
                     <p>Digital Creative Launcher</p>
                     <p class="title-desc">Web - Mobile - Graphic - Branding</p>
-                    <a id="title-btn" class="button" href="#selected-work">Selected Work</a> <a class="button" href="#our-blog">Our blog</a>
+                    <a id="title-btn" class="button" href="#selected-work">Selected Work</a> 
+                    <a class="button secondary" href="#our-blog">Our blog</a>
                 </div>
             </div>
         </div>
@@ -114,46 +115,28 @@
         </div>
         
         <ul id="sltd-works-list" class="single-col-wrapper">
-            <li class="has-mg-b">
-                <a class="figure-link sltd-work-figure">
-                    <!--<img class="figure-img sltd-work-cvimg" src="http://placehold.it/800x450" />-->
-                    {!! HTML::image("image/sample/soon-thumb.jpg", "Some app", array(
-                        "class" => "figure-img sltd-work-cvimg")
-                    ) !!}
-                    <div class="figure-layer"></div>
-                </a>
-                <div class="sltd-work-text has-pd-lr">
-                    <h4><a>Some Application</a></h4>
-                    <p>iOS Application</p>
-                </div>
-            </li>
-            <li class="has-mg-b">
-                <a class="figure-link sltd-work-figure">
-                    {!! HTML::image("image/sample/sandawe-1.jpg", "Some web", array(
-                        "class" => "figure-img sltd-work-cvimg")
-                    ) !!}
-                    <div class="figure-layer"></div>
-                </a>
-                <div class="sltd-work-text has-pd-lr">
-                    <h4><a>Some Website</a></h4>
-                    <p>Website</p>
-                </div>
-            </li>
-            <li class="has-mg-b">
-                <a class="figure-link sltd-work-figure">
-                    {!! HTML::image("image/sample/pairi-daiza-thumb.jpg", "Some web", array(
-                        "class" => "figure-img sltd-work-cvimg")
-                    ) !!}
-                    <div class="figure-layer"></div>
-                </a>
-                <div class="sltd-work-text has-pd-lr">
-                    <h4><a>Some Website</a></h4>
-                    <p>Website</p>
-                </div>
-            </li>
-        </ul>
         
-        <div class="align-center"><a class="button hl">Discover all works</a></div>
+            @foreach($works as $work)
+                <li class="has-mg-b">
+                    <a class="figure-link sltd-work-figure" href="{!! URL::route('work-post', array($work->url)) !!}">
+                        <!--<img class="figure-img sltd-work-cvimg" src="http://placehold.it/800x450" />-->
+                        {!! HTML::image($work->feature_image_url, "Some app", array(
+                            "class" => "figure-img sltd-work-cvimg")
+                        ) !!}
+                        <div class="figure-layer"></div>
+                    </a>
+                    <div class="sltd-work-text has-pd-lr">
+                        <h4><a href="{!! URL::route('work-post', array($work->url)) !!}">{!! $work->title !!}</a></h4>
+                        @foreach($work->categories as $category)
+                            <span> {!! $category->name !!} </span>
+                        @endforeach
+                    </div>
+                </li>
+            @endforeach
+        
+        <div class="align-center">
+            <a class="button" href="{!! URL::route('works') !!}">Discover all works</a>
+        </div>
     </section>
     
     <div class="border-section border-white-white"></div>
@@ -164,49 +147,32 @@
         </div>
         
         <ul id="blog-posts-list" class="single-col-wrapper">
+            @foreach($blogs as $blog)
             <li class="has-mg-b">
-                <a class="figure-link blog-post-figure">
-                    <img class="figure-img blog-post-cvimg" src="http://placehold.it/800x450" />
+                <a class="figure-link blog-post-figure" href="{!! URL::route('blog-post', array($blog->url)) !!}">
+                    <!-- <img class="figure-img blog-post-cvimg" src="http://placehold.it/800x450" /> -->
+                    {!! HTML::image($blog->feature_image_url, "Some app", array(
+                        "class" => "figure-img blog-post-cvimg")
+                    ) !!}
                     <div class="figure-layer"></div>
                 </a>
                 <div class="blog-post-text has-pd-lr">
                     <h6 class="blog-post-title">
-                        <a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a>
+                        <a href="{!! URL::route('blog-post', array($blog->url)) !!}">{!! $blog->title !!}</a>
                     </h6>
-                    <p class="text-date">15/05/58</p>
+                    <p class="text-date">{!! $blog->updated_at !!}</p>
                     <p class="blog-post-description">
-                        Aliquam id tortor fermentum, luctus magna 
-                        at, molestie dui. Mauris eu risus aliquet, 
-                        blandit augue ut, mattis risus. Pellentesque 
-                        tempus elementum purus, vel tincidunt 
-                        nunc tempor at.
+                        {!! $blog->description !!}
                     </p>
-                    <p><a>Read more...</a></p>
+                    <p><a href="{!! URL::route('blog-post', array($blog->url)) !!}">Read more...</a></p>
                 </div>
             </li>
-            <li class="has-mg-b">
-                <a class="figure-link blog-post-figure">
-                    <img class="figure-img blog-post-cvimg" src="http://placehold.it/800x450" />
-                    <div class="figure-layer"></div>
-                </a>
-                <div class="blog-post-text has-pd-lr">
-                    <h6 class="blog-post-title">
-                        <a>Pellentesque viverra congue justo, eget ornare nulla tempus ut.</a>
-                    </h6>
-                    <p class="text-date">15/05/58</p>
-                    <p class="blog-post-description">
-                        Aliquam id tortor fermentum, luctus magna 
-                        at, molestie dui. Mauris eu risus aliquet, 
-                        blandit augue ut, mattis risus. Pellentesque 
-                        tempus elementum purus, vel tincidunt 
-                        nunc tempor at.
-                    </p>
-                    <p><a>Read more...</a></p>
-                </div>
-            </li>
+            @endforeach
         </ul>
         
-        <div class="align-center"><a class="button hl">View more blogposts</a></div>
+        <div class="align-center">
+            <a class="button" href="{!! URL::route('blog') !!}">More posts</a>
+        </div>
     </section>
     
     @include("web-layouts.footer")

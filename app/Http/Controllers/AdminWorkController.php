@@ -61,7 +61,11 @@ class AdminWorkController extends Controller {
         $post = array();
         $post["title"] = Request::input("title");
         $post["description"] = Request::input("description");
+        $post["link_url"] = Request::input("link_url");
         $post["feature_image_url"] = Request::input("feature_url");
+        for($i=0; $i<5; $i++){
+        	$post["screenshotsURL".$i] = Request::input("screenshotsURL".$i);
+        }
         return view("admin.workPostLivePreview", array("post" => $post));
     }
 	
@@ -94,7 +98,7 @@ class AdminWorkController extends Controller {
 
 	        	$categorys = Categories::all();
 	        	foreach ($categorys as $category) {
-	        		if (Input::get($category->name)) {
+	        		if (Input::get('category_id_'.$category->id)) {
 						$postCategories = new PostCategories;
 						$postCategories->posts()->associate($post);
 						$postCategories->categories()->associate($category);
@@ -190,7 +194,7 @@ class AdminWorkController extends Controller {
 	        	PostCategories::where('work_id','=', $id)->delete(); // delete old Categories
 	        	$categorys = Categories::all();
 	        	foreach ($categorys as $category) {
-	        		if (Input::get($category->name)) {
+	        		if (Input::get('category_id_'.$category->id)) {
 						$postCategories = new PostCategories;
 						$postCategories->posts()->associate($post);
 						$postCategories->categories()->associate($category);

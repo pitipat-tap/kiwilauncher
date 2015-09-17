@@ -125,7 +125,7 @@ $font-family-custom: "Maven Pro", sans-serif;
 // $primary-color: #008CBA;
 $primary-color: #009141;
 // $secondary-color: #e7e7e7;
-$secondary-color: #D6D6D6;
+$secondary-color: #444444;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
@@ -452,9 +452,7 @@ $button-margin-bottom: rem-calc(8);
 // We use these to control button text styles.
 // $button-font-family: $body-font-family;
 // $button-font-color: $white;
-$button-font-color: $primary-color;
 // $button-font-color-alt: $oil;
-$button-font-color-alt: $primary-color;
 // $button-font-tny: rem-calc(11);
 // $button-font-sml: rem-calc(13);
 // $button-font-med: rem-calc(16);
@@ -467,14 +465,10 @@ $button-font-color-alt: $primary-color;
 
 // We use these to control button border styles.
 // $button-border-width: 0;
-$button-border-width: 2px;
 // $button-border-style: solid;
 // $button-bg-color: $primary-color;
-$button-bg-color: white;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
-$button-bg-hover: white;
 // $button-border-color: $button-bg-hover;
-$button-border-color: $primary-color;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
 // $secondary-button-border-color: $secondary-button-bg-hover;
 // $success-button-bg-hover: scale-color($success-color, $lightness: $button-function-factor);

@@ -236,11 +236,6 @@ $button-hover-color: scale-color($primary-color, $lightness: $button-function-fa
             font-size: $h6-font-size;
         }
     }
-
-    &:hover {
-        color: $button-hover-color;
-        border-color: $button-hover-color;
-    }
 }
 
 ul.none-style {

@@ -129,7 +129,7 @@ $menu-circuit-margin-medium: 18px;
             border-width: $menu-circuit-border-width-medium;
             width: 12px;
             height: 12px;
-            top: $menu-circuit-margin-medium - 7;
+            top: $menu-circuit-margin-medium - 20px;
         }
 
         
@@ -143,7 +143,7 @@ $menu-circuit-margin-medium: 18px;
 
     .menu-circuit.last {
         .menu-circuit-line {
-            height: $menu-circuit-margin-medium;
+            height: $menu-circuit-margin-medium + 2px;
         }
     }
 

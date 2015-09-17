@@ -14,20 +14,42 @@
     }
 }
 
+.work-post-cover-img{
+    width:100%;
+}
+.work-post-text-container{
+    @media #{$medium-up}{
+        margin-top: $layout-margin-tb-inner-medium ;
+    }
+    @media #{$small-only}{
+        margin-top: $layout-margin-tb-inner-small ;
+    }
+}
+.work-post-cover-container{
+    overflow:hidden;
+    @media #{$large-up}{
+        height:700px;
+    }
+    @media #{$medium-only}{
+        height:500px;
+    }
+}
 .work-menu-container{
     height:auto;
     width:220px;
     top:-212px;
     position:absolute;
+    top:0;
+    transform: translateY(-100%);
     -webkit-transition-duration: 0.5s; /* Safari */
-    transition-property:top;
+    transition-property:transform;
     transition-duration: 0.5s;
 }
 
 .work-menu-show{
-    top:0;
+    transform: translateY(0%);
     -webkit-transition-duration: 0.5s; /* Safari */
-    transition-property:top;
+    transition-property:transform;
     transition-duration: 0.5s;
 }
 .work-sub-menu{
@@ -43,6 +65,38 @@
                 margin-top:10px;
                 margin-bottom:10px;
         }
+}
+.menu-circuit {
+    width: $menu-circuit-width-medium;
+    
+    .menu-circuit-line {
+        width: $menu-circuit-border-width-medium;
+    }
+    
+    .menu-circuit-dot {
+        border-width: $menu-circuit-border-width-medium;
+        width: 12px;
+        height: 12px;
+        top: $menu-circuit-margin-medium - 7;
+        margin-top: 15px;
+    }
+
+    .selected-dot {
+        border-color: green; 
+    }
+}
+
+.menu-circuit.first {
+    margin-top: 0px;
+    .menu-circuit-line {
+        margin-top: $menu-circuit-margin-medium + 15px;
+    }
+}
+
+.menu-circuit.last {
+    .menu-circuit-line {
+        height: $menu-circuit-margin-medium + 15px;
+    }
 }
 .drseoul-img{
     border:solid;

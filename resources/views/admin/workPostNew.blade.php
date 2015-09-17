@@ -98,7 +98,7 @@ Add New Work Post |
 
 	               	{!! Form::label("category") !!}
 			    	@foreach ($allCategory as $category)
-				    	{!! Form::checkbox($category->name) !!}
+				    	{!! Form::checkbox('category_id_'.$category->id) !!}
 				    	{!! $category->name !!}
 					@endforeach
 					<br>

@@ -4,11 +4,17 @@
         <meta charset="utf-8"></meta>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="keywords" content="KiwiLauncher" />
+        <meta name="description" content="รับทำเว็ปไซต์  ออกแบบเว็ปไซต์ รับทำกราฟฟิค ทำแบรนด์ดิ้ง ให้คำปรึกษาการตลาด"/>
+        <meta name="keywords" content="KiwiLauncher Web Development, ทำเว็ปไซต์, สร้างเว็ปไซต์  Graphic, กราฟฟิค, Branding, SEO, Digital Marketing" />
         <link rel="canonical" href="{!! URL::full() !!}" />
+        <meta property="fb:admins" content="100000527591794"/>
+        <meta property="fb:app_id" content="166253223711966"/>
+        <meta property="fb:page_id" content="127205820963789"/>
 		<meta property="og:url" content="{!! URL::full() !!}" />
 		<meta property="og:site_name" content="KiwiLauncher.com" />
-        @yield("specific-meta")
+		<meta property="og:image" content="http://kiwilauncher.com/image/logo/landing-for-fb.jpg" />
+		<meta property="og:description" content="Web Design, Graphic Design, Digital Marketing" />
+		<meta property="og:title" content="Kiwi Launcher" />
         <title>@yield("title"){!! defaultTitle() !!}</title>
 
         <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>

@@ -14,7 +14,7 @@ Edit Blog Post |
 @section("specific_js_head")
 {!! HTML::script("/js/tinymce/tinymce.min.js") !!}
 {!! HTML::script("/js/fancybox/source/jquery.fancybox.pack.js") !!}
-{!! HTML::script("/js/adminWorkPostForm.js") !!}
+{!! HTML::script("/js/admin-work-post-form.js") !!}
 @stop
 
 
@@ -98,7 +98,7 @@ Edit Blog Post |
 
 	               	{!! Form::label("category") !!}
 			    	@foreach ($allCategory as $category)
-				    	{!! Form::checkbox($category->name, $category->id ,$category->isPost) !!}
+				    	{!! Form::checkbox('category_id_'.$category->id, 'category_id_'.$category->id ,$category->isPost) !!}
 				    	{!! $category->name !!}
 					@endforeach
 					<br>
@@ -156,9 +156,6 @@ Edit Blog Post |
 					                    @endif
 
 				                    </a>
-				                    
-				                    
-				                        
 				                    <p><a class="sc-open" href="<?php echo $p_link; ?>">Select Image</a></p>
 		
 				                </div>
@@ -254,6 +251,14 @@ Edit Blog Post |
        {!! Form::hidden("title") !!}
        {!! Form::hidden("description") !!}
        {!! Form::hidden("feature_url") !!}
+       {!! Form::hidden("link_url") !!}
+       @for($i = 0; $i < 5; $i++)
+       		@if($i < sizeof($oldScreenShots))
+       			{!! Form::hidden("screenshotsURL".$i, $oldScreenShots[$i]->image_url) !!}
+       		@else
+       			{!! Form::hidden("screenshotsURL".$i) !!}
+       		@endif
+       @endfor
     {!! Form::close() !!}
 </div>
 
