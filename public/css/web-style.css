@@ -6725,8 +6725,13 @@ header {
     padding-left: 12px;
     z-index: 9999;
     background-color: white;
-    width: 230px;
-    height: 63px; }
+    width: 230px; }
+    @media (min-width: 30.063em) {
+      header #header-brand {
+        height: 63px; } }
+    @media (max-width: 30em) {
+      header #header-brand {
+        height: 55px; } }
   header #header-brand-logo {
     background: url("../image/logo/logo.svg") no-repeat 50% 50%;
     background-size: 100%;
@@ -6997,7 +7002,8 @@ footer #footer-ending {
 
 .work-menu-container {
   height: auto;
-  width: 220px;
+  min-width: 275px;
+  max-width: 500px;
   top: -212px;
   position: absolute;
   top: 0;
@@ -7020,16 +7026,24 @@ footer #footer-ending {
 
 .work-sub-menu {
   margin-left: 0;
-  width: 220px;
-  margin-top: 63px;
+  min-width: 275px;
+  max-width: 500px;
   padding-left: 12px;
   background-color: white;
   border-bottom: 1px solid #D6D6D6;
   border-right: 1px solid #D6D6D6;
   border-left: 1px solid #D6D6D6; }
+  @media (min-width: 30.063em) {
+    .work-sub-menu {
+      margin-top: 62px; } }
+  @media (max-width: 30em) {
+    .work-sub-menu {
+      margin-top: 54px; } }
   .work-sub-menu h6 {
     margin-top: 10px;
     margin-bottom: 10px; }
+  .work-sub-menu .menu-text {
+    margin-right: 12px; }
 
 .menu-circuit {
   width: 72px; }
