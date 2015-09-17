@@ -29,7 +29,7 @@
                 <div id="title-text">
                     <p>Digital Creative Launcher</p>
                     <p class="title-desc">Web - Mobile - Graphic - Branding</p>
-                    <a id="title-btn" class="button">Selected Work</a> <a class="button">Contact</a>
+                    <a id="title-btn" class="button" href="#selected-work">Selected Work</a> <a class="button" href="#our-blog">Our blog</a>
                 </div>
             </div>
         </div>
@@ -109,7 +109,7 @@
     <div class="border-section border-white-white"></div>
 
     <section id="index-sltd-works" class="section-frame">
-        <div class="section-title-graphic">
+        <div id="selected-work" class="section-title-graphic">
             <h2 class="section-title">Selected Works</h2>
         </div>
         
@@ -159,7 +159,7 @@
     <div class="border-section border-white-white"></div>
 
     <section id="index-blog" class="section-frame">
-        <div class="section-title-graphic">
+        <div id="our-blog" class="section-title-graphic">
             <h2 class="section-title">From Our Blog</h2>
         </div>
         
