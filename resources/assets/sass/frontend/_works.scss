@@ -36,7 +36,8 @@
 }
 .work-menu-container{
     height:auto;
-    width:220px;
+    min-width: 275px;
+    max-width: 500px;
     top:-212px;
     position:absolute;
     top:0;
@@ -54,16 +55,25 @@
 }
 .work-sub-menu{
     margin-left:0;
-    width: 220px;
-    margin-top: 63px;
+    min-width: 275px;
+    max-width: 500px;
     padding-left:12px;
     background-color: white;
     border-bottom: 1px solid #D6D6D6;
     border-right: 1px solid #D6D6D6;
     border-left: 1px solid #D6D6D6;
+    @media #{$menu-medium-range}{
+        margin-top: 62px;
+    }
+    @media #{$menu-small-range}{
+        margin-top: 54px;
+    }
         h6{
                 margin-top:10px;
                 margin-bottom:10px;
+        }
+        .menu-text{
+            margin-right: 12px;
         }
 }
 .menu-circuit {
