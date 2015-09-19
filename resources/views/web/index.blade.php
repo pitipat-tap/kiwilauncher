@@ -30,7 +30,7 @@
                     <p>Digital Creative Launcher</p>
                     <p class="title-desc">Web - Mobile - Graphic - Branding</p>
                     <a id="title-btn" class="button" href="#selected-work">Selected Work</a> 
-                    <a class="button secondary" href="#our-blog">Our blog</a>
+                    <a class="button secondary" href="#our-blog">From our Blog</a>
                 </div>
             </div>
         </div>
