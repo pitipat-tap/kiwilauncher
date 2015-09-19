@@ -27,21 +27,21 @@ class AdminWorkController extends Controller {
 		 
 		if ($status != null) {
 			$posts = Post::where("status", "=", $status)->
-				orderBy('is_featured', 'DESC')->
+				orderBy('is_selected', 'DESC')->
 				paginate(20);
 		}
 		elseif ($q != null && trim($q) != "") {
 			$posts = Post::where("title", "LIKE", "%".$q."%")->
-				orderBy('is_featured', 'DESC')->
+				orderBy('is_selected', 'DESC')->
 				paginate(20);
 		}
 		elseif ($author != null) {
 			$posts = Post::whereHas("author", function($query) {
 				$query->where("username", "=", Request::input("author"));
-			})->orderBy('is_featured', 'DESC')->paginate(20);
+			})->orderBy('is_selected', 'DESC')->paginate(20);
 		}
 		else {
-			$posts = Post::orderBy('is_featured', 'DESC')->paginate(20);
+			$posts = Post::orderBy('is_selected', 'DESC')->paginate(20);
 		}
 		
 		return view("admin.workPosts", array("posts" => $posts));
@@ -244,20 +244,20 @@ class AdminWorkController extends Controller {
 	}
 	
 	
-	public function toggleFeaturedWorkPost($id)
+	public function toggleSelectedWork($id)
 	{
 		// Check is exist
-		$post = Posts::find($id);
+		$post = Post::find($id);
 		if (!$post) return Redirect::route("adminWorkPosts")->with('error', 'Cannot save data');
 		
 		$message = "Success";
 		
-		if (!$post->is_featured) {
-			$post->is_featured = 1;
-			$message = "Set featured post";
+		if (!$post->is_selected) {
+			$post->is_selected = 1;
+			$message = "Set selected work";
 		} else {
-			$post->is_featured = 0;
-			$message = "Unset featured post";
+			$post->is_selected = 0;
+			$message = "Unset selected work";
 		}
 		
 		if ($post->save()) {
