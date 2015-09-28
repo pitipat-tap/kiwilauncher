@@ -31,8 +31,8 @@
             <br />
             
             <p class="has-pd-lr">
-                We're very pleased and looking forward to work with you. In case you want to ask is a question, 
-                inquire, or consult. Feel free t contact us via these following channels:
+                We're very pleased and looking forward to work with you. In case you want to ask a question, 
+                inquire, or consult. Feel free to contact us via these following channels:
             </p>
             <br />
             
@@ -42,10 +42,10 @@
                     <div id="contact-phone">
                         <h6>
                             <a href="tel:+66878223530">
-                                087-822-3530
+                                087-822-3530,
                             </a>
                             <a href="tel:+66853600822">
-                                ,085-360-0822
+                                &nbsp085-360-0822
                             </a>
                         </h6>
                     </div>
@@ -63,7 +63,7 @@
             
             <div class="has-pd-lr">
                 <p>
-                    <a class="contact-social"><span class="icon icon-facebook"></span></a>
+                    <a class="contact-social" href="https://www.facebook.com/kiwilauncher" target="_blank" ><span class="icon icon-facebook"></span></a>
                     <a class="contact-social"><span class="icon icon-pinterest"></span></a>
                 </p>
             </div>
@@ -76,7 +76,7 @@
             </span>
             <div id="ending-copyright">
                 <p>KiwiLauncher Co.,Ltd.</p>
-                <p>Copyright &copy; 2015. All right reserved</p>
+                <p>Copyright &copy; 2015. All Rights Reserved</p>
             </div>
         </div>
     </section>

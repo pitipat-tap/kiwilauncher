@@ -21,26 +21,30 @@
 
 <div id="works">
     <section id="works-content" class="section-frame first">
-        <div class="medium-12 small-12 column">
-            <div class="">
-                <!--<img class="figure-img work-cvimg" src="http://placehold.it/800x450" />-->
-                {!! HTML::image($post->feature_image_url, "Some app", array(
-                    "class" => "figure-img work-cvimg")
-                ) !!}
-            </div>
-        </div >
-        <div class="has-mg-b  single-col-wrapper">
-            <h4 style="margin-bottom: 0px">{!! $post->title !!}</h4>
+        <div class="work-post-cover-container">
+            <!--<img class="figure-img work-cvimg" src="http://placehold.it/800x450" />-->
+            {!! HTML::image($post->feature_image_url, "Some app", array(
+                "class" => "figure-img work-cvimg work-post-cover-img")
+            ) !!}
+        </div>
+        <div class="has-mg-b has-pd-lr single-col-wrapper work-post-text-container">
+            <h2 style="margin-bottom: 0px">{!! $post->title !!}</h2>
                 @foreach($categories as $category)
                     <span>{!! $category->name !!} </span>
                 @endforeach
             <br>
             <br>
-            <p id="about-description" class="has-pd-lr">
+            <p id="about-description" >
                 {!! $post->description !!}
             </p>
             <br>
-            <h6><a href='{!! $post->link_url !!}' target="_blank">visit website</a></h6>
+            @if($post->link_url != '' && $post->link_url != null)
+                <h6>
+                    <a href='{!! $post->link_url !!}' target="_blank">
+                        visit website
+                    </a>
+                </h6>
+            @endif
         </div>
 
         @foreach($screenshots as $screenshot)

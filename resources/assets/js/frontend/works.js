@@ -7,3 +7,4 @@
          $(this).closest("li").siblings("li").find(".work-figure .figure-layer").removeClass("reveal");
      });
  });
+

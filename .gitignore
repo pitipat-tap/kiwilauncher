@@ -1,9 +1,9 @@
 /vendor
 /node_modules
 .env
-public/css
-public/image
-public/uploads
+/public/css/*
+/public/image/*
+/public/uploads/*
 *.swp
 *.jpg
 

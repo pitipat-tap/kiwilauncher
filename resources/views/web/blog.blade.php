@@ -75,10 +75,10 @@
             <ul id="blog-posts-list" class="single-col-wrapper">
                 @foreach($posts as $post)
                 <li class="has-mg-b">
-                    <a class="figure-link blog-post-figure">
+                    <div class="figure-link blog-post-figure">
                         {!! HTML::image("$post->feature_image_url","",array("class"=>"figure-img blog-post-cvimg","style"=>"opacity: 1; z-index: 2;")) !!}
                         <div class="figure-layer"></div>
-                    </a>
+                    </div>
                     <div class="blog-post-text has-pd-lr">
                         <h6 class="blog-post-title">
                             {!! HTML::linkRoute("blog-post", $post->title, array($post->url)) !!}

@@ -5,6 +5,16 @@ $(document).ready(function(event) {
     var menuValues;
     var cctExtraHeightSmall = 32, cctExtraHeightMedium = 60;
     
+    var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/')+1);
+
+    switch(filename) {
+        case "" :
+        break;
+        default:
+                    document.title = filename + " | Kiwi Launcher ";
+    }
+
     $(window).on("load", setHeightMenu);
     
     $(window).on("resize", setHeightMenu);
@@ -141,4 +151,6 @@ $(document).ready(function(event) {
          $(this).closest("li").siblings("li").find(".work-figure .figure-layer").removeClass("reveal");
      });
  });
+
+
 //# sourceMappingURL=web-works.js.map
