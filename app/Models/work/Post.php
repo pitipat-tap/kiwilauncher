@@ -11,7 +11,6 @@ class Post extends Model {
 			"status" => "in:draft,published",
 			"title" => "required",
 			"url" => "alpha_dash|required|unique:work_post,url".($id ? ",".$id : ""),
-			"link_url" => "required",
 			"description" => "required",
 			"feature_image_url" => "required"
 		);

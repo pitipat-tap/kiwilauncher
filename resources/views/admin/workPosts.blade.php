@@ -2,7 +2,7 @@
 
 
 @section("title")
-Blog Posts | 
+Work Posts | 
 @stop
 
 
@@ -172,15 +172,15 @@ use Chromabits\Pagination\FoundationPresenter;
 						</h5>
 						
 						<p>
-							@if (!$post->is_featured)
+							@if (!$post->is_selected)
 								@if (Auth::user()->role == "admin")
-									<a href="{!! URL::route('adminWorkPostTogglefeatured', array($post->id)) !!}" title="Set Featured">
+									<a href="{!! URL::route('adminWorkPostToggleSelected', array($post->id)) !!}" title="Set Featured">
 										<span class="tf-icon fa fa-star"></span>
 									</a>
 								@endif
 							@else
 								@if (Auth::user()->role == "admin")
-									<a href="{!! URL::route('adminWorkPostTogglefeatured', array($post->id)) !!}" title="Unset Featured">
+									<a href="{!! URL::route('adminWorkPostToggleSelected', array($post->id)) !!}" title="Unset Featured">
 										<span class="tf-icon featured fa fa-star"></span>
 									</a>
 								@else

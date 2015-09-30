@@ -31,19 +31,26 @@
             <br />
             
             <p class="has-pd-lr">
-                We're very pleased and looking forward to work with you. In case you want to ask is a question, 
-                inquire, or consult. Feel free t contact us via these following channels:
+                We're very pleased and looking forward to work with you. In case you want to ask a question, 
+                inquire, or consult. Feel free to contact us via these following channels:
             </p>
             <br />
             
-            <div id="contact-info-group" class="has-pd-lr has-mg-b row">
-                <div class="small-12 medium-6 columns has-pd-r">
+            <div id="contact-info-group" class="has-pd-lr row">
+                <div class="small-12 medium-6 columns has-mg-b has-pd-r">
                     <span class="contact-info icon icon-phone"></span>
                     <div id="contact-phone">
-                        <h6>087-822-3530, 08x-xxx-xxxx</h6>
+                        <h6>
+                            <a href="tel:+66878223530">
+                                087-822-3530,
+                            </a>
+                            <a href="tel:+66853600822">
+                                &nbsp085-360-0822
+                            </a>
+                        </h6>
                     </div>
                 </div>
-                <div class="small-12 medium-6 columns has-pd-l">
+                <div class="small-12 medium-6 columns has-mg-b has-pd-l">
                     <span class="contact-info icon icon-mail"></span>
                     <div id="contact-mail">
                         <h6><a href="mailto:info@kiwilauncher.com">info@kiwilauncher.com</a></h6>
@@ -56,7 +63,7 @@
             
             <div class="has-pd-lr">
                 <p>
-                    <a class="contact-social"><span class="icon icon-facebook"></span></a>
+                    <a class="contact-social" href="https://www.facebook.com/kiwilauncher" target="_blank" ><span class="icon icon-facebook"></span></a>
                     <a class="contact-social"><span class="icon icon-pinterest"></span></a>
                 </p>
             </div>
@@ -69,7 +76,7 @@
             </span>
             <div id="ending-copyright">
                 <p>KiwiLauncher Co.,Ltd.</p>
-                <p>Copyright &copy; 2015. All right reserved</p>
+                <p>Copyright &copy; 2015. All Rights Reserved</p>
             </div>
         </div>
     </section>

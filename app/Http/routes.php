@@ -117,7 +117,7 @@ Route::group(array('middleware' => 'auth.admin', 'prefix' => 'admin'), function(
 	Route::patch("workposts/{id}", array("as" => "adminWorkPostUpdate", "uses" => "AdminWorkController@updateWorkPost"));
 	Route::delete("workposts/{id}", array("as" => "adminWorkPostDelete", "uses" => "AdminWorkController@deleteWorkPost"));
 
-	Route::get("workposts/{id}/togglefeatured", array("as" => "adminWorkPostTogglefeatured", 
-		"uses" => "AdminBlogController@toggleFeaturedBlogPost"));
+	Route::get("workposts/{id}/togglefeatured", array("as" => "adminWorkPostToggleSelected", 
+		"uses" => "AdminWorkController@toggleSelectedWork"));
 
 });

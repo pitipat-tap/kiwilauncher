@@ -2,7 +2,7 @@
 
 function defaultTitle()
 {
-	return "Kiwilauncher";
+	return " Kiwi Launcher | Creative Launcher ";
 }
 
 function defaultDescription()

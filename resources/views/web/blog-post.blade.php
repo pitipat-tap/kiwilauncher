@@ -33,7 +33,7 @@
         
         <ul id="blog-posts-list" class="single-col-wrapper none-style">
             <li class="has-mg-b">
-                <div class="blog-post-text has-pd-lr">
+                <div class="blog-post-text">
                     <p class="blog-post-description">
                         {!! $post->content !!}
                     </p>
