@@ -4,8 +4,16 @@ $(document).ready(function() {
     var bulletItems = $("#blog-posts-ftd-crs .bullets li");
     var ftdPostIndex = 0;
 
+    var sdasdasd;
     var timeoutHandler = setTimeout(nextFtdPost, 6000);
     
+    $('p').each(function() {
+        console.log("p");
+        if (!$(this).find('img').length) {
+          $(this).addClass("has-pd-lr");
+        }
+    });
+                    
     bulletItems.find("a").click(function(event) {
         if ($(this).parent("li").hasClass("active")) {
             return false;
