@@ -5,6 +5,7 @@
 <meta name="description" content="{!! defaultDescription() !!}" />
 <meta property="og:title" content="{!! defaultTitle() !!}" />
 <meta property="og:description" content="{!! defaultDescription() !!}" />
+<meta property="og:image" content="http://kiwilauncher.com/image/logo/landing-for-fb.jpg" />
 
 @stop
 

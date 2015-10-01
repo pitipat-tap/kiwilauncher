@@ -2,10 +2,9 @@
 
 
 @section("specific-meta")
-<meta name="description" content="{!! defaultDescription() !!}" />
-<meta property="og:title" content="{!! defaultTitle() !!}" />
-<meta property="og:description" content="{!! defaultDescription() !!}" />
-
+<meta property="og:title" content="{!! $post->title !!}" />
+<meta property="og:image" content="{!!$post->feature_image_url!!}" />
+<meta property="og:description" content="{!! $post->description !!}" />
 @stop
 
 
