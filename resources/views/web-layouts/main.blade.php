@@ -15,9 +15,8 @@
 <!-- meta fb share -->
 		<meta property="og:url" content="{!! URL::full() !!}" />
 		<meta property="og:site_name" content="KiwiLauncher.com" />
-		<meta property="og:image" content="http://kiwilauncher.com/image/logo/landing-for-fb.jpg" />
-		<meta property="og:description" content="Web Design, Graphic Design, Digital Marketing" />
-		<meta property="og:title" content="Kiwi Launcher" />
+        
+        @yield("specific-meta")
 
 
         <title>@yield("title"){!! defaultTitle() !!}</title>
