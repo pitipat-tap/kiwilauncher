@@ -108,16 +108,16 @@ Route::group(array('middleware' => 'auth.admin', 'prefix' => 'admin'), function(
 	Route::delete("users/{id}", array("as" => "admin-user-delete", "uses" => "AdminUserController@deleteUser"));
 
 	//Work Post
-	Route::get("workposts", array("as" => "adminWorkPosts", "uses" => "AdminWorkController@workPosts"));
-	Route::get("workposts/new", array("as" => "adminWorkPostNew", "uses" => "AdminWorkController@newWorkPost"));
-	Route::post("workposts/new", array("as" => "adminWorkPostCreate", "uses" => "AdminWorkController@createWorkPost"));
-	Route::get("workposts/{id}", array("as" => "adminWorkPostPreview", "uses" => "AdminWorkController@previewWorkPost"));
-	Route::post("workposts/livepreview", array("as" => "adminWorkPostLivePreview", "uses" => "AdminWorkController@livePreviewWorkPost"));
-	Route::get("workposts/{id}/edit", array("as" => "adminWorkPostEdit", "uses" => "AdminWorkController@editWorkPost"));
-	Route::patch("workposts/{id}", array("as" => "adminWorkPostUpdate", "uses" => "AdminWorkController@updateWorkPost"));
-	Route::delete("workposts/{id}", array("as" => "adminWorkPostDelete", "uses" => "AdminWorkController@deleteWorkPost"));
+	Route::get("workposts", array("as" => "admin-work-posts", "uses" => "AdminWorkController@workPosts"));
+	Route::get("workposts/new", array("as" => "admin-work-post-new", "uses" => "AdminWorkController@newWorkPost"));
+	Route::post("workposts/new", array("as" => "admin-work-post-create", "uses" => "AdminWorkController@createWorkPost"));
+	Route::get("workposts/{id}", array("as" => "admin-work-post-preview", "uses" => "AdminWorkController@previewWorkPost"));
+	Route::post("workposts/livepreview", array("as" => "admin-work-post-livepreview", "uses" => "AdminWorkController@livePreviewWorkPost"));
+	Route::get("workposts/{id}/edit", array("as" => "admin-work-post-edit", "uses" => "AdminWorkController@editWorkPost"));
+	Route::patch("workposts/{id}", array("as" => "admin-work-post-update", "uses" => "AdminWorkController@updateWorkPost"));
+	Route::delete("workposts/{id}", array("as" => "admin-work-post-delete", "uses" => "AdminWorkController@deleteWorkPost"));
 
-	Route::get("workposts/{id}/togglefeatured", array("as" => "adminWorkPostToggleSelected", 
+	Route::get("workposts/{id}/togglefeatured", array("as" => "admin-work-post-toggle-selected", 
 		"uses" => "AdminWorkController@toggleSelectedWork"));
 
 });

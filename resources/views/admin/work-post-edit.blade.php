@@ -41,11 +41,11 @@ Edit Blog Post |
 <div id="admin-blogposts" class="container">
 	{!! Form::model($post, array(
 		"class" => "post-form", 
-		"route" => array("adminWorkPostUpdate", $post->id), 
+		"route" => array("admi-work-post-update", $post->id), 
 		"method" => "patch", 
 		"autocomplete" => "off"))
 	!!}
-		<h3 class="title">{!! HTML::linkRoute("adminWorkPosts", "Work Posts") !!} <span class="fa fa-angle-right"></span> Edit</h3>
+		<h3 class="title">{!! HTML::linkRoute("admin-work-posts", "Work Posts") !!} <span class="fa fa-angle-right"></span> Edit</h3>
 		<br />
 		
 		@include("admin.alert-box")
@@ -242,7 +242,7 @@ Edit Blog Post |
 	{!! Form::open(
         array(
             "class" => "livepreview-form", 
-            "route" => "adminWorkPostLivePreview", 
+            "route" => "admin-work-post-live-preview", 
             "method" => "post", 
             "target" => "_blank"
             )

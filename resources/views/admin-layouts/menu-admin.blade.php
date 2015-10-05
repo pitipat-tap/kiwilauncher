@@ -60,7 +60,7 @@
     	</li>
 
         <li>
-            <a href="{!! URL::route('adminWorkPosts') !!}"  class="{!! isAdminNavLinkActive($link, 'workposts') !!}">
+            <a href="{!! URL::route('admin-work-posts') !!}"  class="{!! isAdminNavLinkActive($link, 'workposts') !!}">
                 <span class="icon fa fa-book"></span> Work post
             </a>
         </li>
