@@ -212,6 +212,17 @@ class AdminWorkController extends Controller {
 						$newScreenshot->save();
 					}	
 				}
+
+				$graph = 'https://graph.facebook.com/';
+				$post = 'id='.urlencode('http://$_SERVER[HTTP_HOST]/work/'.$post->url).'&scrape=true';
+				$r = curl_init();
+				curl_setopt($r, CURLOPT_URL, $graph);
+				curl_setopt($r, CURLOPT_POST, 1);
+				curl_setopt($r, CURLOPT_POSTFIELDS, $post);
+				curl_setopt($r, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($r, CURLOPT_CONNECTTIMEOUT, 5);
+				$data = curl_exec($r);
+				curl_close($r);
 				
 	            return Redirect::route("admin-work-posts")->with("success", "Updated work post was saved");
 	        } else {
