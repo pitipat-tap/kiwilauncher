@@ -6862,6 +6862,13 @@ a, button, .button {
     #admin-imageposts .imagepost-form .post-image-edit {
       max-width: 400px; } }
 
+#admin-workposts .select-image-open {
+  font-size: 13px;
+  margin-bottom: 12px; }
+
+#admin-workposts .remove-image {
+  font-size: 13px; }
+
 @media only screen and (min-width: 40.063em) {
   #admin-faqs .c-show-for-small-only {
     display: none; } }
