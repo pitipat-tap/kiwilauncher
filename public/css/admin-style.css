@@ -1362,9 +1362,9 @@ select {
     border-color: #de2d0f;
     color: #FFFFFF; }
   .alert-box.secondary {
-    background-color: #0078B1;
-    border-color: #006798;
-    color: #FFFFFF; }
+    background-color: #C5C5C5;
+    border-color: darkgray;
+    color: #434343; }
   .alert-box.warning {
     background-color: #f08a24;
     border-color: #de770f;
@@ -1372,7 +1372,7 @@ select {
   .alert-box.info {
     background-color: #a0d3e8;
     border-color: #74bfdd;
-    color: #00293c; }
+    color: #434343; }
   .alert-box.alert-close {
     opacity: 0; }
 
@@ -1657,8 +1657,8 @@ select {
   list-style: none;
   border-style: solid;
   border-width: 1px;
-  background-color: #69cfff;
-  border-color: #45c3ff;
+  background-color: #e5e5e5;
+  border-color: #cecece;
   border-radius: 3px; }
   .breadcrumbs > * {
     margin: 0;
@@ -1738,13 +1738,13 @@ button, .button {
   .button:focus {
     color: #FFFFFF; }
   button.secondary, .button.secondary {
-    background-color: #0078B1;
-    border-color: #00608e;
-    color: #FFFFFF; }
+    background-color: #C5C5C5;
+    border-color: #9e9e9e;
+    color: #333333; }
     button.secondary:hover,
     button.secondary:focus, .button.secondary:hover,
     .button.secondary:focus {
-      background-color: #00608e; }
+      background-color: #9e9e9e; }
     button.secondary:hover,
     button.secondary:focus, .button.secondary:hover,
     .button.secondary:focus {
@@ -1855,9 +1855,9 @@ button, .button {
     .button[disabled]:focus {
       background-color: #304A8E; }
     button.disabled.secondary, button[disabled].secondary, .button.disabled.secondary, .button[disabled].secondary {
-      background-color: #0078B1;
-      border-color: #00608e;
-      color: #FFFFFF;
+      background-color: #C5C5C5;
+      border-color: #9e9e9e;
+      color: #333333;
       cursor: default;
       opacity: 0.7;
       box-shadow: none; }
@@ -1866,7 +1866,7 @@ button, .button {
       button[disabled].secondary:focus, .button.disabled.secondary:hover,
       .button.disabled.secondary:focus, .button[disabled].secondary:hover,
       .button[disabled].secondary:focus {
-        background-color: #00608e; }
+        background-color: #9e9e9e; }
       button.disabled.secondary:hover,
       button.disabled.secondary:focus, button[disabled].secondary:hover,
       button[disabled].secondary:focus, .button.disabled.secondary:hover,
@@ -1878,7 +1878,7 @@ button, .button {
       button[disabled].secondary:focus, .button.disabled.secondary:hover,
       .button.disabled.secondary:focus, .button[disabled].secondary:hover,
       .button[disabled].secondary:focus {
-        background-color: #0078B1; }
+        background-color: #C5C5C5; }
     button.disabled.success, button[disabled].success, .button.disabled.success, .button[disabled].success {
       background-color: #43AC6A;
       border-color: #368a55;
@@ -3699,8 +3699,8 @@ kbd {
     background-color: #43AC6A;
     color: #FFFFFF; }
   .label.secondary {
-    background-color: #0078B1;
-    color: #FFFFFF; }
+    background-color: #C5C5C5;
+    color: #333333; }
   .label.info {
     background-color: #a0d3e8;
     color: #333333; }
@@ -4105,7 +4105,7 @@ button:focus {
     height: 100%;
     display: block; }
   .progress.secondary .meter {
-    background: #0078B1;
+    background: #C5C5C5;
     height: 100%;
     display: block; }
   .progress.success .meter {
@@ -4184,7 +4184,7 @@ button:focus {
   display: inline-block;
   position: absolute;
   height: 0.875rem;
-  background: #0077af; }
+  background: #c3c3c3; }
 
 .range-slider-handle {
   display: inline-block;
@@ -4966,12 +4966,12 @@ meta.foundation-mq-topbar {
         .top-bar-section ul li > a.button:focus {
           color: #FFFFFF; }
       .top-bar-section ul li > a.button.secondary {
-        background-color: #0078B1;
-        border-color: #00608e;
-        color: #FFFFFF; }
+        background-color: #C5C5C5;
+        border-color: #9e9e9e;
+        color: #333333; }
         .top-bar-section ul li > a.button.secondary:hover,
         .top-bar-section ul li > a.button.secondary:focus {
-          background-color: #00608e; }
+          background-color: #9e9e9e; }
         .top-bar-section ul li > a.button.secondary:hover,
         .top-bar-section ul li > a.button.secondary:focus {
           color: #FFFFFF; }
@@ -5019,12 +5019,12 @@ meta.foundation-mq-topbar {
       .top-bar-section ul li > button:focus {
         color: #FFFFFF; }
       .top-bar-section ul li > button.secondary {
-        background-color: #0078B1;
-        border-color: #00608e;
-        color: #FFFFFF; }
+        background-color: #C5C5C5;
+        border-color: #9e9e9e;
+        color: #333333; }
         .top-bar-section ul li > button.secondary:hover,
         .top-bar-section ul li > button.secondary:focus {
-          background-color: #00608e; }
+          background-color: #9e9e9e; }
         .top-bar-section ul li > button.secondary:hover,
         .top-bar-section ul li > button.secondary:focus {
           color: #FFFFFF; }
@@ -5547,10 +5547,10 @@ code {
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   font-weight: normal;
   color: #333333;
-  background-color: #9bdfff;
+  background-color: #eeeeee;
   border-width: 1px;
   border-style: solid;
-  border-color: #72d2ff;
+  border-color: #d6d6d6;
   padding: 0.125rem 0.3125rem 0.0625rem; }
 
 /* Lists */
@@ -6492,7 +6492,7 @@ th.hide-for-touch {
   border-right: none; }
 
 .ui-card .card-button.disabled {
-  color: #0078B1; }
+  color: #C5C5C5; }
 
 table.data tbody td {
   vertical-align: top; }
@@ -6519,7 +6519,7 @@ table.data tbody td {
   color: #a7a7a7; }
 
 .tf-icon {
-  color: #0078B1;
+  color: #C5C5C5;
   font-size: 1.5rem; }
 
 .tf-icon.featured {
@@ -6861,6 +6861,13 @@ a, button, .button {
   @media only screen and (min-width: 40.063em) {
     #admin-imageposts .imagepost-form .post-image-edit {
       max-width: 400px; } }
+
+#admin-workposts .select-image-open {
+  font-size: 13px;
+  margin-bottom: 12px; }
+
+#admin-workposts .remove-image {
+  font-size: 13px; }
 
 @media only screen and (min-width: 40.063em) {
   #admin-faqs .c-show-for-small-only {

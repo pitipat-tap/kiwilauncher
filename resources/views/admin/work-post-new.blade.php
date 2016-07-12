@@ -43,9 +43,9 @@ Add New Work Post |
     </div>
 </div>
 
-<div id="admin-blogposts" class="container">
-	{!! Form::open(array("route" => "adminWorkPostCreate", "method" => "post", "class" => "post-form")) !!}
-		<h3 class="title">{!! HTML::linkRoute("adminWorkPosts", "Work Posts") !!} <span class="fa fa-angle-right"></span> Add</h3>
+<div id="admin-workposts" class="container">
+	{!! Form::open(array("route" => "admin-work-post-create", "method" => "post", "class" => "post-form")) !!}
+		<h3 class="title">{!! HTML::linkRoute("admin-work-posts", "Work Posts") !!} <span class="fa fa-angle-right"></span> Add</h3>
 		<br />
 		
 		@include("admin.alert-box")
@@ -109,7 +109,7 @@ Add New Work Post |
 	                {!! Form::label("screenshots", "Screenshots") !!}
 	                <div class="row">
 		                @for($i = 0; $i < 5; $i++)
-		                	<div class="small-12 columns">
+		                	<div class="small-12 medium-6 columns">
 			                	<div class="ui-block mg-b medium-half-mg-l">
 				                	<p class="f-label">Screenshots {!! $i !!}</p>
 
@@ -219,7 +219,7 @@ Add New Work Post |
 	{!! Form::open(
 	    array(
     	    "class" => "livepreview-form", 
-    	    "route" => "adminWorkPostLivePreview", 
+    	    "route" => "admin-work-post-livepreview", 
     	    "method" => "post", 
     	    "target" => "_blank"
     	    )

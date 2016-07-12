@@ -183,7 +183,7 @@ use Chromabits\Pagination\FoundationPresenter;
 		                        <div id="delete-modal-id-{!! $tag->id !!}" class="reveal-modal tiny" data-reveal>
 									<h4>Confirm delete</h4>
 									<p>"{!! $tag->name !!}"</p>
-									{!! Form::open(array("route" => array("adminBlogTagDelete", $tag->id), "method" => "delete")) !!}
+									{!! Form::open(array("route" => array("admin-blog-tag-delete", $tag->id), "method" => "delete")) !!}
 										{!! Form::button("Delete", array("type" => "submit")) !!}
 									{!! Form::close() !!}
 									<a class="close-reveal-modal">&#215;</a>

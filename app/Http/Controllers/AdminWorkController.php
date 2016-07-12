@@ -44,16 +44,16 @@ class AdminWorkController extends Controller {
 			$posts = Post::orderBy('is_selected', 'DESC')->paginate(20);
 		}
 		
-		return view("admin.workPosts", array("posts" => $posts));
+		return view("admin.work-posts", array("posts" => $posts));
 	}
 	
 	
 	public function previewWorkPost($id)
 	{
 		$post = Post::find($id);
-		if (!$post) Redirect::route("adminWorkPosts");
+		if (!$post) Redirect::route("admin-work-posts");
 		
-		return view("admin.workPostPreview", array("post" => $post));
+		return view("admin.work-post-preview", array("post" => $post));
 	}
     
     public function livePreviewWorkPost()
@@ -66,14 +66,14 @@ class AdminWorkController extends Controller {
         for($i=0; $i<5; $i++){
         	$post["screenshotsURL".$i] = Request::input("screenshotsURL".$i);
         }
-        return view("admin.workPostLivePreview", array("post" => $post));
+        return view("admin.work-post-livepreview", array("post" => $post));
     }
 	
 	
 	public function newWorkPost()
 	{
 		$allCategory = Categories::all();
-		return view("admin.workPostNew",
+		return view("admin.work-post-new",
 	    array(
             "allCategory" => $allCategory 
         ));
@@ -116,7 +116,7 @@ class AdminWorkController extends Controller {
 					}	
 				}
 
-				return Redirect::route("adminWorkPosts")->with("success", json_encode("New work post was created"));
+				return Redirect::route("admin-work-posts")->with("success", json_encode("New work post was created"));
 			} 
 			else {
 				return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("feature_image_url"));
@@ -133,11 +133,11 @@ class AdminWorkController extends Controller {
 	{
 		// Check is exist
 		$post = Post::find($id);
-		if (!$post) return Redirect::route("adminWorkPosts");
+		if (!$post) return Redirect::route("admin-work-posts");
 		
 		// Check if not admin role, and not author's item
 		if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
-			return Redirect::route("adminWorkPosts");
+			return Redirect::route("admin-work-posts");
 		}
 
 		$allCategory = Categories::orderBy('id', 'ASC')->get();
@@ -158,7 +158,7 @@ class AdminWorkController extends Controller {
 
 		$oldScreenShots = Screenshot::where('work_id', $id)->get();
 		
-		return view("admin.workPostEdit", 
+		return view("admin.work-post-edit", 
 		    array(
                 "post" => $post,
                 "allCategory" => $allCategory,
@@ -172,11 +172,11 @@ class AdminWorkController extends Controller {
 	{
 		// Check is exist
 		$post = Post::find($id);
-		if (!$post) return Redirect::route("adminWorkPosts")->with('error', 'Cannot save data');
+		if (!$post) return Redirect::route("admin-work-posts")->with('error', 'Cannot save data');
 		
 		// Check if not admin role, and not author's item
 		if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
-			return Redirect::route("adminWorkPosts")->with('error', 'Cannot save data');
+			return Redirect::route("admin-work-posts")->with('error', 'Cannot save data');
 		}
 		
 		$validator = Validator::make(Request::all(), Post::save_rules($id), Post::$custom_messages);
@@ -213,7 +213,7 @@ class AdminWorkController extends Controller {
 					}	
 				}
 				
-	            return Redirect::route("adminWorkPosts")->with("success", "Updated work post was saved");
+	            return Redirect::route("admin-work-posts")->with("success", "Updated work post was saved");
 	        } else {
 	            return Redirect::back()->with('error', 'Cannot save data')->withInput(Request::except("feature_image_url"));;
 	        }
@@ -228,18 +228,18 @@ class AdminWorkController extends Controller {
 	{
 		// Check is exist
 		$post = Post::find($id);
-		if (!$post) return Redirect::route("adminWorkPosts")->with('error', 'Cannot delete data');
+		if (!$post) return Redirect::route("admin-work-posts")->with('error', 'Cannot delete data');
 		
 		// Check if not admin role, and not author's item
 		if (Auth::user()->role != "admin" && Auth::user()->id != $post->author->id) {
-			return Redirect::route("adminWorkPosts")->with('error', 'Cannot delete data');
+			return Redirect::route("admin-work-posts")->with('error', 'Cannot delete data');
 		}
 		
 		// $post->tags()->detach();
 		$post->delete();
 		
 		if (Request::input("inpreview")) 
-			return Redirect::route("adminWorkPosts")->with("success", "Post was deleted");
+			return Redirect::route("admin-work-posts")->with("success", "Post was deleted");
 		return Redirect::back()->with("success", "Post was deleted");
 	}
 	
@@ -248,7 +248,7 @@ class AdminWorkController extends Controller {
 	{
 		// Check is exist
 		$post = Post::find($id);
-		if (!$post) return Redirect::route("adminWorkPosts")->with('error', 'Cannot save data');
+		if (!$post) return Redirect::route("admin-work-posts")->with('error', 'Cannot save data');
 		
 		$message = "Success";
 		
