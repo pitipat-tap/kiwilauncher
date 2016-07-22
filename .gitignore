@@ -1,9 +1,11 @@
 /vendor
 /node_modules
 .env
+/public/js/*
 /public/css/*
 /public/image/*
 /public/uploads/*
+/public/uploads/normal/*.jpg
 *.swp
 *.jpg
 

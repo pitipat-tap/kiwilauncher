@@ -1,34 +1,97 @@
-var elixir = require('laravel-elixir');
+var gulp = require('gulp'),
+    autoprefixer = require('gulp-autoprefixer'),
+    sass = require('gulp-sass'),
+    cssnano = require('gulp-cssnano'),
+    notify = require('gulp-notify'),
+    del = require('del'),
+    uglify = require('gulp-uglify'),
+    imageop = require('gulp-image-optimization'),
+    concat = require('gulp-concat');
 
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Less
- | file for our application, as well as publishing vendor resources.
- |
- */
+gulp.task('default',['clean'], function() {
 
-elixir(function(mix) {
-    //mix.less('app.less');
-    mix.sass("frontend/web-style.scss", "public/css/web-style.css");
-    mix.sass("backend/admin-style.scss", "public/css/admin-style.css");
-    
-    mix.scripts(["frontend/menu.js", "frontend/index.js"], "public/js/web-index.js");
-    mix.scripts(["frontend/menu.js", "frontend/skills.js"], "public/js/web-skills.js");
-    mix.scripts(["frontend/menu-works.js", "frontend/works.js"], "public/js/web-works.js");
-    mix.scripts(["frontend/menu.js"], "public/js/web-work-detail.js");
-    mix.scripts(["frontend/menu.js", "frontend/blog.js"], "public/js/web-blog.js");
-    mix.scripts(["frontend/menu.js", "frontend/contact.js"], "public/js/web-contact.js");
-
-    mix.scripts("backend/admin-blog-post-form.js", "public/js/admin-blog-post-form.js");
-    mix.scripts("backend/admin-image-post-form.js", "public/js/admin-image-post-form.js");
-    mix.scripts("backend/admin-index.js", "public/js/admin-index.js");
-    mix.scripts("backend/admin-menu.js", "public/js/wadmin-menu.js");
-    mix.scripts("backend/admin-user-form.js", "public/js/admin-user-form.js");
-    mix.scripts("backend/admin-work-post-form.js", "public/js/admin-work-post-form.js");
+    gulp.src('resources/assets/sass/frontend/web-style.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer('last 2 version'))
+        .pipe(concat('web-style.css'))
+        .pipe(cssnano())
+        .pipe(gulp.dest('./public/css/'))
+        .pipe(notify({ message: 'Compile scss task complete: <%= file.relative %>'}));
+    gulp.src('resources/assets/sass/backend/admin-style.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer('last 2 version'))
+        .pipe(concat('admin-style.css'))
+        .pipe(cssnano())
+        .pipe(gulp.dest('./public/css/'))
+        .pipe(notify({ message: 'Compile scss task complete: <%= file.relative %>'}));
 
 });
 
+gulp.task('clean', function() {
+    return del(['css']);
+});
+
+gulp.task('watch',function() {
+    gulp.watch('resources/assets/sass/*.scss',['compile']);
+});
+
+gulp.task('all',['clean','compile','minify-js','images','images-upload'],function() {});
+
+gulp.task('compile',['clean'], function () {
+    gulp.src('resources/assets/sass/frontend/web-style.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer('last 2 version'))
+        .pipe(concat('web-style.css'))
+        .pipe(cssnano())
+        .pipe(gulp.dest('./public/css/'))
+        .pipe(notify({ message: 'Compile frontend css complete', onLast: true}));
+    gulp.src('resources/assets/sass/backend/admin-style.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer('last 2 version'))
+        .pipe(concat('admin-style.css'))
+        .pipe(cssnano())
+        .pipe(gulp.dest('./public/css/'))
+        .pipe(notify({ message: 'Compile backend css complete', onLast: true}));
+});
+
+gulp.task('compile-all',['clean'], function () {
+    gulp.src('resources/assets/sass/frontend/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer('last 2 version'))
+        .pipe(concat('web-style.css'))
+        .pipe(cssnano())
+        .pipe(gulp.dest('./public/css/'))
+        .pipe(notify({ message: 'Compile scss frontend complete: <%= file.relative %>'}));
+
+     gulp.src('resources/assets/sass/backend/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer('last 2 version'))
+        .pipe(concat('admin-style.css'))
+        .pipe(cssnano())
+        .pipe(gulp.dest('./public/css/'))
+        .pipe(notify({ message: 'Compile scss backend complete: <%= file.relative %>'}));
+});
+
+// javascript
+gulp.task('minify-js', function () {
+    gulp.src('resources/assets/js/**/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('./public/js/'))
+        .pipe(notify({ message: 'Minify-js complete', onLast: true}));
+});
+
+//optimize image 
+gulp.task('images', function(cb) {
+    gulp.src(['public/images/**/*.png','public/images/**/*.jpg','public/images/**/*.gif','public/images/**/*.jpeg']).pipe(imageop({
+        optimizationLevel: 9,
+        progressive: true,
+        interlaced: true
+    })).pipe(gulp.dest('public/images')).on('end', cb).on('error', cb);
+});
+gulp.task('images-upload', function(cb) {
+    gulp.src(['public/uploads/normal/**/*.png','public/uploads/normal/**/*.jpg','public/uploads/normal/**/*.gif','public/uploads/normal/**/*.jpeg']).pipe(imageop({
+        optimizationLevel: 9,
+        progressive: true,
+        interlaced: true
+    })).pipe(gulp.dest('public/uploads/normal')).on('end', cb).on('error', cb);
+});
