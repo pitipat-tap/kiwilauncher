@@ -4,9 +4,8 @@
 /public/js/*
 /public/css/*
 /public/image/*
+!/public/image/icon
 /public/uploads/**/*.jpg
 /public/uploads/**/*.png
 *.swp
 *.jpg
-
-

@@ -41,11 +41,11 @@
                     <span class="contact-info icon icon-phone"></span>
                     <div id="contact-phone">
                         <h6>
-                            <a href="tel:+66878223530">
-                                087-822-3530,
-                            </a>
                             <a href="tel:+66853600822">
-                                &nbsp085-360-0822
+                                085-360-0822
+                            </a>
+                            <a href="tel:+66867678008">
+                                &nbsp086-767-8008,
                             </a>
                         </h6>
                     </div>
