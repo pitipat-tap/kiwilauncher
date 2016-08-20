@@ -14,7 +14,7 @@ gulp.task('default',['clean'], function() {
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer('last 2 version'))
         .pipe(concat('web-style.css'))
-        .pipe(cssnano())
+ //       .pipe(cssnano())
         .pipe(gulp.dest('./public/css/'))
         .pipe(notify({ message: 'Compile scss task complete: <%= file.relative %>'}));
     gulp.src('resources/assets/sass/backend/admin-style.scss')
@@ -42,7 +42,7 @@ gulp.task('compile',['clean'], function () {
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer('last 2 version'))
         .pipe(concat('web-style.css'))
-        .pipe(cssnano())
+   //     .pipe(cssnano())
         .pipe(gulp.dest('./public/css/'))
         .pipe(notify({ message: 'Compile frontend css complete', onLast: true}));
     gulp.src('resources/assets/sass/backend/admin-style.scss')
