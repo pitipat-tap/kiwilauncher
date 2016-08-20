@@ -10,13 +10,13 @@ tinymce.init({
     image_advtab: true,
     relative_urls: false,
     remove_script_host: false,
-    external_filemanager_path:"http://"+window.location.hostname+"/kiwilauncher/public/filemanager/",
+    //external_filemanager_path:"http://"+window.location.hostname+"/kiwilauncher/public/filemanager/",
     // Real server
-    //external_filemanager_path:"http://"+window.location.hostname+"/filemanager/",
+    external_filemanager_path:"http://"+window.location.hostname+"/filemanager/",
 	filemanager_title:"File manager",
-	external_plugins: { "filemanager" : "http://"+window.location.hostname+"/kiwilauncher/public/filemanager/plugin.min.js"}
+	//external_plugins: { "filemanager" : "http://"+window.location.hostname+"/kiwilauncher/public/filemanager/plugin.min.js"}
 	// Real server
-	//external_plugins: { "filemanager" : "http://"+window.location.hostname+"/filemanager/plugin.min.js"}
+	external_plugins: { "filemanager" : "http://"+window.location.hostname+"/filemanager/plugin.min.js"}
 });
 
 $(document).ready(function() {
