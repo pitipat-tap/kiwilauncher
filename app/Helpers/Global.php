@@ -72,7 +72,7 @@ function getLinkPath()
     $lpath = '';
     if($_SERVER['HTTP_HOST'] == 'localhost'){
         // set projactname to $lpath
-        $lpath = '/template-01/public';
+        $lpath = '/kiwilauncher/public';
     }
     return $lpath;
 }

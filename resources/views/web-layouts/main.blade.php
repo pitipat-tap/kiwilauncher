@@ -22,8 +22,8 @@
         <title>@yield("title"){!! defaultTitle() !!}</title>
 
         <link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		{!! HTML::style("/css/web-style.css") !!}
+		{!! HTML::style("/css/font-awesome.min.css") !!}
         @yield("specific-css")
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
