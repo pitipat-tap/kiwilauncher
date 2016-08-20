@@ -10,14 +10,14 @@ var gulp = require('gulp'),
 
 gulp.task('default',['clean'], function() {
 
-    gulp.src('resources/assets/sass/frontend/web-style.scss')
+    gulp.src('resources/assets/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer('last 2 version'))
         .pipe(concat('web-style.css'))
  //       .pipe(cssnano())
         .pipe(gulp.dest('./public/css/'))
         .pipe(notify({ message: 'Compile scss task complete: <%= file.relative %>'}));
-    gulp.src('resources/assets/sass/backend/admin-style.scss')
+    gulp.src('resources/assets/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer('last 2 version'))
         .pipe(concat('admin-style.css'))
@@ -38,14 +38,14 @@ gulp.task('watch',function() {
 gulp.task('all',['clean','compile','minify-js','images','images-upload'],function() {});
 
 gulp.task('compile',['clean'], function () {
-    gulp.src('resources/assets/sass/frontend/web-style.scss')
+    gulp.src('resources/assets/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer('last 2 version'))
         .pipe(concat('web-style.css'))
    //     .pipe(cssnano())
         .pipe(gulp.dest('./public/css/'))
         .pipe(notify({ message: 'Compile frontend css complete', onLast: true}));
-    gulp.src('resources/assets/sass/backend/admin-style.scss')
+    gulp.src('resources/assets/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer('last 2 version'))
         .pipe(concat('admin-style.css'))
