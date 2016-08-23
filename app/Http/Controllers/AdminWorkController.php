@@ -88,8 +88,10 @@ class AdminWorkController extends Controller {
 			$post = new Post;
 			$post->author()->associate(Auth::user());
 			$post->title = trim(Request::input("title"));
+			$post->keyword = trim(Request::input("keyword"));
 			$post->url = trim(Request::input("url"));
 			$post->link_url = trim(Request::input("link_url"));
+			$post->logo_url = trim(Request::input("logo_url"));
 			$post->feature_image_url = trim(Request::input("feature_image_url"));
 			$post->description = trim(Request::input("description"));
 			$post->status = Request::input("status");
@@ -183,8 +185,10 @@ class AdminWorkController extends Controller {
 		
 		if ($validator->passes()) {
 	        $post->title = trim(Request::input("title"));
+	        $post->keyword = trim(Request::input("keyword"));
 			$post->url = trim(Request::input("url"));
 			$post->link_url = trim(Request::input("link_url"));
+			$post->logo_url = trim(Request::input("logo_url"));
 			$post->feature_image_url = trim(Request::input("feature_image_url"));
 			$post->description = trim(Request::input("description"));
 			$post->status = Request::input("status");

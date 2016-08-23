@@ -82,6 +82,7 @@ class AdminBlogController extends Controller {
 			$post = new BlogPost;
 			$post->author()->associate(Auth::user());
 			$post->title = trim(Request::input("title"));
+			$post->keyword = trim(Request::input("keyword"));
 			$post->url = trim(Request::input("url"));
 			$post->feature_image_url = trim(Request::input("feature_image_url"));
 			$post->description = trim(Request::input("description"));
@@ -157,6 +158,7 @@ class AdminBlogController extends Controller {
 		
 		if ($validator->passes()) {
 	        $post->title = trim(Request::input("title"));
+	        $post->keyword = trim(Request::input("keyword"));
 			$post->url = trim(Request::input("url"));
 	        $post->feature_image_url = trim(Request::input("feature_image_url"));
 	        $post->description = trim(Request::input("description"));

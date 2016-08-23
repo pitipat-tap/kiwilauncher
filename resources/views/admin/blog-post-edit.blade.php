@@ -19,7 +19,9 @@ Edit Blog Post |
 
 
 <?php
-	session_start();
+	if(!isset($_SESSION)) {
+		session_start(); 
+	};;
 	$_SESSION["USER_ROLE"] = Auth::user()->role;
 	
 	$lpath = getLinkPath();
@@ -92,6 +94,9 @@ Edit Blog Post |
 	               			{!! Form::text("url", null, array("placeholder" => 'only letters (a-z), numbers, and "-", "_"')) !!}
 			    		</div>
 			    	</div>
+
+			    	{!! Form::label("keyword", "Keyword") !!}
+	                {!! Form::text("keyword", null) !!}
 			    	
 			    	{!! Form::label("description", "Description") !!}
 	                {!! Form::textarea("description", null, array("rows" => "4")) !!}

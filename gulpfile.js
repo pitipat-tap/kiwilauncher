@@ -24,7 +24,6 @@ gulp.task('default',['clean'], function() {
         .pipe(cssnano())
         .pipe(gulp.dest('./public/css/'))
         .pipe(notify({ message: 'Compile scss task complete: <%= file.relative %>'}));
-
 });
 
 gulp.task('clean', function() {
