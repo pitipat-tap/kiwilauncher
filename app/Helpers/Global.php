@@ -67,12 +67,14 @@ function isAdminNavSubLinkActive($has_sublink, $sublink, $menulink)
 }
 
 
-function getLinkPath() {
-	$lpath = "/kiwilauncher/public";
-	// Real server
-    //$lpath = "";
-	
-	return $lpath;
+function getLinkPath() 
+{
+    $lpath = '';
+    if($_SERVER['HTTP_HOST'] == 'localhost'){
+        // set projactname to $lpath
+        $lpath = '/kiwilauncher/public';
+    }
+    return $lpath;
 }
 
 ?>

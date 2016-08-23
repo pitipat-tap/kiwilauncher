@@ -130,9 +130,7 @@ $menu-circuit-margin-medium: 18px;
             width: 12px;
             height: 12px;
             top: $menu-circuit-margin-medium - 20px;
-        }
-
-        
+        }   
     }
 
     .menu-circuit.first {
@@ -159,6 +157,15 @@ $menu-circuit-margin-medium: 18px;
             border-width: 4px;
             width: 14px;
             height: 14px;
+        }
+    }
+
+    ul li:hover {
+        .menu-circuit-dot {
+            border-color: $primary-color;
+        }
+        .menu-item-link {
+            color: $primary-color;
         }
     }
 

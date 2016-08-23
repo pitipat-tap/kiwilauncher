@@ -43,7 +43,7 @@ Add New Work Post |
     </div>
 </div>
 
-<div id="admin-blogposts" class="container">
+<div id="admin-workposts" class="container">
 	{!! Form::open(array("route" => "admin-work-post-create", "method" => "post", "class" => "post-form")) !!}
 		<h3 class="title">{!! HTML::linkRoute("admin-work-posts", "Work Posts") !!} <span class="fa fa-angle-right"></span> Add</h3>
 		<br />
@@ -109,7 +109,7 @@ Add New Work Post |
 	                {!! Form::label("screenshots", "Screenshots") !!}
 	                <div class="row">
 		                @for($i = 0; $i < 5; $i++)
-		                	<div class="small-12 columns">
+		                	<div class="small-12 medium-6 columns">
 			                	<div class="ui-block mg-b medium-half-mg-l">
 				                	<p class="f-label">Screenshots {!! $i !!}</p>
 

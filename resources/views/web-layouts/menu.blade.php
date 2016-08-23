@@ -64,8 +64,8 @@
             </div>
         </li>
         <li id="menu-social-row">
-            <a class="menu-social"><span class="icon icon-facebook"></span></a>
-            <a class="menu-social"><span class="icon icon-pinterest"></span></a>
+            <a href="https://www.facebook.com/kiwilauncher" target="_blank" class="menu-social"><span class="icon icon-facebook"></span></a>
+            <!--<a class="menu-social"><span class="icon icon-pinterest"></span></a>-->
         </li>
     </ul>
 </div>

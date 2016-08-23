@@ -63,9 +63,9 @@ $process-circuit-margin-medium: 200px;
     #process-list li.active {
         .process-circuit-dot {
             border-color: $primary-color;
-            border-width: $process-circuit-border-width-medium + 7;
-            width: 32px;
-            height: 32px;
+            border-width: $process-circuit-border-width-medium + 5;
+            width: 30px;
+            height: 30px;
         }
     }
 }

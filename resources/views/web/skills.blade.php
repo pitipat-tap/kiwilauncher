@@ -28,24 +28,16 @@
                 <h6>Creative Idea</h6>
             </li>
             <li class="skill">
-                {!! HTML::image("image/icon/skills-creative.svg", "Creative") !!}
+                {!! HTML::image("image/icon/skills-creative.svg", "Development") !!}
                 <h6>Development</h6>
             </li>
             <li class="skill">
-                {!! HTML::image("image/icon/skills-creative.svg", "Creative") !!}
+                {!! HTML::image("image/icon/skills-creative.svg", "UX Design") !!}
                 <h6>UX Design</h6>
             </li>
             <li class="skill">
-                {!! HTML::image("image/icon/skills-creative.svg", "Creative") !!}
+                {!! HTML::image("image/icon/skills-creative.svg", "Branding") !!}
                 <h6>Branding</h6>
-            </li>
-            <li class="skill">
-                {!! HTML::image("image/icon/skills-creative.svg", "Creative") !!}
-                <h6>Creative Idea</h6>
-            </li>
-            <li class="skill">
-                {!! HTML::image("image/icon/skills-creative.svg", "Creative") !!}
-                <h6>Creative Idea</h6>
             </li>
         </ul>
     </section>
