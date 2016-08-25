@@ -88,8 +88,10 @@ class AdminWorkController extends Controller {
 			$post = new Post;
 			$post->author()->associate(Auth::user());
 			$post->title = trim(Request::input("title"));
+			$post->keyword = trim(Request::input("keyword"));
 			$post->url = trim(Request::input("url"));
 			$post->link_url = trim(Request::input("link_url"));
+			$post->logo_url = trim(Request::input("logo_url"));
 			$post->feature_image_url = trim(Request::input("feature_image_url"));
 			$post->description = trim(Request::input("description"));
 			$post->status = Request::input("status");
@@ -183,8 +185,10 @@ class AdminWorkController extends Controller {
 		
 		if ($validator->passes()) {
 	        $post->title = trim(Request::input("title"));
+	        $post->keyword = trim(Request::input("keyword"));
 			$post->url = trim(Request::input("url"));
 			$post->link_url = trim(Request::input("link_url"));
+			$post->logo_url = trim(Request::input("logo_url"));
 			$post->feature_image_url = trim(Request::input("feature_image_url"));
 			$post->description = trim(Request::input("description"));
 			$post->status = Request::input("status");
@@ -212,6 +216,17 @@ class AdminWorkController extends Controller {
 						$newScreenshot->save();
 					}	
 				}
+
+				$graph = 'https://graph.facebook.com/';
+				$post = 'id='.urlencode('http://$_SERVER[HTTP_HOST]/work/'.$post->url).'&scrape=true';
+				$r = curl_init();
+				curl_setopt($r, CURLOPT_URL, $graph);
+				curl_setopt($r, CURLOPT_POST, 1);
+				curl_setopt($r, CURLOPT_POSTFIELDS, $post);
+				curl_setopt($r, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($r, CURLOPT_CONNECTTIMEOUT, 5);
+				$data = curl_exec($r);
+				curl_close($r);
 				
 	            return Redirect::route("admin-work-posts")->with("success", "Updated work post was saved");
 	        } else {

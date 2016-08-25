@@ -25,9 +25,9 @@ mb_internal_encoding('UTF-8');
 //    |   |   |   |   |- plugin.min.js
 
 $base_url ="http://".$_SERVER['HTTP_HOST'];  // DON'T TOUCH (base url (only domain) of site (without final /)).
-$upload_dir = '/kiwilauncher/public/uploads/normal/'; // path from base_url to base of upload folder (with start and final /)
-// Real server
-//$upload_dir = '/uploads/normal/'; // path from base_url to base of upload folder (with start and final /)
+$upload_dir = '/uploads/normal/'; // path from base_url to base of upload folder (with start and final /)
+if($_SERVER['HTTP_HOST'] == 'localhost')
+	$upload_dir = '/kiwilauncher/public'.$upload_dir;
 $current_path = '../uploads/normal/'; // relative path from filemanager folder to upload folder (with final /)
 //thumbs folder can't put inside upload folder
 $thumbs_base_path = '../uploads/thumb/'; // relative path from filemanager folder to thumbs folder (with final /)

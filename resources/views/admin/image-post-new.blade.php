@@ -23,7 +23,9 @@ Add New Image Post |
 @include("admin-layouts.menu-admin", array("link" => "imageposts", "has_sublink" => 1, "sublink" => "imageposts"))
 
 <?php
-	session_start();
+	if(!isset($_SESSION)) {
+		session_start(); 
+	};;
 	$_SESSION["USER_ROLE"] = Auth::user()->role;
 	
 	$lpath = getLinkPath();

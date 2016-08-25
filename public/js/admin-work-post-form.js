@@ -12,6 +12,19 @@ $(document).ready(function() {
 		}
 	});
 
+	$('.lg-open').fancybox({
+		width: 900,
+		height: 600,
+		type: "iframe",
+		autoSize: false,
+		afterClose: function() {
+			url = $(':text[name="logo_url"]').val();
+			if (url!='') {
+				$('#logo-image').attr('src', url);
+			}	
+		}
+	});
+
 	$('.select-image-open').fancybox({
 		width: 900,
 		height: 600,

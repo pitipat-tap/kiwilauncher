@@ -7,7 +7,7 @@
         <title>@yield("title")KiwiLauncher Admin</title>
         
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        {!! HTML::style("/css/font-awesome.min.css") !!}
         {!! HTML::style("/css/admin-style.css") !!}
         @yield("specific_css")
         

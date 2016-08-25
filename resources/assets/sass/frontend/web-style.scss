@@ -12,6 +12,17 @@
 @import "blog";
 @import "contact";
 
+@font-face {
+    font-family: 'psl';
+    src: url('../fonts/PSL029pro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+p {
+    font-size:1.2rem;
+}
 //@import "contact";
 
 // Or selectively include components

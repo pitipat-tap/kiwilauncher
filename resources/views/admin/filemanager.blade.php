@@ -11,7 +11,9 @@ File manager |
 @include("admin-layouts.menu-admin", array("link" => "filemanager", "has_sublink" => 0, "sublink" => ""))
 
 <?php
-	session_start();
+	if(!isset($_SESSION)) {
+		session_start(); 
+	};;
 	$_SESSION["USER_ROLE"] = Auth::user()->role;
 	
 	$lpath = getLinkPath();

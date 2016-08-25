@@ -19,7 +19,9 @@ Edit Blog Post |
 
 
 <?php
-	session_start();
+	if(!isset($_SESSION)) {
+		session_start(); 
+	};
 	$_SESSION["USER_ROLE"] = Auth::user()->role;
 	
 	$lpath = getLinkPath();
@@ -41,7 +43,7 @@ Edit Blog Post |
 <div id="admin-blogposts" class="container">
 	{!! Form::model($post, array(
 		"class" => "post-form", 
-		"route" => array("admi-work-post-update", $post->id), 
+		"route" => array("admin-work-post-update", $post->id), 
 		"method" => "patch", 
 		"autocomplete" => "off"))
 	!!}
@@ -96,6 +98,9 @@ Edit Blog Post |
 			    	{!! Form::label("link_url", "Link web URL") !!}
 	               	{!! Form::text("link_url", null) !!}
 
+			    	{!! Form::label("keyword", "Keyword") !!}
+	                {!! Form::text("keyword", null) !!}
+
 	               	{!! Form::label("category") !!}
 			    	@foreach ($allCategory as $category)
 				    	{!! Form::checkbox('category_id_'.$category->id, 'category_id_'.$category->id ,$category->isPost) !!}
@@ -109,12 +114,16 @@ Edit Blog Post |
 	                {!! Form::label("screenshots", "Screenshots") !!}
 	                <div class="row">
 		                @for($i = 0; $i < 5; $i++)
-		                	<div class="small-12 columns">
+		                	@if($i < 4)
+		                	<div class="small-12 medium-4 columns">
+		                	@else
+		                	<div class="small-12 medium-4 columns end">
+		                	@endif
 			                	<div class="ui-block mg-b medium-half-mg-l">
 				                	<p class="f-label">Screenshots {!! $i+1 !!}</p>
 
 									<?php $p_link = "http://".$_SERVER['SERVER_NAME'].$lpath."/filemanager/dialog.php?type=1&field_id=screenshots-URL".$i; ?>
-									<a class="sc-open" href="<?php echo $p_link; ?>">
+									<a class="select-image-open" href="<?php echo $p_link; ?>">
 										@if($i < sizeof($oldScreenShots))
 						                    {!! HTML::image($oldScreenShots[$i]->image_url, 
 						                        "Screenshots-".($i+1), 
@@ -156,7 +165,7 @@ Edit Blog Post |
 					                    @endif
 
 				                    </a>
-				                    <p><a class="sc-open" href="<?php echo $p_link; ?>">Select Image</a></p>
+				                    <p><a class="select-image-open" href="<?php echo $p_link; ?>">Select Image</a></p>
 		
 				                </div>
 				            </div>
@@ -169,6 +178,38 @@ Edit Blog Post |
 					@endif
 					
 					<p class="text-date">{!! $post->hits !!} views</p>
+                </div>
+            </div>
+
+
+            <div class="small-12 medium-3 columns">
+                <div class="ui-block mg-b medium-half-mg-l">
+                    <p class="f-label">Logo Image</p>
+                    
+                    <?php $p_link = "http://".$_SERVER['SERVER_NAME'].$lpath."/filemanager/dialog.php?type=1&field_id=logo_url"; ?>
+                    <a class="lg-open" href="<?php echo $p_link; ?>">
+	                    {!! HTML::image($post->logo_url, 
+	                        "featured image", 
+	                        array(
+	                            "id" => "logo-image",
+	                            "class" => "post-image"
+	                            )
+	                        )
+	                    !!}
+                    </a>
+                    
+                    {!! Form::text("logo_url", 
+                        null, 
+                        array(
+                            "id" => "logo_url",
+                            "class" => "image-url far-away",
+                            "autocomplete" => "off",
+                            "readonly" => "readonly"
+                            ) 
+                        ) 
+                    !!}
+                    
+                    <p><a class="lg-open" href="<?php echo $p_link; ?>">Select Image</a></p>
                 </div>
             </div>
             
@@ -242,7 +283,7 @@ Edit Blog Post |
 	{!! Form::open(
         array(
             "class" => "livepreview-form", 
-            "route" => "admin-work-post-live-preview", 
+            "route" => "admin-work-post-livepreview", 
             "method" => "post", 
             "target" => "_blank"
             )
