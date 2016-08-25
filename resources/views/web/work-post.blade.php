@@ -1,6 +1,8 @@
 @extends('../web-layouts.main')
 
-
+@section("keyword")
+{!! $post->keyword !!}
+@stop
 @section("specific-meta")
 <meta property="og:title" content="{!! $post->title !!}" />
 <meta property="og:image" content="{!!$post->feature_image_url!!}" />

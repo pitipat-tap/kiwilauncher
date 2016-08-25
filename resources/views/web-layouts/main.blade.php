@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="canonical" href="{!! URL::full() !!}" />
 <!-- meta seo -->
-        <meta name="description" content="รับทำเว็ปไซต์  ออกแบบเว็ปไซต์ รับทำกราฟฟิค ทำแบรนด์ดิ้ง ให้คำปรึกษาการตลาด"/>
+        <meta name="description" content=" รับทำเว็ปไซต์  ออกแบบเว็ปไซต์ รับทำกราฟฟิค ทำแบรนด์ดิ้ง ให้คำปรึกษาการตลาด @yield("keyword")"/>
         <meta name="keywords" content="KiwiLauncher Web Development, ทำเว็ปไซต์, สร้างเว็ปไซต์  Graphic, กราฟฟิค, Branding, SEO, Digital Marketing" />
 <!-- meta fb page -->
         <meta property="fb:admins" content="100000527591794"/>

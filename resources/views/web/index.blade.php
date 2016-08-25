@@ -75,10 +75,10 @@
                 </div>
             </div>
             <div class="row multi-col-wrapper has-mg-b">
-                <div class="small-12 medium-6 medium-push-6 column">
+                <div class="small-12 medium-6 large-push-6 column">
                     {!! HTML::image("image/index/about-vision-medium-up.png","",array("class"=>"about-detail-graphic")) !!}
                 </div>
-                <div class="small-12 medium-6 medium-pull-6 column has-pd-lr">
+                <div class="small-12 medium-6 large-pull-6 column has-pd-lr">
                     <div class="about-detail-text">
                         <h4 class="about-detail-title">Vision</h4>
                         <p>
@@ -121,23 +121,17 @@
                 <li class="has-mg-b">
                     <a class="figure-link sltd-work-figure" href="{!! URL::route('work-post', array($work->url)) !!}">
                         <!--<img class="figure-img sltd-work-cvimg" src="http://placehold.it/800x450" />-->
-                        {!! HTML::image($work->feature_image_url, "Some app", array(
+                        {!! HTML::image($work->logo_url, "Some app", array(
                             "class" => "figure-img sltd-work-cvimg")
                         ) !!}
                         <div class="figure-layer"></div>
                     </a>
-                    <div class="sltd-work-text has-pd-lr">
-                        <h4><a href="{!! URL::route('work-post', array($work->url)) !!}">{!! $work->title !!}</a></h4>
-                        @foreach($work->categories as $category)
-                            <span> {!! $category->name !!} </span>
-                        @endforeach
-                    </div>
                 </li>
             @endforeach
         
-        <div class="align-center">
+        <!--<div class="align-center">
             <a class="button" href="{!! URL::route('works') !!}">Discover all works</a>
-        </div>
+        </div>-->
     </section>
     
     <div class="border-section border-white-white"></div>

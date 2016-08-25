@@ -19,7 +19,7 @@
                 </h6>
             </div>
         </li>
-        <li class="circuit-v-row {!! isMenuItemActive($link, 'skills') !!}">
+<!--        <li class="circuit-v-row {!! isMenuItemActive($link, 'skills') !!}">
             <div class="circuit-v menu-circuit">
                 <span class="circuit-v-line menu-circuit-line"></span>
                 <span class="circuit-v-dot menu-circuit-dot"></span>
@@ -29,7 +29,7 @@
                     {!! HTML::linkRoute("skills", "Skills &amp; Process", [], array("class" => "menu-item-link")) !!}
                 </h6>
             </div>
-        </li>
+        </li>-->
         <li class="circuit-v-row {!! isMenuItemActive($link, 'works') !!}">
             <div class="circuit-v menu-circuit">
                 <span class="circuit-v-line menu-circuit-line"></span>

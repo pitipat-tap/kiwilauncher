@@ -128,6 +128,7 @@
 
 
 #index #index-sltd-works {
+    padding:0;
     .section-title-graphic {
         @media #{$small-only} {
             background: url("../image/title/selected-works-small.svg") no-repeat 50% 50%;
@@ -144,6 +145,17 @@
     
     #sltd-works-list {
         list-style-type: none;
+
+        li {
+            @media #{$small-only} {
+                width:49%;
+            }
+            @media #{$medium-up} {
+                width:24%;
+            }
+            display:inline-block;
+
+        }
         
         .sltd-work-figure {
             margin-bottom: $paragraph-margin-bottom;
