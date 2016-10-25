@@ -2,24 +2,48 @@ import React from 'react'
 
 import ReactDOM from 'react-dom'
 
+import axios from 'axios'
+
 import { Router, Route, Link } from 'react-router'
 
 const paymentElement = document.getElementById('payment-type')
 
-const AddPaymentType = () => {
-    return (
-      <div className="row">
-        <h1> Add new payment type </h1>
-        <form>
-          <div className="columns medium-3 pd-l-1 pd-r-1">
-            <input type="text" name="type"/>
-          </div>
-          <div className="columns medium-2 end">
-            <button id="saveType" type="submit" className="success button">Save</button>
-          </div>
-        </form>
-      </div>
-  )
+class AddPaymentType extends React.Component {
+    constructor (props) {
+        super(props)
+        this.state = {
+            addType : ''
+        }
+    }
+
+    onSaveClick(event) {
+        event.preventDefault()
+        this.props.onSaveSubmit(this.state.addType)
+    }
+
+    onTextChange(event) {
+        const val = event.target.value
+        console.log(val)
+
+        this.setState ({
+            addType : val
+        })
+    }
+    render() {
+        return (
+                <div className="row">
+                    <h1> Add new payment type </h1>
+                    <form>
+                        <div className="columns medium-3 pd-l-1 pd-r-1">
+                            <input type="text" value={this.state.addType} onChange={this.onTextChange.bind(this)} />
+                        </div>
+                        <div className="columns medium-2 end">
+                            <button onClick={this.onSaveClick.bind(this)} className="success button">Save</button>
+                        </div>
+                    </form>
+                </div>
+               )
+    }
 }
 
 const PaymentTable = (props) => (
@@ -62,14 +86,19 @@ class PaymentType extends React.Component {
               {id:4,type:'office',author:'peat',status:'wait'},
             ]
         }
-        console.log(this.state.type)
     }
-    
+
+    onSave(addType) {
+        axios.get(`http://www.omdbapi.com/?s=${addType}&plot=short&r=json`)
+            .then(response => {
+                console.log(response.data.Search)
+            })
+    }
 
     render() {
         return (
                 <section>
-                <AddPaymentType />
+                <AddPaymentType onSaveSubmit={this.onSave.bind(this)} />
                 <PaymentTable types={this.state.type}/>
                 </section>
                )
