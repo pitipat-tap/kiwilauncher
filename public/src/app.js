@@ -22,15 +22,8 @@ const AddPaymentType = () => {
   )
 }
 
-const PaymentTable = () => {
+const PaymentTable = (props) => (
 
-  const item = [
-    {id:1,type:'office',author:'peat',status:'wait'},
-    {id:2,type:'office',author:'peat',status:'wait'},
-    {id:3,type:'office',author:'peat',status:'wait'},
-    {id:4,type:'office',author:'peat',status:'wait'},
-  ]
-  return (
     <div>
       <table>
         <thead>
@@ -43,27 +36,45 @@ const PaymentTable = () => {
         </thead>
         <tbody>
           {
-             item.map(item => (
-              <tr>
-                <td>iteam.id</td>
-                <td>iteam.type</td>
-                <td>iteam.author</td>
-                <td>iteam.status</td>
+              props.types.map(type=> (
+              <tr key={type.id}>
+                <td>{type.id}</td>
+                <td>{type.type}</td>
+                <td>{type.author}</td>
+                <td>{type.status}</td>
               </tr>
              ))
           }
         </tbody>
       </table>
    </div>
-  )
-}
-
-const Account = () => (
-  <section>
-    <AddPaymentType />
-    <PaymentTable />
-  </section>
 )
 
-ReactDOM.render(<Account />,paymentElement)
+class PaymentType extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            type : [
+              {id:1,type:'office',author:'peat',status:'wait'},
+              {id:2,type:'office',author:'peat',status:'wait'},
+              {id:3,type:'office',author:'peat',status:'wait'},
+              {id:4,type:'office',author:'peat',status:'wait'},
+            ]
+        }
+        console.log(this.state.type)
+    }
+    
+
+    render() {
+        return (
+                <section>
+                <AddPaymentType />
+                <PaymentTable types={this.state.type}/>
+                </section>
+               )
+    }
+}
+
+ReactDOM.render(<PaymentType />,paymentElement)
 //ReactDOM.render(<AddPaymentType />,paymentElement)

@@ -46,6 +46,8 @@
 
 	'use strict';
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -57,6 +59,12 @@
 	var _reactRouter = __webpack_require__(172);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var paymentElement = document.getElementById('payment-type');
 
@@ -90,9 +98,7 @@
 	  );
 	};
 
-	var PaymentTable = function PaymentTable() {
-
-	  var item = [{ id: 1, type: 'office', author: 'peat', status: 'wait' }, { id: 2, type: 'office', author: 'peat', status: 'wait' }, { id: 3, type: 'office', author: 'peat', status: 'wait' }, { id: 4, type: 'office', author: 'peat', status: 'wait' }];
+	var PaymentTable = function PaymentTable(props) {
 	  return _react2.default.createElement(
 	    'div',
 	    null,
@@ -130,29 +136,29 @@
 	      _react2.default.createElement(
 	        'tbody',
 	        null,
-	        item.map(function (item) {
+	        props.types.map(function (type) {
 	          return _react2.default.createElement(
 	            'tr',
-	            null,
+	            { key: type.id },
 	            _react2.default.createElement(
 	              'td',
 	              null,
-	              'iteam.id'
+	              type.id
 	            ),
 	            _react2.default.createElement(
 	              'td',
 	              null,
-	              'iteam.type'
+	              type.type
 	            ),
 	            _react2.default.createElement(
 	              'td',
 	              null,
-	              'iteam.author'
+	              type.author
 	            ),
 	            _react2.default.createElement(
 	              'td',
 	              null,
-	              'iteam.status'
+	              type.status
 	            )
 	          );
 	        })
@@ -161,16 +167,37 @@
 	  );
 	};
 
-	var Account = function Account() {
-	  return _react2.default.createElement(
-	    'section',
-	    null,
-	    _react2.default.createElement(AddPaymentType, null),
-	    _react2.default.createElement(PaymentTable, null)
-	  );
-	};
+	var PaymentType = function (_React$Component) {
+	  _inherits(PaymentType, _React$Component);
 
-	_reactDom2.default.render(_react2.default.createElement(Account, null), paymentElement);
+	  function PaymentType(props) {
+	    _classCallCheck(this, PaymentType);
+
+	    var _this = _possibleConstructorReturn(this, (PaymentType.__proto__ || Object.getPrototypeOf(PaymentType)).call(this, props));
+
+	    _this.state = {
+	      type: [{ id: 1, type: 'office', author: 'peat', status: 'wait' }, { id: 2, type: 'office', author: 'peat', status: 'wait' }, { id: 3, type: 'office', author: 'peat', status: 'wait' }, { id: 4, type: 'office', author: 'peat', status: 'wait' }]
+	    };
+	    console.log(_this.state.type);
+	    return _this;
+	  }
+
+	  _createClass(PaymentType, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'section',
+	        null,
+	        _react2.default.createElement(AddPaymentType, null),
+	        _react2.default.createElement(PaymentTable, { types: this.state.type })
+	      );
+	    }
+	  }]);
+
+	  return PaymentType;
+	}(_react2.default.Component);
+
+	_reactDom2.default.render(_react2.default.createElement(PaymentType, null), paymentElement);
 	//ReactDOM.render(<AddPaymentType />,paymentElement)
 
 /***/ },
