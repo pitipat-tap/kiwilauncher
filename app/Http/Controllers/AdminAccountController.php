@@ -3,7 +3,7 @@
 use Request;
 use Validator;
 use Auth;
-use Redirect;
+use Response;
 
 use App\Models\User;
 use App\Models\PaymentType;
@@ -15,27 +15,32 @@ class AdminAccountController extends Controller {
     }
 	public function saveNewType()
 	{
-       $validator = Validator::make(Request::all(),PaymentType::save_rules($id),PaymentType::$custom_messages); 
 
-       if ($validator->passes()) {
+       $type = Request::json()->all();
 
-           $paymentType = PaymentType::where("type", "=", trim(Input::get("type")))->first();
+       $paymentType = PaymentType::where("type", "=", trim($type['type']))->first();
 
-           if(!$paymentType){
-               $paymentType = new PaymentType;
-               $paymentType->author()->associate(Auth::user());
-               $paymentType->type = trim(Input::get('type'));
-           }
-            if ($paymentType->save()) {
-                return [
-                    'response' => 'Success'
-                ];
-            } else {
-                return [
-                    'response' => 'Can not save data'
-                ];
-            }
+       if(!$paymentType){
+         $paymentType = new PaymentType;
+         $paymentType->author()->associate(Auth::user());
+         $paymentType->type = trim($type['type']);
+         $paymentType->status = "available";
+
+           if($paymentType->save()){
+               return Response::json(array(
+                   'error' => false,
+                   'type' => "success",
+                   'status_code' => 200
+               ));
+           } 
+       } else {
+           return Response::json(array(
+               'error' => false,
+               'type' => "already exist",
+               'status_code' => 200
+           ));
        }
+
 
 	}
 	

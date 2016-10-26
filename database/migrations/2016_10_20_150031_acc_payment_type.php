@@ -15,6 +15,9 @@ class AccPaymentType extends Migration
         Schema::create('payment_type',function($table) {
             $table->increments('id');
             $table->text('type');
+            $table->text('status');
+            $table->integer('author_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 

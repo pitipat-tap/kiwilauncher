@@ -89,10 +89,13 @@ class PaymentType extends React.Component {
     }
 
     onSave(addType) {
-        axios.get(`http://www.omdbapi.com/?s=${addType}&plot=short&r=json`)
+        axios.post('/kiwilauncher/public/admin/account/save-payment-type',{type: addType})
             .then(response => {
-                console.log(response.data.Search)
+                console.log(response.data)
             })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     render() {

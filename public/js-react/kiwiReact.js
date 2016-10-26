@@ -224,8 +224,10 @@
 	    _createClass(PaymentType, [{
 	        key: 'onSave',
 	        value: function onSave(addType) {
-	            _axios2.default.get('http://www.omdbapi.com/?s=' + addType + '&plot=short&r=json').then(function (response) {
-	                console.log(response.data.Search);
+	            _axios2.default.post('/kiwilauncher/public/admin/account/save-payment-type', { type: addType }).then(function (response) {
+	                console.log(response.data);
+	            }).catch(function (error) {
+	                console.log(error);
 	            });
 	        }
 	    }, {
