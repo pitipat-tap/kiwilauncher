@@ -79,7 +79,8 @@ Route::group(array('middleware' => 'auth.staff', 'prefix' => 'admin'), function(
 Route::group(array('middleware' => 'auth.admin', 'prefix' => 'admin'), function(){
     // account
 	Route::get("account", array("as" => "account-config", "uses" => "AdminAccountController@account")); 
-	Route::post("account/save-payment-type", array("as" => "save-payment-type", "uses" => "AdminAccountController@saveNewType")); 
+	Route::post("account/save-payment-type", array("as" => "save-payment-type", "uses" => "AdminAccountController@saveNewPaymentType")); 
+	Route::get("account/get-payment-type", array("as" => "get-payment-type", "uses" => "AdminAccountController@getPaymentType")); 
     
 	// Blog post
 	Route::get("blogposts/{id}/togglefeatured", array("as" => "admin-blog-post-togglefeatured", 

@@ -81,7 +81,7 @@
 	        var _this = _possibleConstructorReturn(this, (AddPaymentType.__proto__ || Object.getPrototypeOf(AddPaymentType)).call(this, props));
 
 	        _this.state = {
-	            addType: ''
+	            inputKey: ''
 	        };
 	        return _this;
 	    }
@@ -90,16 +90,19 @@
 	        key: 'onSaveClick',
 	        value: function onSaveClick(event) {
 	            event.preventDefault();
-	            this.props.onSaveSubmit(this.state.addType);
+	            this.props.onSaveSubmit(this.state.inputKey);
+
+	            this.setState({
+	                inputKey: ''
+	            });
 	        }
 	    }, {
 	        key: 'onTextChange',
 	        value: function onTextChange(event) {
 	            var val = event.target.value;
-	            console.log(val);
 
 	            this.setState({
-	                addType: val
+	                inputKey: val
 	            });
 	        }
 	    }, {
@@ -119,7 +122,11 @@
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'columns medium-3 pd-l-1 pd-r-1' },
-	                        _react2.default.createElement('input', { type: 'text', value: this.state.addType, onChange: this.onTextChange.bind(this) })
+	                        _react2.default.createElement('input', { type: 'text',
+	                            value: this.state.inputKey,
+	                            onChange: this.onTextChange.bind(this),
+	                            pattern: '(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
+	                        })
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
@@ -193,7 +200,7 @@
 	                        _react2.default.createElement(
 	                            'td',
 	                            null,
-	                            type.author
+	                            type.author_id
 	                        ),
 	                        _react2.default.createElement(
 	                            'td',
@@ -216,16 +223,35 @@
 	        var _this2 = _possibleConstructorReturn(this, (PaymentType.__proto__ || Object.getPrototypeOf(PaymentType)).call(this, props));
 
 	        _this2.state = {
-	            type: [{ id: 1, type: 'office', author: 'peat', status: 'wait' }, { id: 2, type: 'office', author: 'peat', status: 'wait' }, { id: 3, type: 'office', author: 'peat', status: 'wait' }, { id: 4, type: 'office', author: 'peat', status: 'wait' }]
+	            type: []
 	        };
+
+	        _axios2.default.get('/kiwilauncher/public/admin/account/get-payment-type').then(function (response) {
+	            //           console.log(response.data.type)
+	            _this2.setState({
+	                type: response.data.type
+	            });
+	        }).catch(function (error) {
+	            console.log(error);
+	        });
+
 	        return _this2;
 	    }
 
 	    _createClass(PaymentType, [{
 	        key: 'onSave',
-	        value: function onSave(addType) {
-	            _axios2.default.post('/kiwilauncher/public/admin/account/save-payment-type', { type: addType }).then(function (response) {
-	                console.log(response.data);
+	        value: function onSave(inputKey) {
+	            var _this3 = this;
+
+	            _axios2.default.post('/kiwilauncher/public/admin/account/save-payment-type', { type: inputKey }).then(function (response) {
+	                if (response.data.status_code == 200) {
+	                    console.log(response.data);
+	                    _this3.setState({
+	                        type: response.data.type
+	                    });
+	                } else {
+	                    console.log(response.data);
+	                }
 	            }).catch(function (error) {
 	                console.log(error);
 	            });

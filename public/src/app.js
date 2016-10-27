@@ -8,25 +8,29 @@ import { Router, Route, Link } from 'react-router'
 
 const paymentElement = document.getElementById('payment-type')
 
+
 class AddPaymentType extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-            addType : ''
+            inputKey: ''
         }
     }
 
     onSaveClick(event) {
         event.preventDefault()
-        this.props.onSaveSubmit(this.state.addType)
+        this.props.onSaveSubmit(this.state.inputKey)
+
+        this.setState ({
+            inputKey: ''
+        })
     }
 
     onTextChange(event) {
         const val = event.target.value
-        console.log(val)
 
         this.setState ({
-            addType : val
+            inputKey: val
         })
     }
     render() {
@@ -35,7 +39,11 @@ class AddPaymentType extends React.Component {
                     <h1> Add new payment type </h1>
                     <form>
                         <div className="columns medium-3 pd-l-1 pd-r-1">
-                            <input type="text" value={this.state.addType} onChange={this.onTextChange.bind(this)} />
+                            <input type="text" 
+                                value={this.state.inputKey} 
+                                onChange={this.onTextChange.bind(this)} 
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            />
                         </div>
                         <div className="columns medium-2 end">
                             <button onClick={this.onSaveClick.bind(this)} className="success button">Save</button>
@@ -47,7 +55,6 @@ class AddPaymentType extends React.Component {
 }
 
 const PaymentTable = (props) => (
-
     <div>
       <table>
         <thead>
@@ -64,7 +71,7 @@ const PaymentTable = (props) => (
               <tr key={type.id}>
                 <td>{type.id}</td>
                 <td>{type.type}</td>
-                <td>{type.author}</td>
+                <td>{type.author_id}</td>
                 <td>{type.status}</td>
               </tr>
              ))
@@ -78,24 +85,40 @@ class PaymentType extends React.Component {
 
     constructor(props) {
         super(props)
+
         this.state = {
-            type : [
-              {id:1,type:'office',author:'peat',status:'wait'},
-              {id:2,type:'office',author:'peat',status:'wait'},
-              {id:3,type:'office',author:'peat',status:'wait'},
-              {id:4,type:'office',author:'peat',status:'wait'},
-            ]
+            type : []
         }
+
+        axios.get('/kiwilauncher/public/admin/account/get-payment-type')
+        .then(response=> {
+ //           console.log(response.data.type)
+            this.setState ({
+                type: response.data.type
+            })
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
+
     }
 
-    onSave(addType) {
-        axios.post('/kiwilauncher/public/admin/account/save-payment-type',{type: addType})
+
+    onSave(inputKey) {
+        axios.post('/kiwilauncher/public/admin/account/save-payment-type',{type:inputKey})
             .then(response => {
-                console.log(response.data)
+                if(response.data.status_code == 200){
+                    console.log(response.data)
+                    this.setState ({
+                        type: response.data.type
+                    })
+                }else {
+                    console.log(response.data)
+                }
             })
             .catch(function (error) {
-                console.log(error);
-            });
+                console.log(error)
+            })
     }
 
     render() {

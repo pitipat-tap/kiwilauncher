@@ -13,7 +13,7 @@ class AdminAccountController extends Controller {
 	public function account(){
         return view('admin.accountConfig');
     }
-	public function saveNewType()
+	public function saveNewPaymentType()
 	{
 
        $type = Request::json()->all();
@@ -27,9 +27,10 @@ class AdminAccountController extends Controller {
          $paymentType->status = "available";
 
            if($paymentType->save()){
+               $type = PaymentType::get();
                return Response::json(array(
                    'error' => false,
-                   'type' => "success",
+                   'type' => $type,
                    'status_code' => 200
                ));
            } 
@@ -37,11 +38,21 @@ class AdminAccountController extends Controller {
            return Response::json(array(
                'error' => false,
                'type' => "already exist",
-               'status_code' => 200
+               'status_code' => 201
            ));
        }
 
 
 	}
+
+    public function getPaymentType(){
+        $type = PaymentType::get();
+
+        return Response::json(array(
+            'type' => $type,
+            'status_code' => 200
+        ));
+
+    }
 	
 }
