@@ -209,8 +209,8 @@ $button-hover-color: scale-color($primary-color, $lightness: $button-function-fa
     }
     
     &:hover .figure-img {
-        @include all-transform(scale(1.25));
-        @include all-transition(all 1.5s ease-out);
+    //   @include all-transform(scale(1.25));
+    //   @include all-transition(all 1.5s ease-out);
     }
 }
 

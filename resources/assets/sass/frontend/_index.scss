@@ -128,7 +128,7 @@
 
 
 #index #index-sltd-works {
-    padding:0;
+    padding:90px 0 0 0;
     .section-title-graphic {
         @media #{$small-only} {
             background: url("../image/title/selected-works-small.svg") no-repeat 50% 50%;
@@ -149,9 +149,11 @@
         li {
             @media #{$small-only} {
                 width:49%;
+		padding:10px;
             }
             @media #{$medium-up} {
                 width:24%;
+		padding:20px;
             }
             display:inline-block;
 
