@@ -31,7 +31,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('watch',function() {
-    gulp.watch('resources/assets/sass/*.scss',['compile']);
+    gulp.watch('resources/assets/sass/**/*.scss',['compile']);
 });
 
 gulp.task('all',['clean','compile','minify-js','images','images-upload'],function() {});
@@ -79,7 +79,7 @@ gulp.task('minify-js', function () {
         .pipe(notify({ message: 'Minify-js complete', onLast: true}));
 });
 
-//optimize image 
+//optimize image
 gulp.task('images', function(cb) {
     gulp.src(['public/images/**/*.png','public/images/**/*.jpg','public/images/**/*.gif','public/images/**/*.jpeg']).pipe(imageop({
         optimizationLevel: 9,

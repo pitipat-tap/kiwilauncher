@@ -64,6 +64,14 @@
             </div>
         </li>
         <li id="menu-social-row">
+            <a href="#" class="change-language menu-social language-icon" data-lan="thai">
+                TH
+            </a>
+            <a href="#" class="change-language menu-social language-icon" data-lan="en">
+                EN
+            </a>
+        </li>
+        <li class="mg-t-2" id="menu-social-row">
             <a href="https://www.facebook.com/kiwilauncher" target="_blank" class="menu-social"><span class="icon icon-facebook"></span></a>
             <!--<a class="menu-social"><span class="icon icon-pinterest"></span></a>-->
         </li>

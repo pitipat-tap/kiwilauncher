@@ -15,7 +15,7 @@
 <!-- meta fb share -->
 		<meta property="og:url" content="{!! URL::full() !!}" />
 		<meta property="og:site_name" content="KiwiLauncher.com" />
-        
+
         @yield("specific-meta")
 
 
@@ -25,7 +25,7 @@
 		{!! HTML::style("/css/web-style.css") !!}
 		{!! HTML::style("/css/font-awesome.min.css") !!}
         @yield("specific-css")
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
@@ -34,7 +34,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/3.1.1/jquery.waypoints.min.js"></script>
         {!! HTML::script("js/lib/verge.min.js") !!}
+        {!! HTML::script("js/main.js") !!}
+
         @yield("specific-js-head")
+
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -46,9 +49,9 @@
 
         </script>
     </head>
-    <body>
+    <body class="en">
         @yield("body")
-        
+
         <script>
             $(document).foundation();
         </script>

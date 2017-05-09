@@ -17,7 +17,7 @@ $menu-circuit-margin-medium: 18px;
     position: fixed;
     z-index: $z-index-priority-1;
     @include all-transition(border-color 0.3s ease-out);
-    
+
     @media #{$menu-small-range} {
         top: 12px;
         right: 12px;
@@ -39,7 +39,7 @@ $menu-circuit-margin-medium: 18px;
         display: inline-block;
         width: 32px;
         height: 28px;
-        
+
         @media #{$menu-small-range} {
             width: 24px;
             height: 22px;
@@ -80,7 +80,7 @@ $menu-circuit-margin-medium: 18px;
     width: 320px;
     height: 100%;
     z-index: $z-index-priority-2;
-    @include all-transform(translateX(110%)); 
+    @include all-transform(translateX(110%));
 
     ul {
         display: block;
@@ -88,18 +88,18 @@ $menu-circuit-margin-medium: 18px;
         margin: 0px;
         padding-top: 108px;
         padding-bottom: 32px;
-        
+
         li {
             .menu-item-link {
                 display: block;
                 padding-left: 56px;
             }
-            
+
             .menu-item-title {
                 color: $primary-color;
                 display: inline-block;
             }
-            
+
             .border-menu-hr[data-dir="left"] {
                 background: url("../image/border/border-menu-lightgrey-left.svg") no-repeat 50% 50%;
                 height: 12px;
@@ -109,7 +109,7 @@ $menu-circuit-margin-medium: 18px;
                 background: url("../image/border/border-menu-lightgrey-right.svg") no-repeat 50% 50%;
                 height: 12px;
             }
-            
+
             .menu-text {
                 h6 {
                     font-size: rem_calc(24);
@@ -120,17 +120,17 @@ $menu-circuit-margin-medium: 18px;
 
     .menu-circuit {
         width: $menu-circuit-width-medium;
-        
+
         .menu-circuit-line {
             width: $menu-circuit-border-width-medium;
         }
-        
+
         .menu-circuit-dot {
             border-width: $menu-circuit-border-width-medium;
             width: 12px;
             height: 12px;
             top: $menu-circuit-margin-medium - 20px;
-        }   
+        }
     }
 
     .menu-circuit.first {
@@ -171,13 +171,13 @@ $menu-circuit-margin-medium: 18px;
 
     #menu-social-row {
         text-align: center;
-        
+
         .menu-social {
             border-color: $body-font-color;
             border-style: solid;
             border-width: 2px;
             display: inline-block;
-            
+
             &:not(:last-child) {
                 margin-right: 12px;
             }
@@ -194,7 +194,7 @@ $menu-circuit-margin-medium: 18px;
         background: url("../image/icon/icon-facebook.svg") no-repeat 0px 0px;
         background-size: 100%;
     }
-    
+
     .icon.icon-pinterest {
         background: url("../image/icon/icon-pinterest.svg") no-repeat 0px 0px;
         background-size: 100%;
@@ -205,7 +205,11 @@ $menu-circuit-margin-medium: 18px;
     @include all-transform(translateX(0%));
 }
 
-
+.language-icon {
+    color:black;
+    font-weight:bold;
+    padding:0.2em;
+}
 
 
 
