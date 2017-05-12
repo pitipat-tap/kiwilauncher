@@ -1,5 +1,5 @@
-<!--<header>
-    <a id="header-brand" data-fn="close">
+<header>
+    <!--<a id="header-brand" data-fn="close">
         <span id="header-brand-logo"></span>
         <h6 id="header-page-text">{!! $dropDown !!} &nbsp<i class="fa fa-chevron-down"></i></h6>
     </a>
@@ -48,5 +48,5 @@
             @endfor
         </ul>
 
-    </div>
-</header>-->
+    </div>-->
+</header>
