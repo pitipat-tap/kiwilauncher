@@ -1,0 +1,6 @@
+body:not(.th) :lang(th),
+body:not(.en) :lang(en),
+body:not(.jp) :lang(jp),
+body:not(.ch) :lang(ch) {
+    display: none !important;
+}
