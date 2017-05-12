@@ -1,11 +1,11 @@
-<header>
+<!--<header>
     <a id="header-brand" data-fn="close">
         <span id="header-brand-logo"></span>
         <h6 id="header-page-text">{!! $dropDown !!} &nbsp<i class="fa fa-chevron-down"></i></h6>
     </a>
     <div class="work-menu-container">
 
-            
+
         <ul class="work-sub-menu">
             <li class="circuit-v-row ">
                 <div class="circuit-v menu-circuit first">
@@ -49,4 +49,4 @@
         </ul>
 
     </div>
-</header>
+</header>-->
