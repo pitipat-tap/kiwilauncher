@@ -7,7 +7,7 @@ function defaultTitle()
 
 function defaultDescription()
 {
-	return "Kiwilauncher .......";
+	return "ONE STOP IT SERVICES AND SOLUTIONS";
 }
 
 function isMenuItemActive ($viewLink, $menuLink)
