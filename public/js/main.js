@@ -2,7 +2,7 @@ var isFirstOpen = 1;
 
 $(document).ready(function(){
   if(localStorage.getItem('language') == null){
-    localStorage.setItem('language',"en");
+    localStorage.setItem('language',"thai");
     document.body.className = localStorage.getItem('language');
   }else{
     document.body.className = localStorage.getItem('language');
