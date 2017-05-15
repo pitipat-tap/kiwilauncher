@@ -51,9 +51,7 @@
 
             <p id="about-description" class="single-col-wrapper has-pd-lr">
                 <span lang="thai">
-                    We, Kiwi Launcher, are not mere group of developers. We offer you not only just a Web Site,
-                    we also provide you all around aspects for your business e.g., Brand and Logo design, SEO, Digital Marketing,
-                    and Strategy consultant. We are your complete business partner that will step with you to your successful business.
+พวกเรา <span class="color-green">Kiwilauncher</span> คือทีมที่รวมรวมผู้เชี่ยวชาญด้าน IT ทั้งหมดเอาไว้ ไม่ใช่แค่เพียงการทำเว็บไซต์และซอฟต์แวร์โซลูชั่น แต่รวมถึงการให้บริการสนับสนุนธุรกิจในทุกๆด้าน ทั้ง ออกแบบ Logo & Branding, SEO & SEM, Digital Marketing, IT & Strategy consultant ซึ่งเราสามารถเป็นพาร์ทเนอร์ที่ช่วยให้คุณประสบความสําเร็จในยุคดิจิตอลไปด้วยกัน
                 </span>
                 <span lang="en">
                     We, Kiwi Launcher, are not mere group of developers. We offer you not only just a Web Site,
