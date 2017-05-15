@@ -72,11 +72,14 @@
                     <div class="about-detail-text">
                         <h4 class="about-detail-title color-green">Business / Company Website</h4>
                         <h6 class="about-detail-title">Be Professional, Be Digital </h6>
-                        <p>
+                        <p lang="en">
                             Every business needs website.
                             To represent your business, to provide the services / products information, to give your business more professional look, etc..
                             <br><br>
                             No matter what your purpose is. You can be assured that your website is in the right hand, and we will make your website unique.
+                        </p>
+                        <p lang="thai">
+                            ทำไมทุกๆธุรกิจควรจะมีเว็บไซต์เป็นของตัวเอง เว็บไซต์เป็นพื้นที่ให้ข้อมูลในเรื่องของการบริการ สินค้า และผลงานของคุณ ทั้งยังทำให้ธุรกิจของคุณมีความเป็นมืออาชีพ มีจุดเด่น ง่ายต่อการเข้าถึง และเป็นการแสดงตัวตนของธุรกิจของคุณในโลกออนไลน์ <br><br> ให้เราได้ช่วยพัฒนาเว็บไซต์ที่ออกแบบมาเฉพาะคุณและธุรกิจของคุณ
                         </p>
                     </div>
                 </div>
@@ -89,13 +92,18 @@
                     <div class="about-detail-text">
                         <h4 class="about-detail-title color-green">E-Commerce</h4>
                         <h6 class="about-detail-title">Limitless Potential</h6>
-                        <p>
+                        <p lang="en">
                             Would it be better if your business can run 24/7 ?
                             Nowadays, you gain advantage if your business can run without disruption.
                             You can continue to sell your products / services even on weekend or holiday.
                             <br><br>
                             We implement the most advanced and secured E-commerce to your website to keep your revenue grow.
                         </p>
+                        <p lang="thai">
+                            มันจะดีกว่าไหม ถ้าธุรกิจของคุณสามารถทำงานได้ทุกที่ทุกเวลา  ในปัจจุบันมูลค่าการซื้อขายออนไลน์เพิ่มขึ้นทุกปีๆ คุณสามารถช่วงชิงความได้เปรียบในทางธุรกิจได้ เพราะ E-Commerce ไม่จำเป็นที่จะต้องหยุดการดำเนินงาน ไม่ว่าจะเป็นวันหยุดสุดสัปดาห์ หรือวันหยุดนักขัตฤกษ์ ทั้งยังไม่ยึดติดกับสถานที่ตั้ง ไม่ว่าลูกค้าของคุณจะอยู่ที่ไหนก็ตาม
+                            <br><br>ให้พวกเราช่วยคุณสร้างระบบที่ช่วยให้คุณสามารถสร้างรายได้ได้ตลอดเวลา
+                        </p>
+
                     </div>
                 </div>
             </div>
@@ -107,8 +115,12 @@
                     <div class="about-detail-text">
                         <h4 class="about-detail-title color-green">Software Solutions</h4>
                         <h6 class="about-detail-title">Bring Your Business To 4.0</h6>
-                        <p>
+                        <p lang="en">
                             Most of problem that the business facing can be solved using Software Solutions. As it is the efficient way to do so. Instead of using people to solve the problem. Let the software do that for you, so you can focus on other aspects of your business.
+                        </p>
+                        <p lang="thai">
+                            ทราบไหมว่าในหลายๆครั้ง ปัญหาในทางธุรกิจของคุณสามารถแก้ไขได้ด้วยซอร์ฟแวร์ ซึ่งคนน้อยที่สุดแต่ได้งานมากที่สุด ตัวอย่างเช่น งานที่ต้องการความละเอียดของข้อมูลจำนวนมาก งานที่ทำซ้ำๆกันอย่างต่อเนื่อง และงานเอกสารที่ต้องใช้คนจำนวนมากมาคอยจัดการ คุณสามารถเลือกให้ซอร์ฟแวร์ หรือโปรแกรม ช่วยทำงานให้คุณได้อย่างมีประสิทธิภาพมากขึ้น ทั้งด้านความถูกต้องและรวดเร็ว ทำให้คุณมีเวลาโฟกัสไปยังส่วนสำคัญในธุรกิจของคุณ<br><br>
+                            ให้เราได้ใช้ประสบการณ์ของเรา เป็นที่ปรึกษา และช่วยแก้ปัญหาให้ธุรกิจของคุณทำงานได้อย่างมีประสิทธิภาพ
                         </p>
                     </div>
                 </div>
